@@ -23,7 +23,6 @@ export function PositionCard({ game, position, attempt, onMove, onSkip, progress
         <div className="progress">{progress}</div>
         <div className="prompt-row">
           <div className="question">{question}</div>
-          {onSkip && <SkipButton disabled={!!attempt} onClick={onSkip} />}
         </div>
       </div>
       <Seats game={game} whiteToMove={(game.hero === 'white') !== !!attempt} hidden={hidePlayers}>
@@ -37,6 +36,7 @@ export function PositionCard({ game, position, attempt, onMove, onSkip, progress
           onMove={onMove}
         />
       </Seats>
+      {onSkip && <SkipButton disabled={!!attempt} onClick={onSkip} />}
       <div className="panel">
         {attempt
           ? <Feedback game={game} position={position} attempt={attempt} />
@@ -92,7 +92,7 @@ function formatLine(sans: string[], moveNumber: number, side: 'white' | 'black')
 export function SkipButton({ disabled, onClick }: { disabled: boolean; onClick: () => void }) {
   return (
     <button className="ghost skip" disabled={disabled} onClick={onClick} title="Не знаю — показати хід">
-      Пропустити
+      Пропустити — не знаю
     </button>
   )
 }

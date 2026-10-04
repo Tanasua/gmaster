@@ -201,8 +201,6 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
                   ? <>Ходить суперник…</>
                   : <>&nbsp;</>}
           </div>
-          {/* Кнопка завжди на місці (лише вимикається), щоб розмітка не стрибала */}
-          <SkipButton disabled={!waiting} onClick={onSkip} />
         </div>
       </div>
       <Seats game={game} whiteToMove={ply % 2 === 0}>
@@ -216,6 +214,8 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
           onMove={onMove}
         />
       </Seats>
+      {/* Кнопка завжди на місці (лише вимикається), щоб дошка не стрибала */}
+      <SkipButton disabled={!waiting} onClick={onSkip} />
       <div className="panel">
         {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
         {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
