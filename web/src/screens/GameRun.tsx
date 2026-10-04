@@ -8,7 +8,7 @@ import { GuessBoard, WRONG_MOVE_MS } from '../components/GuessBoard'
 import { Seats } from '../components/PlayerBar'
 import { ShareButton } from '../components/ShareButton'
 import { useLang, useT } from '../i18n'
-import { SKIP_OPENING_PLIES, SPEED_FACTOR, useSettings } from '../settings'
+import { OPENING_MOVE_MS, SKIP_OPENING_PLIES, SPEED_FACTOR, useSettings } from '../settings'
 import { playSound } from '../sound'
 import { gameTitle, heroShort } from '../content/names'
 import { chunk, pct } from '../util'
@@ -25,26 +25,28 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   const lang = useLang()
   const settings = useSettings()
   const k = SPEED_FACTOR[settings.speed]
-  const startPly = settings.skipOpening ? Math.min(SKIP_OPENING_PLIES, game.moves.length - 1) : 0
+  // Дебют при «Пропускати дебют» програється на дошці сам, по пів секунди на хід
+  const openingEnd = settings.skipOpening ? Math.min(SKIP_OPENING_PLIES, game.moves.length - 1) : 0
 
   // ply — скільки ходів партії вже зіграно на дошці
-  const [ply, setPly] = useState(startPly)
+  const [ply, setPly] = useState(0)
   const [attempts, setAttempts] = useState<Record<number, Attempt>>({})
   const timeline = useMemo(() => buildTimeline(game.moves), [game.moves])
   const byPly = useMemo(() => new Map(game.positions.map((p) => [p.ply, p])), [game.positions])
   const hero = heroShort(game, lang)
 
   const done = ply >= game.moves.length
-  const pos = byPly.get(ply)
+  const inOpening = ply < openingEnd
+  const pos = inOpening ? undefined : byPly.get(ply)
   const attempt = attempts[ply] ?? null
   const waiting = !done && !!pos && !attempt
 
   // Ходи суперника і вимушені ходи героя граються самі
   useEffect(() => {
     if (done || pos) return
-    const timer = setTimeout(() => setPly((p) => p + 1), AUTO_MOVE_MS * k)
+    const timer = setTimeout(() => setPly((p) => p + 1), inOpening ? OPENING_MOVE_MS : AUTO_MOVE_MS * k)
     return () => clearTimeout(timer)
-  }, [ply, done, pos, k])
+  }, [ply, done, pos, k, inOpening])
 
   // Після будь-якої спроби партія продовжується сама, без кнопок
   useEffect(() => {
@@ -56,7 +58,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
 
   // Звук ходу суперника / вимушеного ходу (ходи героя озвучуються під час спроби)
   useEffect(() => {
-    if (!settings.sound || ply === 0 || ply === startPly || attempts[ply - 1]) return
+    if (!settings.sound || ply === 0 || attempts[ply - 1]) return
     playSound(timeline[ply].san?.includes('x') ? 'capture' : 'move')
   }, [ply]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -65,10 +67,10 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   const lastAttempt = attempts[lastPly] ?? null
   const lastPos = byPly.get(lastPly)
 
-  const playable = game.positions.filter((p) => p.ply >= startPly)
+  const playable = game.positions.filter((p) => p.ply >= openingEnd)
   const list = playable.map((p) => attempts[p.ply]).filter((a): a is Attempt => !!a)
 
-  if (done) return <Summary game={game} attempts={list} onExit={onExit} onRestart={() => { setPly(startPly); setAttempts({}) }} />
+  if (done) return <Summary game={game} attempts={list} onExit={onExit} onRestart={() => { setPly(0); setAttempts({}) }} />
 
   function record(a: Attempt) {
     setAttempts({ ...attempts, [ply]: a })
@@ -105,8 +107,10 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
           <div className="question">
             {waiting
               ? <>{t('move')} {moveNumber}{game.hero === 'black' ? '…' : '.'} {t('whatPlayed')} <b>{hero}</b>{t('whatPlayedEnd')}</>
-              : heroToMove && !pos
-                ? t('onlyMove')
+              : inOpening
+                ? t('opening')
+                : heroToMove && !pos
+                  ? t('onlyMove')
                 : !heroToMove
                   ? t('opponentMoves')
                   : <>&nbsp;</>}

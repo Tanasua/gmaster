@@ -3,7 +3,7 @@ import type { PuzzleData } from './types'
 import { loadStats, resetStats, type Stats } from './storage'
 import { PlayersContext, type Players } from './players'
 import { LangContext, useT } from './i18n'
-import { loadSettings, saveSettings, SettingsContext, useSettings, type Settings } from './settings'
+import { BOARDS, loadSettings, saveSettings, SettingsContext, useSettings, type Settings } from './settings'
 import { gmById } from './content/gms'
 import { gamesOfGm, gmOfGame, heroShort } from './content/names'
 import { BackIcon, FlameIcon, Ornament, UserIcon } from './components/Icons'
@@ -47,9 +47,13 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    document.documentElement.dataset.palette = settings.theme
-    document.documentElement.lang = settings.lang
-  }, [settings.theme, settings.lang])
+    const root = document.documentElement
+    root.dataset.palette = settings.theme
+    root.lang = settings.lang
+    const [light, dark] = BOARDS[settings.board] ?? BOARDS.wood
+    root.style.setProperty('--sq-light', light)
+    root.style.setProperty('--sq-dark', dark)
+  }, [settings.theme, settings.lang, settings.board])
 
   // Кожен новий екран відкривається з верху сторінки
   useEffect(() => {

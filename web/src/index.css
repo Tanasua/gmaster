@@ -68,6 +68,36 @@
   --frame-a: #9c8650;
   --frame-b: #2f4a3a;
 }
+/* Опівніч: синя ніч з холодним акцентом */
+:root[data-palette="midnight"] {
+  --bg: #0a0e17;
+  --bg-2: #131b2c;
+  --surface: #111827;
+  --surface-2: #172036;
+  --line: #2a3550;
+  --fg: #e6ecf7;
+  --muted: #95a3bd;
+  --gold: #7fb2ff;
+  --gold-hi: #a9cbff;
+  --gold-fg: #0a1222;
+  --frame-a: #6f86ad;
+  --frame-b: #27324a;
+}
+/* Графіт: нейтральний сірий, мінімум кольору */
+:root[data-palette="graphite"] {
+  --bg: #121314;
+  --bg-2: #1c1d1f;
+  --surface: #1b1c1e;
+  --surface-2: #232427;
+  --line: #3a3b3f;
+  --fg: #f0f0f0;
+  --muted: #a3a4a8;
+  --gold: #d9d9d9;
+  --gold-hi: #ffffff;
+  --gold-fg: #141414;
+  --frame-a: #8a8b8f;
+  --frame-b: #3a3b3f;
+}
 * { box-sizing: border-box; }
 html { background: var(--bg); }
 body {
@@ -352,3 +382,15 @@ button.wide { width: 100%; padding: 14px 18px; font-size: 17px; }
 .confirm { border: 1px solid var(--danger); border-radius: 12px; padding: 12px 14px; display: grid; gap: 10px; }
 .confirm p { margin: 0; }
 button.danger-btn { background: var(--danger); color: #fff; border-color: transparent; font-weight: 700; }
+
+/* Вибір теми й дошки */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 8px; }
+.swatch { display: grid; justify-items: center; gap: 6px; padding: 10px 6px; font-size: 13px; color: var(--muted); background: var(--surface); }
+.swatch.on { border-color: var(--gold); color: var(--fg); box-shadow: 0 0 0 1px var(--gold); }
+.swatch-chip { width: 44px; height: 44px; border-radius: 10px; display: block; position: relative; }
+.theme-chip { border: 2px solid; display: grid; place-items: center; }
+.theme-chip i { width: 18px; height: 18px; border-radius: 50%; }
+.board-chip {
+  background: conic-gradient(var(--d) 0 25%, var(--l) 0 50%, var(--d) 0 75%, var(--l) 0) 0 0 / 50% 50%;
+  box-shadow: 0 0 0 1px var(--line);
+}

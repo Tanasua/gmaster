@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useT, type Lang } from '../i18n'
-import type { Settings, Speed, Theme } from '../settings'
+import { BOARDS, type Board, type Settings, type Speed, type Theme } from '../settings'
+import type { StringKey } from '../i18n'
 
 export function SettingsScreen({ settings, onChange, onResetStats }: {
   settings: Settings; onChange: (s: Settings) => void; onResetStats: () => void
@@ -15,8 +16,26 @@ export function SettingsScreen({ settings, onChange, onResetStats }: {
       <h2 className="screen-title">{t('settings')}</h2>
 
       <Group label={t('theme')}>
-        <Segment<Theme> value={settings.theme} onChange={(v) => set('theme', v)}
-          options={[['gold', t('themeGold')], ['ivory', t('themeIvory')], ['emerald', t('themeEmerald')]]} />
+        <div className="swatches">
+          {THEMES.map(([id, key, colors]) => (
+            <button key={id} className={`swatch ${settings.theme === id ? 'on' : ''}`} aria-pressed={settings.theme === id} onClick={() => set('theme', id)}>
+              <span className="swatch-chip theme-chip" style={{ background: colors[0], borderColor: colors[1] }}>
+                <i style={{ background: colors[1] }} />
+              </span>
+              {t(key)}
+            </button>
+          ))}
+        </div>
+      </Group>
+      <Group label={t('boardColors')}>
+        <div className="swatches boards">
+          {(Object.keys(BOARDS) as Board[]).map((id) => (
+            <button key={id} className={`swatch ${settings.board === id ? 'on' : ''}`} aria-pressed={settings.board === id} onClick={() => set('board', id)}>
+              <span className="swatch-chip board-chip" style={{ '--l': BOARDS[id][0], '--d': BOARDS[id][1] } as React.CSSProperties} />
+              {t(BOARD_LABEL[id])}
+            </button>
+          ))}
+        </div>
       </Group>
       <Group label={t('language')}>
         <Segment<Lang> value={settings.lang} onChange={(v) => set('lang', v)} options={[['uk', 'Українська'], ['en', 'English']]} />
@@ -76,4 +95,18 @@ function Toggle({ id, label, value, onChange }: { id: string; label: string; val
       <span className="switch" aria-hidden />
     </label>
   )
+}
+
+/** [тема, назва, [фон, акцент]] — для превʼю */
+const THEMES: [Theme, StringKey, [string, string]][] = [
+  ['gold', 'themeGold', ['#16140f', '#d6a24a']],
+  ['ivory', 'themeIvory', ['#f3eee4', '#a87422']],
+  ['emerald', 'themeEmerald', ['#0e1914', '#d3b46a']],
+  ['midnight', 'themeMidnight', ['#0f1522', '#7fb2ff']],
+  ['graphite', 'themeGraphite', ['#1b1c1e', '#e0e0e0']],
+]
+
+const BOARD_LABEL: Record<Board, StringKey> = {
+  wood: 'boardWood', classic: 'boardClassic', green: 'boardGreen', blue: 'boardBlue', ice: 'boardIce',
+  purple: 'boardPurple', grey: 'boardGrey', coral: 'boardCoral', olive: 'boardOlive', night: 'boardNight',
 }
