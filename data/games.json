@@ -1,12 +1,758 @@
 [
-  {"id": "byrne-fischer-1956", "hero": "black", "heroName": "Фішер", "title": "«Гра століття»"},
-  {"id": "kasparov-topalov-1999", "hero": "white", "heroName": "Каспаров", "title": "«Безсмертна» Каспарова"},
-  {"id": "karpov-kasparov-1985-g16", "hero": "black", "heroName": "Каспаров", "title": "Матч за світову корону 1985, партія 16"},
-  {"id": "fischer-spassky-1972-g6", "hero": "white", "heroName": "Фішер", "title": "Матч за світову корону 1972, партія 6"},
-  {"id": "short-timman-1991", "hero": "white", "heroName": "Шорт", "title": "Тілбург 1991"},
-  {"id": "carlsen-karjakin-2016-tb4", "hero": "white", "heroName": "Карлсен", "title": "Тай-брейк матчу 2016, партія 4"},
-  {"id": "carlsen-karjakin-2016-g10", "hero": "white", "heroName": "Карлсен", "title": "Матч за світову корону 2016, партія 10"},
-  {"id": "carlsen-anand-2013-g5", "hero": "white", "heroName": "Карлсен", "title": "Матч за світову корону 2013, партія 5"},
-  {"id": "aronian-anand-2013", "hero": "black", "heroName": "Ананд", "title": "Вейк-ан-Зее 2013"},
-  {"id": "tal-larsen-1965-g10", "hero": "white", "heroName": "Таль", "title": "Матч претендентів 1965, партія 10"}
+  {
+    "id": "byrne-fischer-1956",
+    "hero": "black",
+    "heroName": "Фішер",
+    "title": "«Гра століття»",
+    "gm": "fischer"
+  },
+  {
+    "id": "kasparov-topalov-1999",
+    "hero": "white",
+    "heroName": "Каспаров",
+    "title": "«Безсмертна» Каспарова",
+    "gm": "kasparov"
+  },
+  {
+    "id": "karpov-kasparov-1985-g16",
+    "hero": "black",
+    "heroName": "Каспаров",
+    "title": "Матч за світову корону 1985, партія 16",
+    "gm": "kasparov"
+  },
+  {
+    "id": "fischer-spassky-1972-g6",
+    "hero": "white",
+    "heroName": "Фішер",
+    "title": "Матч за світову корону 1972, партія 6",
+    "gm": "fischer"
+  },
+  {
+    "id": "short-timman-1991",
+    "hero": "white",
+    "heroName": "Шорт",
+    "title": "Тілбург 1991",
+    "gm": "short"
+  },
+  {
+    "id": "carlsen-karjakin-2016-tb4",
+    "hero": "white",
+    "heroName": "Карлсен",
+    "title": "Тай-брейк матчу 2016, партія 4",
+    "gm": "carlsen"
+  },
+  {
+    "id": "carlsen-karjakin-2016-g10",
+    "hero": "white",
+    "heroName": "Карлсен",
+    "title": "Матч за світову корону 2016, партія 10",
+    "gm": "carlsen"
+  },
+  {
+    "id": "carlsen-anand-2013-g5",
+    "hero": "white",
+    "heroName": "Карлсен",
+    "title": "Матч за світову корону 2013, партія 5",
+    "gm": "carlsen"
+  },
+  {
+    "id": "aronian-anand-2013",
+    "hero": "black",
+    "heroName": "Ананд",
+    "title": "Вейк-ан-Зее 2013",
+    "gm": "anand"
+  },
+  {
+    "id": "tal-larsen-1965-g10",
+    "hero": "white",
+    "heroName": "Таль",
+    "title": "Матч претендентів 1965, партія 10",
+    "gm": "tal"
+  },
+  {
+    "id": "morphy-opera-1858",
+    "hero": "white",
+    "heroName": "Морфі",
+    "gm": "morphy",
+    "title": "Paris it 1858"
+  },
+  {
+    "id": "morphy-loewenthal-1859",
+    "hero": "white",
+    "heroName": "Морфі",
+    "gm": "morphy",
+    "title": "London m1 1859"
+  },
+  {
+    "id": "boden-morphy-1858",
+    "hero": "black",
+    "heroName": "Морфі",
+    "gm": "morphy",
+    "title": "London m3 1858"
+  },
+  {
+    "id": "barnes-morphy-1858",
+    "hero": "black",
+    "heroName": "Морфі",
+    "gm": "morphy",
+    "title": "London m1 1858"
+  },
+  {
+    "id": "de-riviere-morphy-1858",
+    "hero": "black",
+    "heroName": "Морфі",
+    "gm": "morphy",
+    "title": "Paris m2 1858"
+  },
+  {
+    "id": "anderssen-morphy-1858",
+    "hero": "black",
+    "heroName": "Морфі",
+    "gm": "morphy",
+    "title": "Paris m1 1858"
+  },
+  {
+    "id": "steinitz-bardeleben-1895",
+    "hero": "white",
+    "heroName": "Стейніц",
+    "gm": "steinitz",
+    "title": "Hastings 1895"
+  },
+  {
+    "id": "steinitz-chigorin-1889",
+    "hero": "white",
+    "heroName": "Стейніц",
+    "gm": "steinitz",
+    "title": "World Championship 2nd 1889"
+  },
+  {
+    "id": "steinitz-lasker-1894",
+    "hero": "white",
+    "heroName": "Стейніц",
+    "gm": "steinitz",
+    "title": "World Championship 5th 1894"
+  },
+  {
+    "id": "zukertort-steinitz-1886",
+    "hero": "black",
+    "heroName": "Стейніц",
+    "gm": "steinitz",
+    "title": "World Championship 1st 1886"
+  },
+  {
+    "id": "gunsberg-steinitz-1890",
+    "hero": "black",
+    "heroName": "Стейніц",
+    "gm": "steinitz",
+    "title": "World Championship 3rd 1890"
+  },
+  {
+    "id": "steinitz-blackburne-1869",
+    "hero": "white",
+    "heroName": "Стейніц",
+    "gm": "steinitz",
+    "title": "London it 1869"
+  },
+  {
+    "id": "lasker-bauer-1889",
+    "hero": "white",
+    "heroName": "Ласкер",
+    "gm": "lasker",
+    "title": "Amsterdam 1889"
+  },
+  {
+    "id": "lasker-steinitz-1894",
+    "hero": "white",
+    "heroName": "Ласкер",
+    "gm": "lasker",
+    "title": "World Championship 5th 1894"
+  },
+  {
+    "id": "janowsky-lasker-1909",
+    "hero": "black",
+    "heroName": "Ласкер",
+    "gm": "lasker",
+    "title": "World Championship 9th 1909"
+  },
+  {
+    "id": "lasker-tarrasch-1908",
+    "hero": "white",
+    "heroName": "Ласкер",
+    "gm": "lasker",
+    "title": "World Championship 8th 1908"
+  },
+  {
+    "id": "marshall-lasker-1907",
+    "hero": "black",
+    "heroName": "Ласкер",
+    "gm": "lasker",
+    "title": "World Championship 7th 1907"
+  },
+  {
+    "id": "lasker-capablanca-1914",
+    "hero": "white",
+    "heroName": "Ласкер",
+    "gm": "lasker",
+    "title": "St Petersburg f 1914"
+  },
+  {
+    "id": "capablanca-marshall-1918",
+    "hero": "white",
+    "heroName": "Капабланка",
+    "gm": "capablanca",
+    "title": "New York 1918"
+  },
+  {
+    "id": "capablanca-alekhine-1927",
+    "hero": "white",
+    "heroName": "Капабланка",
+    "gm": "capablanca",
+    "title": "World Championship 13th 1927"
+  },
+  {
+    "id": "capablanca-lasker-1921",
+    "hero": "white",
+    "heroName": "Капабланка",
+    "gm": "capablanca",
+    "title": "World Championship 12th 1921"
+  },
+  {
+    "id": "euwe-capablanca-1922",
+    "hero": "black",
+    "heroName": "Капабланка",
+    "gm": "capablanca",
+    "title": "London 1922"
+  },
+  {
+    "id": "tartakower-capablanca-1924",
+    "hero": "black",
+    "heroName": "Капабланка",
+    "gm": "capablanca",
+    "title": "New York 1924"
+  },
+  {
+    "id": "capablanca-spielmann-1911",
+    "hero": "white",
+    "heroName": "Капабланка",
+    "gm": "capablanca",
+    "title": "San Sebastian 1911"
+  },
+  {
+    "id": "reti-alekhine-1925",
+    "hero": "black",
+    "heroName": "Алехін",
+    "gm": "alekhine",
+    "title": "Baden-Baden 1925"
+  },
+  {
+    "id": "alekhine-bogoljubow-1929",
+    "hero": "white",
+    "heroName": "Алехін",
+    "gm": "alekhine",
+    "title": "World Championship 14th 1929"
+  },
+  {
+    "id": "alekhine-euwe-1935",
+    "hero": "white",
+    "heroName": "Алехін",
+    "gm": "alekhine",
+    "title": "World Championship 16th 1935"
+  },
+  {
+    "id": "capablanca-alekhine-1927-3",
+    "hero": "black",
+    "heroName": "Алехін",
+    "gm": "alekhine",
+    "title": "World Championship 13th 1927"
+  },
+  {
+    "id": "alekhine-tartakower-1932",
+    "hero": "white",
+    "heroName": "Алехін",
+    "gm": "alekhine",
+    "title": "London 1932"
+  },
+  {
+    "id": "alekhine-nimzowitsch-1914",
+    "hero": "white",
+    "heroName": "Алехін",
+    "gm": "alekhine",
+    "title": "St Petersburg 1914"
+  },
+  {
+    "id": "botvinnik-capablanca-1938",
+    "hero": "white",
+    "heroName": "Ботвинник",
+    "gm": "botvinnik",
+    "title": "AVRO 1938"
+  },
+  {
+    "id": "smyslov-botvinnik-1948",
+    "hero": "black",
+    "heroName": "Ботвинник",
+    "gm": "botvinnik",
+    "title": "World Championship 18th 1948"
+  },
+  {
+    "id": "botvinnik-tal-1960",
+    "hero": "white",
+    "heroName": "Ботвинник",
+    "gm": "botvinnik",
+    "title": "World Championship 23th 1960"
+  },
+  {
+    "id": "bronstein-botvinnik-1951",
+    "hero": "black",
+    "heroName": "Ботвинник",
+    "gm": "botvinnik",
+    "title": "World Championship 19th 1951"
+  },
+  {
+    "id": "petrosian-botvinnik-1963",
+    "hero": "black",
+    "heroName": "Ботвинник",
+    "gm": "botvinnik",
+    "title": "World Championship 25th 1963"
+  },
+  {
+    "id": "keres-botvinnik-1948",
+    "hero": "black",
+    "heroName": "Ботвинник",
+    "gm": "botvinnik",
+    "title": "World Championship 18th 1948"
+  },
+  {
+    "id": "smyslov-botvinnik-1954",
+    "hero": "white",
+    "heroName": "Смислов",
+    "gm": "smyslov",
+    "title": "World Championship 20th 1954"
+  },
+  {
+    "id": "smyslov-keres-1948",
+    "hero": "white",
+    "heroName": "Смислов",
+    "gm": "smyslov",
+    "title": "World Championship 18th 1948"
+  },
+  {
+    "id": "smyslov-reshevsky-1948",
+    "hero": "white",
+    "heroName": "Смислов",
+    "gm": "smyslov",
+    "title": "World Championship 18th 1948"
+  },
+  {
+    "id": "geller-smyslov-1953",
+    "hero": "black",
+    "heroName": "Смислов",
+    "gm": "smyslov",
+    "title": "Candidats Tournament 1953"
+  },
+  {
+    "id": "gligoric-smyslov-1953",
+    "hero": "black",
+    "heroName": "Смислов",
+    "gm": "smyslov",
+    "title": "Candidats Tournament 1953"
+  },
+  {
+    "id": "portisch-smyslov-1971",
+    "hero": "black",
+    "heroName": "Смислов",
+    "gm": "smyslov",
+    "title": "Candidats reserve 1971"
+  },
+  {
+    "id": "spassky-petrosian-1966",
+    "hero": "black",
+    "heroName": "Петросян",
+    "gm": "petrosian",
+    "title": "World Championship 26th 1966"
+  },
+  {
+    "id": "petrosian-botvinnik-1963-1",
+    "hero": "white",
+    "heroName": "Петросян",
+    "gm": "petrosian",
+    "title": "World Championship 25th 1963"
+  },
+  {
+    "id": "petrosian-kortschnoj-1962",
+    "hero": "white",
+    "heroName": "Петросян",
+    "gm": "petrosian",
+    "title": "Candidats Tournament 1962"
+  },
+  {
+    "id": "tal-petrosian-1962",
+    "hero": "black",
+    "heroName": "Петросян",
+    "gm": "petrosian",
+    "title": "Candidats Tournament 1962"
+  },
+  {
+    "id": "petrosian-portisch-1974",
+    "hero": "white",
+    "heroName": "Петросян",
+    "gm": "petrosian",
+    "title": "Candidats qf2 1974"
+  },
+  {
+    "id": "petrosian-gligoric-1953",
+    "hero": "white",
+    "heroName": "Петросян",
+    "gm": "petrosian",
+    "title": "Candidats Tournament 1953"
+  },
+  {
+    "id": "spassky-bronstein-1960",
+    "hero": "white",
+    "heroName": "Спаський",
+    "gm": "spassky",
+    "title": "URS-ch27 1960"
+  },
+  {
+    "id": "spassky-petrosian-1966-1",
+    "hero": "white",
+    "heroName": "Спаський",
+    "gm": "spassky",
+    "title": "World Championship 26th 1966"
+  },
+  {
+    "id": "spassky-fischer-1972",
+    "hero": "white",
+    "heroName": "Спаський",
+    "gm": "spassky",
+    "title": "World Championship 28th 1972"
+  },
+  {
+    "id": "portisch-spassky-1964",
+    "hero": "black",
+    "heroName": "Спаський",
+    "gm": "spassky",
+    "title": "Amsterdam Interzonal 1964"
+  },
+  {
+    "id": "kortschnoj-spassky-1968",
+    "hero": "black",
+    "heroName": "Спаський",
+    "gm": "spassky",
+    "title": "Candidats final 1968"
+  },
+  {
+    "id": "spassky-larsen-1968",
+    "hero": "white",
+    "heroName": "Спаський",
+    "gm": "spassky",
+    "title": "Candidats sf2 1968"
+  },
+  {
+    "id": "karpov-unzicker-1974",
+    "hero": "white",
+    "heroName": "Карпов",
+    "gm": "karpov",
+    "title": "Nice olm fin-A 1974"
+  },
+  {
+    "id": "karpov-kasparov-1984",
+    "hero": "white",
+    "heroName": "Карпов",
+    "gm": "karpov",
+    "title": "World Championship 31th-KK1 1984"
+  },
+  {
+    "id": "karpov-kortschnoj-1978",
+    "hero": "white",
+    "heroName": "Карпов",
+    "gm": "karpov",
+    "title": "World Championship 29th 1978"
+  },
+  {
+    "id": "timman-karpov-1993",
+    "hero": "black",
+    "heroName": "Карпов",
+    "gm": "karpov",
+    "title": "FIDE-Wch 1993"
+  },
+  {
+    "id": "karpov-kamsky-1996",
+    "hero": "white",
+    "heroName": "Карпов",
+    "gm": "karpov",
+    "title": "FIDE-Wch 1996"
+  },
+  {
+    "id": "karpov-anand-1991",
+    "hero": "white",
+    "heroName": "Карпов",
+    "gm": "karpov",
+    "title": "Candidats qf4 1991"
+  },
+  {
+    "id": "kramnik-kasparov-2000-g2",
+    "hero": "white",
+    "heroName": "Крамник",
+    "gm": "kramnik",
+    "title": "Braingames WCC 2000"
+  },
+  {
+    "id": "kramnik-anand-2008",
+    "hero": "white",
+    "heroName": "Крамник",
+    "gm": "kramnik",
+    "title": "WCh 2008"
+  },
+  {
+    "id": "kramnik-leko-2004",
+    "hero": "white",
+    "heroName": "Крамник",
+    "gm": "kramnik",
+    "title": "WCh 2004"
+  },
+  {
+    "id": "kramnik-aronian-2007",
+    "hero": "white",
+    "heroName": "Крамник",
+    "gm": "kramnik",
+    "title": "WCh 2007"
+  },
+  {
+    "id": "kramnik-topalov-2006",
+    "hero": "white",
+    "heroName": "Крамник",
+    "gm": "kramnik",
+    "title": "WCh 2006"
+  },
+  {
+    "id": "kramnik-morozevich-2007",
+    "hero": "white",
+    "heroName": "Крамник",
+    "gm": "kramnik",
+    "title": "WCh 2007"
+  },
+  {
+    "id": "polgar-bareev-2007",
+    "hero": "white",
+    "heroName": "Полгар",
+    "gm": "polgar",
+    "title": "WCh Candidates s/f 2007"
+  },
+  {
+    "id": "polgar-kasimdzhanov-2005",
+    "hero": "white",
+    "heroName": "Полгар",
+    "gm": "polgar",
+    "title": "WCh-FIDE 2005"
+  },
+  {
+    "id": "polgar-shirov-1997",
+    "hero": "white",
+    "heroName": "Полгар",
+    "gm": "polgar",
+    "title": "Tilburg Fontys 1997"
+  },
+  {
+    "id": "topalov-polgar-2005",
+    "hero": "black",
+    "heroName": "Полгар",
+    "gm": "polgar",
+    "title": "Corus A 2005"
+  },
+  {
+    "id": "piket-polgar-1997",
+    "hero": "black",
+    "heroName": "Полгар",
+    "gm": "polgar",
+    "title": "Linares 14th 1997"
+  },
+  {
+    "id": "polgar-mamedyarov-2002",
+    "hero": "white",
+    "heroName": "Полгар",
+    "gm": "polgar",
+    "title": "Olympiad 2002"
+  },
+  {
+    "id": "kasparov-karpov-1984",
+    "hero": "white",
+    "heroName": "Каспаров",
+    "gm": "kasparov",
+    "title": "World Championship 31th-KK1 1984"
+  },
+  {
+    "id": "kasparov-short-1993",
+    "hero": "white",
+    "heroName": "Каспаров",
+    "gm": "kasparov",
+    "title": "PCA-World Championship 1993"
+  },
+  {
+    "id": "kasparov-anand-1995",
+    "hero": "white",
+    "heroName": "Каспаров",
+    "gm": "kasparov",
+    "title": "PCA-World Championship 1995"
+  },
+  {
+    "id": "kasparov-kortschnoj-1983",
+    "hero": "white",
+    "heroName": "Каспаров",
+    "gm": "kasparov",
+    "title": "Candidats sf1 1983"
+  },
+  {
+    "id": "carlsen-aronian-2007",
+    "hero": "white",
+    "heroName": "Карлсен",
+    "gm": "carlsen",
+    "title": "WCh Candidates s/f 2007"
+  },
+  {
+    "id": "carlsen-nepomniachtchi-2021",
+    "hero": "white",
+    "heroName": "Карлсен",
+    "gm": "carlsen",
+    "title": "WCh 2021 2021"
+  },
+  {
+    "id": "carlsen-anand-2013",
+    "hero": "white",
+    "heroName": "Карлсен",
+    "gm": "carlsen",
+    "title": "WCh 2013 2013"
+  },
+  {
+    "id": "spassky-fischer-1972-0",
+    "hero": "black",
+    "heroName": "Фішер",
+    "gm": "fischer",
+    "title": "World Championship 28th 1972"
+  },
+  {
+    "id": "fischer-petrosian-1971",
+    "hero": "white",
+    "heroName": "Фішер",
+    "gm": "fischer",
+    "title": "Candidats final 1971"
+  },
+  {
+    "id": "fischer-reshevsky-1967",
+    "hero": "white",
+    "heroName": "Фішер",
+    "gm": "fischer",
+    "title": "Sousse Interzonal+ 1967"
+  },
+  {
+    "id": "fischer-benko-1959",
+    "hero": "white",
+    "heroName": "Фішер",
+    "gm": "fischer",
+    "title": "Candidats Tournament 1959"
+  },
+  {
+    "id": "tal-botvinnik-1960",
+    "hero": "white",
+    "heroName": "Таль",
+    "gm": "tal",
+    "title": "World Championship 23th 1960"
+  },
+  {
+    "id": "kortschnoj-tal-1968",
+    "hero": "black",
+    "heroName": "Таль",
+    "gm": "tal",
+    "title": "Candidats sf1 1968"
+  },
+  {
+    "id": "tal-larsen-1958",
+    "hero": "white",
+    "heroName": "Таль",
+    "gm": "tal",
+    "title": "Portoroz Interzonal 1958"
+  },
+  {
+    "id": "spassky-tal-1965",
+    "hero": "black",
+    "heroName": "Таль",
+    "gm": "tal",
+    "title": "Candidats final 1965"
+  },
+  {
+    "id": "tal-gligoric-1959",
+    "hero": "white",
+    "heroName": "Таль",
+    "gm": "tal",
+    "title": "Candidats Tournament 1959"
+  },
+  {
+    "id": "kramnik-anand-2008-0",
+    "hero": "black",
+    "heroName": "Ананд",
+    "gm": "anand",
+    "title": "WCh 2008"
+  },
+  {
+    "id": "anand-carlsen-2014",
+    "hero": "white",
+    "heroName": "Ананд",
+    "gm": "anand",
+    "title": "WCh 2014 2014"
+  },
+  {
+    "id": "aronian-anand-2007",
+    "hero": "black",
+    "heroName": "Ананд",
+    "gm": "anand",
+    "title": "WCh 2007"
+  },
+  {
+    "id": "anand-topalov-2010",
+    "hero": "white",
+    "heroName": "Ананд",
+    "gm": "anand",
+    "title": "WCh 2010"
+  },
+  {
+    "id": "leko-anand-2005",
+    "hero": "black",
+    "heroName": "Ананд",
+    "gm": "anand",
+    "title": "WCh-FIDE 2005"
+  },
+  {
+    "id": "short-kasparov-1993",
+    "hero": "white",
+    "heroName": "Шорт",
+    "gm": "short",
+    "title": "PCA-World Championship 1993"
+  },
+  {
+    "id": "short-gulko-1994",
+    "hero": "white",
+    "heroName": "Шорт",
+    "gm": "short",
+    "title": "PCA-Wch Candidats m3 1994"
+  },
+  {
+    "id": "timman-short-1993",
+    "hero": "black",
+    "heroName": "Шорт",
+    "gm": "short",
+    "title": "Candidats final 1993"
+  },
+  {
+    "id": "speelman-short-1991",
+    "hero": "black",
+    "heroName": "Шорт",
+    "gm": "short",
+    "title": "Candidats m1 1991"
+  },
+  {
+    "id": "short-kamsky-1994",
+    "hero": "white",
+    "heroName": "Шорт",
+    "gm": "short",
+    "title": "PCA-Wch Candidats sf1 1994"
+  }
 ]

@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import type { PuzzleData } from '../types'
+import type { IndexData } from '../types'
 import type { Stats } from '../storage'
 import { VERDICT_EMOJI } from '../scoring'
 import { todayKey } from '../daily'
@@ -12,7 +12,7 @@ import { pct } from '../util'
 
 export type MenuAction = 'gms' | 'random' | 'games' | 'daily' | 'settings'
 
-export function Menu({ data, stats, onAction }: { data: PuzzleData; stats: Stats; onAction: (a: MenuAction) => void }) {
+export function Menu({ data, stats, onAction }: { data: IndexData; stats: Stats; onAction: (a: MenuAction) => void }) {
   const t = useT()
   const lang = useLang()
   const { gmId } = useSettings()

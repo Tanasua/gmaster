@@ -4,8 +4,11 @@
 тож фронтенд може оцінити будь-який хід користувача без рушія в браузері.
 Найцікавіші позиції позначаються key=true — з них обирається «Хід дня».
 
+Результат: web/public/data/games/<id>.json (по файлу на партію) і web/public/data/index.json.
+Готові партії пропускаються — можна зупиняти й продовжувати.
+
 Використання:
-    python pipeline/build.py [--depth 16] [--per-game 10] [--engine /usr/games/stockfish]
+    python pipeline/build.py [--depth 12] [--per-game 10] [--engine /usr/games/stockfish] [--only id] [--force]
 """
 import argparse
 import json
@@ -138,40 +141,57 @@ def process_game(engine, meta, depth, per_game):
     }
 
 
+DATA = ROOT / "web" / "public" / "data"
+
+
+def write_index(metas):
+    """Індекс для меню: метадані кожної готової партії + ключові позиції (для «Ходу дня»)."""
+    games = []
+    for meta in metas:
+        path = DATA / "games" / f"{meta['id']}.json"
+        if not path.exists():
+            continue
+        g = json.loads(path.read_text(encoding="utf-8"))
+        games.append({
+            **{k: v for k, v in g.items() if k not in ("moves", "positions")},
+            "gm": meta.get("gm"),
+            "plies": len(g["moves"]),
+            "positionCount": len(g["positions"]),
+            "keys": [p["ply"] for p in g["positions"] if p["key"]],
+        })
+    (DATA / "index.json").write_text(json.dumps({"version": 3, "goodMoveCp": GOOD_MOVE_CP, "games": games},
+                                                ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(games)
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--depth", type=int, default=14)
+    ap.add_argument("--depth", type=int, default=12)
     ap.add_argument("--per-game", type=int, default=10)
     ap.add_argument("--engine", default="/usr/games/stockfish")
     ap.add_argument("--threads", type=int, default=4)
     ap.add_argument("--only", help="обробити лише партію з цим id")
+    ap.add_argument("--force", action="store_true", help="переаналізувати вже готові партії")
     args = ap.parse_args()
 
     metas = json.loads((ROOT / "data" / "games.json").read_text(encoding="utf-8"))
-    out_path = ROOT / "web" / "public" / "data" / "puzzles.json"
-    existing = {}
-    if args.only and out_path.exists():
-        existing = {g["id"]: g for g in json.loads(out_path.read_text(encoding="utf-8"))["games"]}
+    (DATA / "games").mkdir(parents=True, exist_ok=True)
 
-    engine = chess.engine.SimpleEngine.popen_uci(args.engine)
-    engine.configure({"Threads": args.threads, "Hash": 256})
-    try:
-        games = []
-        for meta in metas:
-            if args.only and meta["id"] != args.only:
-                if meta["id"] in existing:
-                    games.append(existing[meta["id"]])
-                continue
-            g = process_game(engine, meta, args.depth, args.per_game)
-            print(f"{meta['id']}: {len(g['positions'])} positions")
-            games.append(g)
-    finally:
-        engine.quit()
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps({"version": 2, "goodMoveCp": GOOD_MOVE_CP, "games": games},
-                                   ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-    print(f"wrote {out_path.relative_to(ROOT)}")
+    todo = [m for m in metas if (not args.only or m["id"] == args.only)
+            and (args.force or args.only or not (DATA / "games" / f"{m['id']}.json").exists())]
+    if todo:
+        engine = chess.engine.SimpleEngine.popen_uci(args.engine)
+        engine.configure({"Threads": args.threads, "Hash": 256})
+        try:
+            for i, meta in enumerate(todo, 1):
+                g = process_game(engine, meta, args.depth, args.per_game)
+                (DATA / "games" / f"{meta['id']}.json").write_text(
+                    json.dumps(g, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+                n = write_index(metas)
+                print(f"[{i}/{len(todo)}] {meta['id']}: {len(g['positions'])} positions (у індексі {n})", flush=True)
+        finally:
+            engine.quit()
+    print(f"index: {write_index(metas)} games")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,21 @@
+{
+  "_comment": "Гросмейстери: архів pgnmentor, як ім'я записане в PGN, коротке ім'я (uk), і відомі партії, що беруться першими",
+  "morphy":     {"archive": "Morphy.pgn",     "match": "Morphy, Paul",           "heroName": "Морфі",      "curated": [[124, "morphy-opera-1858"]]},
+  "steinitz":   {"archive": "Steinitz.pgn",   "match": "Steinitz",               "heroName": "Стейніц",    "curated": [[452, "steinitz-bardeleben-1895"]]},
+  "lasker":     {"archive": "Lasker.pgn",     "match": "Lasker, Emanuel",        "heroName": "Ласкер",     "curated": [[2, "lasker-bauer-1889"]]},
+  "capablanca": {"archive": "Capablanca.pgn", "match": "Capablanca",             "heroName": "Капабланка", "curated": [[170, "capablanca-marshall-1918"]]},
+  "alekhine":   {"archive": "Alekhine.pgn",   "match": "Alekhine",               "heroName": "Алехін",     "curated": [[463, "reti-alekhine-1925"]]},
+  "botvinnik":  {"archive": "Botvinnik.pgn",  "match": "Botvinnik",              "heroName": "Ботвинник",  "curated": [[191, "botvinnik-capablanca-1938"]]},
+  "smyslov":    {"archive": "Smyslov.pgn",    "match": "Smyslov",                "heroName": "Смислов",    "curated": []},
+  "petrosian":  {"archive": "Petrosian.pgn",  "match": "Petrosian",              "heroName": "Петросян",   "curated": []},
+  "spassky":    {"archive": "Spassky.pgn",    "match": "Spassky",                "heroName": "Спаський",   "curated": [[252, "spassky-bronstein-1960"]]},
+  "karpov":     {"archive": "Karpov.pgn",     "match": "Karpov",                 "heroName": "Карпов",     "curated": [[321, "karpov-unzicker-1974"]]},
+  "kramnik":    {"archive": "Kramnik.pgn",    "match": "Kramnik",                "heroName": "Крамник",    "curated": [[1104, "kramnik-kasparov-2000-g2"]]},
+  "polgar":     {"archive": "PolgarJ.pgn",    "match": "Polgar, Judit|Polgar,J", "heroName": "Полгар",     "curated": []},
+  "kasparov":   {"archive": "Kasparov.pgn",   "match": "Kasparov",               "heroName": "Каспаров",   "curated": []},
+  "carlsen":    {"archive": "Carlsen.pgn",    "match": "Carlsen",                "heroName": "Карлсен",    "curated": []},
+  "fischer":    {"archive": "Fischer.pgn",    "match": "Fischer, Robert",        "heroName": "Фішер",      "curated": []},
+  "tal":        {"archive": "Tal.pgn",        "match": "Tal, Mihail",            "heroName": "Таль",       "curated": []},
+  "anand":      {"archive": "Anand.pgn",      "match": "Anand",                  "heroName": "Ананд",      "curated": []},
+  "short":      {"archive": "Short.pgn",      "match": "Short, Nigel",           "heroName": "Шорт",       "curated": []}
+}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import type { PuzzleData } from './types'
+import type { GameMeta, IndexData } from './types'
+import { useGame } from './gameStore'
 import { loadStats, resetStats, type Stats } from './storage'
 import { PlayersContext, type Players } from './players'
 import { LangContext, useT } from './i18n'
@@ -25,7 +26,7 @@ type Screen =
   | { kind: 'settings' }
 
 export default function App() {
-  const [data, setData] = useState<PuzzleData | null>(null)
+  const [data, setData] = useState<IndexData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [stats, setStats] = useState<Stats>(loadStats)
   const [players, setPlayers] = useState<Players>({})
@@ -35,7 +36,7 @@ export default function App() {
   const screen = stack[stack.length - 1]
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/puzzles.json`)
+    fetch(`${import.meta.env.BASE_URL}data/index.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then(setData)
       .catch((e) => setError(String(e)))
@@ -98,9 +99,9 @@ export default function App() {
                   />
                 )}
                 {screen.kind === 'game' && (
-                  <GameRun
+                  <GameLoader
                     key={screen.run}
-                    game={data.games.find((g) => g.id === screen.gameId)!}
+                    meta={data.games.find((g) => g.id === screen.gameId)!}
                     goodMoveCp={data.goodMoveCp}
                     stats={stats}
                     setStats={setStats}
@@ -120,7 +121,7 @@ export default function App() {
     </SettingsContext.Provider>
   )
 
-  function onMenu(a: MenuAction, d: PuzzleData) {
+  function onMenu(a: MenuAction, d: IndexData) {
     if (a === 'gms') push({ kind: 'gms' })
     else if (a === 'games') push({ kind: 'games' })
     else if (a === 'daily') push({ kind: 'daily' })
@@ -135,7 +136,7 @@ export default function App() {
   }
 }
 
-function Header({ screen, data, stats, onBack }: { screen: Screen; data: PuzzleData; stats: Stats; onBack: () => void }) {
+function Header({ screen, data, stats, onBack }: { screen: Screen; data: IndexData; stats: Stats; onBack: () => void }) {
   const t = useT()
   const { lang, gmId } = useSettings()
   const game = 'gameId' in screen ? data.games.find((g) => g.id === screen.gameId) : undefined
@@ -170,4 +171,13 @@ function Loading() {
 function ErrorBox({ error }: { error: string }) {
   const t = useT()
   return <p>{t('loadError')}: {error}</p>
+}
+
+/** Довантажує партію і запускає гру */
+function GameLoader({ meta, ...rest }: { meta: GameMeta; goodMoveCp: number; stats: Stats; setStats: (s: Stats) => void; onExit: () => void }) {
+  const t = useT()
+  const { game, error } = useGame(meta)
+  if (error) return <p>{t('loadError')}: {error}</p>
+  if (!game) return <p className="hint">{t('loading')}</p>
+  return <GameRun game={game} {...rest} />
 }

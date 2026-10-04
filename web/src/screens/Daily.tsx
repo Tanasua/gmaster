@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react'
-import type { Attempt, PuzzleData } from '../types'
+import { useContext, useMemo, useState } from 'react'
+import { useGame } from '../gameStore'
+import type { Attempt, IndexData } from '../types'
 import { judge, SKIP_ATTEMPT, VERDICT_EMOJI } from '../scoring'
 import { recordAttempt, recordDaily, type Stats } from '../storage'
 import { dailyPick, todayKey } from '../daily'
@@ -11,20 +12,24 @@ import { playSound } from '../sound'
 import { PlayersContext } from '../players'
 import { gameLabel, heroShort } from '../content/names'
 
-export function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Stats; setStats: (s: Stats) => void; onExit: () => void }) {
+export function Daily({ data, stats, setStats, onExit }: { data: IndexData; stats: Stats; setStats: (s: Stats) => void; onExit: () => void }) {
   const t = useT()
   const lang = useLang()
   const settings = useSettings()
   const players = useContext(PlayersContext)
   const today = todayKey()
-  const { game, position, index } = dailyPick(data.games, today)
+  const { meta, ply, index } = useMemo(() => dailyPick(data.games, today), [data.games, today])
+  const { game, error } = useGame(meta)
   const [attempt, setAttempt] = useState<Attempt | null>(null)
   const prev = stats.daily[today]
+  const position = game?.positions.find((p) => p.ply === ply)
+  if (error) return <p>{t('loadError')}: {error}</p>
+  if (!game || !position) return <p className="hint">{t('loading')}</p>
 
   function record(a: Attempt) {
     setAttempt(a)
     if (settings.sound) playSound(a.verdict === 'exact' || a.verdict === 'good' ? 'good' : 'bad')
-    if (!prev) setStats(recordDaily(recordAttempt(stats, game.heroName, a.verdict, a.points), today, a.verdict))
+    if (!prev) setStats(recordDaily(recordAttempt(stats, meta.heroName, a.verdict, a.points), today, a.verdict))
   }
 
   const verdict = attempt?.verdict ?? prev

@@ -36,6 +36,8 @@ const STRINGS = {
   // гросмейстери
   gmsTitle: { uk: 'Гросмейстери', en: 'Grandmasters' },
   gamesCount: { uk: 'партій', en: 'games' },
+  game1: { uk: 'партія', en: 'game' },
+  game2: { uk: 'партії', en: 'games' },
   playAsBtn: { uk: 'Грати за', en: 'Play as' },
   selected: { uk: 'Обрано', en: 'Selected' },
   unselect: { uk: 'Скасувати вибір', en: 'Clear choice' },
@@ -49,6 +51,9 @@ const STRINGS = {
   moves: { uk: 'ходів', en: 'moves' },
   startGame: { uk: 'Почати партію', en: 'Start the game' },
   whyMatters: { uk: 'Чим важлива', en: 'Why it matters' },
+  aboutGame: { uk: 'Про партію', en: 'About the game' },
+  pathToWin: { uk: 'Пройди хід за ходом шлях', en: 'Retrace move by move' },
+  pathToWinEnd: { uk: 'до перемоги', en: 'path to victory' },
   playedBy: { uk: 'Ти граєш за', en: 'You play as' },
   whiteSide: { uk: 'білих', en: 'White' },
   blackSide: { uk: 'чорних', en: 'Black' },
@@ -148,4 +153,12 @@ export function useT() {
 
 export function useLang(): Lang {
   return useContext(LangContext)
+}
+
+/** «1 партія», «3 партії», «5 партій» / «1 game», «5 games» */
+export function gamesWord(n: number, t: (k: StringKey) => string): string {
+  const m10 = n % 10, m100 = n % 100
+  if (m10 === 1 && m100 !== 11) return t('game1')
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return t('game2')
+  return t('gamesCount')
 }

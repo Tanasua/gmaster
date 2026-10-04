@@ -1,13 +1,13 @@
 import { useContext } from 'react'
-import type { Game } from '../types'
-import { useLang, useT } from '../i18n'
+import type { GameMeta } from '../types'
+import { gamesWord, useLang, useT } from '../i18n'
 import { useSettings } from '../settings'
 import { PlayersContext } from '../players'
 import { GMS, type GmProfile } from '../content/gms'
 import { gameLabel, gameTitle, gamesOfGm } from '../content/names'
 import { Avatar } from '../components/Avatar'
 
-export function GmList({ games, onOpen }: { games: Game[]; onOpen: (id: string) => void }) {
+export function GmList({ games, onOpen }: { games: GameMeta[]; onOpen: (id: string) => void }) {
   const t = useT()
   const lang = useLang()
   const { gmId } = useSettings()
@@ -21,7 +21,7 @@ export function GmList({ games, onOpen }: { games: Game[]; onOpen: (id: string) 
               <Avatar pgnName={gm.pgnNames[0]} name={gm.name[lang]} size={56} />
               <span className="gm-row-text">
                 <span className="gm-row-name">{gm.name[lang]}</span>
-                <span className="gm-row-sub">{gm.title[lang]} · {gamesOfGm(gm, games).length} {t('gamesCount')}</span>
+                <span className="gm-row-sub">{gm.title[lang]} · {gamesOfGm(gm, games).length} {gamesWord(gamesOfGm(gm, games).length, t)}</span>
               </span>
               {gm.id === gmId ? <span className="to-move-tag">{t('selected')}</span> : <span className="menu-chevron" aria-hidden>›</span>}
             </button>
@@ -33,7 +33,7 @@ export function GmList({ games, onOpen }: { games: Game[]; onOpen: (id: string) 
 }
 
 export function GmPage({ gm, games, onSelect, onOpenGame }: {
-  gm: GmProfile; games: Game[]; onSelect: (id: string | null) => void; onOpenGame: (id: string) => void
+  gm: GmProfile; games: GameMeta[]; onSelect: (id: string | null) => void; onOpenGame: (id: string) => void
 }) {
   const t = useT()
   const lang = useLang()

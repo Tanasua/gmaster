@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { PlayersContext } from '../players'
+import { playerInfo, PlayersContext } from '../players'
 
 /** Кругле фото гравця; без фото — ініціали, для прихованого — «?» */
 export function Avatar({ pgnName, name, size = 48, large }: { pgnName: string | null; name: string; size?: number; large?: boolean }) {
   const players = useContext(PlayersContext)
-  const info = pgnName ? players[pgnName] : undefined
+  const info = pgnName ? playerInfo(players, pgnName) : undefined
   const src = large ? info?.photoLarge ?? info?.photo : info?.photo
   return (
     <div className="avatar" style={{ width: size, height: size, fontSize: size * 0.36 }} title={info?.credit}>

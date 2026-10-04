@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { judge } from './scoring'
 import { dailyPick } from './daily'
-import type { Game, Position } from './types'
+import type { GameMeta, Position } from './types'
 
 const pos: Position = {
   fen: '', ply: 30, moveNumber: 15, lastMove: null,
@@ -24,21 +24,19 @@ describe('judge', () => {
 })
 
 describe('dailyPick', () => {
-  const games = [3, 5].map((n, gi) => ({
-    id: `g${gi}`, positions: Array.from({ length: n }, (_, i) => ({ ...pos, ply: i })),
-  })) as unknown as Game[]
+  const meta = (id: string, keys: number[]) => ({ id, keys }) as unknown as GameMeta
 
   it('picks only key positions', () => {
-    const mixed = [{ id: 'm', positions: [{ ...pos, key: false, ply: 1 }, { ...pos, ply: 2 }] }] as unknown as Game[]
-    expect(dailyPick(mixed, '2026-10-04').position.ply).toBe(2)
+    expect(dailyPick([meta('m', [2])], '2026-10-04')).toMatchObject({ ply: 2 })
   })
 
   it('is deterministic per date and cycles through all positions', () => {
+    const games = [meta('g0', [0, 1, 2]), meta('g1', [0, 1, 2, 3, 4])]
     expect(dailyPick(games, '2026-10-04')).toEqual(dailyPick(games, '2026-10-04'))
     const seen = new Set<string>()
     for (let d = 1; d <= 8; d++) {
-      const { game, position } = dailyPick(games, `2026-01-0${d}`)
-      seen.add(game.id + position.ply)
+      const { meta: m, ply } = dailyPick(games, `2026-01-0${d}`)
+      seen.add(m.id + ply)
     }
     expect(seen.size).toBe(8)
   })

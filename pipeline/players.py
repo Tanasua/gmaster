@@ -98,13 +98,21 @@ def main():
     players = json.loads((ROOT / "data" / "players.json").read_text(encoding="utf-8"))
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=ROOT / "web" / "public" / "data" / "players.json")
-    out_path = ap.parse_args().out
+    ap.add_argument("--names-only", action="store_true", help="лише оновити імена, без завантаження фото")
+    args = ap.parse_args()
+    out_path = args.out
     out = json.loads(out_path.read_text(encoding="utf-8")) if out_path.exists() else {}
     for key, p in players.items():
-        if out.get(key, {}).get("photo"):
+        if "alias" in p:
+            out[key] = {"alias": p["alias"]}
+            continue
+        prev = out.get(key, {})
+        # імена завжди оновлюються з data/players.json; фото — лише якщо ще немає
+        entry = {**prev, "name": p["name"], **({"nameEn": p["nameEn"]} if p.get("nameEn") else {})}
+        if prev.get("photo") or not p.get("search") or args.names_only:
+            out[key] = entry
             continue
         print(key)
-        entry = {"name": p["name"]}
         try:
             entry.update(find_photo(p["search"]) or {})
         except Exception as e:  # noqa: BLE001 — один гравець не має зупиняти решту
@@ -113,7 +121,7 @@ def main():
         out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     for key, p in players.items():
         entry = out.get(key, {})
-        if p.get("gm") and entry.get("source") and not entry.get("photoLarge"):
+        if p.get("gm") and entry.get("source") and not entry.get("photoLarge") and not args.names_only:
             print(key, "(велике фото)")
             try:
                 entry["photoLarge"] = large_photo(entry["source"])

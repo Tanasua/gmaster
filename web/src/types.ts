@@ -21,7 +21,8 @@ export interface Position {
   key: boolean
 }
 
-export interface Game {
+/** Партія в індексі (без ходів і позицій — вони довантажуються окремо) */
+export interface GameMeta {
   id: string
   title: string
   hero: Side
@@ -32,16 +33,26 @@ export interface Game {
   site: string
   year: string
   result: string
+  /** id гросмейстера-героя (content/gms) */
+  gm?: string
+  /** Кількість півходів у партії */
+  plies: number
+  /** Позиції, де ходить герой (кандидати на «Хід дня» — keys) */
+  positionCount: number
+  keys: number[]
+}
+
+export interface Game extends GameMeta {
   /** Усі ходи партії (uci) від початкової позиції */
   moves: string[]
   /** Позиції, де ходить герой і є вибір (єдиний легальний хід не загадується) */
   positions: Position[]
 }
 
-export interface PuzzleData {
+export interface IndexData {
   version: number
   goodMoveCp: number
-  games: Game[]
+  games: GameMeta[]
 }
 
 export type Verdict = 'exact' | 'good' | 'miss' | 'skip'

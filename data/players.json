@@ -1,66 +1,318 @@
 {
   "Byrne, Donald": {
     "name": "Дональд Бірн",
-    "search": "Donald Byrne chess"
+    "search": "Donald Byrne chess",
+    "nameEn": "Donald Byrne"
   },
   "Fischer, Robert James": {
     "name": "Роберт Фішер",
     "search": "Bobby Fischer",
     "credit": "Ulrich Kohls (Bundesarchiv), похідна робота: Karpouzi, CC BY-SA 3.0, Wikimedia Commons",
-    "gm": true
+    "gm": true,
+    "nameEn": "Bobby Fischer"
   },
   "Kasparov, Gary": {
     "name": "Гаррі Каспаров",
     "search": "Garry Kasparov",
-    "gm": true
+    "gm": true,
+    "nameEn": "Garry Kasparov"
   },
   "Topalov, Veselin": {
     "name": "Веселин Топалов",
-    "search": "Veselin Topalov"
+    "search": "Veselin Topalov",
+    "nameEn": "Veselin Topalov"
   },
   "Karpov, Anatoly": {
     "name": "Анатолій Карпов",
-    "search": "Anatoly Karpov"
+    "search": "Anatoly Karpov",
+    "nameEn": "Anatoly Karpov",
+    "gm": true
   },
   "Spassky, Boris V": {
     "name": "Борис Спаський",
-    "search": "Boris Spassky"
+    "search": "Boris Spassky",
+    "nameEn": "Boris Spassky",
+    "gm": true
   },
   "Short, Nigel D": {
     "name": "Найджел Шорт",
     "search": "Nigel Short",
     "credit": "Przemysław Jahr, CC BY-SA 3.0, Wikimedia Commons",
-    "gm": true
+    "gm": true,
+    "nameEn": "Nigel Short"
   },
   "Timman, Jan H": {
     "name": "Ян Тімман",
-    "search": "Jan Timman"
+    "search": "Jan Timman",
+    "nameEn": "Jan Timman"
   },
   "Carlsen,M": {
     "name": "Магнус Карлсен",
     "search": "Magnus Carlsen",
-    "gm": true
+    "gm": true,
+    "nameEn": "Magnus Carlsen"
   },
   "Karjakin,Sergey": {
     "name": "Сергій Карякін",
-    "search": "Sergey Karjakin"
+    "search": "Sergey Karjakin",
+    "nameEn": "Sergey Karjakin"
   },
   "Anand,V": {
     "name": "Вішванатан Ананд",
     "search": "Viswanathan Anand",
-    "gm": true
+    "gm": true,
+    "nameEn": "Viswanathan Anand"
   },
   "Aronian,L": {
     "name": "Левон Аронян",
-    "search": "Levon Aronian"
+    "search": "Levon Aronian",
+    "nameEn": "Levon Aronian"
   },
   "Tal, Mihail": {
     "name": "Михайло Таль",
     "search": "Mikhail Tal",
-    "gm": true
+    "gm": true,
+    "nameEn": "Mikhail Tal"
   },
   "Larsen, Bent": {
     "name": "Бент Ларсен",
-    "search": "Bent Larsen"
+    "search": "Bent Larsen",
+    "nameEn": "Bent Larsen"
+  },
+  "Morphy, Paul ": {
+    "name": "Пол Морфі",
+    "nameEn": "Paul Morphy",
+    "search": "Paul Morphy chess",
+    "gm": true
+  },
+  "Steinitz, William": {
+    "name": "Вільгельм Стейніц",
+    "nameEn": "Wilhelm Steinitz",
+    "search": "Wilhelm Steinitz chess",
+    "gm": true
+  },
+  "Lasker, Emanuel": {
+    "name": "Емануїл Ласкер",
+    "nameEn": "Emanuel Lasker",
+    "search": "Emanuel Lasker chess",
+    "gm": true
+  },
+  "Capablanca, Jose Raul": {
+    "name": "Хосе Рауль Капабланка",
+    "nameEn": "José Raúl Capablanca",
+    "search": "José Raúl Capablanca chess",
+    "gm": true
+  },
+  "Alekhine, Alexander": {
+    "name": "Олександр Алехін",
+    "nameEn": "Alexander Alekhine",
+    "search": "Alexander Alekhine chess",
+    "gm": true
+  },
+  "Botvinnik, Mikhail": {
+    "name": "Михайло Ботвинник",
+    "nameEn": "Mikhail Botvinnik",
+    "search": "Mikhail Botvinnik chess",
+    "gm": true
+  },
+  "Smyslov, Vassily": {
+    "name": "Василь Смислов",
+    "nameEn": "Vasily Smyslov",
+    "search": "Vasily Smyslov chess",
+    "gm": true
+  },
+  "Petrosian, Tigran V": {
+    "name": "Тигран Петросян",
+    "nameEn": "Tigran Petrosian",
+    "search": "Tigran Petrosian chess",
+    "gm": true
+  },
+  "Kramnik,V": {
+    "name": "Володимир Крамник",
+    "nameEn": "Vladimir Kramnik",
+    "search": "Vladimir Kramnik chess",
+    "gm": true
+  },
+  "Polgar, Judit": {
+    "name": "Юдіт Полгар",
+    "nameEn": "Judit Polgár",
+    "search": "Judit Polgár chess",
+    "gm": true
+  },
+  "Anderssen, Adolf": {
+    "name": "Адольф Андерсен",
+    "nameEn": "Adolf Anderssen"
+  },
+  "Bareev,E": {
+    "name": "Євген Бареєв",
+    "nameEn": "Evgeny Bareev"
+  },
+  "Barnes, Thomas Wilson": {
+    "name": "Томас Барнс",
+    "nameEn": "Thomas Barnes"
+  },
+  "Bauer, Johann": {
+    "name": "Йоганн Бауер",
+    "nameEn": "Johann Bauer"
+  },
+  "Benko, Pal C": {
+    "name": "Пал Бенко",
+    "nameEn": "Pal Benko"
+  },
+  "Blackburne, Joseph Henry": {
+    "name": "Джозеф Блекберн",
+    "nameEn": "Joseph Blackburne"
+  },
+  "Boden, Samuel Standige": {
+    "name": "Семюел Боден",
+    "nameEn": "Samuel Boden"
+  },
+  "Bogoljubow, Efim": {
+    "name": "Юхим Боголюбов",
+    "nameEn": "Efim Bogoljubov"
+  },
+  "Bronstein, David I": {
+    "name": "Давид Бронштейн",
+    "nameEn": "David Bronstein"
+  },
+  "Chigorin, Mikhail": {
+    "name": "Михайло Чигорін",
+    "nameEn": "Mikhail Chigorin"
+  },
+  "De Riviere, Jules Arnous": {
+    "name": "Жуль Арну де Рів'єр",
+    "nameEn": "Jules Arnous de Rivière"
+  },
+  "Duke Karl Count Isouard": {
+    "name": "Герцог Карл і граф Ізуар",
+    "nameEn": "Duke Karl & Count Isouard"
+  },
+  "Euwe, Max": {
+    "name": "Макс Ейве",
+    "nameEn": "Max Euwe"
+  },
+  "Geller, Efim P": {
+    "name": "Юхим Геллер",
+    "nameEn": "Efim Geller"
+  },
+  "Gligoric, Svetozar": {
+    "name": "Светозар Глігорич",
+    "nameEn": "Svetozar Gligorić"
+  },
+  "Gulko, Boris F": {
+    "name": "Борис Гулько",
+    "nameEn": "Boris Gulko"
+  },
+  "Gunsberg, Isidor": {
+    "name": "Ісидор Гунсберг",
+    "nameEn": "Isidor Gunsberg"
+  },
+  "Janowsky, Dawid Markelowicz": {
+    "name": "Давид Яновський",
+    "nameEn": "Dawid Janowski"
+  },
+  "Kamsky, Gata": {
+    "name": "Гата Камський",
+    "nameEn": "Gata Kamsky"
+  },
+  "Kasimdzhanov,R": {
+    "name": "Рустам Касимджанов",
+    "nameEn": "Rustam Kasimdzhanov"
+  },
+  "Keres, Paul": {
+    "name": "Пауль Керес",
+    "nameEn": "Paul Keres"
+  },
+  "Kortschnoj, Viktor": {
+    "name": "Віктор Корчной",
+    "nameEn": "Viktor Korchnoi"
+  },
+  "Leko,P": {
+    "name": "Петер Леко",
+    "nameEn": "Peter Leko"
+  },
+  "Loewenthal, Johann Jacob": {
+    "name": "Йоганн Левенталь",
+    "nameEn": "Johann Löwenthal"
+  },
+  "Mamedyarov,S": {
+    "name": "Шахрияр Мамед'яров",
+    "nameEn": "Shakhriyar Mamedyarov"
+  },
+  "Marshall, Frank James": {
+    "name": "Френк Маршалл",
+    "nameEn": "Frank Marshall"
+  },
+  "Morozevich,A": {
+    "name": "Олександр Морозевич",
+    "nameEn": "Alexander Morozevich"
+  },
+  "Nepomniachtchi,I": {
+    "name": "Ян Непомнящий",
+    "nameEn": "Ian Nepomniachtchi"
+  },
+  "Nimzowitsch, Aaron ": {
+    "name": "Арон Німцович",
+    "nameEn": "Aron Nimzowitsch"
+  },
+  "Piket, Jeroen": {
+    "name": "Єрун Пікет",
+    "nameEn": "Jeroen Piket"
+  },
+  "Portisch, Lajos": {
+    "name": "Лайош Портіш",
+    "nameEn": "Lajos Portisch"
+  },
+  "Reshevsky, Samuel Herman": {
+    "name": "Семюел Решевський",
+    "nameEn": "Samuel Reshevsky"
+  },
+  "Reti, Richard": {
+    "name": "Ріхард Реті",
+    "nameEn": "Richard Réti"
+  },
+  "Shirov, Alexei": {
+    "name": "Олексій Широв",
+    "nameEn": "Alexei Shirov"
+  },
+  "Speelman, Jonathan S": {
+    "name": "Джонатан Спілмен",
+    "nameEn": "Jonathan Speelman"
+  },
+  "Spielmann, Rudolf": {
+    "name": "Рудольф Шпільман",
+    "nameEn": "Rudolf Spielmann"
+  },
+  "Tarrasch, Siegbert": {
+    "name": "Зігберт Тарраш",
+    "nameEn": "Siegbert Tarrasch"
+  },
+  "Tartakower, Saviely": {
+    "name": "Савелій Тартаковер",
+    "nameEn": "Savielly Tartakower"
+  },
+  "Unzicker, Wolfgang": {
+    "name": "Вольфганг Унцикер",
+    "nameEn": "Wolfgang Unzicker"
+  },
+  "Von Bardeleben, Curt": {
+    "name": "Курт фон Барделебен",
+    "nameEn": "Curt von Bardeleben"
+  },
+  "Zukertort, Johannes Hermann": {
+    "name": "Йоганн Цукерторт",
+    "nameEn": "Johannes Zukertort"
+  },
+  "Anand, Viswanathan": {
+    "alias": "Anand,V"
+  },
+  "Kasparov,G": {
+    "alias": "Kasparov, Gary"
+  },
+  "Polgar,Ju": {
+    "alias": "Polgar, Judit"
+  },
+  "Topalov,V": {
+    "alias": "Topalov, Veselin"
   }
 }

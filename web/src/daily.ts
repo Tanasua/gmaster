@@ -1,4 +1,4 @@
-import type { Game, Position } from './types'
+import type { GameMeta } from './types'
 
 export function todayKey(d = new Date()): string {
   const y = d.getFullYear()
@@ -13,14 +13,14 @@ export function dayNumber(key: string): number {
   return Math.floor((Date.UTC(y, m - 1, d) - Date.UTC(2026, 0, 1)) / 86_400_000)
 }
 
-/** Детермінований вибір позиції дня; перемішування кроком, взаємно простим із кількістю позицій */
-export function dailyPick(games: Game[], key: string): { game: Game; position: Position; index: number } {
-  const all = games.flatMap((game) => game.positions.filter((p) => p.key).map((position) => ({ game, position })))
+/** Детермінований вибір позиції дня серед ключових позицій усіх партій; крок взаємно простий із їх кількістю */
+export function dailyPick(games: GameMeta[], key: string): { meta: GameMeta; ply: number; index: number } {
+  const all = games.flatMap((meta) => meta.keys.map((ply) => ({ meta, ply })))
   const n = all.length
   let step = 7919 % n || 1
   while (gcd(step, n) !== 1) step++
-  const index = (((dayNumber(key) * step) % n) + n) % n
-  return { ...all[index], index: dayNumber(key) }
+  const i = (((dayNumber(key) * step) % n) + n) % n
+  return { ...all[i], index: dayNumber(key) }
 }
 
 function gcd(a: number, b: number): number {

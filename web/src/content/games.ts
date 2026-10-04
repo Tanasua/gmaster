@@ -10,9 +10,18 @@ export interface GameInfo {
 
 // Порядок — від найвизначніших
 export const GAME_ORDER = [
+  'morphy-opera-1858',
   'byrne-fischer-1956',
   'kasparov-topalov-1999',
   'fischer-spassky-1972-g6',
+  'lasker-bauer-1889',
+  'botvinnik-capablanca-1938',
+  'spassky-bronstein-1960',
+  'steinitz-bardeleben-1895',
+  'capablanca-marshall-1918',
+  'kramnik-kasparov-2000-g2',
+  'reti-alekhine-1925',
+  'karpov-unzicker-1974',
   'karpov-kasparov-1985-g16',
   'short-timman-1991',
   'carlsen-karjakin-2016-tb4',
@@ -91,6 +100,69 @@ export const GAME_INFO: Record<string, GameInfo> = {
     why: {
       uk: 'Нью-Йорк, 2016. Карякін вів у матчі після 8-ї партії. У 10-й Карлсен у довгій боротьбі відновив рівновагу, і матч зрештою дійшов до тай-брейку.',
       en: 'New York, 2016. Karjakin led the match after game 8. In game 10 Carlsen levelled the score after a long fight, and the match eventually went to a tiebreak.',
+    },
+  },
+  'morphy-opera-1858': {
+    title: { uk: '«Оперна партія»', en: 'The Opera Game' },
+    why: {
+      uk: 'Париж, 1858, ложа оперного театру. Морфі грав проти герцога Карла Брауншвейзького та графа Ізуара, які радилися між собою. Жертва ферзя 16.Qb8+ і мат 17.Rd8# — найвідоміша коротка партія в історії шахів і зразок того, як швидко розвивати фігури.',
+      en: 'Paris, 1858, in a box at the opera. Morphy played the Duke of Brunswick and Count Isouard, who consulted each other. The queen sacrifice 16.Qb8+ and mate with 17.Rd8# make it the most famous short game in chess history and a model of rapid development.',
+    },
+  },
+  'lasker-bauer-1889': {
+    title: { uk: 'Жертва двох слонів', en: 'The double bishop sacrifice' },
+    why: {
+      uk: 'Амстердам, 1889. Ласкер пожертвував обох слонів — 15.Bxh7+ і 17.Bxg7 — і зруйнував прикриття чорного короля. Відтоді цю ідею так і називають: жертва двох слонів Ласкера.',
+      en: 'Amsterdam, 1889. Lasker sacrificed both bishops — 15.Bxh7+ and 17.Bxg7 — and tore open the black king\'s shelter. The idea has been known as Lasker\'s double bishop sacrifice ever since.',
+    },
+  },
+  'botvinnik-capablanca-1938': {
+    title: { uk: 'Слон на a3', en: 'The bishop on a3' },
+    why: {
+      uk: 'Турнір AVRO, 1938. Молодий Ботвинник переграв колишнього чемпіона світу Капабланку і завершив партію знаменитою жертвою слона 30.Ba3.',
+      en: 'The AVRO tournament, 1938. The young Botvinnik outplayed former World Champion Capablanca and finished the game with the famous bishop sacrifice 30.Ba3.',
+    },
+  },
+  'spassky-bronstein-1960': {
+    title: { uk: 'Партія з фільму про Бонда', en: 'The James Bond game' },
+    why: {
+      uk: 'Чемпіонат СРСР, Ленінград, 1960. Королівський гамбіт, жертва коня 16.Nxf7 і атака на короля. Позицію з цієї партії показали на початку фільму про Джеймса Бонда «З Росії з любов\'ю» (1963).',
+      en: 'USSR Championship, Leningrad, 1960. The King\'s Gambit, the knight sacrifice 16.Nxf7 and an attack on the king. A position from this game appears at the start of the James Bond film "From Russia with Love" (1963).',
+    },
+  },
+  'steinitz-bardeleben-1895': {
+    title: { uk: 'Гастінгс, 1895', en: 'Hastings, 1895' },
+    why: {
+      uk: 'Ветеран Стейніц проти Курта фон Барделебена. Після 22.Rxe7+ тура білих раз у раз дає шах, а забрати її не можна. Фон Барделебен не став чекати мату і просто покинув турнірний зал.',
+      en: 'The veteran Steinitz against Curt von Bardeleben. After 22.Rxe7+ the white rook keeps checking and cannot be taken. Von Bardeleben did not wait for the mate and simply left the tournament hall.',
+    },
+  },
+  'capablanca-marshall-1918': {
+    title: { uk: 'Народження атаки Маршалла', en: 'The birth of the Marshall Attack' },
+    why: {
+      uk: 'Нью-Йорк, 1918. Френк Маршалл застосував проти Капабланки нову гостру жертву пішака 8…d5 в іспанській партії. Капабланка відбився від атаки й переміг, а ідея досі зветься атакою Маршалла і грається на найвищому рівні.',
+      en: 'New York, 1918. Frank Marshall surprised Capablanca with a new, sharp pawn sacrifice 8…d5 in the Ruy Lopez. Capablanca beat off the attack and won, yet the idea is still called the Marshall Attack and is played at the highest level.',
+    },
+  },
+  'kramnik-kasparov-2000-g2': {
+    title: { uk: 'Лондон, 2000, партія 2', en: 'London 2000, game 2' },
+    why: {
+      uk: 'Матч за світову корону. Перша перемога Крамника над Каспаровим. Крамник виграв увесь матч, не програвши жодної партії, і став 14-м чемпіоном світу.',
+      en: 'The World Championship match. Kramnik\'s first win over Kasparov. Kramnik won the whole match without losing a single game and became the 14th World Champion.',
+    },
+  },
+  'reti-alekhine-1925': {
+    title: { uk: 'Комбінація в Баден-Бадені', en: 'The Baden-Baden combination' },
+    why: {
+      uk: 'Баден-Баден, 1925. Алехін чорними провів одну з найвідоміших своїх комбінацій, розраховану на багато ходів уперед, і виграв у Ріхарда Реті — одного з батьків гіпермодерністської школи.',
+      en: 'Baden-Baden, 1925. With Black, Alekhine played one of his most famous combinations, calculated many moves ahead, against Richard Réti, one of the fathers of the hypermodern school.',
+    },
+  },
+  'karpov-unzicker-1974': {
+    title: { uk: 'Удав у Ніцці', en: 'The boa constrictor in Nice' },
+    why: {
+      uk: 'Шахова олімпіада в Ніцці, 1974. Хрестоматійний приклад стилю Карпова: він крок за кроком забрав у суперника простір і корисні ходи, доки чорні не опинилися в повному затиску.',
+      en: 'The Nice Olympiad, 1974. A textbook example of Karpov\'s style: step by step he took away his opponent\'s space and useful moves until Black was completely squeezed.',
     },
   },
 }

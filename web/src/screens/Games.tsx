@@ -1,13 +1,15 @@
 import { useContext } from 'react'
-import type { Game } from '../types'
+import type { GameMeta } from '../types'
 import { useLang, useT } from '../i18n'
 import { useSettings } from '../settings'
 import { PlayersContext } from '../players'
 import { GAME_INFO } from '../content/games'
-import { gameLabel, gameTitle, heroPgn, heroShort, playerName, sortGames } from '../content/names'
+import { gameLabel, gameTitle, gmOfGame, heroPgn, heroShort, playerName, sortGames } from '../content/names'
+import type { Lang, StringKey } from '../i18n'
+import type { Players } from '../players'
 import { Avatar } from '../components/Avatar'
 
-export function GameList({ games, onOpen }: { games: Game[]; onOpen: (id: string) => void }) {
+export function GameList({ games, onOpen }: { games: GameMeta[]; onOpen: (id: string) => void }) {
   const t = useT()
   const lang = useLang()
   const players = useContext(PlayersContext)
@@ -21,7 +23,7 @@ export function GameList({ games, onOpen }: { games: Game[]; onOpen: (id: string
             <button className="game-row" onClick={() => onOpen(g.id)}>
               <span className="game-title">{gameLabel(g, lang, players)}</span>
               <span className="game-meta">{gameTitle(g, lang)}</span>
-              <span className="game-meta">{t('youPlayFor')}: <b>{heroShort(g, lang)}</b> · {Math.ceil(g.moves.length / 2)} {t('moves')}</span>
+              <span className="game-meta">{t('youPlayFor')}: <b>{heroShort(g, lang)}</b> · {Math.ceil(g.plies / 2)} {t('moves')}</span>
             </button>
           </li>
         ))}
@@ -30,7 +32,7 @@ export function GameList({ games, onOpen }: { games: Game[]; onOpen: (id: string
   )
 }
 
-export function GamePreview({ game, onStart }: { game: Game; onStart: () => void }) {
+export function GamePreview({ game, onStart }: { game: GameMeta; onStart: () => void }) {
   const t = useT()
   const lang = useLang()
   const players = useContext(PlayersContext)
@@ -51,16 +53,21 @@ export function GamePreview({ game, onStart }: { game: Game; onStart: () => void
       </div>
       <h2 className="preview-title">{gameTitle(game, lang)}</h2>
       <p className="gm-meta">{gameLabel(game, lang, players)} · {game.site} · {game.result}</p>
-      {info && (
-        <>
-          <h3 className="sub-title">{t('whyMatters')}</h3>
-          <p className="gm-bio">{info.why[lang]}</p>
-        </>
-      )}
+      <h3 className="sub-title">{info ? t('whyMatters') : t('aboutGame')}</h3>
+      <p className="gm-bio">{info ? info.why[lang] : autoAbout(game, lang, players, t)}</p>
       <p className="small">
-        {t('playedBy')} <b>{heroShort(game, lang)}</b> ({game.hero === 'white' ? t('whiteSide') : t('blackSide')}) · {Math.ceil(game.moves.length / 2)} {t('moves')}
+        {t('playedBy')} <b>{lang === 'uk' ? gmOfGame(game)?.acc.uk ?? heroShort(game, lang) : heroShort(game, lang)}</b> ({game.hero === 'white' ? t('whiteSide') : t('blackSide')}) · {Math.ceil(game.plies / 2)} {t('moves')}
       </p>
       <button className="primary wide" onClick={onStart}>{t('startGame')}</button>
     </div>
   )
+}
+
+/** Опис для партій без ручного тексту — з заголовків PGN */
+function autoAbout(g: GameMeta, lang: Lang, players: Players, t: (k: StringKey) => string): string {
+  const gm = gmOfGame(g)
+  const who = gm ? (lang === 'uk' ? gm.acc.uk : `${gm.short.en}'s`) : playerName(heroPgn(g), lang, players)
+  const won = g.result === (g.hero === 'white' ? '1-0' : '0-1')
+  const where = [gameTitle(g, lang), g.site && g.site !== '?' ? g.site : null].filter(Boolean).join(' · ')
+  return won ? `${t('pathToWin')} ${who} ${t('pathToWinEnd')}. ${where}.` : `${where}.`
 }
