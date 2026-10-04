@@ -94,6 +94,8 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
 
   return (
     <div className="board">
+      {/* Радість за вгаданий хід: лайк злітає вгору і зникає (key — новий для кожної спроби) */}
+      {attempt?.verdict === 'exact' && <Like key={fen} points={attempt.points} />}
       <Chessboard
         options={{
           position: shownFen,
@@ -116,4 +118,17 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
 
 function uciToMove(uci: string) {
   return { from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] }
+}
+
+function Like({ points }: { points: number }) {
+  return (
+    <div className="like" aria-hidden>
+      <span className="like-badge">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+          <path d="M2 21h4V9H2v12zm20-11a2 2 0 0 0-2-2h-6.3l.95-4.57.03-.32a1.5 1.5 0 0 0-.44-1.06L13.17 1 6.59 7.59A2 2 0 0 0 6 9v10a2 2 0 0 0 2 2h9a2 2 0 0 0 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z" />
+        </svg>
+      </span>
+      <span className="like-points">+{points}</span>
+    </div>
+  )
 }
