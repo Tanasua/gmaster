@@ -1,11 +1,10 @@
 import { useContext } from 'react'
 import type { GameMeta } from '../types'
-import { useLang, useT } from '../i18n'
 import { useSettings } from '../settings'
 import { PlayersContext } from '../players'
 import { GAME_INFO } from '../content/games'
 import { gameLabel, gameTitle, gmOfGame, heroPgn, heroShort, playerName, sortGames } from '../content/names'
-import type { Lang, StringKey } from '../i18n'
+import { movesWord, useLang, useT, type Lang, type StringKey } from '../i18n'
 import type { Players } from '../players'
 import { Avatar } from '../components/Avatar'
 
@@ -23,7 +22,7 @@ export function GameList({ games, onOpen }: { games: GameMeta[]; onOpen: (id: st
             <button className="game-row" onClick={() => onOpen(g.id)}>
               <span className="game-title">{gameLabel(g, lang, players)}</span>
               <span className="game-meta">{gameTitle(g, lang)}</span>
-              <span className="game-meta">{t('youPlayFor')}: <b>{heroShort(g, lang)}</b> · {Math.ceil(g.plies / 2)} {t('moves')}</span>
+              <span className="game-meta">{t('youPlayFor')}: <b>{heroShort(g, lang)}</b> · {Math.ceil(g.plies / 2)} {movesWord(Math.ceil(g.plies / 2), t)}</span>
             </button>
           </li>
         ))}
@@ -56,7 +55,7 @@ export function GamePreview({ game, onStart }: { game: GameMeta; onStart: () => 
       <h3 className="sub-title">{info ? t('whyMatters') : t('aboutGame')}</h3>
       <p className="gm-bio">{info ? info.why[lang] : autoAbout(game, lang, players, t)}</p>
       <p className="small">
-        {t('playedBy')} <b>{lang === 'uk' ? gmOfGame(game)?.acc.uk ?? heroShort(game, lang) : heroShort(game, lang)}</b> ({game.hero === 'white' ? t('whiteSide') : t('blackSide')}) · {Math.ceil(game.plies / 2)} {t('moves')}
+        {t('playedBy')} <b>{lang === 'uk' ? gmOfGame(game)?.acc.uk ?? heroShort(game, lang) : heroShort(game, lang)}</b> ({game.hero === 'white' ? t('whiteSide') : t('blackSide')}) · {Math.ceil(game.plies / 2)} {movesWord(Math.ceil(game.plies / 2), t)}
       </p>
       <button className="primary wide" onClick={onStart}>{t('startGame')}</button>
     </div>

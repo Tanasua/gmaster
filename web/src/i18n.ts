@@ -49,6 +49,8 @@ const STRINGS = {
   gamesTitle: { uk: 'Партії', en: 'Games' },
   youPlayFor: { uk: 'Граєш за', en: 'You play' },
   moves: { uk: 'ходів', en: 'moves' },
+  move1: { uk: 'хід', en: 'moves' },
+  move2: { uk: 'ходи', en: 'moves' },
   startGame: { uk: 'Почати партію', en: 'Start the game' },
   whyMatters: { uk: 'Чим важлива', en: 'Why it matters' },
   aboutGame: { uk: 'Про партію', en: 'About the game' },
@@ -64,6 +66,7 @@ const STRINGS = {
   total: { uk: 'усього', en: 'total' },
   move: { uk: 'Хід', en: 'Move' },
   whatPlayed: { uk: 'Що зіграв', en: 'What did' },
+  whatPlayedF: { uk: 'Що зіграла', en: 'What did' },
   whatPlayedEnd: { uk: '?', en: ' play?' },
   onlyMove: { uk: 'Єдиний можливий хід…', en: 'Only legal move…' },
   opponentMoves: { uk: 'Ходить суперник…', en: 'Opponent to move…' },
@@ -79,7 +82,9 @@ const STRINGS = {
   // відгук
   exact: { uk: 'Вгадав!', en: 'Correct!' },
   played: { uk: 'зіграв', en: 'played' },
+  playedF: { uk: 'зіграла', en: 'played' },
   exactShort: { uk: 'так і зіграв', en: 'played exactly that' },
+  exactShortF: { uk: 'так і зіграла', en: 'played exactly that' },
   strongMove: { uk: 'Сильний хід', en: 'Strong move' },
   but: { uk: 'але', en: 'but' },
   youPlayed: { uk: 'Ти зіграв', en: 'You played' },
@@ -155,10 +160,15 @@ export function useLang(): Lang {
   return useContext(LangContext)
 }
 
-/** «1 партія», «3 партії», «5 партій» / «1 game», «5 games» */
-export function gamesWord(n: number, t: (k: StringKey) => string): string {
+/** Українська множина: 1 — one, 2–4 — few, 5+ — many (англійська: 1 — one, решта — many) */
+function plural(n: number, one: StringKey, few: StringKey, many: StringKey, t: (k: StringKey) => string): string {
   const m10 = n % 10, m100 = n % 100
-  if (m10 === 1 && m100 !== 11) return t('game1')
-  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return t('game2')
-  return t('gamesCount')
+  if (m10 === 1 && m100 !== 11) return t(one)
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return t(few)
+  return t(many)
 }
+
+/** «1 партія», «3 партії», «5 партій» */
+export const gamesWord = (n: number, t: (k: StringKey) => string) => plural(n, 'game1', 'game2', 'gamesCount', t)
+/** «1 хід», «3 ходи», «42 ходи», «45 ходів» */
+export const movesWord = (n: number, t: (k: StringKey) => string) => plural(n, 'move1', 'move2', 'moves', t)

@@ -7,10 +7,10 @@ import { Feedback, SkipButton } from '../components/PositionCard'
 import { GuessBoard, REVEAL_MS } from '../components/GuessBoard'
 import { Seats } from '../components/PlayerBar'
 import { ShareButton } from '../components/ShareButton'
-import { useLang, useT } from '../i18n'
+import { movesWord, useLang, useT } from '../i18n'
 import { OPENING_MOVE_MS, SKIP_OPENING_PLIES, SPEED_FACTOR, useSettings } from '../settings'
 import { playSound } from '../sound'
-import { gameTitle, heroShort } from '../content/names'
+import { gameTitle, gmOfGame, heroShort } from '../content/names'
 import { chunk, pct } from '../util'
 
 const AUTO_MOVE_MS = 600
@@ -34,6 +34,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   const timeline = useMemo(() => buildTimeline(game.moves), [game.moves])
   const byPly = useMemo(() => new Map(game.positions.map((p) => [p.ply, p])), [game.positions])
   const hero = heroShort(game, lang)
+  const female = !!gmOfGame(game)?.female
 
   const done = ply >= game.moves.length
   const inOpening = ply < openingEnd
@@ -106,7 +107,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
         <div className="prompt-row">
           <div className="question">
             {waiting
-              ? <>{t('move')} {moveNumber}{game.hero === 'black' ? '…' : '.'} {t('whatPlayed')} <b>{hero}</b>{t('whatPlayedEnd')}</>
+              ? <>{t('move')} {moveNumber}{game.hero === 'black' ? '…' : '.'} {t(female ? 'whatPlayedF' : 'whatPlayed')} <b>{hero}</b>{t('whatPlayedEnd')}</>
               : inOpening
                 ? t('opening')
                 : heroToMove && !pos
@@ -122,7 +123,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
       <div className="panel">
         {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
         {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
-          <p className="feedback exact verdict">✅ {lastPos.gmSan} — {hero} {t('exactShort')}. +{lastAttempt.points}</p>
+          <p className="feedback exact verdict">✅ {lastPos.gmSan} — {hero} {t(female ? 'exactShortF' : 'exactShort')}. +{lastAttempt.points}</p>
         )}
         {!lastAttempt && <p className="hint">{t('hint')}</p>}
       </div>
@@ -187,7 +188,7 @@ function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: 
       <h2>{headline}</h2>
       <p className="grid">{grid}</p>
       <p>
-        {t('guessedOf')} {exact} {t('of')} {attempts.length} {t('movesWord')} · {good} {t('strongAlt')}
+        {t('guessedOf')} {exact} {t('of')} {attempts.length} {lang === 'uk' ? movesWord(attempts.length, t) : t('movesWord')} · {good} {t('strongAlt')}
         {skipped ? ` · ${t('skippedN')} ${skipped}` : ''} · {points} {t('points')}
       </p>
       <p className="small">{game.white} — {game.black}, {game.event}, {game.year}, {game.result}</p>

@@ -2,7 +2,7 @@ import type { Attempt, Game, Position } from '../types'
 import { formatCp } from '../scoring'
 import { useLang, useT } from '../i18n'
 import { useSettings } from '../settings'
-import { heroShort } from '../content/names'
+import { gmOfGame, heroShort } from '../content/names'
 import { GuessBoard } from './GuessBoard'
 import { Seats } from './PlayerBar'
 
@@ -56,22 +56,23 @@ export function Feedback({ game, position, attempt }: { game: Game; position: Po
   const lang = useLang()
   const { showEngine } = useSettings()
   const hero = heroShort(game, lang)
+  const female = !!gmOfGame(game)?.female
   const engineDisagrees = position.bestMove !== position.gmMove
   return (
     <div className={`feedback ${attempt.verdict}`}>
       {attempt.verdict === 'exact' && (
-        <p className="verdict">✅ {t('exact')} {hero} {t('played')} <b>{position.gmSan}</b>. +{attempt.points}</p>
+        <p className="verdict">✅ {t('exact')} {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>. +{attempt.points}</p>
       )}
       {attempt.verdict === 'good' && (
         <p className="verdict">
-          🟨 {t('strongMove')} <b>{attempt.userSan}</b>, {t('but')} {hero} {t('played')} <b>{position.gmSan}</b>. +{attempt.points}
+          🟨 {t('strongMove')} <b>{attempt.userSan}</b>, {t('but')} {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>. +{attempt.points}
         </p>
       )}
       {attempt.verdict === 'skip' && (
-        <p className="verdict">⏭ {t('skipped')} {hero} {t('played')} <b>{position.gmSan}</b>.</p>
+        <p className="verdict">⏭ {t('skipped')} {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>.</p>
       )}
       {attempt.verdict === 'miss' && (
-        <p className="verdict">❌ {t('youPlayed')} <b>{attempt.userSan}</b>. {hero} {t('played')} <b>{position.gmSan}</b>.</p>
+        <p className="verdict">❌ {t('youPlayed')} <b>{attempt.userSan}</b>. {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>.</p>
       )}
       {showEngine && (
         <>
