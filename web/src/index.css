@@ -183,7 +183,7 @@ b { font-weight: 700; }
   background: linear-gradient(145deg, var(--frame-a), var(--frame-b) 50%, var(--frame-a));
   box-shadow: 0 0 0 1px rgba(240, 200, 120, 0.35), 0 14px 36px rgba(0, 0, 0, 0.6);
 }
-.board > div { border-radius: 3px; overflow: hidden; }
+.board-inner > div:not(.like) { border-radius: 3px; overflow: hidden; }
 
 .hint, .small { color: var(--muted); font-size: 14px; margin: 0; }
 
@@ -299,7 +299,7 @@ button.skip:disabled { opacity: 0.35; cursor: default; border-color: var(--line)
     border-radius: 0;
     box-shadow: 0 0 0 1px rgba(240, 200, 120, 0.25), 0 14px 36px rgba(0, 0, 0, 0.6);
   }
-  .seats .board > div { border-radius: 0; }
+  .seats .board-inner > div:not(.like) { border-radius: 0; }
 }
 button.skip { width: 100%; padding: 10px 16px; font-size: 15px; }
 
@@ -395,26 +395,26 @@ button.danger-btn { background: var(--danger); color: #fff; border-color: transp
   box-shadow: 0 0 0 1px var(--line);
 }
 
-/* Лайк за вгаданий хід */
-.board { position: relative; }
+/* Лайк за вгаданий хід — злітає з поля, куди поставили фігуру */
+.board-inner { position: relative; }
 .like {
-  position: absolute; left: 14px; top: 10px; z-index: 5; pointer-events: none;
-  display: flex; align-items: center; gap: 6px;
-  animation: like-fly 1.4s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+  position: absolute; z-index: 100; pointer-events: none;
+  width: 9%; aspect-ratio: 1; max-width: 100%;
+  color: #3fbf6f;
+  filter: drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.45));
+  transform: translate(-50%, -50%);
+  animation: like-fly 1.3s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
 }
-.like-badge {
-  width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
-  color: #fff; background: radial-gradient(circle at 30% 30%, #5fd08a, #2f9a5c);
-  box-shadow: 0 6px 18px rgba(47, 154, 92, 0.55), 0 0 0 2px rgba(255, 255, 255, 0.85);
-}
-.like-points { font: 800 18px var(--font-body); color: #5fd08a; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); }
+.like svg { width: 100%; height: 100%; display: block; }
 @keyframes like-fly {
-  0%   { transform: translateY(14px) scale(0.4); opacity: 0; }
-  18%  { transform: translateY(0) scale(1.15); opacity: 1; }
-  30%  { transform: translateY(-6px) scale(1); opacity: 1; }
-  100% { transform: translateY(-90px) scale(0.95); opacity: 0; }
+  0%   { transform: translate(-50%, -90%) scale(0.3); opacity: 0; }
+  18%  { transform: translate(-50%, -150%) scale(1.2); opacity: 1; }
+  30%  { transform: translate(-50%, -165%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -330%) scale(0.95); opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .like { animation: like-fade 1.2s ease forwards !important; }
   @keyframes like-fade { 0%, 40% { opacity: 1; } 100% { opacity: 0; } }
 }
+
+
