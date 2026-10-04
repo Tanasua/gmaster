@@ -6,6 +6,7 @@ import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
 import { dailyPick, todayKey } from './daily'
 import { Feedback, PositionCard } from './components/PositionCard'
 import { GuessBoard } from './components/GuessBoard'
+import { BackIcon, FlameIcon, Ornament, UserIcon } from './components/Icons'
 
 type Screen = { kind: 'home' } | { kind: 'game'; gameId: string } | { kind: 'daily' }
 
@@ -26,12 +27,25 @@ export default function App() {
   if (!data) return <main className="app"><p>Завантаження…</p></main>
 
   const home = () => setScreen({ kind: 'home' })
+  const subtitle = screen.kind === 'game'
+    ? `Граєш за: ${data.games.find((g) => g.id === screen.gameId)?.heroName}`
+    : screen.kind === 'daily' ? 'Хід дня' : 'Партії чемпіонів'
 
   return (
     <main className="app">
       <header className="top">
-        <button className="logo" onClick={home}>♟ Вгадай хід гросмейстера</button>
-        <span className="score">{stats.points} очок · серія {stats.streak}🔥</span>
+        <div className="top-bar">
+          {screen.kind !== 'home'
+            ? <button className="icon-btn" aria-label="До партій" onClick={home}><BackIcon /></button>
+            : <span className="icon-spacer" />}
+          <Ornament />
+          <span className="icon-spacer" />
+        </div>
+        <h1 className="app-title">Вгадай хід гросмейстера</h1>
+        <div className="top-meta">
+          <span className="chip"><UserIcon /> {subtitle}</span>
+          <span className="pill"><FlameIcon /> {stats.points} очок · серія <b>{stats.streak}</b></span>
+        </div>
       </header>
       {screen.kind === 'home' && <Home data={data} stats={stats} setScreen={setScreen} />}
       {screen.kind === 'game' && (
@@ -47,6 +61,7 @@ export default function App() {
       {screen.kind === 'daily' && (
         <Daily data={data} stats={stats} setStats={setStats} onExit={home} />
       )}
+      <footer className="bottom"><Ornament /></footer>
     </main>
   )
 }
@@ -58,7 +73,7 @@ function Home({ data, stats, setScreen }: { data: PuzzleData; stats: Stats; setS
   return (
     <>
       <section className="hero-block">
-        <h1>Чи зможеш ти думати як гросмейстер?</h1>
+        <h2 className="lead">Чи зможеш ти думати як гросмейстер?</h2>
         <p>Позиції з реальних партій. Вгадай хід, який зробив чемпіон, — а не той, що радить рушій.</p>
         <button className="primary" onClick={() => setScreen({ kind: 'daily' })}>
           {dailyDone ? `Хід дня ${VERDICT_EMOJI[dailyDone]} — переглянути` : '♟ Хід дня'}
@@ -209,7 +224,7 @@ function MoveList({ game, timeline, ply, attempts }: {
   const rows: React.ReactNode[] = []
   for (let i = 0; i < shown; i += 2) {
     rows.push(
-      <li key={i}>
+      <li key={i} className="mv-row">
         <span className="mv-no">{i / 2 + 1}.</span>
         {[i, i + 1].map((k) => k < shown && (
           <span key={k} className={`mv ${attempts[k]?.verdict ?? ''}`}>{timeline[k + 1].san}</span>

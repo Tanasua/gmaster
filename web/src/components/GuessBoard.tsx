@@ -14,8 +14,8 @@ interface Props {
   onMove: (uci: string, san: string) => void
 }
 
-const ARROW_GM = 'rgba(34, 160, 90, 0.9)'
-const ARROW_USER = 'rgba(220, 70, 60, 0.85)'
+const ARROW_GM = 'rgba(80, 170, 115, 0.9)'
+const ARROW_USER = 'rgba(205, 80, 70, 0.85)'
 
 export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, interactive = true, onMove }: Props) {
   // Вибір прив'язаний до позиції, тож скидається сам, коли позиція змінюється
@@ -57,15 +57,15 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
   const squareStyles: Record<string, React.CSSProperties> = {}
   const highlight = attempt ? gmMove : lastMove
   if (highlight) {
-    const color = attempt ? 'rgba(34, 160, 90, 0.35)' : 'rgba(255, 210, 60, 0.4)'
+    const color = attempt ? 'rgba(70, 160, 110, 0.45)' : 'rgba(214, 168, 72, 0.6)'
     squareStyles[highlight.slice(0, 2)] = { background: color }
     squareStyles[highlight.slice(2, 4)] = { background: color }
   }
   if (selected) {
-    squareStyles[selected] = { background: 'rgba(80, 140, 255, 0.45)' }
+    squareStyles[selected] = { background: 'rgba(232, 190, 96, 0.7)' }
     for (const m of new Chess(fen).moves({ square: selected, verbose: true })) {
       squareStyles[m.to] = {
-        background: 'radial-gradient(circle, rgba(40,40,40,0.35) 22%, transparent 24%)',
+        background: 'radial-gradient(circle, rgba(20,16,10,0.4) 20%, transparent 22%)',
       }
     }
   }
