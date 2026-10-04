@@ -5,7 +5,7 @@ import { judge, SKIP_ATTEMPT, VERDICT_EMOJI } from './scoring'
 import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
 import { dailyPick, todayKey } from './daily'
 import { Feedback, PositionCard } from './components/PositionCard'
-import { GuessBoard } from './components/GuessBoard'
+import { GuessBoard, WRONG_MOVE_MS } from './components/GuessBoard'
 import { BackIcon, FlameIcon, Ornament, UserIcon } from './components/Icons'
 
 type Screen = { kind: 'home' } | { kind: 'game'; gameId: string } | { kind: 'daily' }
@@ -118,6 +118,8 @@ function Home({ data, stats, setScreen }: { data: PuzzleData; stats: Stats; setS
 
 const AUTO_MOVE_MS = 600
 const AUTO_NEXT_AFTER_EXACT_MS = 900
+/** Неправильний хід: показ ходу користувача + хід гросмейстера + пауза, щоб побачити стрілки */
+const AUTO_NEXT_AFTER_MISS_MS = WRONG_MOVE_MS + 1500
 
 function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   game: Game; goodMoveCp: number; stats: Stats; setStats: (s: Stats) => void; onExit: () => void
@@ -140,12 +142,17 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
     return () => clearTimeout(t)
   }, [ply, done, pos])
 
-  // Після вгаданого ходу партія продовжується без натискання «Далі»
+  // Після будь-якої спроби партія продовжується сама, без кнопок
   useEffect(() => {
-    if (attempt?.verdict !== 'exact') return
-    const t = setTimeout(() => setPly((p) => p + 1), AUTO_NEXT_AFTER_EXACT_MS)
+    if (!attempt) return
+    const t = setTimeout(() => setPly((p) => p + 1), attempt.verdict === 'exact' ? AUTO_NEXT_AFTER_EXACT_MS : AUTO_NEXT_AFTER_MISS_MS)
     return () => clearTimeout(t)
   }, [attempt])
+
+  // Пояснення до останнього ходу лишається видимим, поки суперник ходить і до наступної спроби
+  const lastPly = Math.max(-1, ...Object.keys(attempts).map(Number).filter((k) => k <= ply))
+  const lastAttempt = attempts[lastPly] ?? null
+  const lastPos = byPly.get(lastPly)
 
   const list = game.positions.map((p) => attempts[p.ply]).filter((a): a is Attempt => !!a)
 
@@ -192,12 +199,9 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
         interactive={waiting}
         onMove={onMove}
       />
-      {attempt && pos && attempt.verdict !== 'exact' && <Feedback game={game} position={pos} attempt={attempt} />}
-      {attempt && attempt.verdict === 'exact' && (
-        <p className="feedback exact verdict">✅ {pos?.gmSan} — так і зіграв {game.heroName}. +{attempt.points}</p>
-      )}
-      {attempt && attempt.verdict !== 'exact' && (
-        <button className="primary" onClick={() => setPly(ply + 1)}>Далі →</button>
+      {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
+      {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
+        <p className="feedback exact verdict">✅ {lastPos.gmSan} — так і зіграв {game.heroName}. +{lastAttempt.points}</p>
       )}
       {waiting && <button className="ghost" onClick={onSkip}>Пропустити — не знаю</button>}
       <MoveList game={game} timeline={timeline} ply={ply} attempts={attempts} />

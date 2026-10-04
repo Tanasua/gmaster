@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Chess, type Square } from 'chess.js'
 import { Chessboard } from 'react-chessboard'
 import type { Attempt, Side } from '../types'
@@ -16,6 +16,8 @@ interface Props {
 
 const ARROW_GM = 'rgba(80, 170, 115, 0.9)'
 const ARROW_USER = 'rgba(205, 80, 70, 0.85)'
+/** Скільки тримати на дошці неправильний хід, перш ніж повернути фігуру */
+export const WRONG_MOVE_MS = 700
 
 export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, interactive = true, onMove }: Props) {
   // Вибір прив'язаний до позиції, тож скидається сам, коли позиція змінюється
@@ -24,13 +26,23 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
   const setSelected = (square: Square | null) => setSelection(square ? { fen, square } : null)
   const locked = !!attempt || !interactive
 
-  // Після спроби на дошці завжди стоїть реальний хід гросмейстера
+  // Неправильний хід спершу лишається на дошці з червоною стрілкою,
+  // потім фігура повертається і грається хід гросмейстера
+  const wrong = !!attempt && !!attempt.userMove && attempt.userMove !== gmMove
+  const [revealed, setRevealed] = useState<Attempt | null>(null)
+  useEffect(() => {
+    if (!wrong) return
+    const t = setTimeout(() => setRevealed(attempt), WRONG_MOVE_MS)
+    return () => clearTimeout(t)
+  }, [wrong, attempt])
+  const showUserMove = wrong && revealed !== attempt
+
   const shownFen = useMemo(() => {
     if (!attempt) return fen
     const c = new Chess(fen)
-    c.move(uciToMove(gmMove))
+    c.move(uciToMove(showUserMove ? attempt.userMove : gmMove))
     return c.fen()
-  }, [fen, gmMove, attempt])
+  }, [fen, gmMove, attempt, showUserMove])
 
   function tryMove(from: Square, to: Square): boolean {
     if (locked) return false
@@ -55,9 +67,9 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
 
   const turn = new Chess(fen).turn()
   const squareStyles: Record<string, React.CSSProperties> = {}
-  const highlight = attempt ? gmMove : lastMove
+  const highlight = showUserMove ? attempt!.userMove : attempt ? gmMove : lastMove
   if (highlight) {
-    const color = attempt ? 'rgba(70, 160, 110, 0.45)' : 'rgba(214, 168, 72, 0.6)'
+    const color = showUserMove ? 'rgba(205, 80, 70, 0.45)' : attempt ? 'rgba(70, 160, 110, 0.45)' : 'rgba(214, 168, 72, 0.6)'
     squareStyles[highlight.slice(0, 2)] = { background: color }
     squareStyles[highlight.slice(2, 4)] = { background: color }
   }
@@ -70,14 +82,12 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
     }
   }
 
-  const arrows = attempt
-    ? [
-        { startSquare: gmMove.slice(0, 2), endSquare: gmMove.slice(2, 4), color: ARROW_GM },
-        ...(attempt.userMove && attempt.userMove !== gmMove
-          ? [{ startSquare: attempt.userMove.slice(0, 2), endSquare: attempt.userMove.slice(2, 4), color: ARROW_USER }]
-          : []),
+  const arrows = !attempt
+    ? []
+    : [
+        ...(showUserMove ? [] : [{ startSquare: gmMove.slice(0, 2), endSquare: gmMove.slice(2, 4), color: ARROW_GM }]),
+        ...(wrong ? [{ startSquare: attempt.userMove.slice(0, 2), endSquare: attempt.userMove.slice(2, 4), color: ARROW_USER }] : []),
       ]
-    : []
 
   return (
     <div className="board">
