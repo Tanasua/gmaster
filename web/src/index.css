@@ -182,3 +182,9 @@ h2 { font: 700 20px/1.3 var(--font-display); margin: 8px 0 0; }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* Пропуск ходу */
+button.ghost { background: transparent; color: var(--muted); border-style: dashed; }
+button.ghost:hover { color: var(--fg); }
+.feedback.skip { background: rgba(255, 255, 255, 0.04); border-color: var(--line); }
+.mv.skip { background: rgba(255, 255, 255, 0.06); border-color: var(--line); color: var(--muted); }

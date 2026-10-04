@@ -73,7 +73,7 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
   const arrows = attempt
     ? [
         { startSquare: gmMove.slice(0, 2), endSquare: gmMove.slice(2, 4), color: ARROW_GM },
-        ...(attempt.userMove !== gmMove
+        ...(attempt.userMove && attempt.userMove !== gmMove
           ? [{ startSquare: attempt.userMove.slice(0, 2), endSquare: attempt.userMove.slice(2, 4), color: ARROW_USER }]
           : []),
       ]

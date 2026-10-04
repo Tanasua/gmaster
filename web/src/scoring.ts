@@ -1,4 +1,4 @@
-import type { Position, Verdict } from './types'
+import type { Attempt, Position, Verdict } from './types'
 
 export const BASE_POINTS = 100
 
@@ -21,4 +21,7 @@ export function formatCp(cp: number): string {
   return (p > 0 ? '+' : '') + p.toFixed(1)
 }
 
-export const VERDICT_EMOJI: Record<Verdict, string> = { exact: '🟩', good: '🟨', miss: '⬛' }
+export const VERDICT_EMOJI: Record<Verdict, string> = { exact: '🟩', good: '🟨', miss: '🟥', skip: '⬜' }
+
+/** Користувач не знає, як ходити: показуємо хід без очок */
+export const SKIP_ATTEMPT: Attempt = { userMove: '', userSan: '', verdict: 'skip', points: 0, cpLoss: Infinity }

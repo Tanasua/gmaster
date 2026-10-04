@@ -7,12 +7,13 @@ interface Props {
   position: Position
   attempt: Attempt | null
   onMove: (uci: string, san: string) => void
+  onSkip?: () => void
   /** Ховати, хто грав, до відповіді */
   header: React.ReactNode
   footer?: React.ReactNode
 }
 
-export function PositionCard({ game, position, attempt, onMove, header, footer }: Props) {
+export function PositionCard({ game, position, attempt, onMove, onSkip, header, footer }: Props) {
   return (
     <div className="card">
       <div className="prompt">{header}</div>
@@ -26,7 +27,10 @@ export function PositionCard({ game, position, attempt, onMove, header, footer }
         onMove={onMove}
       />
       {attempt ? <Feedback game={game} position={position} attempt={attempt} /> : (
-        <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>
+        <>
+          <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>
+          {onSkip && <button className="ghost" onClick={onSkip}>Пропустити — не знаю</button>}
+        </>
       )}
       {footer}
     </div>
@@ -44,6 +48,9 @@ export function Feedback({ game, position, attempt }: { game: Game; position: Po
         <p className="verdict">
           🟨 Сильний хід <b>{attempt.userSan}</b>, але {game.heroName} зіграв <b>{position.gmSan}</b>. +{attempt.points}
         </p>
+      )}
+      {attempt.verdict === 'skip' && (
+        <p className="verdict">⏭ Пропущено. {game.heroName} зіграв <b>{position.gmSan}</b>.</p>
       )}
       {attempt.verdict === 'miss' && (
         <p className="verdict">❌ Ти зіграв <b>{attempt.userSan}</b>. {game.heroName} зіграв <b>{position.gmSan}</b>.</p>

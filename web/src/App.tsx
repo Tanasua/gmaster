@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Chess } from 'chess.js'
 import type { Attempt, Game, PuzzleData } from './types'
-import { judge, VERDICT_EMOJI } from './scoring'
+import { judge, SKIP_ATTEMPT, VERDICT_EMOJI } from './scoring'
 import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
 import { dailyPick, todayKey } from './daily'
 import { Feedback, PositionCard } from './components/PositionCard'
@@ -158,6 +158,11 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
     setStats(recordAttempt(stats, game.heroName, r.verdict, r.points))
   }
 
+  function onSkip() {
+    setAttempts({ ...attempts, [ply]: SKIP_ATTEMPT })
+    setStats(recordAttempt(stats, game.heroName, 'skip', 0))
+  }
+
   const exact = list.filter((a) => a.verdict === 'exact').length
   const moveNumber = Math.floor(ply / 2) + 1
   const heroToMove = (ply % 2 === 0) === (game.hero === 'white')
@@ -194,6 +199,7 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
       {attempt && attempt.verdict !== 'exact' && (
         <button className="primary" onClick={() => setPly(ply + 1)}>Далі →</button>
       )}
+      {waiting && <button className="ghost" onClick={onSkip}>Пропустити — не знаю</button>}
       <MoveList game={game} timeline={timeline} ply={ply} attempts={attempts} />
     </div>
   )
@@ -242,6 +248,7 @@ function MoveList({ game, timeline, ply, attempts }: {
 function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: Attempt[]; onExit: () => void; onRestart: () => void }) {
   const exact = attempts.filter((a) => a.verdict === 'exact').length
   const good = attempts.filter((a) => a.verdict === 'good').length
+  const skipped = attempts.filter((a) => a.verdict === 'skip').length
   const points = attempts.reduce((s, a) => s + a.points, 0)
   const grid = chunk(attempts.map((a) => VERDICT_EMOJI[a.verdict]), 10).map((r) => r.join('')).join('\n')
   const shareText = `♟ Вгадай хід гросмейстера\n${game.title} (${game.year})\nЯ зіграв як ${game.heroName} на ${pct(exact, attempts.length)}%\n${grid}`
@@ -249,7 +256,7 @@ function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: 
     <div className="card summary">
       <h2>Ти зіграв як {game.heroName} на {pct(exact, attempts.length)}%</h2>
       <p className="grid">{grid}</p>
-      <p>Вгадано {exact} з {attempts.length} ходів · ще {good} сильних альтернатив · {points} очок</p>
+      <p>Вгадано {exact} з {attempts.length} ходів · ще {good} сильних альтернатив{skipped ? ` · пропущено ${skipped}` : ''} · {points} очок</p>
       <p className="small">{game.white} — {game.black}, {game.event}, {game.year}, {game.result}</p>
       <div className="row">
         <ShareButton text={shareText} />
@@ -272,6 +279,11 @@ function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Sta
     if (!prev) setStats(recordDaily(recordAttempt(stats, game.heroName, r.verdict, r.points), today, r.verdict))
   }
 
+  function onSkip() {
+    setAttempt(SKIP_ATTEMPT)
+    if (!prev) setStats(recordDaily(recordAttempt(stats, game.heroName, 'skip', 0), today, 'skip'))
+  }
+
   const verdict = attempt?.verdict ?? prev
   const shareText = verdict && `♟ Хід дня #${index} ${VERDICT_EMOJI[verdict]}\nВгадай хід гросмейстера`
 
@@ -281,6 +293,7 @@ function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Sta
       position={position}
       attempt={attempt}
       onMove={onMove}
+      onSkip={onSkip}
       header={
         <>
           <div className="progress">Хід дня #{index}{prev && !attempt ? ` · сьогодні вже зіграно ${VERDICT_EMOJI[prev]} (без очок)` : ''}</div>

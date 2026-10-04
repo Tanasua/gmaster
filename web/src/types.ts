@@ -44,9 +44,10 @@ export interface PuzzleData {
   games: Game[]
 }
 
-export type Verdict = 'exact' | 'good' | 'miss'
+export type Verdict = 'exact' | 'good' | 'miss' | 'skip'
 
 export interface Attempt {
+  /** '' — хід пропущено */
   userMove: string
   userSan: string
   verdict: Verdict
