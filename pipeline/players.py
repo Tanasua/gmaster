@@ -3,12 +3,15 @@
 Беруться лише вільні ліцензії (CC / Public domain); автор і ліцензія зберігаються для підпису.
 Фото вбудовуються як data: URI (працює і в Claude Artifact, і в Android-обгортці).
 Запити повільні, з паузами та повторами — Wikimedia обмежує частоту.
+Для гросмейстерів ("gm": true у data/players.json) додатково береться більше фото
+(photoLarge, LARGE_WIDTH px) напряму з upload.wikimedia.org — без API.
 
 Використання:
     python pipeline/players.py [--out шлях]   # за замовчуванням web/public/data/players.json
 """
 import argparse
 import base64
+import hashlib
 import json
 import re
 import time
@@ -19,6 +22,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 UA = "gmaster/0.1 (chess guessing game prototype; contact via repository)"
 THUMB_WIDTH = 160
+LARGE_WIDTH = 330  # має бути стандартним розміром мініатюр Wikimedia
 PAUSE_S = 3
 FREE_LICENSE = re.compile(r"^(CC|Public domain|PD)", re.I)
 
@@ -80,6 +84,16 @@ def find_photo(search):
     }
 
 
+def large_photo(source_url):
+    """Мініатюра LARGE_WIDTH px за адресою сторінки файлу на Commons (шлях — за md5 імені файлу)."""
+    name = urllib.parse.unquote(source_url.split("File:")[1]).replace(" ", "_")
+    h = hashlib.md5(name.encode()).hexdigest()
+    q = urllib.parse.quote(name)
+    url = f"https://upload.wikimedia.org/wikipedia/commons/thumb/{h[0]}/{h[:2]}/{q}/{LARGE_WIDTH}px-{q}"
+    mime = "image/png" if name.lower().endswith(".png") else "image/jpeg"
+    return f"data:{mime};base64," + base64.b64encode(fetch(url)).decode()
+
+
 def main():
     players = json.loads((ROOT / "data" / "players.json").read_text(encoding="utf-8"))
     ap = argparse.ArgumentParser()
@@ -97,6 +111,16 @@ def main():
             print(f"  помилка: {e}")
         out[key] = entry
         out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    for key, p in players.items():
+        entry = out.get(key, {})
+        if p.get("gm") and entry.get("source") and not entry.get("photoLarge"):
+            print(key, "(велике фото)")
+            try:
+                entry["photoLarge"] = large_photo(entry["source"])
+            except Exception as e:  # noqa: BLE001
+                print(f"  помилка: {e}")
+            out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+
     # Ручні підписи з data/players.json мають пріоритет над автоматичними
     for key, p in players.items():
         if p.get("credit") and out.get(key, {}).get("photo"):

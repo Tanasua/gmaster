@@ -66,3 +66,8 @@ export function recordDaily(stats: Stats, date: string, verdict: Verdict): Stats
   write(STATS_KEY, next)
   return next
 }
+
+export function resetStats(): Stats {
+  write(STATS_KEY, EMPTY)
+  return EMPTY
+}

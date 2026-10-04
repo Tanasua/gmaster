@@ -3,6 +3,8 @@ import { createContext } from 'react'
 export interface PlayerInfo {
   name: string
   photo?: string
+  /** Більше фото для сторінки гросмейстера */
+  photoLarge?: string
   credit?: string
   source?: string
 }

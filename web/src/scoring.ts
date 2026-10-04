@@ -1,4 +1,5 @@
 import type { Attempt, Position, Verdict } from './types'
+import type { Lang } from './i18n'
 
 export const BASE_POINTS = 100
 
@@ -15,8 +16,8 @@ export function judge(pos: Position, userMove: string, goodMoveCp: number): { ve
   return { verdict: 'miss', points: 0, cpLoss }
 }
 
-export function formatCp(cp: number): string {
-  if (Math.abs(cp) >= 9000) return cp > 0 ? 'мат' : 'отримує мат'
+export function formatCp(cp: number, lang: Lang = 'uk'): string {
+  if (Math.abs(cp) >= 9000) return cp > 0 ? (lang === 'uk' ? 'мат' : 'mate') : (lang === 'uk' ? 'отримує мат' : 'gets mated')
   const p = cp / 100
   return (p > 0 ? '+' : '') + p.toFixed(1)
 }

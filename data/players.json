@@ -6,11 +6,13 @@
   "Fischer, Robert James": {
     "name": "Роберт Фішер",
     "search": "Bobby Fischer",
-    "credit": "Ulrich Kohls (Bundesarchiv), похідна робота: Karpouzi, CC BY-SA 3.0, Wikimedia Commons"
+    "credit": "Ulrich Kohls (Bundesarchiv), похідна робота: Karpouzi, CC BY-SA 3.0, Wikimedia Commons",
+    "gm": true
   },
   "Kasparov, Gary": {
     "name": "Гаррі Каспаров",
-    "search": "Garry Kasparov"
+    "search": "Garry Kasparov",
+    "gm": true
   },
   "Topalov, Veselin": {
     "name": "Веселин Топалов",
@@ -27,7 +29,8 @@
   "Short, Nigel D": {
     "name": "Найджел Шорт",
     "search": "Nigel Short",
-    "credit": "Przemysław Jahr, CC BY-SA 3.0, Wikimedia Commons"
+    "credit": "Przemysław Jahr, CC BY-SA 3.0, Wikimedia Commons",
+    "gm": true
   },
   "Timman, Jan H": {
     "name": "Ян Тімман",
@@ -35,7 +38,8 @@
   },
   "Carlsen,M": {
     "name": "Магнус Карлсен",
-    "search": "Magnus Carlsen"
+    "search": "Magnus Carlsen",
+    "gm": true
   },
   "Karjakin,Sergey": {
     "name": "Сергій Карякін",
@@ -43,7 +47,8 @@
   },
   "Anand,V": {
     "name": "Вішванатан Ананд",
-    "search": "Viswanathan Anand"
+    "search": "Viswanathan Anand",
+    "gm": true
   },
   "Aronian,L": {
     "name": "Левон Аронян",
@@ -51,7 +56,8 @@
   },
   "Tal, Mihail": {
     "name": "Михайло Таль",
-    "search": "Mikhail Tal"
+    "search": "Mikhail Tal",
+    "gm": true
   },
   "Larsen, Bent": {
     "name": "Бент Ларсен",

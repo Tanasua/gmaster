@@ -1,11 +1,12 @@
 import { useContext } from 'react'
 import type { Game, Side } from '../types'
-import { PlayersContext, type PlayerInfo } from '../players'
+import { PlayersContext } from '../players'
+import { useLang, useT } from '../i18n'
+import { playerName } from '../content/names'
+import { Avatar } from './Avatar'
 
 interface Props {
-  info: PlayerInfo | null
-  /** Ім'я з PGN, якщо немає перекладу */
-  fallbackName: string
+  pgnName: string
   side: Side
   toMove: boolean
   isHero: boolean
@@ -13,41 +14,34 @@ interface Props {
   hidden?: boolean
 }
 
-export function PlayerBar({ info, fallbackName, side, toMove, isHero, hidden }: Props) {
-  const name = hidden ? 'Гросмейстер' : info?.name ?? fallbackName
+export function PlayerBar({ pgnName, side, toMove, isHero, hidden }: Props) {
+  const t = useT()
+  const lang = useLang()
+  const players = useContext(PlayersContext)
+  const name = hidden ? t('grandmaster') : playerName(pgnName, lang, players)
   return (
     <div className={`player ${toMove ? 'to-move' : ''}`}>
-      <div className="avatar" title={hidden ? undefined : info?.credit}>
-        {!hidden && info?.photo
-          ? <img src={info.photo} alt={name} />
-          : <span>{hidden ? '?' : initials(name)}</span>}
-      </div>
+      <Avatar pgnName={hidden ? null : pgnName} name={name} />
       <div className="player-text">
         <span className="player-name">{name}</span>
         <span className="player-sub">
-          <i className={`side-dot ${side}`} aria-hidden /> {side === 'white' ? 'Білі' : 'Чорні'}
-          {isHero && <> · <b>твої фігури</b></>}
+          <i className={`side-dot ${side}`} aria-hidden /> {side === 'white' ? t('white') : t('black')}
+          {isHero && <> · <b>{t('yourPieces')}</b></>}
         </span>
       </div>
-      {toMove && <span className="to-move-tag">хід</span>}
+      {toMove && <span className="to-move-tag">{t('toMove')}</span>}
     </div>
   )
-}
-
-function initials(name: string): string {
-  return name.split(/[\s,]+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase()
 }
 
 /** Дошка між гравцями: суперник зверху, герой знизу */
 export function Seats({ game, whiteToMove, hidden, children }: {
   game: Game; whiteToMove: boolean; hidden?: boolean; children: React.ReactNode
 }) {
-  const players = useContext(PlayersContext)
   const opp: Side = game.hero === 'white' ? 'black' : 'white'
   const seat = (side: Side) => (
     <PlayerBar
-      info={players[side === 'white' ? game.white : game.black] ?? null}
-      fallbackName={side === 'white' ? game.white : game.black}
+      pgnName={side === 'white' ? game.white : game.black}
       side={side}
       toMove={whiteToMove === (side === 'white')}
       isHero={side === game.hero}

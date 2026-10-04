@@ -1,23 +1,38 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { Chess } from 'chess.js'
-import type { Attempt, Game, PuzzleData } from './types'
-import { judge, SKIP_ATTEMPT, VERDICT_EMOJI } from './scoring'
-import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
-import { dailyPick, todayKey } from './daily'
-import { Feedback, PositionCard, SkipButton } from './components/PositionCard'
-import { GuessBoard, WRONG_MOVE_MS } from './components/GuessBoard'
-import { Seats } from './components/PlayerBar'
+import { useEffect, useState } from 'react'
+import type { PuzzleData } from './types'
+import { loadStats, resetStats, type Stats } from './storage'
 import { PlayersContext, type Players } from './players'
+import { LangContext, useT } from './i18n'
+import { loadSettings, saveSettings, SettingsContext, useSettings, type Settings } from './settings'
+import { gmById } from './content/gms'
+import { gamesOfGm, gmOfGame, heroShort } from './content/names'
 import { BackIcon, FlameIcon, Ornament, UserIcon } from './components/Icons'
+import { Menu, type MenuAction } from './screens/Menu'
+import { GmList, GmPage } from './screens/Gms'
+import { GameList, GamePreview } from './screens/Games'
+import { GameRun } from './screens/GameRun'
+import { Daily } from './screens/Daily'
+import { SettingsScreen } from './screens/SettingsScreen'
 
-type Screen = { kind: 'home' } | { kind: 'game'; gameId: string } | { kind: 'daily' }
+type Screen =
+  | { kind: 'menu' }
+  | { kind: 'gms' }
+  | { kind: 'gm'; id: string }
+  | { kind: 'games' }
+  | { kind: 'preview'; gameId: string }
+  | { kind: 'game'; gameId: string; run: number }
+  | { kind: 'daily' }
+  | { kind: 'settings' }
 
 export default function App() {
   const [data, setData] = useState<PuzzleData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [stats, setStats] = useState<Stats>(loadStats)
-  const [screen, setScreen] = useState<Screen>({ kind: 'home' })
   const [players, setPlayers] = useState<Players>({})
+  const [settings, setSettingsState] = useState<Settings>(loadSettings)
+  // Стек екранів: «Назад» повертає на попередній
+  const [stack, setStack] = useState<Screen[]>([{ kind: 'menu' }])
+  const screen = stack[stack.length - 1]
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/puzzles.json`)
@@ -31,354 +46,124 @@ export default function App() {
       .catch(() => {})
   }, [])
 
-  if (error) return <main className="app"><p>Не вдалося завантажити позиції: {error}</p></main>
-  if (!data) return <main className="app"><p>Завантаження…</p></main>
-
-  const home = () => setScreen({ kind: 'home' })
-  const subtitle = screen.kind === 'game'
-    ? `Граєш за: ${data.games.find((g) => g.id === screen.gameId)?.heroName}`
-    : screen.kind === 'daily' ? 'Хід дня' : 'Партії чемпіонів'
-
-  return (
-    <PlayersContext.Provider value={players}>
-    <main className="app">
-      <header className="top">
-        <div className="top-bar">
-          {screen.kind !== 'home'
-            ? <button className="icon-btn" aria-label="До партій" onClick={home}><BackIcon /></button>
-            : <span className="icon-spacer" />}
-          <Ornament />
-          <span className="icon-spacer" />
-        </div>
-        <h1 className="app-title">Вгадай хід гросмейстера</h1>
-        <div className="top-meta">
-          <span className="chip"><UserIcon /> {subtitle}</span>
-          <span className="pill"><FlameIcon /> {stats.points} очок · серія <b>{stats.streak}</b></span>
-        </div>
-      </header>
-      {screen.kind === 'home' && <Home data={data} stats={stats} setScreen={setScreen} />}
-      {screen.kind === 'game' && (
-        <GameRun
-          key={screen.gameId}
-          game={data.games.find((g) => g.id === screen.gameId)!}
-          goodMoveCp={data.goodMoveCp}
-          stats={stats}
-          setStats={setStats}
-          onExit={home}
-        />
-      )}
-      {screen.kind === 'daily' && (
-        <Daily data={data} stats={stats} setStats={setStats} onExit={home} />
-      )}
-      {screen.kind === 'home' && <Credits players={players} />}
-      <footer className="bottom"><Ornament /></footer>
-    </main>
-    </PlayersContext.Provider>
-  )
-}
-
-function Home({ data, stats, setScreen }: { data: PuzzleData; stats: Stats; setScreen: (s: Screen) => void }) {
-  const today = todayKey()
-  const dailyDone = stats.daily[today]
-  const heroes = Object.entries(stats.heroes).sort((a, b) => b[1].attempts - a[1].attempts)
-  return (
-    <>
-      <section className="hero-block">
-        <h2 className="lead">Чи зможеш ти думати як гросмейстер?</h2>
-        <p>Позиції з реальних партій. Вгадай хід, який зробив чемпіон, — а не той, що радить рушій.</p>
-        <button className="primary" onClick={() => setScreen({ kind: 'daily' })}>
-          {dailyDone ? `Хід дня ${VERDICT_EMOJI[dailyDone]} — переглянути` : '♟ Хід дня'}
-        </button>
-      </section>
-
-      <h2>Партії</h2>
-      <ul className="games">
-        {data.games.map((g) => (
-          <li key={g.id}>
-            <button onClick={() => setScreen({ kind: 'game', gameId: g.id })}>
-              <span className="game-title">{g.title}</span>
-              <span className="game-meta">
-                Грай за: <b>{g.heroName}</b> · {g.white} — {g.black}, {g.year} · {Math.ceil(g.moves.length / 2)} ходів
-              </span>
-            </button>
-          </li>
-        ))}
-      </ul>
-
-      {heroes.length > 0 && (
-        <>
-          <h2>GM-індекс</h2>
-          <table className="gm-index">
-            <thead><tr><th>Гросмейстер</th><th>Вгадано</th><th>Сильних ходів</th></tr></thead>
-            <tbody>
-              {heroes.map(([name, h]) => (
-                <tr key={name}>
-                  <td>{name}</td>
-                  <td>{pct(h.exact, h.attempts)}%</td>
-                  <td>{pct(h.exact + h.good, h.attempts)}%</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="small">Найдовша серія вгаданих ходів: {stats.bestStreak}</p>
-        </>
-      )}
-    </>
-  )
-}
-
-const AUTO_MOVE_MS = 600
-const AUTO_NEXT_AFTER_EXACT_MS = 900
-/** Неправильний хід: показ ходу користувача + хід гросмейстера + пауза, щоб побачити стрілки */
-const AUTO_NEXT_AFTER_MISS_MS = WRONG_MOVE_MS + 1500
-
-function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
-  game: Game; goodMoveCp: number; stats: Stats; setStats: (s: Stats) => void; onExit: () => void
-}) {
-  // ply — скільки ходів партії вже зіграно на дошці
-  const [ply, setPly] = useState(0)
-  const [attempts, setAttempts] = useState<Record<number, Attempt>>({})
-  const timeline = useMemo(() => buildTimeline(game.moves), [game.moves])
-  const byPly = useMemo(() => new Map(game.positions.map((p) => [p.ply, p])), [game.positions])
-
-  const done = ply >= game.moves.length
-  const pos = byPly.get(ply)
-  const attempt = attempts[ply] ?? null
-  const waiting = !done && !!pos && !attempt
-
-  // Ходи суперника і вимушені ходи героя граються самі
   useEffect(() => {
-    if (done || pos) return
-    const t = setTimeout(() => setPly((p) => p + 1), AUTO_MOVE_MS)
-    return () => clearTimeout(t)
-  }, [ply, done, pos])
+    document.documentElement.dataset.palette = settings.theme
+    document.documentElement.lang = settings.lang
+  }, [settings.theme, settings.lang])
 
-  // Після будь-якої спроби партія продовжується сама, без кнопок
+  // Кожен новий екран відкривається з верху сторінки
   useEffect(() => {
-    if (!attempt) return
-    const t = setTimeout(() => setPly((p) => p + 1), attempt.verdict === 'exact' ? AUTO_NEXT_AFTER_EXACT_MS : AUTO_NEXT_AFTER_MISS_MS)
-    return () => clearTimeout(t)
-  }, [attempt])
+    window.scrollTo({ top: 0 })
+  }, [stack.length])
 
-  // Пояснення до останнього ходу лишається видимим, поки суперник ходить і до наступної спроби
-  const lastPly = Math.max(-1, ...Object.keys(attempts).map(Number).filter((k) => k <= ply))
-  const lastAttempt = attempts[lastPly] ?? null
-  const lastPos = byPly.get(lastPly)
-
-  const list = game.positions.map((p) => attempts[p.ply]).filter((a): a is Attempt => !!a)
-
-  if (done) return <Summary game={game} attempts={list} onExit={onExit} onRestart={() => { setPly(0); setAttempts({}) }} />
-
-  function onMove(uci: string, san: string) {
-    if (!pos) return
-    const r = judge(pos, uci, goodMoveCp)
-    setAttempts({ ...attempts, [ply]: { userMove: uci, userSan: san, ...r } })
-    setStats(recordAttempt(stats, game.heroName, r.verdict, r.points))
+  const setSettings = (s: Settings) => {
+    setSettingsState(s)
+    saveSettings(s)
   }
-
-  function onSkip() {
-    setAttempts({ ...attempts, [ply]: SKIP_ATTEMPT })
-    setStats(recordAttempt(stats, game.heroName, 'skip', 0))
-  }
-
-  const exact = list.filter((a) => a.verdict === 'exact').length
-  const moveNumber = Math.floor(ply / 2) + 1
-  const heroToMove = (ply % 2 === 0) === (game.hero === 'white')
+  const push = (s: Screen) => setStack([...stack, s])
+  const back = () => setStack(stack.length > 1 ? stack.slice(0, -1) : stack)
+  const toMenu = () => setStack([{ kind: 'menu' }])
 
   return (
-    <div className="card">
-      <Seats game={game} whiteToMove={ply % 2 === 0}>
-        <GuessBoard
-          fen={timeline[ply].fen}
-          lastMove={timeline[ply].lastMove}
-          gmMove={pos?.gmMove ?? ''}
-          orientation={game.hero}
-          attempt={attempt}
-          interactive={waiting}
-          onMove={onMove}
-        />
-      </Seats>
-      <div className="prompt">
-        <div className="progress">
-          {game.title} · вгадано {exact} з {list.length} (усього {game.positions.length})
-        </div>
-        <div className="prompt-row">
-          <div className="question">
-            {waiting
-              ? <>Хід {moveNumber}{game.hero === 'black' ? '…' : '.'} Що зіграв <b>{game.heroName}</b>?</>
-              : heroToMove && !pos
-                ? <>Єдиний можливий хід…</>
-                : !heroToMove
-                  ? <>Ходить суперник…</>
-                  : <>&nbsp;</>}
-          </div>
-        </div>
-      </div>
-      {/* Кнопка завжди на місці (лише вимикається), щоб дошка не стрибала */}
-      <SkipButton disabled={!waiting} onClick={onSkip} />
-      <div className="panel">
-        {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
-        {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
-          <p className="feedback exact verdict">✅ {lastPos.gmSan} — так і зіграв {game.heroName}. +{lastAttempt.points}</p>
-        )}
-        {!lastAttempt && <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>}
-      </div>
-      <MoveList game={game} timeline={timeline} ply={ply} attempts={attempts} />
-    </div>
+    <SettingsContext.Provider value={settings}>
+      <LangContext.Provider value={settings.lang}>
+        <PlayersContext.Provider value={players}>
+          <main className="app">
+            {error && <ErrorBox error={error} />}
+            {!error && !data && <Loading />}
+            {data && (
+              <>
+                <Header screen={screen} data={data} stats={stats} onBack={back} />
+                {screen.kind === 'menu' && (
+                  <Menu data={data} stats={stats} onAction={(a) => onMenu(a, data)} />
+                )}
+                {screen.kind === 'gms' && <GmList games={data.games} onOpen={(id) => push({ kind: 'gm', id })} />}
+                {screen.kind === 'gm' && gmById(screen.id) && (
+                  <GmPage
+                    gm={gmById(screen.id)!}
+                    games={data.games}
+                    onSelect={(id) => { setSettings({ ...settings, gmId: id }); if (id) toMenu() }}
+                    onOpenGame={(gameId) => push({ kind: 'preview', gameId })}
+                  />
+                )}
+                {screen.kind === 'games' && <GameList games={data.games} onOpen={(gameId) => push({ kind: 'preview', gameId })} />}
+                {screen.kind === 'preview' && (
+                  <GamePreview
+                    game={data.games.find((g) => g.id === screen.gameId)!}
+                    onStart={() => push({ kind: 'game', gameId: screen.gameId, run: Date.now() })}
+                  />
+                )}
+                {screen.kind === 'game' && (
+                  <GameRun
+                    key={screen.run}
+                    game={data.games.find((g) => g.id === screen.gameId)!}
+                    goodMoveCp={data.goodMoveCp}
+                    stats={stats}
+                    setStats={setStats}
+                    onExit={toMenu}
+                  />
+                )}
+                {screen.kind === 'daily' && <Daily data={data} stats={stats} setStats={setStats} onExit={toMenu} />}
+                {screen.kind === 'settings' && (
+                  <SettingsScreen settings={settings} onChange={setSettings} onResetStats={() => setStats(resetStats())} />
+                )}
+                <footer className="bottom"><Ornament /></footer>
+              </>
+            )}
+          </main>
+        </PlayersContext.Provider>
+      </LangContext.Provider>
+    </SettingsContext.Provider>
   )
-}
 
-interface TimelineEntry { fen: string; lastMove: string | null; san: string | null }
-
-/** fen перед кожним ходом партії (і фінальна позиція) */
-function buildTimeline(moves: string[]): TimelineEntry[] {
-  const c = new Chess()
-  const out: TimelineEntry[] = [{ fen: c.fen(), lastMove: null, san: null }]
-  for (const uci of moves) {
-    const m = c.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] })
-    out.push({ fen: c.fen(), lastMove: uci, san: m.san })
-  }
-  return out
-}
-
-function MoveList({ game, timeline, ply, attempts }: {
-  game: Game; timeline: TimelineEntry[]; ply: number; attempts: Record<number, Attempt>
-}) {
-  const ref = useRef<HTMLOListElement>(null)
-  useEffect(() => {
-    ref.current?.scrollTo({ top: ref.current.scrollHeight })
-  }, [ply])
-  // Хід героя з'являється в записі лише після спроби
-  const shown = attempts[ply] ? ply + 1 : ply
-  const rows: React.ReactNode[] = []
-  for (let i = 0; i < shown; i += 2) {
-    rows.push(
-      <li key={i} className="mv-row">
-        <span className="mv-no">{i / 2 + 1}.</span>
-        {[i, i + 1].map((k) => k < shown && (
-          <span key={k} className={`mv ${attempts[k]?.verdict ?? ''}`}>{timeline[k + 1].san}</span>
-        ))}
-      </li>,
-    )
-  }
-  return (
-    <ol ref={ref} className="moves" aria-label={`Запис партії ${game.white} — ${game.black}`}>
-      {rows.length ? rows : <li className="small">Партія починається з початкової позиції.</li>}
-    </ol>
-  )
-}
-
-function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: Attempt[]; onExit: () => void; onRestart: () => void }) {
-  const exact = attempts.filter((a) => a.verdict === 'exact').length
-  const good = attempts.filter((a) => a.verdict === 'good').length
-  const skipped = attempts.filter((a) => a.verdict === 'skip').length
-  const points = attempts.reduce((s, a) => s + a.points, 0)
-  const grid = chunk(attempts.map((a) => VERDICT_EMOJI[a.verdict]), 10).map((r) => r.join('')).join('\n')
-  const shareText = `♟ Вгадай хід гросмейстера\n${game.title} (${game.year})\nЯ зіграв як ${game.heroName} на ${pct(exact, attempts.length)}%\n${grid}`
-  return (
-    <div className="card summary">
-      <h2>Ти зіграв як {game.heroName} на {pct(exact, attempts.length)}%</h2>
-      <p className="grid">{grid}</p>
-      <p>Вгадано {exact} з {attempts.length} ходів · ще {good} сильних альтернатив{skipped ? ` · пропущено ${skipped}` : ''} · {points} очок</p>
-      <p className="small">{game.white} — {game.black}, {game.event}, {game.year}, {game.result}</p>
-      <div className="row">
-        <ShareButton text={shareText} />
-        <button onClick={onRestart}>Ще раз</button>
-        <button onClick={onExit}>До партій</button>
-      </div>
-    </div>
-  )
-}
-
-function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Stats; setStats: (s: Stats) => void; onExit: () => void }) {
-  const today = todayKey()
-  const { game, position, index } = dailyPick(data.games, today)
-  const [attempt, setAttempt] = useState<Attempt | null>(null)
-  const prev = stats.daily[today]
-
-  function onMove(uci: string, san: string) {
-    const r = judge(position, uci, data.goodMoveCp)
-    setAttempt({ userMove: uci, userSan: san, ...r })
-    if (!prev) setStats(recordDaily(recordAttempt(stats, game.heroName, r.verdict, r.points), today, r.verdict))
-  }
-
-  function onSkip() {
-    setAttempt(SKIP_ATTEMPT)
-    if (!prev) setStats(recordDaily(recordAttempt(stats, game.heroName, 'skip', 0), today, 'skip'))
-  }
-
-  const verdict = attempt?.verdict ?? prev
-  const shareText = verdict && `♟ Хід дня #${index} ${VERDICT_EMOJI[verdict]}\nВгадай хід гросмейстера`
-
-  return (
-    <PositionCard
-      game={game}
-      position={position}
-      attempt={attempt}
-      onMove={onMove}
-      onSkip={onSkip}
-      hidePlayers={!attempt}
-      progress={`Хід дня #${index}${prev && !attempt ? ` · сьогодні вже зіграно ${VERDICT_EMOJI[prev]} (без очок)` : ''}`}
-      question={<>Хід {position.moveNumber}{game.hero === 'black' ? '…' : '.'} {game.hero === 'white' ? 'Білі' : 'Чорні'}. Який хід зробив гросмейстер?</>}
-      footer={attempt && (
-        <div className="row">
-          {/* Хто грав — показуємо лише після відповіді */}
-          <p className="reveal">Це був <b>{game.heroName}</b>: {game.white} — {game.black}, {game.year}</p>
-          {shareText && <ShareButton text={shareText} />}
-          <button onClick={onExit}>До партій</button>
-        </div>
-      )}
-    />
-  )
-}
-
-function ShareButton({ text }: { text: string }) {
-  const [state, setState] = useState<'idle' | 'copied' | 'manual'>('idle')
-  async function share() {
-    try {
-      if (navigator.share) {
-        await navigator.share({ text })
-        return
-      }
-    } catch (e) {
-      if ((e as Error).name === 'AbortError') return // користувач скасував
-    }
-    // Web Share недоступний або заборонений — копіюємо в буфер, інакше показуємо текст
-    try {
-      await navigator.clipboard.writeText(text)
-      setState('copied')
-    } catch {
-      setState('manual')
+  function onMenu(a: MenuAction, d: PuzzleData) {
+    if (a === 'gms') push({ kind: 'gms' })
+    else if (a === 'games') push({ kind: 'games' })
+    else if (a === 'daily') push({ kind: 'daily' })
+    else if (a === 'settings') push({ kind: 'settings' })
+    else {
+      // Випадкова партія: серед партій обраного гросмейстера, якщо він обраний
+      const gm = gmById(settings.gmId)
+      const pool = gm && gamesOfGm(gm, d.games).length ? gamesOfGm(gm, d.games) : d.games
+      const game = pool[Math.floor(Math.random() * pool.length)]
+      push({ kind: 'preview', gameId: game.id })
     }
   }
+}
+
+function Header({ screen, data, stats, onBack }: { screen: Screen; data: PuzzleData; stats: Stats; onBack: () => void }) {
+  const t = useT()
+  const { lang, gmId } = useSettings()
+  const game = 'gameId' in screen ? data.games.find((g) => g.id === screen.gameId) : undefined
+  const gm = game ? gmOfGame(game) : gmById(gmId)
+  const subtitle = game
+    ? `${t('youPlayFor')}: ${heroShort(game, lang)}`
+    : screen.kind === 'daily' ? t('daily')
+      : gm ? `${t('youPlayAs')}: ${gm.short[lang]}` : t('chooseGmHint')
   return (
-    <>
-      <button className="primary" onClick={share}>{state === 'copied' ? 'Скопійовано ✓' : 'Поділитися'}</button>
-      {state === 'manual' && <textarea id="share-text" className="share-text" readOnly value={text} onFocus={(e) => e.currentTarget.select()} />}
-    </>
+    <header className="top">
+      <div className="top-bar">
+        {screen.kind !== 'menu'
+          ? <button className="icon-btn" aria-label={t('back')} onClick={onBack}><BackIcon /></button>
+          : <span className="icon-spacer" />}
+        <Ornament />
+        <span className="icon-spacer" />
+      </div>
+      <h1 className="app-title">{t('appTitle')}</h1>
+      <div className="top-meta">
+        <span className="chip"><UserIcon /> {subtitle}</span>
+        <span className="pill"><FlameIcon /> {stats.points} {t('points')} · {t('streak')} <b>{stats.streak}</b></span>
+      </div>
+    </header>
   )
 }
 
-function pct(a: number, b: number): number {
-  return b === 0 ? 0 : Math.round((a / b) * 100)
+function Loading() {
+  const t = useT()
+  return <p>{t('loading')}</p>
 }
 
-function chunk<T>(xs: T[], n: number): T[][] {
-  const out: T[][] = []
-  for (let i = 0; i < xs.length; i += n) out.push(xs.slice(i, i + n))
-  return out
-}
-
-/** Підписи до фото (вимога ліцензій CC) */
-function Credits({ players }: { players: Players }) {
-  const withPhoto = Object.values(players).filter((p) => p.photo && p.credit)
-  if (!withPhoto.length) return null
-  return (
-    <details className="credits">
-      <summary>Фото гравців</summary>
-      {withPhoto.map((p) => (
-        <span key={p.name}>{p.name}: <a href={p.source} target="_blank" rel="noreferrer">{p.credit}</a></span>
-      ))}
-    </details>
-  )
+function ErrorBox({ error }: { error: string }) {
+  const t = useT()
+  return <p>{t('loadError')}: {error}</p>
 }

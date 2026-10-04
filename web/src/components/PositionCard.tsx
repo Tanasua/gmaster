@@ -1,5 +1,8 @@
 import type { Attempt, Game, Position } from '../types'
 import { formatCp } from '../scoring'
+import { useLang, useT } from '../i18n'
+import { useSettings } from '../settings'
+import { heroShort } from '../content/names'
 import { GuessBoard } from './GuessBoard'
 import { Seats } from './PlayerBar'
 
@@ -17,6 +20,7 @@ interface Props {
 }
 
 export function PositionCard({ game, position, attempt, onMove, onSkip, progress, question, hidePlayers, footer }: Props) {
+  const t = useT()
   return (
     <div className="card">
       <Seats game={game} whiteToMove={(game.hero === 'white') !== !!attempt} hidden={hidePlayers}>
@@ -40,7 +44,7 @@ export function PositionCard({ game, position, attempt, onMove, onSkip, progress
       <div className="panel">
         {attempt
           ? <Feedback game={game} position={position} attempt={attempt} />
-          : <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>}
+          : <p className="hint">{t('hint')}</p>}
       </div>
       {footer}
     </div>
@@ -48,30 +52,38 @@ export function PositionCard({ game, position, attempt, onMove, onSkip, progress
 }
 
 export function Feedback({ game, position, attempt }: { game: Game; position: Position; attempt: Attempt }) {
+  const t = useT()
+  const lang = useLang()
+  const { showEngine } = useSettings()
+  const hero = heroShort(game, lang)
   const engineDisagrees = position.bestMove !== position.gmMove
   return (
     <div className={`feedback ${attempt.verdict}`}>
       {attempt.verdict === 'exact' && (
-        <p className="verdict">✅ Вгадав! {game.heroName} зіграв <b>{position.gmSan}</b>. +{attempt.points}</p>
+        <p className="verdict">✅ {t('exact')} {hero} {t('played')} <b>{position.gmSan}</b>. +{attempt.points}</p>
       )}
       {attempt.verdict === 'good' && (
         <p className="verdict">
-          🟨 Сильний хід <b>{attempt.userSan}</b>, але {game.heroName} зіграв <b>{position.gmSan}</b>. +{attempt.points}
+          🟨 {t('strongMove')} <b>{attempt.userSan}</b>, {t('but')} {hero} {t('played')} <b>{position.gmSan}</b>. +{attempt.points}
         </p>
       )}
       {attempt.verdict === 'skip' && (
-        <p className="verdict">⏭ Пропущено. {game.heroName} зіграв <b>{position.gmSan}</b>.</p>
+        <p className="verdict">⏭ {t('skipped')} {hero} {t('played')} <b>{position.gmSan}</b>.</p>
       )}
       {attempt.verdict === 'miss' && (
-        <p className="verdict">❌ Ти зіграв <b>{attempt.userSan}</b>. {game.heroName} зіграв <b>{position.gmSan}</b>.</p>
+        <p className="verdict">❌ {t('youPlayed')} <b>{attempt.userSan}</b>. {hero} {t('played')} <b>{position.gmSan}</b>.</p>
       )}
-      <p className="engine">
-        Рушій: найкращий хід <b>{position.bestSan}</b> ({formatCp(position.bestCp)})
-        {attempt.verdict !== 'exact' && Number.isFinite(attempt.cpLoss) && <>, твій хід — {formatCp(position.bestCp - attempt.cpLoss)}</>}
-        {engineDisagrees && attempt.userMove === position.bestMove && <> — рушій на твоєму боці.</>}
-      </p>
-      <p className="line">Далі за рушієм: {formatLine(position.gmLine, position.moveNumber, game.hero)}</p>
-      <p className="difficulty">Складність: {'★'.repeat(position.difficulty)}{'☆'.repeat(3 - position.difficulty)}</p>
+      {showEngine && (
+        <>
+          <p className="engine">
+            {t('engineBest')} <b>{position.bestSan}</b> ({formatCp(position.bestCp, lang)})
+            {attempt.verdict !== 'exact' && Number.isFinite(attempt.cpLoss) && <>, {t('yourMove')} — {formatCp(position.bestCp - attempt.cpLoss, lang)}</>}
+            {engineDisagrees && attempt.userMove === position.bestMove && <> — {t('engineAgrees')}</>}
+          </p>
+          <p className="line">{t('engineLine')}: {formatLine(position.gmLine, position.moveNumber, game.hero)}</p>
+          <p className="difficulty">{t('difficulty')}: {'★'.repeat(position.difficulty)}{'☆'.repeat(3 - position.difficulty)}</p>
+        </>
+      )}
     </div>
   )
 }
@@ -90,9 +102,10 @@ function formatLine(sans: string[], moveNumber: number, side: 'white' | 'black')
 }
 
 export function SkipButton({ disabled, onClick }: { disabled: boolean; onClick: () => void }) {
+  const t = useT()
   return (
-    <button className="ghost skip" disabled={disabled} onClick={onClick} title="Не знаю — показати хід">
-      Пропустити — не знаю
+    <button className="ghost skip" disabled={disabled} onClick={onClick}>
+      {t('skip')}
     </button>
   )
 }
