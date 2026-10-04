@@ -33,7 +33,7 @@ export function PositionCard({ game, position, attempt, onMove, header, footer }
   )
 }
 
-function Feedback({ game, position, attempt }: { game: Game; position: Position; attempt: Attempt }) {
+export function Feedback({ game, position, attempt }: { game: Game; position: Position; attempt: Attempt }) {
   const engineDisagrees = position.bestMove !== position.gmMove
   return (
     <div className={`feedback ${attempt.verdict}`}>

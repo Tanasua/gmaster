@@ -9,14 +9,20 @@ interface Props {
   gmMove: string
   orientation: Side
   attempt: Attempt | null
+  /** false — дошка лише показує позицію (хід суперника, автоходи) */
+  interactive?: boolean
   onMove: (uci: string, san: string) => void
 }
 
 const ARROW_GM = 'rgba(34, 160, 90, 0.9)'
 const ARROW_USER = 'rgba(220, 70, 60, 0.85)'
 
-export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, onMove }: Props) {
-  const [selected, setSelected] = useState<Square | null>(null)
+export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, interactive = true, onMove }: Props) {
+  // Вибір прив'язаний до позиції, тож скидається сам, коли позиція змінюється
+  const [selection, setSelection] = useState<{ fen: string; square: Square } | null>(null)
+  const selected = selection?.fen === fen ? selection.square : null
+  const setSelected = (square: Square | null) => setSelection(square ? { fen, square } : null)
+  const locked = !!attempt || !interactive
 
   // Після спроби на дошці завжди стоїть реальний хід гросмейстера
   const shownFen = useMemo(() => {
@@ -27,7 +33,7 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, onMove
   }, [fen, gmMove, attempt])
 
   function tryMove(from: Square, to: Square): boolean {
-    if (attempt) return false
+    if (locked) return false
     const c = new Chess(fen)
     try {
       // Перетворення — завжди у ферзя (MVP)
@@ -42,7 +48,7 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, onMove
   }
 
   function onSquareClick(square: Square, hasOwnPiece: boolean) {
-    if (attempt) return
+    if (locked) return
     if (selected && selected !== square && tryMove(selected, square)) return
     setSelected(hasOwnPiece ? square : null)
   }
@@ -79,13 +85,13 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, onMove
         options={{
           position: shownFen,
           boardOrientation: orientation,
-          allowDragging: !attempt,
+          allowDragging: !locked,
           allowDrawingArrows: false,
           arrows,
           squareStyles,
           darkSquareStyle: { backgroundColor: 'var(--sq-dark)' },
           lightSquareStyle: { backgroundColor: 'var(--sq-light)' },
-          canDragPiece: ({ piece }) => !attempt && piece.pieceType[0] === turn,
+          canDragPiece: ({ piece }) => !locked && piece.pieceType[0] === turn,
           onPieceDrop: ({ sourceSquare, targetSquare }) =>
             !!targetSquare && tryMove(sourceSquare as Square, targetSquare as Square),
           onSquareClick: ({ piece, square }) =>

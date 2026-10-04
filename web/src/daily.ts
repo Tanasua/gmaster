@@ -15,7 +15,7 @@ export function dayNumber(key: string): number {
 
 /** Детермінований вибір позиції дня; перемішування кроком, взаємно простим із кількістю позицій */
 export function dailyPick(games: Game[], key: string): { game: Game; position: Position; index: number } {
-  const all = games.flatMap((game) => game.positions.map((position) => ({ game, position })))
+  const all = games.flatMap((game) => game.positions.filter((p) => p.key).map((position) => ({ game, position })))
   const n = all.length
   let step = 7919 % n || 1
   while (gcd(step, n) !== 1) step++

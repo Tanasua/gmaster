@@ -1,8 +1,8 @@
 """Офлайн-конвеєр: PGN → відбір цікавих позицій → оцінки Stockfish → web/public/data/puzzles.json.
 
-Два проходи: (1) дешевий multipv=CANDIDATE_MULTIPV для відбору цікавих позицій,
-(2) для вибраних позицій рушій оцінює ВСІ легальні ходи, тож фронтенд може
-оцінити будь-який хід користувача без рушія в браузері.
+Для кожного ходу «героя» партії (від першого ходу) рушій оцінює ВСІ легальні ходи,
+тож фронтенд може оцінити будь-який хід користувача без рушія в браузері.
+Найцікавіші позиції позначаються key=true — з них обирається «Хід дня».
 
 Використання:
     python pipeline/build.py [--depth 16] [--per-game 10] [--engine /usr/games/stockfish]
@@ -19,21 +19,20 @@ ROOT = Path(__file__).resolve().parent.parent
 MATE_CP = 10_000
 
 # Пороги відбору (у сантипішаках, з погляду того, хто ходить)
-SKIP_OPENING_MOVES = 10   # перші N ходів героя — дебютна теорія
+SKIP_OPENING_MOVES = 10   # перші N ходів не бувають ключовими — дебютна теорія
 DECIDED_CP = 700          # позиція вже вирішена — не цікаво
 GOOD_MOVE_CP = 30         # «рівноцінна альтернатива» (дублюється у фронтенді)
 SHALLOW_DEPTH = 6         # для оцінки «неочевидності» ходу
-CANDIDATE_MULTIPV = 5     # перший прохід: скільки найкращих ходів аналізувати
 
 
 def score_cp(score: chess.engine.PovScore, turn: chess.Color) -> int:
     return score.pov(turn).score(mate_score=MATE_CP)
 
 
-def analyse(engine, board, depth, multipv=None, root_moves=None):
+def analyse(engine, board, depth, multipv=None):
     """Повертає [(move, cp, pv)] від найкращого до найгіршого (за замовчуванням — усі легальні ходи)."""
     n = multipv or board.legal_moves.count()
-    infos = engine.analyse(board, chess.engine.Limit(depth=depth), multipv=n, root_moves=root_moves)
+    infos = engine.analyse(board, chess.engine.Limit(depth=depth), multipv=n)
     out = []
     for info in infos:
         pv = info.get("pv")
@@ -70,66 +69,58 @@ def process_game(engine, meta, depth, per_game):
     hero = chess.WHITE if meta["hero"] == "white" else chess.BLACK
     h = game.headers
 
-    candidates = []
+    positions = []
+    moves = []
     board = game.board()
     prev_move = None
     for node in game.mainline():
         move = node.move
-        if (board.turn == hero and board.fullmove_number > SKIP_OPENING_MOVES
-                and board.legal_moves.count() > 1
-                and not is_recapture(board, move, prev_move)):
-            evals = analyse(engine, board, depth, multipv=CANDIDATE_MULTIPV)
-            best_cp = evals[0][1]
-            gm = next(((cp, pv) for m, cp, pv in evals if m == move), None)
-            if gm is None:
-                # хід гросмейстера поза топ-N — оцінюємо його окремо
-                _, cp, pv = analyse(engine, board, depth, multipv=1, root_moves=[move])[0]
-                gm = (cp, pv)
-            if gm is not None and abs(best_cp) < DECIDED_CP:
-                gm_cp, gm_pv = gm
-                good = [m for m, cp, _ in evals if best_cp - cp <= GOOD_MOVE_CP]
-                gm_loss = best_cp - gm_cp
-                # «Цікавість»: гросмейстер зіграв сильно, сильних ходів мало,
-                # а на малій глибині хід не очевидний.
-                interest = 0.0
-                if gm_loss <= GOOD_MOVE_CP:
-                    interest += 2
-                interest += 2 / len(good) if good else 0
-                srank = shallow_rank(engine, board, move)
-                if srank >= 3:
-                    interest += 2
-                elif srank >= 1:
-                    interest += 1
+        moves.append(move.uci())
+        # Єдиний легальний хід не загадуємо — фронтенд зіграє його сам
+        if board.turn == hero and board.legal_moves.count() > 1:
+            evals = analyse(engine, board, depth)
+            best_move, best_cp, _ = evals[0]
+            gm_cp, gm_pv = next(((cp, pv) for m, cp, pv in evals if m == move))
+            gm_loss = best_cp - gm_cp
+            good = [m for m, cp, _ in evals if best_cp - cp <= GOOD_MOVE_CP]
+            srank = shallow_rank(engine, board, move)
+            difficulty = 3 if srank >= 3 else 2 if srank >= 1 else 1
+
+            # «Ключова» позиція (для «Ходу дня»): поза дебютом, не вимушена розміна,
+            # не вирішена; гросмейстер зіграв сильно, сильних ходів мало, хід неочевидний.
+            interest = None
+            if (board.fullmove_number > SKIP_OPENING_MOVES
+                    and not is_recapture(board, move, prev_move)
+                    and abs(best_cp) < DECIDED_CP):
+                interest = 2 / len(good) + (2 if gm_loss <= GOOD_MOVE_CP else 0)
+                interest += 2 if srank >= 3 else 1 if srank >= 1 else 0
                 if gm_loss > 150:
                     interest -= 3  # явна помилка гросмейстера — погана загадка
-                difficulty = 3 if srank >= 3 else 2 if srank >= 1 else 1
-                candidates.append({
-                    "fen": board.fen(),
-                    "ply": board.ply(),
-                    "moveNumber": board.fullmove_number,
-                    "lastMove": prev_move.uci() if prev_move else None,
-                    "_board": board.copy(),
-                    "gmMove": move.uci(),
-                    "gmSan": board.san(move),
-                    "gmLine": pv_san(board, gm_pv),
-                    "bestMove": evals[0][0].uci(),
-                    "bestSan": board.san(evals[0][0]),
-                    "bestCp": best_cp,
-                    "difficulty": difficulty,
-                    "_interest": interest,
-                })
+
+            positions.append({
+                "fen": board.fen(),
+                "ply": board.ply(),
+                "moveNumber": board.fullmove_number,
+                "lastMove": prev_move.uci() if prev_move else None,
+                "gmMove": move.uci(),
+                "gmSan": board.san(move),
+                "gmLine": pv_san(board, gm_pv),
+                "bestMove": best_move.uci(),
+                "bestSan": board.san(best_move),
+                "bestCp": best_cp,
+                "evals": {m.uci(): cp for m, cp, _ in evals},
+                "difficulty": difficulty,
+                "key": False,
+                "_interest": interest,
+            })
         board.push(move)
         prev_move = move
 
-    chosen = sorted(candidates, key=lambda c: -c["_interest"])[:per_game]
-    chosen.sort(key=lambda c: c["ply"])
-    for c in chosen:
-        del c["_interest"]
-        b = c.pop("_board")
-        # другий прохід: оцінки всіх легальних ходів
-        full = analyse(engine, b, depth)
-        c["bestMove"], c["bestSan"], c["bestCp"] = full[0][0].uci(), b.san(full[0][0]), full[0][1]
-        c["evals"] = {m.uci(): cp for m, cp, _ in full}
+    ranked = sorted((p for p in positions if p["_interest"] is not None), key=lambda p: -p["_interest"])
+    for p in ranked[:per_game]:
+        p["key"] = True
+    for p in positions:
+        del p["_interest"]
 
     return {
         "id": meta["id"],
@@ -142,13 +133,14 @@ def process_game(engine, meta, depth, per_game):
         "site": h.get("Site"),
         "year": h.get("Date", "????")[:4],
         "result": h.get("Result"),
-        "positions": chosen,
+        "moves": moves,
+        "positions": positions,
     }
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--depth", type=int, default=16)
+    ap.add_argument("--depth", type=int, default=14)
     ap.add_argument("--per-game", type=int, default=10)
     ap.add_argument("--engine", default="/usr/games/stockfish")
     ap.add_argument("--threads", type=int, default=4)
@@ -177,7 +169,7 @@ def main():
         engine.quit()
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps({"version": 1, "goodMoveCp": GOOD_MOVE_CP, "games": games},
+    out_path.write_text(json.dumps({"version": 2, "goodMoveCp": GOOD_MOVE_CP, "games": games},
                                    ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"wrote {out_path.relative_to(ROOT)}")
 

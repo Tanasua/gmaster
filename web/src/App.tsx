@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { Chess } from 'chess.js'
 import type { Attempt, Game, PuzzleData } from './types'
 import { judge, VERDICT_EMOJI } from './scoring'
 import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
 import { dailyPick, todayKey } from './daily'
-import { PositionCard } from './components/PositionCard'
+import { Feedback, PositionCard } from './components/PositionCard'
+import { GuessBoard } from './components/GuessBoard'
 
 type Screen = { kind: 'home' } | { kind: 'game'; gameId: string } | { kind: 'daily' }
 
@@ -70,7 +72,7 @@ function Home({ data, stats, setScreen }: { data: PuzzleData; stats: Stats; setS
             <button onClick={() => setScreen({ kind: 'game', gameId: g.id })}>
               <span className="game-title">{g.title}</span>
               <span className="game-meta">
-                Грай за: <b>{g.heroName}</b> · {g.white} — {g.black}, {g.year} · {g.positions.length} позицій
+                Грай за: <b>{g.heroName}</b> · {g.white} — {g.black}, {g.year} · {Math.ceil(g.moves.length / 2)} ходів
               </span>
             </button>
           </li>
@@ -99,42 +101,126 @@ function Home({ data, stats, setScreen }: { data: PuzzleData; stats: Stats; setS
   )
 }
 
+const AUTO_MOVE_MS = 600
+const AUTO_NEXT_AFTER_EXACT_MS = 900
+
 function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   game: Game; goodMoveCp: number; stats: Stats; setStats: (s: Stats) => void; onExit: () => void
 }) {
-  const [i, setI] = useState(0)
-  const [attempts, setAttempts] = useState<Attempt[]>([])
-  const done = i >= game.positions.length
+  // ply — скільки ходів партії вже зіграно на дошці
+  const [ply, setPly] = useState(0)
+  const [attempts, setAttempts] = useState<Record<number, Attempt>>({})
+  const timeline = useMemo(() => buildTimeline(game.moves), [game.moves])
+  const byPly = useMemo(() => new Map(game.positions.map((p) => [p.ply, p])), [game.positions])
 
-  if (done) return <Summary game={game} attempts={attempts} onExit={onExit} onRestart={() => { setI(0); setAttempts([]) }} />
+  const done = ply >= game.moves.length
+  const pos = byPly.get(ply)
+  const attempt = attempts[ply] ?? null
+  const waiting = !done && !!pos && !attempt
 
-  const pos = game.positions[i]
-  const attempt = attempts[i] ?? null
+  // Ходи суперника і вимушені ходи героя граються самі
+  useEffect(() => {
+    if (done || pos) return
+    const t = setTimeout(() => setPly((p) => p + 1), AUTO_MOVE_MS)
+    return () => clearTimeout(t)
+  }, [ply, done, pos])
+
+  // Після вгаданого ходу партія продовжується без натискання «Далі»
+  useEffect(() => {
+    if (attempt?.verdict !== 'exact') return
+    const t = setTimeout(() => setPly((p) => p + 1), AUTO_NEXT_AFTER_EXACT_MS)
+    return () => clearTimeout(t)
+  }, [attempt])
+
+  const list = game.positions.map((p) => attempts[p.ply]).filter((a): a is Attempt => !!a)
+
+  if (done) return <Summary game={game} attempts={list} onExit={onExit} onRestart={() => { setPly(0); setAttempts({}) }} />
 
   function onMove(uci: string, san: string) {
+    if (!pos) return
     const r = judge(pos, uci, goodMoveCp)
-    setAttempts([...attempts, { userMove: uci, userSan: san, ...r }])
+    setAttempts({ ...attempts, [ply]: { userMove: uci, userSan: san, ...r } })
     setStats(recordAttempt(stats, game.heroName, r.verdict, r.points))
   }
 
+  const exact = list.filter((a) => a.verdict === 'exact').length
+  const moveNumber = Math.floor(ply / 2) + 1
+  const heroToMove = (ply % 2 === 0) === (game.hero === 'white')
+
   return (
-    <PositionCard
-      game={game}
-      position={pos}
-      attempt={attempt}
-      onMove={onMove}
-      header={
-        <>
-          <div className="progress">{game.title} · позиція {i + 1}/{game.positions.length} · {attempts.map((a) => VERDICT_EMOJI[a.verdict]).join('')}</div>
-          <div>Хід {pos.moveNumber}{game.hero === 'black' ? '…' : '.'} Що зіграв <b>{game.heroName}</b>?</div>
-        </>
-      }
-      footer={attempt && (
-        <button className="primary" onClick={() => setI(i + 1)}>
-          {i + 1 < game.positions.length ? 'Наступна позиція →' : 'Підсумок'}
-        </button>
+    <div className="card">
+      <div className="prompt">
+        <div className="progress">
+          {game.title} · вгадано {exact} з {list.length} · {game.positions.length} ходів {game.heroName} у партії
+        </div>
+        <div>
+          {waiting
+            ? <>Хід {moveNumber}{game.hero === 'black' ? '…' : '.'} Що зіграв <b>{game.heroName}</b>?</>
+            : heroToMove && !pos
+              ? <>Єдиний можливий хід…</>
+              : !heroToMove
+                ? <>Ходить суперник…</>
+                : <>&nbsp;</>}
+        </div>
+      </div>
+      <GuessBoard
+        fen={timeline[ply].fen}
+        lastMove={timeline[ply].lastMove}
+        gmMove={pos?.gmMove ?? ''}
+        orientation={game.hero}
+        attempt={attempt}
+        interactive={waiting}
+        onMove={onMove}
+      />
+      {attempt && pos && attempt.verdict !== 'exact' && <Feedback game={game} position={pos} attempt={attempt} />}
+      {attempt && attempt.verdict === 'exact' && (
+        <p className="feedback exact verdict">✅ {pos?.gmSan} — так і зіграв {game.heroName}. +{attempt.points}</p>
       )}
-    />
+      {attempt && attempt.verdict !== 'exact' && (
+        <button className="primary" onClick={() => setPly(ply + 1)}>Далі →</button>
+      )}
+      <MoveList game={game} timeline={timeline} ply={ply} attempts={attempts} />
+    </div>
+  )
+}
+
+interface TimelineEntry { fen: string; lastMove: string | null; san: string | null }
+
+/** fen перед кожним ходом партії (і фінальна позиція) */
+function buildTimeline(moves: string[]): TimelineEntry[] {
+  const c = new Chess()
+  const out: TimelineEntry[] = [{ fen: c.fen(), lastMove: null, san: null }]
+  for (const uci of moves) {
+    const m = c.move({ from: uci.slice(0, 2), to: uci.slice(2, 4), promotion: uci[4] })
+    out.push({ fen: c.fen(), lastMove: uci, san: m.san })
+  }
+  return out
+}
+
+function MoveList({ game, timeline, ply, attempts }: {
+  game: Game; timeline: TimelineEntry[]; ply: number; attempts: Record<number, Attempt>
+}) {
+  const ref = useRef<HTMLOListElement>(null)
+  useEffect(() => {
+    ref.current?.scrollTo({ top: ref.current.scrollHeight })
+  }, [ply])
+  // Хід героя з'являється в записі лише після спроби
+  const shown = attempts[ply] ? ply + 1 : ply
+  const rows: React.ReactNode[] = []
+  for (let i = 0; i < shown; i += 2) {
+    rows.push(
+      <li key={i}>
+        <span className="mv-no">{i / 2 + 1}.</span>
+        {[i, i + 1].map((k) => k < shown && (
+          <span key={k} className={`mv ${attempts[k]?.verdict ?? ''}`}>{timeline[k + 1].san}</span>
+        ))}
+      </li>,
+    )
+  }
+  return (
+    <ol ref={ref} className="moves" aria-label={`Запис партії ${game.white} — ${game.black}`}>
+      {rows.length ? rows : <li className="small">Партія починається з початкової позиції.</li>}
+    </ol>
   )
 }
 
@@ -142,13 +228,13 @@ function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: 
   const exact = attempts.filter((a) => a.verdict === 'exact').length
   const good = attempts.filter((a) => a.verdict === 'good').length
   const points = attempts.reduce((s, a) => s + a.points, 0)
-  const grid = attempts.map((a) => VERDICT_EMOJI[a.verdict]).join('')
+  const grid = chunk(attempts.map((a) => VERDICT_EMOJI[a.verdict]), 10).map((r) => r.join('')).join('\n')
   const shareText = `♟ Вгадай хід гросмейстера\n${game.title} (${game.year})\nЯ зіграв як ${game.heroName} на ${pct(exact, attempts.length)}%\n${grid}`
   return (
     <div className="card summary">
       <h2>Ти зіграв як {game.heroName} на {pct(exact, attempts.length)}%</h2>
       <p className="grid">{grid}</p>
-      <p>Вгадано {exact} з {attempts.length} · ще {good} сильних альтернатив · {points} очок</p>
+      <p>Вгадано {exact} з {attempts.length} ходів · ще {good} сильних альтернатив · {points} очок</p>
       <p className="small">{game.white} — {game.black}, {game.event}, {game.year}, {game.result}</p>
       <div className="row">
         <ShareButton text={shareText} />
@@ -229,4 +315,10 @@ function ShareButton({ text }: { text: string }) {
 
 function pct(a: number, b: number): number {
   return b === 0 ? 0 : Math.round((a / b) * 100)
+}
+
+function chunk<T>(xs: T[], n: number): T[][] {
+  const out: T[][] = []
+  for (let i = 0; i < xs.length; i += n) out.push(xs.slice(i, i + n))
+  return out
 }

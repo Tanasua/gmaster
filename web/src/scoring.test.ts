@@ -6,7 +6,7 @@ import type { Game, Position } from './types'
 const pos: Position = {
   fen: '', ply: 30, moveNumber: 15, lastMove: null,
   gmMove: 'e2e4', gmSan: 'e4', gmLine: [], bestMove: 'd2d4', bestSan: 'd4',
-  bestCp: 50, evals: { d2d4: 50, e2e4: 40, g1f3: 25, a2a4: -100 }, difficulty: 2,
+  bestCp: 50, evals: { d2d4: 50, e2e4: 40, g1f3: 25, a2a4: -100 }, difficulty: 2, key: true,
 }
 
 describe('judge', () => {
@@ -27,6 +27,11 @@ describe('dailyPick', () => {
   const games = [3, 5].map((n, gi) => ({
     id: `g${gi}`, positions: Array.from({ length: n }, (_, i) => ({ ...pos, ply: i })),
   })) as unknown as Game[]
+
+  it('picks only key positions', () => {
+    const mixed = [{ id: 'm', positions: [{ ...pos, key: false, ply: 1 }, { ...pos, ply: 2 }] }] as unknown as Game[]
+    expect(dailyPick(mixed, '2026-10-04').position.ply).toBe(2)
+  })
 
   it('is deterministic per date and cycles through all positions', () => {
     expect(dailyPick(games, '2026-10-04')).toEqual(dailyPick(games, '2026-10-04'))

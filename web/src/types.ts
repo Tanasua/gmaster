@@ -17,6 +17,8 @@ export interface Position {
   evals: Record<string, number>
   /** 1 — очевидний, 3 — неочевидний на малій глибині */
   difficulty: 1 | 2 | 3
+  /** Ключова позиція партії — кандидат на «Хід дня» */
+  key: boolean
 }
 
 export interface Game {
@@ -30,6 +32,9 @@ export interface Game {
   site: string
   year: string
   result: string
+  /** Усі ходи партії (uci) від початкової позиції */
+  moves: string[]
+  /** Позиції, де ходить герой і є вибір (єдиний легальний хід не загадується) */
   positions: Position[]
 }
 
