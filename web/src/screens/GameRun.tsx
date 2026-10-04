@@ -4,7 +4,7 @@ import type { Attempt, Game } from '../types'
 import { judge, SKIP_ATTEMPT, VERDICT_EMOJI } from '../scoring'
 import { recordAttempt, type Stats } from '../storage'
 import { Feedback, SkipButton } from '../components/PositionCard'
-import { GuessBoard, WRONG_MOVE_MS } from '../components/GuessBoard'
+import { GuessBoard, REVEAL_MS } from '../components/GuessBoard'
 import { Seats } from '../components/PlayerBar'
 import { ShareButton } from '../components/ShareButton'
 import { useLang, useT } from '../i18n'
@@ -15,7 +15,7 @@ import { chunk, pct } from '../util'
 
 const AUTO_MOVE_MS = 600
 const AUTO_NEXT_AFTER_EXACT_MS = 900
-/** Після неправильного ходу: показ стрілок перед ходом суперника */
+/** Після неправильного ходу: пауза на зеленому ході гросмейстера перед ходом суперника */
 const AUTO_NEXT_AFTER_MISS_MS = 1500
 
 export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
@@ -51,7 +51,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   // Після будь-якої спроби партія продовжується сама, без кнопок
   useEffect(() => {
     if (!attempt) return
-    const delay = attempt.verdict === 'exact' ? AUTO_NEXT_AFTER_EXACT_MS * k : WRONG_MOVE_MS + AUTO_NEXT_AFTER_MISS_MS * k
+    const delay = attempt.verdict === 'exact' ? AUTO_NEXT_AFTER_EXACT_MS * k : REVEAL_MS + AUTO_NEXT_AFTER_MISS_MS * k
     const timer = setTimeout(() => setPly((p) => p + 1), delay)
     return () => clearTimeout(timer)
   }, [attempt, k])

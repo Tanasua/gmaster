@@ -14,10 +14,17 @@ interface Props {
   onMove: (uci: string, san: string) => void
 }
 
-const ARROW_GM = 'rgba(80, 170, 115, 0.9)'
-const ARROW_USER = 'rgba(205, 80, 70, 0.85)'
-/** Скільки тримати на дошці неправильний хід, перш ніж повернути фігуру */
-export const WRONG_MOVE_MS = 700
+const RED = 'rgba(205, 80, 70, 0.55)'
+const GREEN = 'rgba(70, 160, 110, 0.5)'
+const GOLD = 'rgba(214, 168, 72, 0.6)'
+/** Скільки тримати на дошці неправильний хід (червоний), перш ніж повернути фігуру */
+const WRONG_MOVE_MS = 700
+/** Пауза після повернення фігури, перш ніж зіграти хід гросмейстера (зелений) */
+const RETURN_MS = 450
+/** Повна тривалість показу неправильного ходу */
+export const REVEAL_MS = WRONG_MOVE_MS + RETURN_MS
+
+type Phase = 'user' | 'back' | 'gm'
 
 export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, interactive = true, onMove }: Props) {
   // Вибір прив'язаний до позиції, тож скидається сам, коли позиція змінюється
@@ -26,23 +33,23 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
   const setSelected = (square: Square | null) => setSelection(square ? { fen, square } : null)
   const locked = !!attempt || !interactive
 
-  // Неправильний хід спершу лишається на дошці з червоною стрілкою,
-  // потім фігура повертається і грається хід гросмейстера
+  // Неправильний хід — по черзі, без стрілок: червоні поля → фігура повертається → зелений хід гросмейстера
   const wrong = !!attempt && !!attempt.userMove && attempt.userMove !== gmMove
-  const [revealed, setRevealed] = useState<Attempt | null>(null)
+  const [stage, setStage] = useState<{ attempt: Attempt; phase: Phase } | null>(null)
   useEffect(() => {
-    if (!wrong) return
-    const t = setTimeout(() => setRevealed(attempt), WRONG_MOVE_MS)
-    return () => clearTimeout(t)
+    if (!wrong || !attempt) return
+    const t1 = setTimeout(() => setStage({ attempt, phase: 'back' }), WRONG_MOVE_MS)
+    const t2 = setTimeout(() => setStage({ attempt, phase: 'gm' }), REVEAL_MS)
+    return () => { clearTimeout(t1); clearTimeout(t2) }
   }, [wrong, attempt])
-  const showUserMove = wrong && revealed !== attempt
+  const phase: Phase | null = !attempt ? null : !wrong ? 'gm' : stage?.attempt === attempt ? stage.phase : 'user'
 
   const shownFen = useMemo(() => {
-    if (!attempt) return fen
+    if (!attempt || phase === 'back') return fen
     const c = new Chess(fen)
-    c.move(uciToMove(showUserMove ? attempt.userMove : gmMove))
+    c.move(uciToMove(phase === 'user' ? attempt.userMove : gmMove))
     return c.fen()
-  }, [fen, gmMove, attempt, showUserMove])
+  }, [fen, gmMove, attempt, phase])
 
   function tryMove(from: Square, to: Square): boolean {
     if (locked) return false
@@ -67,9 +74,12 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
 
   const turn = new Chess(fen).turn()
   const squareStyles: Record<string, React.CSSProperties> = {}
-  const highlight = showUserMove ? attempt!.userMove : attempt ? gmMove : lastMove
+  const [highlight, color] =
+    phase === 'user' ? [attempt!.userMove, RED]
+      : phase === 'gm' ? [gmMove, GREEN]
+        : phase === 'back' ? [null, '']
+          : [lastMove, GOLD]
   if (highlight) {
-    const color = showUserMove ? 'rgba(205, 80, 70, 0.45)' : attempt ? 'rgba(70, 160, 110, 0.45)' : 'rgba(214, 168, 72, 0.6)'
     squareStyles[highlight.slice(0, 2)] = { background: color }
     squareStyles[highlight.slice(2, 4)] = { background: color }
   }
@@ -82,13 +92,6 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
     }
   }
 
-  const arrows = !attempt
-    ? []
-    : [
-        ...(showUserMove ? [] : [{ startSquare: gmMove.slice(0, 2), endSquare: gmMove.slice(2, 4), color: ARROW_GM }]),
-        ...(wrong ? [{ startSquare: attempt.userMove.slice(0, 2), endSquare: attempt.userMove.slice(2, 4), color: ARROW_USER }] : []),
-      ]
-
   return (
     <div className="board">
       <Chessboard
@@ -97,7 +100,6 @@ export function GuessBoard({ fen, lastMove, gmMove, orientation, attempt, intera
           boardOrientation: orientation,
           allowDragging: !locked,
           allowDrawingArrows: false,
-          arrows,
           squareStyles,
           darkSquareStyle: { backgroundColor: 'var(--sq-dark)' },
           lightSquareStyle: { backgroundColor: 'var(--sq-light)' },
