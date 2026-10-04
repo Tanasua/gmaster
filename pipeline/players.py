@@ -97,6 +97,11 @@ def main():
             print(f"  помилка: {e}")
         out[key] = entry
         out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
+    # Ручні підписи з data/players.json мають пріоритет над автоматичними
+    for key, p in players.items():
+        if p.get("credit") and out.get(key, {}).get("photo"):
+            out[key]["credit"] = p["credit"]
+    out_path.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
     print("готово:", sum(1 for v in out.values() if v.get("photo")), "з", len(out), "з фото")
 
 

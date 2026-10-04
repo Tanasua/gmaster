@@ -1,16 +1,60 @@
 {
-  "Byrne, Donald": {"name": "Дональд Бірн", "search": "Donald Byrne chess"},
-  "Fischer, Robert James": {"name": "Роберт Фішер", "search": "Bobby Fischer"},
-  "Kasparov, Gary": {"name": "Гаррі Каспаров", "search": "Garry Kasparov"},
-  "Topalov, Veselin": {"name": "Веселин Топалов", "search": "Veselin Topalov"},
-  "Karpov, Anatoly": {"name": "Анатолій Карпов", "search": "Anatoly Karpov"},
-  "Spassky, Boris V": {"name": "Борис Спаський", "search": "Boris Spassky"},
-  "Short, Nigel D": {"name": "Найджел Шорт", "search": "Nigel Short"},
-  "Timman, Jan H": {"name": "Ян Тімман", "search": "Jan Timman"},
-  "Carlsen,M": {"name": "Магнус Карлсен", "search": "Magnus Carlsen"},
-  "Karjakin,Sergey": {"name": "Сергій Карякін", "search": "Sergey Karjakin"},
-  "Anand,V": {"name": "Вішванатан Ананд", "search": "Viswanathan Anand"},
-  "Aronian,L": {"name": "Левон Аронян", "search": "Levon Aronian"},
-  "Tal, Mihail": {"name": "Михайло Таль", "search": "Mikhail Tal"},
-  "Larsen, Bent": {"name": "Бент Ларсен", "search": "Bent Larsen"}
+  "Byrne, Donald": {
+    "name": "Дональд Бірн",
+    "search": "Donald Byrne chess"
+  },
+  "Fischer, Robert James": {
+    "name": "Роберт Фішер",
+    "search": "Bobby Fischer",
+    "credit": "Ulrich Kohls (Bundesarchiv), похідна робота: Karpouzi, CC BY-SA 3.0, Wikimedia Commons"
+  },
+  "Kasparov, Gary": {
+    "name": "Гаррі Каспаров",
+    "search": "Garry Kasparov"
+  },
+  "Topalov, Veselin": {
+    "name": "Веселин Топалов",
+    "search": "Veselin Topalov"
+  },
+  "Karpov, Anatoly": {
+    "name": "Анатолій Карпов",
+    "search": "Anatoly Karpov"
+  },
+  "Spassky, Boris V": {
+    "name": "Борис Спаський",
+    "search": "Boris Spassky"
+  },
+  "Short, Nigel D": {
+    "name": "Найджел Шорт",
+    "search": "Nigel Short",
+    "credit": "Przemysław Jahr, CC BY-SA 3.0, Wikimedia Commons"
+  },
+  "Timman, Jan H": {
+    "name": "Ян Тімман",
+    "search": "Jan Timman"
+  },
+  "Carlsen,M": {
+    "name": "Магнус Карлсен",
+    "search": "Magnus Carlsen"
+  },
+  "Karjakin,Sergey": {
+    "name": "Сергій Карякін",
+    "search": "Sergey Karjakin"
+  },
+  "Anand,V": {
+    "name": "Вішванатан Ананд",
+    "search": "Viswanathan Anand"
+  },
+  "Aronian,L": {
+    "name": "Левон Аронян",
+    "search": "Levon Aronian"
+  },
+  "Tal, Mihail": {
+    "name": "Михайло Таль",
+    "search": "Mikhail Tal"
+  },
+  "Larsen, Bent": {
+    "name": "Бент Ларсен",
+    "search": "Bent Larsen"
+  }
 }
