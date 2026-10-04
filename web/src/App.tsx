@@ -6,6 +6,8 @@ import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
 import { dailyPick, todayKey } from './daily'
 import { Feedback, PositionCard } from './components/PositionCard'
 import { GuessBoard, WRONG_MOVE_MS } from './components/GuessBoard'
+import { Seats } from './components/PlayerBar'
+import { PlayersContext, type Players } from './players'
 import { BackIcon, FlameIcon, Ornament, UserIcon } from './components/Icons'
 
 type Screen = { kind: 'home' } | { kind: 'game'; gameId: string } | { kind: 'daily' }
@@ -15,12 +17,18 @@ export default function App() {
   const [error, setError] = useState<string | null>(null)
   const [stats, setStats] = useState<Stats>(loadStats)
   const [screen, setScreen] = useState<Screen>({ kind: 'home' })
+  const [players, setPlayers] = useState<Players>({})
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/puzzles.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then(setData)
       .catch((e) => setError(String(e)))
+    // Фото гравців — необов'язкові: без них показуються ініціали
+    fetch(`${import.meta.env.BASE_URL}data/players.json`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .then(setPlayers)
+      .catch(() => {})
   }, [])
 
   if (error) return <main className="app"><p>Не вдалося завантажити позиції: {error}</p></main>
@@ -32,6 +40,7 @@ export default function App() {
     : screen.kind === 'daily' ? 'Хід дня' : 'Партії чемпіонів'
 
   return (
+    <PlayersContext.Provider value={players}>
     <main className="app">
       <header className="top">
         <div className="top-bar">
@@ -61,8 +70,10 @@ export default function App() {
       {screen.kind === 'daily' && (
         <Daily data={data} stats={stats} setStats={setStats} onExit={home} />
       )}
+      {screen.kind === 'home' && <Credits players={players} />}
       <footer className="bottom"><Ornament /></footer>
     </main>
+    </PlayersContext.Provider>
   )
 }
 
@@ -190,15 +201,17 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
                 : <>&nbsp;</>}
         </div>
       </div>
-      <GuessBoard
-        fen={timeline[ply].fen}
-        lastMove={timeline[ply].lastMove}
-        gmMove={pos?.gmMove ?? ''}
-        orientation={game.hero}
-        attempt={attempt}
-        interactive={waiting}
-        onMove={onMove}
-      />
+      <Seats game={game} whiteToMove={ply % 2 === 0}>
+        <GuessBoard
+          fen={timeline[ply].fen}
+          lastMove={timeline[ply].lastMove}
+          gmMove={pos?.gmMove ?? ''}
+          orientation={game.hero}
+          attempt={attempt}
+          interactive={waiting}
+          onMove={onMove}
+        />
+      </Seats>
       {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
       {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
         <p className="feedback exact verdict">✅ {lastPos.gmSan} — так і зіграв {game.heroName}. +{lastAttempt.points}</p>
@@ -298,6 +311,7 @@ function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Sta
       attempt={attempt}
       onMove={onMove}
       onSkip={onSkip}
+      hidePlayers={!attempt}
       header={
         <>
           <div className="progress">Хід дня #{index}{prev && !attempt ? ` · сьогодні вже зіграно ${VERDICT_EMOJI[prev]} (без очок)` : ''}</div>
@@ -353,4 +367,18 @@ function chunk<T>(xs: T[], n: number): T[][] {
   const out: T[][] = []
   for (let i = 0; i < xs.length; i += n) out.push(xs.slice(i, i + n))
   return out
+}
+
+/** Підписи до фото (вимога ліцензій CC) */
+function Credits({ players }: { players: Players }) {
+  const withPhoto = Object.values(players).filter((p) => p.photo && p.credit)
+  if (!withPhoto.length) return null
+  return (
+    <details className="credits">
+      <summary>Фото гравців</summary>
+      {withPhoto.map((p) => (
+        <span key={p.name}>{p.name}: <a href={p.source} target="_blank" rel="noreferrer">{p.credit}</a></span>
+      ))}
+    </details>
+  )
 }

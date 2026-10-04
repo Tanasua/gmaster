@@ -188,3 +188,22 @@ button.ghost { background: transparent; color: var(--muted); border-style: dashe
 button.ghost:hover { color: var(--fg); }
 .feedback.skip { background: rgba(255, 255, 255, 0.04); border-color: var(--line); }
 .mv.skip { background: rgba(255, 255, 255, 0.06); border-color: var(--line); color: var(--muted); }
+
+/* Гравці над і під дошкою */
+.player { display: flex; align-items: center; gap: 12px; padding: 8px 10px; border-radius: 12px; border: 1px solid transparent; transition: border-color 0.2s, background 0.2s; }
+.player.to-move { border-color: rgba(214, 162, 74, 0.55); background: rgba(214, 162, 74, 0.07); }
+.avatar { flex: none; width: 48px; height: 48px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: var(--surface-2); box-shadow: 0 0 0 2px var(--line); color: var(--gold); font: 700 17px var(--font-display); }
+.player.to-move .avatar { box-shadow: 0 0 0 2px var(--gold); }
+.avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; max-width: 100%; }
+.player-text { display: grid; min-width: 0; }
+.player-name { font: 700 17px/1.25 var(--font-display); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.player-sub { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.player-sub b { color: var(--gold); font-weight: 600; }
+.side-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid var(--muted); }
+.side-dot.white { background: #f2ead9; }
+.side-dot.black { background: #111; }
+.to-move-tag { margin-left: auto; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-fg); background: var(--gold); padding: 2px 8px; border-radius: 999px; }
+.credits { font-size: 12px; color: var(--muted); display: grid; gap: 2px; }
+.credits a { color: var(--muted); }
+.seats { display: grid; gap: 8px; }
+.credits summary { cursor: pointer; }

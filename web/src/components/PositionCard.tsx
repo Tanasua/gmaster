@@ -1,6 +1,7 @@
 import type { Attempt, Game, Position } from '../types'
 import { formatCp } from '../scoring'
 import { GuessBoard } from './GuessBoard'
+import { Seats } from './PlayerBar'
 
 interface Props {
   game: Game
@@ -8,24 +9,27 @@ interface Props {
   attempt: Attempt | null
   onMove: (uci: string, san: string) => void
   onSkip?: () => void
-  /** Ховати, хто грав, до відповіді */
   header: React.ReactNode
+  /** Ховати, хто грав, до відповіді */
+  hidePlayers?: boolean
   footer?: React.ReactNode
 }
 
-export function PositionCard({ game, position, attempt, onMove, onSkip, header, footer }: Props) {
+export function PositionCard({ game, position, attempt, onMove, onSkip, header, hidePlayers, footer }: Props) {
   return (
     <div className="card">
       <div className="prompt">{header}</div>
-      <GuessBoard
-        key={position.fen}
-        fen={position.fen}
-        lastMove={position.lastMove}
-        gmMove={position.gmMove}
-        orientation={game.hero}
-        attempt={attempt}
-        onMove={onMove}
-      />
+      <Seats game={game} whiteToMove={(game.hero === 'white') !== !!attempt} hidden={hidePlayers}>
+        <GuessBoard
+          key={position.fen}
+          fen={position.fen}
+          lastMove={position.lastMove}
+          gmMove={position.gmMove}
+          orientation={game.hero}
+          attempt={attempt}
+          onMove={onMove}
+        />
+      </Seats>
       {attempt ? <Feedback game={game} position={position} attempt={attempt} /> : (
         <>
           <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>
