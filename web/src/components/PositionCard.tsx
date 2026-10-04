@@ -19,12 +19,6 @@ interface Props {
 export function PositionCard({ game, position, attempt, onMove, onSkip, progress, question, hidePlayers, footer }: Props) {
   return (
     <div className="card">
-      <div className="prompt">
-        <div className="progress">{progress}</div>
-        <div className="prompt-row">
-          <div className="question">{question}</div>
-        </div>
-      </div>
       <Seats game={game} whiteToMove={(game.hero === 'white') !== !!attempt} hidden={hidePlayers}>
         <GuessBoard
           key={position.fen}
@@ -36,6 +30,12 @@ export function PositionCard({ game, position, attempt, onMove, onSkip, progress
           onMove={onMove}
         />
       </Seats>
+      <div className="prompt">
+        <div className="progress">{progress}</div>
+        <div className="prompt-row">
+          <div className="question">{question}</div>
+        </div>
+      </div>
       {onSkip && <SkipButton disabled={!!attempt} onClick={onSkip} />}
       <div className="panel">
         {attempt

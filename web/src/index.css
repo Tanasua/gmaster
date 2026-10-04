@@ -209,7 +209,6 @@ button.ghost:hover { color: var(--fg); }
 .credits summary { cursor: pointer; }
 
 /* Стабільна розмітка навколо дошки: блоки мають сталу висоту, щоб дошка не стрибала */
-.progress { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .prompt-row { display: flex; align-items: flex-start; gap: 10px; }
 .question { flex: 1; min-width: 0; min-height: 2.6em; }
 button.skip { font-weight: 600; }

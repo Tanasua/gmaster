@@ -187,6 +187,17 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
 
   return (
     <div className="card">
+      <Seats game={game} whiteToMove={ply % 2 === 0}>
+        <GuessBoard
+          fen={timeline[ply].fen}
+          lastMove={timeline[ply].lastMove}
+          gmMove={pos?.gmMove ?? ''}
+          orientation={game.hero}
+          attempt={attempt}
+          interactive={waiting}
+          onMove={onMove}
+        />
+      </Seats>
       <div className="prompt">
         <div className="progress">
           {game.title} · вгадано {exact} з {list.length} (усього {game.positions.length})
@@ -203,17 +214,6 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
           </div>
         </div>
       </div>
-      <Seats game={game} whiteToMove={ply % 2 === 0}>
-        <GuessBoard
-          fen={timeline[ply].fen}
-          lastMove={timeline[ply].lastMove}
-          gmMove={pos?.gmMove ?? ''}
-          orientation={game.hero}
-          attempt={attempt}
-          interactive={waiting}
-          onMove={onMove}
-        />
-      </Seats>
       {/* Кнопка завжди на місці (лише вимикається), щоб дошка не стрибала */}
       <SkipButton disabled={!waiting} onClick={onSkip} />
       <div className="panel">
