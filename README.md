@@ -58,3 +58,9 @@ python -m venv .venv && .venv/bin/pip install -r pipeline/requirements.txt
 - Глибина 16 — компроміс; на «good»-порогу 30 сп можливий шум оцінки.
 - Джерело PGN: pgnmentor.com. Перед публічним запуском перевірити умови використання бази
   та імен гравців у маркетингу.
+
+## Публікація як Claude Artifact
+
+```bash
+cd web && npm run artifact   # → dist-artifact/index.html (CSS+JS інлайн) + data/puzzles.json
+```

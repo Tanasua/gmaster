@@ -201,19 +201,30 @@ function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Sta
 }
 
 function ShareButton({ text }: { text: string }) {
-  const [copied, setCopied] = useState(false)
+  const [state, setState] = useState<'idle' | 'copied' | 'manual'>('idle')
   async function share() {
     try {
-      if (navigator.share) await navigator.share({ text })
-      else {
-        await navigator.clipboard.writeText(text)
-        setCopied(true)
+      if (navigator.share) {
+        await navigator.share({ text })
+        return
       }
+    } catch (e) {
+      if ((e as Error).name === 'AbortError') return // користувач скасував
+    }
+    // Web Share недоступний або заборонений — копіюємо в буфер, інакше показуємо текст
+    try {
+      await navigator.clipboard.writeText(text)
+      setState('copied')
     } catch {
-      /* користувач скасував */
+      setState('manual')
     }
   }
-  return <button className="primary" onClick={share}>{copied ? 'Скопійовано ✓' : 'Поділитися'}</button>
+  return (
+    <>
+      <button className="primary" onClick={share}>{state === 'copied' ? 'Скопійовано ✓' : 'Поділитися'}</button>
+      {state === 'manual' && <textarea id="share-text" className="share-text" readOnly value={text} onFocus={(e) => e.currentTarget.select()} />}
+    </>
+  )
 }
 
 function pct(a: number, b: number): number {
