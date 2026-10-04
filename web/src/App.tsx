@@ -151,7 +151,7 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
     <div className="card">
       <div className="prompt">
         <div className="progress">
-          {game.title} · вгадано {exact} з {list.length} · {game.positions.length} ходів {game.heroName} у партії
+          {game.title} · вгадано {exact} з {list.length} (усього {game.positions.length})
         </div>
         <div>
           {waiting
