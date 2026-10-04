@@ -5,8 +5,9 @@
 Запити повільні, з паузами та повторами — Wikimedia обмежує частоту.
 
 Використання:
-    python pipeline/players.py
+    python pipeline/players.py [--out шлях]   # за замовчуванням web/public/data/players.json
 """
+import argparse
 import base64
 import json
 import re
@@ -81,7 +82,9 @@ def find_photo(search):
 
 def main():
     players = json.loads((ROOT / "data" / "players.json").read_text(encoding="utf-8"))
-    out_path = ROOT / "web" / "public" / "data" / "players.json"
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", type=Path, default=ROOT / "web" / "public" / "data" / "players.json")
+    out_path = ap.parse_args().out
     out = json.loads(out_path.read_text(encoding="utf-8")) if out_path.exists() else {}
     for key, p in players.items():
         if out.get(key, {}).get("photo"):
