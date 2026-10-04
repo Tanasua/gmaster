@@ -1,0 +1,12 @@
+[
+  {"id": "byrne-fischer-1956", "hero": "black", "heroName": "Фішер", "title": "«Гра століття»"},
+  {"id": "kasparov-topalov-1999", "hero": "white", "heroName": "Каспаров", "title": "«Безсмертна» Каспарова"},
+  {"id": "karpov-kasparov-1985-g16", "hero": "black", "heroName": "Каспаров", "title": "Матч за світову корону 1985, партія 16"},
+  {"id": "fischer-spassky-1972-g6", "hero": "white", "heroName": "Фішер", "title": "Матч за світову корону 1972, партія 6"},
+  {"id": "short-timman-1991", "hero": "white", "heroName": "Шорт", "title": "Похід короля"},
+  {"id": "carlsen-karjakin-2016-tb4", "hero": "white", "heroName": "Карлсен", "title": "Тай-брейк матчу 2016, партія 4"},
+  {"id": "carlsen-karjakin-2016-g10", "hero": "white", "heroName": "Карлсен", "title": "Матч за світову корону 2016, партія 10"},
+  {"id": "carlsen-anand-2013-g5", "hero": "white", "heroName": "Карлсен", "title": "Матч за світову корону 2013, партія 5"},
+  {"id": "aronian-anand-2013", "hero": "black", "heroName": "Ананд", "title": "Вейк-ан-Зее 2013"},
+  {"id": "tal-larsen-1965-g10", "hero": "white", "heroName": "Таль", "title": "Матч претендентів 1965, партія 10"}
+]
