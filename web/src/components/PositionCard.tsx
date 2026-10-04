@@ -9,16 +9,23 @@ interface Props {
   attempt: Attempt | null
   onMove: (uci: string, san: string) => void
   onSkip?: () => void
-  header: React.ReactNode
+  progress: React.ReactNode
+  question: React.ReactNode
   /** Ховати, хто грав, до відповіді */
   hidePlayers?: boolean
   footer?: React.ReactNode
 }
 
-export function PositionCard({ game, position, attempt, onMove, onSkip, header, hidePlayers, footer }: Props) {
+export function PositionCard({ game, position, attempt, onMove, onSkip, progress, question, hidePlayers, footer }: Props) {
   return (
     <div className="card">
-      <div className="prompt">{header}</div>
+      <div className="prompt">
+        <div className="progress">{progress}</div>
+        <div className="prompt-row">
+          <div className="question">{question}</div>
+          {onSkip && <SkipButton disabled={!!attempt} onClick={onSkip} />}
+        </div>
+      </div>
       <Seats game={game} whiteToMove={(game.hero === 'white') !== !!attempt} hidden={hidePlayers}>
         <GuessBoard
           key={position.fen}
@@ -30,12 +37,11 @@ export function PositionCard({ game, position, attempt, onMove, onSkip, header, 
           onMove={onMove}
         />
       </Seats>
-      {attempt ? <Feedback game={game} position={position} attempt={attempt} /> : (
-        <>
-          <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>
-          {onSkip && <button className="ghost" onClick={onSkip}>Пропустити — не знаю</button>}
-        </>
-      )}
+      <div className="panel">
+        {attempt
+          ? <Feedback game={game} position={position} attempt={attempt} />
+          : <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>}
+      </div>
       {footer}
     </div>
   )
@@ -81,4 +87,12 @@ function formatLine(sans: string[], moveNumber: number, side: 'white' | 'black')
     white = !white
   })
   return parts.join(' ')
+}
+
+export function SkipButton({ disabled, onClick }: { disabled: boolean; onClick: () => void }) {
+  return (
+    <button className="ghost skip" disabled={disabled} onClick={onClick} title="Не знаю — показати хід">
+      Пропустити
+    </button>
+  )
 }

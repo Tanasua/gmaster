@@ -4,7 +4,7 @@ import type { Attempt, Game, PuzzleData } from './types'
 import { judge, SKIP_ATTEMPT, VERDICT_EMOJI } from './scoring'
 import { loadStats, recordAttempt, recordDaily, type Stats } from './storage'
 import { dailyPick, todayKey } from './daily'
-import { Feedback, PositionCard } from './components/PositionCard'
+import { Feedback, PositionCard, SkipButton } from './components/PositionCard'
 import { GuessBoard, WRONG_MOVE_MS } from './components/GuessBoard'
 import { Seats } from './components/PlayerBar'
 import { PlayersContext, type Players } from './players'
@@ -191,14 +191,18 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
         <div className="progress">
           {game.title} · вгадано {exact} з {list.length} (усього {game.positions.length})
         </div>
-        <div>
-          {waiting
-            ? <>Хід {moveNumber}{game.hero === 'black' ? '…' : '.'} Що зіграв <b>{game.heroName}</b>?</>
-            : heroToMove && !pos
-              ? <>Єдиний можливий хід…</>
-              : !heroToMove
-                ? <>Ходить суперник…</>
-                : <>&nbsp;</>}
+        <div className="prompt-row">
+          <div className="question">
+            {waiting
+              ? <>Хід {moveNumber}{game.hero === 'black' ? '…' : '.'} Що зіграв <b>{game.heroName}</b>?</>
+              : heroToMove && !pos
+                ? <>Єдиний можливий хід…</>
+                : !heroToMove
+                  ? <>Ходить суперник…</>
+                  : <>&nbsp;</>}
+          </div>
+          {/* Кнопка завжди на місці (лише вимикається), щоб розмітка не стрибала */}
+          <SkipButton disabled={!waiting} onClick={onSkip} />
         </div>
       </div>
       <Seats game={game} whiteToMove={ply % 2 === 0}>
@@ -212,11 +216,13 @@ function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
           onMove={onMove}
         />
       </Seats>
-      {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
-      {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
-        <p className="feedback exact verdict">✅ {lastPos.gmSan} — так і зіграв {game.heroName}. +{lastAttempt.points}</p>
-      )}
-      {waiting && <button className="ghost" onClick={onSkip}>Пропустити — не знаю</button>}
+      <div className="panel">
+        {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
+        {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
+          <p className="feedback exact verdict">✅ {lastPos.gmSan} — так і зіграв {game.heroName}. +{lastAttempt.points}</p>
+        )}
+        {!lastAttempt && <p className="hint">Перетягни фігуру або натисни на неї, а потім на поле.</p>}
+      </div>
       <MoveList game={game} timeline={timeline} ply={ply} attempts={attempts} />
     </div>
   )
@@ -312,18 +318,12 @@ function Daily({ data, stats, setStats, onExit }: { data: PuzzleData; stats: Sta
       onMove={onMove}
       onSkip={onSkip}
       hidePlayers={!attempt}
-      header={
-        <>
-          <div className="progress">Хід дня #{index}{prev && !attempt ? ` · сьогодні вже зіграно ${VERDICT_EMOJI[prev]} (без очок)` : ''}</div>
-          {/* Хто грав — показуємо лише після відповіді */}
-          <div>
-            Хід {position.moveNumber}{game.hero === 'black' ? '…' : '.'} {game.hero === 'white' ? 'Білі' : 'Чорні'}. Який хід зробив гросмейстер?
-          </div>
-          {attempt && <div className="reveal">Це був <b>{game.heroName}</b>: {game.white} — {game.black}, {game.year}</div>}
-        </>
-      }
+      progress={`Хід дня #${index}${prev && !attempt ? ` · сьогодні вже зіграно ${VERDICT_EMOJI[prev]} (без очок)` : ''}`}
+      question={<>Хід {position.moveNumber}{game.hero === 'black' ? '…' : '.'} {game.hero === 'white' ? 'Білі' : 'Чорні'}. Який хід зробив гросмейстер?</>}
       footer={attempt && (
         <div className="row">
+          {/* Хто грав — показуємо лише після відповіді */}
+          <p className="reveal">Це був <b>{game.heroName}</b>: {game.white} — {game.black}, {game.year}</p>
           {shareText && <ShareButton text={shareText} />}
           <button onClick={onExit}>До партій</button>
         </div>
