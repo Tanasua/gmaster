@@ -127,7 +127,7 @@ const STRINGS = {
   speedNormal: { uk: 'Звичайно', en: 'Normal' },
   speedFast: { uk: 'Швидко', en: 'Fast' },
   showEngine: { uk: 'Показувати оцінку рушія', en: 'Show engine evaluation' },
-  skipOpening: { uk: 'Пропускати дебют (перші 8 ходів)', en: 'Skip the opening (first 8 moves)' },
+  skipOpening: { uk: 'Пропускати дебют (перші 2 ходи)', en: 'Skip the opening (first 2 moves)' },
   resetStats: { uk: 'Скинути статистику', en: 'Reset statistics' },
   resetConfirm: { uk: 'Точно скинути? Очки, серії й GM-індекс зникнуть.', en: 'Reset for sure? Points, streaks and GM index will be lost.' },
   yesReset: { uk: 'Так, скинути', en: 'Yes, reset' },

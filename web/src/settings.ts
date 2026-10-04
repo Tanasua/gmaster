@@ -44,7 +44,7 @@ export function saveSettings(s: Settings) {
 export const SPEED_FACTOR: Record<Speed, number> = { slow: 1.6, normal: 1, fast: 0.55 }
 
 /** Скільки ходів партії (з обох боків) програється автоматично при «Пропускати дебют» */
-export const SKIP_OPENING_PLIES = 16
+export const SKIP_OPENING_PLIES = 4
 /** Темп автопрогравання дебюту */
 export const OPENING_MOVE_MS = 500
 
