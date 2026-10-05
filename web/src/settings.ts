@@ -13,6 +13,7 @@ export interface Settings {
   board: Board
   lang: LangSetting
   sound: boolean
+  vibration: boolean
   speed: Speed
   showEngine: boolean
   skipOpening: boolean
@@ -21,7 +22,7 @@ export interface Settings {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  theme: 'gold', board: 'wood', lang: 'auto', sound: true, speed: 'normal', showEngine: true, skipOpening: false, gmId: null,
+  theme: 'gold', board: 'wood', lang: 'auto', sound: true, vibration: true, speed: 'normal', showEngine: true, skipOpening: false, gmId: null,
 }
 
 const KEY = 'gmaster.settings.v1'
@@ -67,3 +68,26 @@ export const BOARDS: Record<Board, [string, string]> = {
 
 export const SettingsContext = createContext<Settings>(DEFAULT_SETTINGS)
 export const useSettings = () => useContext(SettingsContext)
+
+/** Адреса політики конфіденційності (GitHub Pages репозиторію) */
+export const PRIVACY_URL = 'https://tanasua.github.io/gmaster/privacy/'
+/** Сторінка застосунку в Google Play */
+export const STORE_URL = 'https://play.google.com/store/apps/details?id=com.gmaster.guessthemove'
+
+// Прапорці «один раз»: навчання показано, прохання оцінити — закрито
+const FLAGS_KEY = 'gmaster.flags.v1'
+export interface Flags { onboarded: boolean; gamesFinished: number; rateDismissed: boolean }
+export function loadFlags(): Flags {
+  try {
+    return { onboarded: false, gamesFinished: 0, rateDismissed: false, ...JSON.parse(localStorage.getItem(FLAGS_KEY) ?? '{}') }
+  } catch {
+    return { onboarded: false, gamesFinished: 0, rateDismissed: false }
+  }
+}
+export function saveFlags(f: Flags) {
+  try {
+    localStorage.setItem(FLAGS_KEY, JSON.stringify(f))
+  } catch {
+    /* ignore */
+  }
+}

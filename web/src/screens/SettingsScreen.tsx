@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { LANGUAGES, useT } from '../i18n'
-import { BOARDS, type Board, type Settings, type Speed, type Theme } from '../settings'
+import { BOARDS, DEFAULT_SETTINGS, PRIVACY_URL, type Board, type Settings, type Speed, type Theme } from '../settings'
+import { decodeProgress, encodeProgress, loadStats, saveStats, type Stats } from '../storage'
 import type { StringKey } from '../i18n'
 
-export function SettingsScreen({ settings, onChange, onResetStats }: {
+export function SettingsScreen({ settings, onChange, onResetStats, onImported, onShowHelp }: {
   settings: Settings; onChange: (s: Settings) => void; onResetStats: () => void
+  onImported: (s: Settings, stats: Stats) => void; onShowHelp: () => void
 }) {
   const t = useT()
   const [confirm, setConfirm] = useState(false)
@@ -49,8 +51,13 @@ export function SettingsScreen({ settings, onChange, onResetStats }: {
       </Group>
 
       <Toggle id="set-sound" label={t('sound')} value={settings.sound} onChange={(v) => set('sound', v)} />
+      <Toggle id="set-vibration" label={t('vibration')} value={settings.vibration} onChange={(v) => set('vibration', v)} />
       <Toggle id="set-engine" label={t('showEngine')} value={settings.showEngine} onChange={(v) => set('showEngine', v)} />
       <Toggle id="set-opening" label={t('skipOpening')} value={settings.skipOpening} onChange={(v) => set('skipOpening', v)} />
+
+      <button className="ghost" onClick={onShowHelp}>{t('howToPlay')}</button>
+
+      <ProgressBox settings={settings} onImported={onImported} />
 
       <div className="danger">
         {!confirm && !done && <button className="ghost" onClick={() => setConfirm(true)}>{t('resetStats')}</button>}
@@ -63,9 +70,60 @@ export function SettingsScreen({ settings, onChange, onResetStats }: {
             </div>
           </div>
         )}
-        {done && <p className="small" role="status">{t('statsReset')} ✓</p>}
+        {done && <p className="small" role="status">{t('statsReset')}</p>}
       </div>
+
+      <section className="about">
+        <h3 className="sub-title">{t('about')}</h3>
+        <p className="small">{t('version', { v: __APP_VERSION__ })}</p>
+        <p className="small"><a href={PRIVACY_URL} target="_blank" rel="noreferrer">{t('privacy')}</a></p>
+        <p className="small">{t('dataSources')}</p>
+      </section>
     </div>
+  )
+}
+
+/** Експорт/імпорт прогресу кодом — щоб не втратити його при перевстановленні чи зміні телефона */
+function ProgressBox({ settings, onImported }: { settings: Settings; onImported: (s: Settings, stats: Stats) => void }) {
+  const t = useT()
+  const [code, setCode] = useState('')
+  const [status, setStatus] = useState<'' | 'copied' | 'shown' | 'ok' | 'error'>('')
+  const [input, setInput] = useState('')
+
+  async function exportCode() {
+    const c = encodeProgress({ stats: loadStats(), settings })
+    setCode(c)
+    try {
+      await navigator.clipboard.writeText(c)
+      setStatus('copied')
+    } catch {
+      setStatus('shown')
+    }
+  }
+
+  function importCode() {
+    const p = decodeProgress(input)
+    if (!p) return setStatus('error')
+    const s = { ...DEFAULT_SETTINGS, ...(p.settings as Partial<Settings> | undefined) }
+    onImported(s, saveStats(p.stats))
+    setInput('')
+    setStatus('ok')
+  }
+
+  return (
+    <section className="progress-box">
+      <h3 className="sub-title">{t('progress')}</h3>
+      <button onClick={exportCode}>{t('exportProgress')}</button>
+      {status === 'copied' && <p className="small" role="status">{t('exportDone')}</p>}
+      {(status === 'shown' || status === 'copied') && code && (
+        <textarea id="progress-code" className="share-text" readOnly value={code} onFocus={(e) => e.currentTarget.select()} />
+      )}
+      <label className="set-label" htmlFor="progress-input">{t('importProgress')}</label>
+      <textarea id="progress-input" className="share-text" placeholder={t('importPlaceholder')} value={input} onChange={(e) => setInput(e.target.value)} />
+      <button disabled={!input.trim()} onClick={importCode}>{t('importBtn')}</button>
+      {status === 'ok' && <p className="small" role="status">{t('importDone')}</p>}
+      {status === 'error' && <p className="small error" role="alert">{t('importError')}</p>}
+    </section>
   )
 }
 

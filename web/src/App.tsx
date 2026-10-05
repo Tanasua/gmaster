@@ -7,7 +7,8 @@ import { loadStats, resetStats, type Stats } from './storage'
 import { PlayersContext, type Players } from './players'
 import { detectLang, LangContext, useLang, useT } from './i18n'
 import { Rich } from './components/Rich'
-import { BOARDS, loadSettings, saveSettings, SettingsContext, useSettings, type Settings } from './settings'
+import { BOARDS, loadFlags, loadSettings, saveFlags, saveSettings, SettingsContext, useSettings, type Settings } from './settings'
+import { Onboarding } from './components/Onboarding'
 import { gmById } from './content/gms'
 import { gamesOfGm, gmOfGame, heroNames } from './content/names'
 import { gmText } from './i18n'
@@ -37,6 +38,12 @@ export default function App() {
   const [settings, setSettingsState] = useState<Settings>(loadSettings)
   // Стек екранів: «Назад» повертає на попередній
   const [stack, setStack] = useState<Screen[]>([{ kind: 'menu' }])
+  // Навчання показується при першому запуску; з налаштувань — ще раз на вимогу
+  const [showOnboarding, setShowOnboarding] = useState(() => !loadFlags().onboarded)
+  const finishOnboarding = () => {
+    saveFlags({ ...loadFlags(), onboarded: true })
+    setShowOnboarding(false)
+  }
   const screen = stack[stack.length - 1]
   const lang = settings.lang === 'auto' ? detectLang() : settings.lang
 
@@ -125,9 +132,16 @@ export default function App() {
                 )}
                 {screen.kind === 'daily' && <Daily data={data} stats={stats} setStats={setStats} onExit={toMenu} />}
                 {screen.kind === 'settings' && (
-                  <SettingsScreen settings={settings} onChange={setSettings} onResetStats={() => setStats(resetStats())} />
+                  <SettingsScreen
+                    settings={settings}
+                    onChange={setSettings}
+                    onResetStats={() => setStats(resetStats())}
+                    onImported={(s, st) => { setSettings(s); setStats(st) }}
+                    onShowHelp={() => setShowOnboarding(true)}
+                  />
                 )}
                 <footer className="bottom"><Ornament /></footer>
+                {showOnboarding && <Onboarding onDone={finishOnboarding} />}
               </>
             )}
           </main>

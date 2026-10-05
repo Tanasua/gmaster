@@ -71,3 +71,25 @@ export function resetStats(): Stats {
   write(STATS_KEY, EMPTY)
   return EMPTY
 }
+
+export function saveStats(stats: Stats): Stats {
+  write(STATS_KEY, stats)
+  return stats
+}
+
+// Код прогресу: base64 від JSON (UTF-8), щоб перенести прогрес на інший пристрій чи після перевстановлення
+export function encodeProgress(data: unknown): string {
+  const bytes = new TextEncoder().encode(JSON.stringify({ v: 1, ...(data as object) }))
+  return btoa(String.fromCharCode(...bytes))
+}
+
+export function decodeProgress(code: string): { stats: Stats; settings?: unknown } | null {
+  try {
+    const bin = atob(code.trim().replace(/\s+/g, ''))
+    const parsed = JSON.parse(new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0))))
+    if (parsed?.v !== 1 || typeof parsed.stats?.points !== 'number') return null
+    return { stats: { ...EMPTY, ...parsed.stats }, settings: parsed.settings }
+  } catch {
+    return null
+  }
+}

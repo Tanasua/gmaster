@@ -7,10 +7,12 @@ import { Feedback, SkipButton } from '../components/PositionCard'
 import { GuessBoard, REVEAL_MS } from '../components/GuessBoard'
 import { Seats } from '../components/PlayerBar'
 import { ShareButton } from '../components/ShareButton'
+import { RateCard } from '../components/RateCard'
 import { useLang, useT } from '../i18n'
 import { Rich } from '../components/Rich'
 import { OPENING_MOVE_MS, SKIP_OPENING_PLIES, SPEED_FACTOR, useSettings } from '../settings'
 import { playSound } from '../sound'
+import { vibrate } from '../haptics'
 import { gameTitle, heroNames } from '../content/names'
 import { chunk, pct } from '../util'
 
@@ -77,6 +79,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
     setAttempts({ ...attempts, [ply]: a })
     setStats(recordAttempt(stats, game.heroName, a.verdict, a.points))
     if (settings.sound) playSound(a.verdict === 'exact' || a.verdict === 'good' ? 'good' : 'bad')
+    if (settings.vibration) vibrate(a.verdict === 'exact' ? 'good' : 'bad')
   }
 
   function onMove(uci: string, san: string) {
@@ -196,6 +199,7 @@ function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: 
         <button onClick={onRestart}>{t('again')}</button>
         <button onClick={onExit}>{t('toMenu')}</button>
       </div>
+      <RateCard />
     </div>
   )
 }

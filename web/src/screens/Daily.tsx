@@ -10,6 +10,7 @@ import { useLang, useT } from '../i18n'
 import { Rich } from '../components/Rich'
 import { useSettings } from '../settings'
 import { playSound } from '../sound'
+import { vibrate } from '../haptics'
 import { PlayersContext } from '../players'
 import { gameLabel, heroNames } from '../content/names'
 
@@ -30,6 +31,7 @@ export function Daily({ data, stats, setStats, onExit }: { data: IndexData; stat
   function record(a: Attempt) {
     setAttempt(a)
     if (settings.sound) playSound(a.verdict === 'exact' || a.verdict === 'good' ? 'good' : 'bad')
+    if (settings.vibration) vibrate(a.verdict === 'exact' ? 'good' : 'bad')
     if (!prev) setStats(recordDaily(recordAttempt(stats, meta.heroName, a.verdict, a.points), today, a.verdict))
   }
 
