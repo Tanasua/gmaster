@@ -1,0 +1,62 @@
+name: Android release (AAB)
+
+# Підписаний AAB для Google Play. Запуск: Actions → «Android release (AAB)» → Run workflow.
+# Потрібні secrets репозиторію (Settings → Secrets and variables → Actions):
+#   ANDROID_KEYSTORE_BASE64   — файл ключа (.jks) у base64
+#   ANDROID_KEYSTORE_PASSWORD — пароль сховища
+#   ANDROID_KEY_ALIAS         — псевдонім ключа
+#   ANDROID_KEY_PASSWORD      — пароль ключа
+on:
+  workflow_dispatch:
+    inputs:
+      version_name:
+        description: 'Версія для користувачів (versionName), напр. 1.0.0'
+        required: true
+        default: '1.0.0'
+
+jobs:
+  aab:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - name: Перевірка secrets
+        env:
+          KS: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: |
+          if [ -z "$KS" ]; then
+            echo "::error::Не задано secret ANDROID_KEYSTORE_BASE64 — див. store/PLAY_CONSOLE.md, розділ «Ключ підпису»"
+            exit 1
+          fi
+      - run: npm ci
+      - run: npm test
+      - run: npm run android
+      - name: Ключ підпису
+        working-directory: web/android
+        run: echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > "$RUNNER_TEMP/upload.jks"
+      - name: Gradle bundleRelease
+        working-directory: web/android
+        env:
+          ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/upload.jks
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          VERSION_NAME: ${{ inputs.version_name }}
+        # versionCode має зростати з кожним релізом: номер запуску workflow + 100 про запас
+        run: VERSION_CODE=$((GITHUB_RUN_NUMBER + 100)) ./gradlew bundleRelease --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gmaster-release-aab-${{ inputs.version_name }}
+          path: web/android/app/build/outputs/bundle/release/app-release.aab
+          retention-days: 90

@@ -86,4 +86,7 @@ cd web && npm run artifact   # → dist-artifact/index.html (CSS+JS інлайн
   (потрібні Android SDK і JDK 21).
 - Іконка й заставка: `python web/scripts/android_icons.py` (Pillow).
 - `appId` (`com.gmaster.guessthemove`) — ідентифікатор у Play Market; після першої публікації його не змінити.
-- Для Play Market потрібна підписана release-збірка (AAB) з власним ключем — ще не налаштовано.
+- **Release (AAB) для Google Play:** Actions → «Android release (AAB)» (потрібні secrets з ключем підпису).
+- Публікація в Google Play покроково: [`store/PLAY_CONSOLE.md`](store/PLAY_CONSOLE.md).
+- Матеріали для Play (тексти 17 мов, скриншоти, банери, іконка): `store/` — генеруються `scripts/store_listings.mjs` і `scripts/store_assets.mjs`.
+- Політика конфіденційності: `docs/privacy/` (GitHub Pages).

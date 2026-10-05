@@ -273,7 +273,7 @@ button.ghost:hover { color: var(--fg); }
 .side-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid var(--muted); }
 .side-dot.white { background: #f2ead9; }
 .side-dot.black { background: #111; }
-.to-move-tag { margin-left: auto; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-fg); background: var(--gold); padding: 2px 8px; border-radius: 999px; }
+.to-move-tag { white-space: nowrap; flex: none; margin-left: auto; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-fg); background: var(--gold); padding: 2px 8px; border-radius: 999px; }
 .credits { font-size: 12px; color: var(--muted); display: grid; gap: 2px; }
 .credits a { color: var(--muted); }
 .seats { display: grid; gap: 8px; }

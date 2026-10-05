@@ -67,3 +67,12 @@ for splash in RES.glob("drawable*/splash.png"):
     img.paste(k, ((w - s) // 2, (h - s) // 2), k)
     img.save(splash)
 print("icons and splashes written")
+
+# Іконка для Google Play: 512×512, повний квадрат без прозорості (кути Play округлює сам)
+store = Path(__file__).resolve().parent.parent.parent / "store"
+store.mkdir(exist_ok=True)
+play = Image.new("RGB", (512, 512), BG)
+k = king(512, 0.62)
+play.paste(k, (0, 0), k)
+play.save(store / "icon-512.png")
+print("store/icon-512.png written")
