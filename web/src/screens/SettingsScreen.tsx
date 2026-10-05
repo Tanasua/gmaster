@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useT, type Lang } from '../i18n'
+import { LANGUAGES, useT } from '../i18n'
 import { BOARDS, type Board, type Settings, type Speed, type Theme } from '../settings'
 import type { StringKey } from '../i18n'
 
@@ -38,7 +38,10 @@ export function SettingsScreen({ settings, onChange, onResetStats }: {
         </div>
       </Group>
       <Group label={t('language')}>
-        <Segment<Lang> value={settings.lang} onChange={(v) => set('lang', v)} options={[['uk', 'Українська'], ['en', 'English']]} />
+        <select id="set-lang" className="select" value={settings.lang} onChange={(e) => set('lang', e.target.value)}>
+          <option value="auto">{t('langAuto')}</option>
+          {LANGUAGES.map((l) => <option key={l.code} value={l.code}>{l.name}</option>)}
+        </select>
       </Group>
       <Group label={t('speed')}>
         <Segment<Speed> value={settings.speed} onChange={(v) => set('speed', v)}

@@ -418,3 +418,4 @@ button.danger-btn { background: var(--danger); color: #fff; border-color: transp
 }
 
 
+.select { width: 100%; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }

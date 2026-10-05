@@ -7,10 +7,11 @@ import { Feedback, SkipButton } from '../components/PositionCard'
 import { GuessBoard, REVEAL_MS } from '../components/GuessBoard'
 import { Seats } from '../components/PlayerBar'
 import { ShareButton } from '../components/ShareButton'
-import { movesWord, useLang, useT } from '../i18n'
+import { useLang, useT } from '../i18n'
+import { Rich } from '../components/Rich'
 import { OPENING_MOVE_MS, SKIP_OPENING_PLIES, SPEED_FACTOR, useSettings } from '../settings'
 import { playSound } from '../sound'
-import { gameTitle, gmOfGame, heroShort } from '../content/names'
+import { gameTitle, heroNames } from '../content/names'
 import { chunk, pct } from '../util'
 
 const AUTO_MOVE_MS = 600
@@ -33,8 +34,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
   const [attempts, setAttempts] = useState<Record<number, Attempt>>({})
   const timeline = useMemo(() => buildTimeline(game.moves), [game.moves])
   const byPly = useMemo(() => new Map(game.positions.map((p) => [p.ply, p])), [game.positions])
-  const hero = heroShort(game, lang)
-  const female = !!gmOfGame(game)?.female
+  const { short: hero, female } = heroNames(game, lang)
 
   const done = ply >= game.moves.length
   const inOpening = ply < openingEnd
@@ -102,12 +102,12 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
       </Seats>
       <div className="prompt">
         <div className="progress">
-          {gameTitle(game, lang)} · {t('guessed')} {exact} {t('of')} {list.length} ({t('total')} {playable.length})
+          {t('gameProgress', { title: gameTitle(game, lang), x: exact, n: list.length, total: playable.length })}
         </div>
         <div className="prompt-row">
           <div className="question">
             {waiting
-              ? <>{t('move')} {moveNumber}{game.hero === 'black' ? '…' : '.'} {t(female ? 'whatPlayedF' : 'whatPlayed')} <b>{hero}</b>{t('whatPlayedEnd')}</>
+              ? <>{t(game.hero === 'black' ? 'moveBlack' : 'moveWhite', { n: moveNumber })} <Rich text={t.g('whatPlayed', female)} vars={{ name: <b>{hero}</b> }} /></>
               : inOpening
                 ? t('opening')
                 : heroToMove && !pos
@@ -123,7 +123,7 @@ export function GameRun({ game, goodMoveCp, stats, setStats, onExit }: {
       <div className="panel">
         {lastAttempt && lastPos && lastAttempt.verdict !== 'exact' && <Feedback game={game} position={lastPos} attempt={lastAttempt} />}
         {lastAttempt && lastPos && lastAttempt.verdict === 'exact' && (
-          <p className="feedback exact verdict">✅ {lastPos.gmSan} — {hero} {t(female ? 'exactShortF' : 'exactShort')}. +{lastAttempt.points}</p>
+          <p className="feedback exact verdict">✅ {t.g('exactShort', female, { san: lastPos.gmSan, name: hero })} +{lastAttempt.points}</p>
         )}
         {!lastAttempt && <p className="hint">{t('hint')}</p>}
       </div>
@@ -174,22 +174,21 @@ function MoveList({ timeline, ply, attempts }: { timeline: TimelineEntry[]; ply:
 function Summary({ game, attempts, onExit, onRestart }: { game: Game; attempts: Attempt[]; onExit: () => void; onRestart: () => void }) {
   const t = useT()
   const lang = useLang()
-  const hero = heroShort(game, lang)
+  const { short: hero } = heroNames(game, lang)
   const exact = attempts.filter((a) => a.verdict === 'exact').length
   const good = attempts.filter((a) => a.verdict === 'good').length
   const skipped = attempts.filter((a) => a.verdict === 'skip').length
   const points = attempts.reduce((s, a) => s + a.points, 0)
   const grid = chunk(attempts.map((a) => VERDICT_EMOJI[a.verdict]), 10).map((r) => r.join('')).join('\n')
-  const p = pct(exact, attempts.length)
-  const headline = `${t('youPlayedLike')} ${hero} ${t('on')} ${p}%`
+  const headline = t('summaryHeadline', { name: hero, pct: pct(exact, attempts.length) })
   const shareText = `♟ ${t('appTitle')}\n${gameTitle(game, lang)} (${game.year})\n${headline}\n${grid}`
   return (
     <div className="card summary">
       <h2>{headline}</h2>
       <p className="grid">{grid}</p>
       <p>
-        {t('guessedOf')} {exact} {t('of')} {attempts.length} {lang === 'uk' ? movesWord(attempts.length, t) : t('movesWord')} · {good} {t('strongAlt')}
-        {skipped ? ` · ${t('skippedN')} ${skipped}` : ''} · {points} {t('points')}
+        {t('summaryLine', { x: exact, moves: t.plural('moves', attempts.length), good })}
+        {skipped ? ` · ${t('skippedN', { n: skipped })}` : ''} · {t('points', { n: points })}
       </p>
       <p className="small">{game.white} — {game.black}, {game.event}, {game.year}, {game.result}</p>
       <div className="row">

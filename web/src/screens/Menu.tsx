@@ -3,7 +3,7 @@ import type { IndexData } from '../types'
 import type { Stats } from '../storage'
 import { VERDICT_EMOJI } from '../scoring'
 import { todayKey } from '../daily'
-import { useLang, useT } from '../i18n'
+import { gmText, useLang, useT } from '../i18n'
 import { useSettings } from '../settings'
 import { PlayersContext } from '../players'
 import { GMS, gmById } from '../content/gms'
@@ -29,11 +29,11 @@ export function Menu({ data, stats, onAction }: { data: IndexData; stats: Stats;
 
       {gm ? (
         <button className="menu-gm" onClick={() => onAction('gms')}>
-          <Avatar pgnName={gm.pgnNames[0]} name={gm.name[lang]} size={84} large />
+          <Avatar pgnName={gm.pgnNames[0]} name={gmText(lang, gm.id)!.name} size={84} large />
           <span className="menu-gm-text">
             <span className="menu-gm-label">{t('youPlayAs')}</span>
-            <span className="menu-gm-name">{lang === 'uk' ? gm.acc.uk : gm.name.en}</span>
-            <span className="menu-gm-hint">{gm.title[lang]} · {t('tapToChange')}</span>
+            <span className="menu-gm-name">{gmText(lang, gm.id)!.acc}</span>
+            <span className="menu-gm-hint">{gmText(lang, gm.id)!.title} · {t('tapToChange')}</span>
           </span>
         </button>
       ) : (
@@ -42,11 +42,11 @@ export function Menu({ data, stats, onAction }: { data: IndexData; stats: Stats;
       <MenuItem
         icon="⚄"
         title={t('randomGame')}
-        hint={gm ? `${t('randomOf')} ${lang === 'uk' ? gm.acc.uk : gm.short.en}` : t('randomAny')}
+        hint={gm ? t('randomOf', { name: gmText(lang, gm.id)!.gen }) : t('randomAny')}
         onClick={() => onAction('random')}
       />
-      <MenuItem icon="♞" title={t('chooseGame')} hint={`${t('chooseGameHint')} · ${data.games.length}`} onClick={() => onAction('games')} />
-      <MenuItem icon="☀" title={t('daily')} hint={dailyDone ? `${t('dailyDone')} ${VERDICT_EMOJI[dailyDone]}` : t('dailyHint')} onClick={() => onAction('daily')} />
+      <MenuItem icon="♞" title={t('chooseGame')} hint={t('chooseGameHint', { n: data.games.length })} onClick={() => onAction('games')} />
+      <MenuItem icon="☀" title={t('daily')} hint={dailyDone ? t('dailyDone', { v: VERDICT_EMOJI[dailyDone] }) : t('dailyHint')} onClick={() => onAction('daily')} />
       <MenuItem icon="⚙" title={t('settings')} hint={t('settingsHint')} onClick={() => onAction('settings')} />
 
       {heroes.length > 0 && (
@@ -57,14 +57,14 @@ export function Menu({ data, stats, onAction }: { data: IndexData; stats: Stats;
             <tbody>
               {heroes.map(([name, h]) => (
                 <tr key={name}>
-                  <td>{GMS.find((g) => g.short.uk === name)?.short[lang] ?? name}</td>
+                  <td>{statName(name, lang)}</td>
                   <td>{pct(h.exact, h.attempts)}%</td>
                   <td>{pct(h.exact + h.good, h.attempts)}%</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p className="small">{t('bestStreak')}: {stats.bestStreak}</p>
+          <p className="small">{t('bestStreak', { n: stats.bestStreak })}</p>
         </section>
       )}
       <Credits />
@@ -99,4 +99,10 @@ function Credits() {
       ))}
     </details>
   )
+}
+
+/** Статистика зберігається під українським коротким ім'ям (як heroName у даних) — показуємо мовою інтерфейсу */
+function statName(name: string, lang: string): string {
+  const gm = GMS.find((g) => gmText('uk', g.id)?.short === name)
+  return gm ? gmText(lang, gm.id)!.short : name
 }

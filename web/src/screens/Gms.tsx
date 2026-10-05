@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import type { GameMeta } from '../types'
-import { gamesWord, useLang, useT } from '../i18n'
+import { gmText, useLang, useT } from '../i18n'
 import { useSettings } from '../settings'
 import { PlayersContext } from '../players'
 import { GMS, type GmProfile } from '../content/gms'
@@ -18,10 +18,10 @@ export function GmList({ games, onOpen }: { games: GameMeta[]; onOpen: (id: stri
         {GMS.map((gm) => (
           <li key={gm.id}>
             <button className={`gm-row ${gm.id === gmId ? 'selected' : ''}`} onClick={() => onOpen(gm.id)}>
-              <Avatar pgnName={gm.pgnNames[0]} name={gm.name[lang]} size={56} />
+              <Avatar pgnName={gm.pgnNames[0]} name={gmText(lang, gm.id)!.name} size={56} />
               <span className="gm-row-text">
-                <span className="gm-row-name">{gm.name[lang]}</span>
-                <span className="gm-row-sub">{gm.title[lang]} · {gamesOfGm(gm, games).length} {gamesWord(gamesOfGm(gm, games).length, t)}</span>
+                <span className="gm-row-name">{gmText(lang, gm.id)!.name}</span>
+                <span className="gm-row-sub">{gmText(lang, gm.id)!.title} · {t.plural('games', gamesOfGm(gm, games).length)}</span>
               </span>
               {gm.id === gmId ? <span className="to-move-tag">{t('selected')}</span> : <span className="menu-chevron" aria-hidden>›</span>}
             </button>
@@ -41,14 +41,15 @@ export function GmPage({ gm, games, onSelect, onOpenGame }: {
   const { gmId } = useSettings()
   const selected = gmId === gm.id
   const own = gamesOfGm(gm, games)
+  const txt = gmText(lang, gm.id)!
   return (
     <div className="gm-page">
       <div className="gm-portrait">
-        <Avatar pgnName={gm.pgnNames[0]} name={gm.name[lang]} size={168} large />
+        <Avatar pgnName={gm.pgnNames[0]} name={txt.name} size={168} large />
       </div>
-      <h2 className="gm-name">{gm.name[lang]}</h2>
-      <p className="gm-meta">{gm.title[lang]} · {gm.years}</p>
-      <p className="gm-bio">{gm.bio[lang]}</p>
+      <h2 className="gm-name">{txt.name}</h2>
+      <p className="gm-meta">{txt.title} · {gm.years}</p>
+      <p className="gm-bio">{txt.bio}</p>
 
       {selected ? (
         <div className="row">
@@ -57,17 +58,17 @@ export function GmPage({ gm, games, onSelect, onOpenGame }: {
         </div>
       ) : (
         <button className="primary wide" onClick={() => onSelect(gm.id)}>
-          {t('playAsBtn')} {lang === 'uk' ? gm.acc.uk : gm.short.en}
+          {t('playAsBtn', { name: txt.acc })}
         </button>
       )}
 
       <details className="fold">
-        <summary>{t('howPlayed')}</summary>
-        <p>{gm.style[lang]}</p>
+        <summary>{t.g('howPlayed', !!gm.female)}</summary>
+        <p>{txt.style}</p>
       </details>
       <details className="fold">
         <summary>{t('strengths')}</summary>
-        <ul className="strengths">{gm.strengths[lang].map((s) => <li key={s}>{s}</li>)}</ul>
+        <ul className="strengths">{txt.strengths.map((s) => <li key={s}>{s}</li>)}</ul>
       </details>
 
       {own.length > 0 && (

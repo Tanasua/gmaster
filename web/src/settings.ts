@@ -1,6 +1,9 @@
 import { createContext, useContext } from 'react'
 import type { Lang } from './i18n'
 
+/** 'auto' — мова телефона */
+export type LangSetting = Lang | 'auto'
+
 export type Theme = 'gold' | 'ivory' | 'emerald' | 'midnight' | 'graphite'
 export type Board = 'wood' | 'classic' | 'green' | 'blue' | 'ice' | 'purple' | 'grey' | 'coral' | 'olive' | 'night'
 export type Speed = 'slow' | 'normal' | 'fast'
@@ -8,7 +11,7 @@ export type Speed = 'slow' | 'normal' | 'fast'
 export interface Settings {
   theme: Theme
   board: Board
-  lang: Lang
+  lang: LangSetting
   sound: boolean
   speed: Speed
   showEngine: boolean
@@ -18,7 +21,7 @@ export interface Settings {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  theme: 'gold', board: 'wood', lang: 'uk', sound: true, speed: 'normal', showEngine: true, skipOpening: false, gmId: null,
+  theme: 'gold', board: 'wood', lang: 'auto', sound: true, speed: 'normal', showEngine: true, skipOpening: false, gmId: null,
 }
 
 const KEY = 'gmaster.settings.v1'

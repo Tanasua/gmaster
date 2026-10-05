@@ -1,8 +1,9 @@
 import type { Attempt, Game, Position } from '../types'
 import { formatCp } from '../scoring'
 import { useLang, useT } from '../i18n'
+import { Rich } from './Rich'
 import { useSettings } from '../settings'
-import { gmOfGame, heroShort } from '../content/names'
+import { heroNames } from '../content/names'
 import { GuessBoard } from './GuessBoard'
 import { Seats } from './PlayerBar'
 
@@ -55,34 +56,24 @@ export function Feedback({ game, position, attempt }: { game: Game; position: Po
   const t = useT()
   const lang = useLang()
   const { showEngine } = useSettings()
-  const hero = heroShort(game, lang)
-  const female = !!gmOfGame(game)?.female
+  const { short, female } = heroNames(game, lang)
+  const vars = { name: short, san: <b>{position.gmSan}</b>, user: <b>{attempt.userSan}</b> }
   const engineDisagrees = position.bestMove !== position.gmMove
+  const icon = { exact: '✅', good: '🟨', skip: '⏭', miss: '❌' }[attempt.verdict]
+  const key = ({ exact: 'fbExact', good: 'fbGood', skip: 'fbSkip', miss: 'fbMiss' } as const)[attempt.verdict]
+  const pts = attempt.points ? ` +${attempt.points}` : ''
   return (
     <div className={`feedback ${attempt.verdict}`}>
-      {attempt.verdict === 'exact' && (
-        <p className="verdict">✅ {t('exact')} {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>. +{attempt.points}</p>
-      )}
-      {attempt.verdict === 'good' && (
-        <p className="verdict">
-          🟨 {t('strongMove')} <b>{attempt.userSan}</b>, {t('but')} {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>. +{attempt.points}
-        </p>
-      )}
-      {attempt.verdict === 'skip' && (
-        <p className="verdict">⏭ {t('skipped')} {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>.</p>
-      )}
-      {attempt.verdict === 'miss' && (
-        <p className="verdict">❌ {t('youPlayed')} <b>{attempt.userSan}</b>. {hero} {t(female ? 'playedF' : 'played')} <b>{position.gmSan}</b>.</p>
-      )}
+      <p className="verdict">{icon} <Rich text={t.g(key, female)} vars={vars} />{pts}</p>
       {showEngine && (
         <>
           <p className="engine">
-            {t('engineBest')} <b>{position.bestSan}</b> ({formatCp(position.bestCp, lang)})
-            {attempt.verdict !== 'exact' && Number.isFinite(attempt.cpLoss) && <>, {t('yourMove')} — {formatCp(position.bestCp - attempt.cpLoss, lang)}</>}
-            {engineDisagrees && attempt.userMove === position.bestMove && <> — {t('engineAgrees')}</>}
+            <Rich text={t('engineBest')} vars={{ san: <b>{position.bestSan}</b>, eval: formatCp(position.bestCp, lang) }} />
+            {attempt.verdict !== 'exact' && Number.isFinite(attempt.cpLoss) && t('engineYour', { eval: formatCp(position.bestCp - attempt.cpLoss, lang) })}
+            {engineDisagrees && attempt.userMove === position.bestMove && t('engineAgrees')}
           </p>
-          <p className="line">{t('engineLine')}: {formatLine(position.gmLine, position.moveNumber, game.hero)}</p>
-          <p className="difficulty">{t('difficulty')}: {'★'.repeat(position.difficulty)}{'☆'.repeat(3 - position.difficulty)}</p>
+          <p className="line">{t('engineLine', { line: formatLine(position.gmLine, position.moveNumber, game.hero) })}</p>
+          <p className="difficulty">{t('difficulty', { stars: '★'.repeat(position.difficulty) + '☆'.repeat(3 - position.difficulty) })}</p>
         </>
       )}
     </div>

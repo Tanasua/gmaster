@@ -5,10 +5,12 @@ import type { GameMeta, IndexData } from './types'
 import { useGame } from './gameStore'
 import { loadStats, resetStats, type Stats } from './storage'
 import { PlayersContext, type Players } from './players'
-import { LangContext, useT } from './i18n'
+import { detectLang, LangContext, useLang, useT } from './i18n'
+import { Rich } from './components/Rich'
 import { BOARDS, loadSettings, saveSettings, SettingsContext, useSettings, type Settings } from './settings'
 import { gmById } from './content/gms'
-import { gamesOfGm, gmOfGame, heroShort } from './content/names'
+import { gamesOfGm, gmOfGame, heroNames } from './content/names'
+import { gmText } from './i18n'
 import { BackIcon, FlameIcon, Ornament, UserIcon } from './components/Icons'
 import { Menu, type MenuAction } from './screens/Menu'
 import { GmList, GmPage } from './screens/Gms'
@@ -36,6 +38,7 @@ export default function App() {
   // Стек екранів: «Назад» повертає на попередній
   const [stack, setStack] = useState<Screen[]>([{ kind: 'menu' }])
   const screen = stack[stack.length - 1]
+  const lang = settings.lang === 'auto' ? detectLang() : settings.lang
 
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/index.json`)
@@ -52,11 +55,11 @@ export default function App() {
   useEffect(() => {
     const root = document.documentElement
     root.dataset.palette = settings.theme
-    root.lang = settings.lang
+    root.lang = lang
     const [light, dark] = BOARDS[settings.board] ?? BOARDS.wood
     root.style.setProperty('--sq-light', light)
     root.style.setProperty('--sq-dark', dark)
-  }, [settings.theme, settings.lang, settings.board])
+  }, [settings.theme, lang, settings.board])
 
   // Android: системна кнопка «назад» повертає на попередній екран, з меню — закриває застосунок
   useEffect(() => {
@@ -83,7 +86,7 @@ export default function App() {
 
   return (
     <SettingsContext.Provider value={settings}>
-      <LangContext.Provider value={settings.lang}>
+      <LangContext.Provider value={lang}>
         <PlayersContext.Provider value={players}>
           <main className="app">
             {error && <ErrorBox error={error} />}
@@ -150,13 +153,14 @@ export default function App() {
 
 function Header({ screen, data, stats, onBack }: { screen: Screen; data: IndexData; stats: Stats; onBack: () => void }) {
   const t = useT()
-  const { lang, gmId } = useSettings()
+  const { gmId } = useSettings()
+  const lang = useLang()
   const game = 'gameId' in screen ? data.games.find((g) => g.id === screen.gameId) : undefined
   const gm = game ? gmOfGame(game) : gmById(gmId)
   const subtitle = game
-    ? `${t('youPlayFor')}: ${heroShort(game, lang)}`
+    ? t('youPlayFor', { name: heroNames(game, lang).short })
     : screen.kind === 'daily' ? t('daily')
-      : gm ? `${t('youPlayAs')}: ${gm.short[lang]}` : t('chooseGmHint')
+      : gm ? t('youPlayFor', { name: gmText(lang, gm.id)!.short }) : t('chooseGmHint')
   return (
     <header className="top">
       <div className="top-bar">
@@ -169,7 +173,7 @@ function Header({ screen, data, stats, onBack }: { screen: Screen; data: IndexDa
       <h1 className="app-title">{t('appTitle')}</h1>
       <div className="top-meta">
         <span className="chip"><UserIcon /> {subtitle}</span>
-        <span className="pill"><FlameIcon /> {stats.points} {t('points')} · {t('streak')} <b>{stats.streak}</b></span>
+        <span className="pill"><FlameIcon /> {t('points', { n: stats.points })} · <Rich text={t('streak')} vars={{ n: <b>{stats.streak}</b> }} /></span>
       </div>
     </header>
   )

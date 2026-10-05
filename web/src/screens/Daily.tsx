@@ -7,10 +7,11 @@ import { dailyPick, todayKey } from '../daily'
 import { PositionCard } from '../components/PositionCard'
 import { ShareButton } from '../components/ShareButton'
 import { useLang, useT } from '../i18n'
+import { Rich } from '../components/Rich'
 import { useSettings } from '../settings'
 import { playSound } from '../sound'
 import { PlayersContext } from '../players'
-import { gameLabel, heroShort } from '../content/names'
+import { gameLabel, heroNames } from '../content/names'
 
 export function Daily({ data, stats, setStats, onExit }: { data: IndexData; stats: Stats; setStats: (s: Stats) => void; onExit: () => void }) {
   const t = useT()
@@ -43,12 +44,12 @@ export function Daily({ data, stats, setStats, onExit }: { data: IndexData; stat
       onMove={(uci, san) => record({ userMove: uci, userSan: san, ...judge(position, uci, data.goodMoveCp) })}
       onSkip={() => record(SKIP_ATTEMPT)}
       hidePlayers={!attempt}
-      progress={`${t('daily')} #${index}${prev && !attempt ? ` · ${t('dailyDone')} ${VERDICT_EMOJI[prev]} (${t('noPoints')})` : ''}`}
-      question={<>{t('move')} {position.moveNumber}{game.hero === 'black' ? '…' : '.'} {game.hero === 'white' ? t('white') : t('black')}. {t('whichMove')}</>}
+      progress={`${t('dailyProgress', { n: index })}${prev && !attempt ? ` · ${t('dailyDone', { v: VERDICT_EMOJI[prev] })}` : ''}`}
+      question={t('whichMove', { move: t(game.hero === 'black' ? 'moveBlack' : 'moveWhite', { n: position.moveNumber }), side: game.hero === 'white' ? t('white') : t('black') })}
       footer={attempt && (
         <div className="row">
           {/* Хто грав — показуємо лише після відповіді */}
-          <p className="reveal">{t('itWas')} <b>{heroShort(game, lang)}</b>: {gameLabel(game, lang, players)}</p>
+          <p className="reveal"><Rich text={t.g('itWas', heroNames(game, lang).female)} vars={{ name: <b>{heroNames(game, lang).short}</b>, label: gameLabel(game, lang, players) }} /></p>
           {shareText && <ShareButton text={shareText} />}
           <button onClick={onExit}>{t('toMenu')}</button>
         </div>
