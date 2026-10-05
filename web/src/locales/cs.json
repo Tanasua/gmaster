@@ -1,0 +1,499 @@
+{
+ "meta": {
+  "name": "Čeština"
+ },
+ "ui": {
+  "appTitle": "Uhodni tah velmistra",
+  "appName": "Uhodni tah",
+  "loading": "Načítání…",
+  "loadError": "Data se nepodařilo načíst",
+  "back": "Zpět",
+  "points": "{n} b.",
+  "streak": "série {n}",
+  "menuLead": "Dokážeš myslet jako velmistr?",
+  "menuSub": "Skutečné partie šampionů. Uhodni tah, který zahrál mistr, ne ten, který navrhuje počítač.",
+  "chooseGm": "Vyber velmistra",
+  "chooseGmHint": "Hraj za svého oblíbeného šampiona",
+  "youPlayAs": "Hraješ za",
+  "tapToChange": "klepni pro změnu",
+  "randomGame": "Náhodná partie",
+  "randomAny": "Libovolná partie ze sbírky",
+  "randomOf": "Náhodná partie {name}",
+  "chooseGame": "Vyber partii",
+  "chooseGameHint": "Nejslavnější partie historie · {n}",
+  "daily": "Tah dne",
+  "dailyHint": "Jedna pozice denně, pro všechny stejná",
+  "settings": "Nastavení",
+  "settingsHint": "Motiv, jazyk, zvuk",
+  "gmIndex": "GM index",
+  "gmCol": "Velmistr",
+  "guessedCol": "Uhodnuto",
+  "strongCol": "Silné tahy",
+  "bestStreak": "Nejdelší série uhodnutých tahů: {n}",
+  "photoCredits": "Fotografie hráčů",
+  "gmsTitle": "Velmistři",
+  "games_one": "{n} partie",
+  "games_few": "{n} partie",
+  "games_many": "{n} partie",
+  "games_other": "{n} partií",
+  "playAsBtn": "Hraj za {name}",
+  "selected": "Vybráno",
+  "unselect": "Zrušit výběr",
+  "howPlayed": "Styl hry",
+  "howPlayedF": "Styl hry",
+  "strengths": "Silné stránky",
+  "hisGames": "Partie ve sbírce",
+  "gamesTitle": "Partie",
+  "youPlayFor": "Hraješ: {name}",
+  "moves_one": "{n} tah",
+  "moves_few": "{n} tahy",
+  "moves_many": "{n} tahu",
+  "moves_other": "{n} tahů",
+  "startGame": "Začít partii",
+  "whyMatters": "Proč je důležitá",
+  "aboutGame": "O partii",
+  "pathToWin": "Projdi tah po tahu cestu {name} k vítězství.",
+  "playedBy": "Hraješ za {name} ({side}) · {moves}",
+  "whiteSide": "bílý",
+  "blackSide": "černý",
+  "gameProgress": "{title} · uhodnuto {x} z {n} (celkem {total})",
+  "moveWhite": "Tah {n}.",
+  "moveBlack": "Tah {n}…",
+  "whatPlayed": "Co zahrál {name}?",
+  "whatPlayedF": "Co zahrála {name}?",
+  "onlyMove": "Jediný možný tah…",
+  "opponentMoves": "Táhne soupeř…",
+  "opening": "Zahájení…",
+  "skip": "Přeskočit — nevím",
+  "hint": "Přetáhni figuru, nebo na ni klepni a pak na pole.",
+  "gameStarts": "Partie začíná ze základního postavení.",
+  "white": "Bílý",
+  "black": "Černý",
+  "yourPieces": "tvoje figury",
+  "toMove": "na tahu",
+  "grandmaster": "Velmistr",
+  "fbExact": "Správně! {name} zahrál {san}.",
+  "fbExactF": "Správně! {name} zahrála {san}.",
+  "fbGood": "Silný tah {user}, ale {name} zahrál {san}.",
+  "fbGoodF": "Silný tah {user}, ale {name} zahrála {san}.",
+  "fbSkip": "Přeskočeno. {name} zahrál {san}.",
+  "fbSkipF": "Přeskočeno. {name} zahrála {san}.",
+  "fbMiss": "Tvůj tah: {user}. {name} zahrál {san}.",
+  "fbMissF": "Tvůj tah: {user}. {name} zahrála {san}.",
+  "exactShort": "{san} — přesně tak zahrál {name}.",
+  "exactShortF": "{san} — přesně tak zahrála {name}.",
+  "engineBest": "Počítač: nejlepší tah {san} ({eval})",
+  "engineYour": ", tvůj tah — {eval}",
+  "engineAgrees": " — počítač s tebou souhlasí.",
+  "engineLine": "Varianta počítače: {line}",
+  "difficulty": "Obtížnost: {stars}",
+  "mate": "mat",
+  "getsMated": "dostává mat",
+  "summaryHeadline": "Hraješ z {pct} % jako {name}",
+  "summaryLine": "Uhodnuto {x} z {moves} · silné alternativy: {good}",
+  "skippedN": "přeskočeno: {n}",
+  "share": "Sdílet",
+  "copied": "Zkopírováno ✓",
+  "again": "Hrát znovu",
+  "toMenu": "Menu",
+  "dailyProgress": "Tah dne #{n}",
+  "dailyDone": "dnes už odehráno {v} (bez bodů)",
+  "whichMove": "{move} Na tahu je {side}. Jaký tah zahrál velmistr?",
+  "itWas": "Byl to {name}: {label}",
+  "itWasF": "Byla to {name}: {label}",
+  "theme": "Barevný motiv",
+  "themeGold": "Zlatá",
+  "themeIvory": "Slonovina",
+  "themeEmerald": "Smaragdová",
+  "themeMidnight": "Půlnoc",
+  "themeGraphite": "Grafitová",
+  "boardColors": "Barvy šachovnice",
+  "boardWood": "Dřevo",
+  "boardClassic": "Klasická",
+  "boardGreen": "Zelená",
+  "boardBlue": "Modrá",
+  "boardIce": "Led",
+  "boardPurple": "Fialová",
+  "boardGrey": "Šedá",
+  "boardCoral": "Korálová",
+  "boardOlive": "Olivová",
+  "boardNight": "Noční",
+  "language": "Jazyk",
+  "langAuto": "Jazyk telefonu",
+  "sound": "Zvuk tahů",
+  "speed": "Tempo partie",
+  "speedSlow": "Pomalé",
+  "speedNormal": "Normální",
+  "speedFast": "Rychlé",
+  "showEngine": "Zobrazovat hodnocení počítače",
+  "skipOpening": "Přeskočit zahájení (první 2 tahy)",
+  "resetStats": "Vynulovat statistiky",
+  "resetConfirm": "Opravdu vynulovat? Body, série i GM index budou ztraceny.",
+  "yesReset": "Ano, vynulovat",
+  "cancel": "Zrušit",
+  "statsReset": "Statistiky vynulovány ✓"
+ },
+ "events": {
+  "candidates": "Turnaj kandidátů",
+  "interzonal": "Mezipásmový turnaj",
+  "fideWch": "Mistrovství světa FIDE",
+  "wch": "Mistrovství světa",
+  "olympiad": "Šachová olympiáda",
+  "ussr": "Mistrovství SSSR",
+  "avro": "Turnaj AVRO"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garri Kasparov",
+   "short": "Kasparov",
+   "acc": "Kasparova",
+   "title": "13. mistr světa (1985–2000)",
+   "bio": "Narodil se v Baku. Ve 22 letech sebral titul Anatoliji Karpovovi a držel ho 15 let, dokud v roce 2000 neprohrál s Vladimirem Kramnikem. Téměř dvacet let byl nejvýše hodnoceným hráčem světa a v roce 2005 ukončil kariéru.",
+   "style": "Dynamický útočný hráč, který si iniciativy cenil víc než materiálu. Přicházel s hlubokou přípravou zahájení a často rozhodl partii dřív, než se soupeř stačil zorientovat.",
+   "strengths": [
+    "Útok na krále",
+    "Příprava zahájení",
+    "Propočet složitých variant",
+    "Oběti pro iniciativu"
+   ],
+   "gen": "Kasparova"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Carlsena",
+   "title": "16. mistr světa (2013–2023)",
+   "bio": "Nor, který se stal velmistrem ve 13 letech. V roce 2013 získal titul po vítězství nad Viswanathanem Anandem a držel ho do roku 2023, kdy se rozhodl ho neobhajovat. Dosáhl nejvyššího ratingu v historii — 2882.",
+   "style": "Univerzální hráč. Ochotně vstupuje do vyrovnaných pozic a dál tlačí, až z nepatrných výhod vyždímá výhru. Nejsilnější je v koncovkách a v praktických rozhodnutích u šachovnice.",
+   "strengths": [
+    "Koncovky",
+    "Hra s nepatrnou výhodou",
+    "Výdrž v dlouhých partiích",
+    "Praktická rozhodnutí"
+   ],
+   "gen": "Carlsena"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Fischera",
+   "title": "11. mistr světa (1972–1975)",
+   "bio": "Američan, který ve 14 letech vyhrál mistrovství USA. V roce 1972 v Reykjavíku porazil Borise Spasského a ukončil sovětskou nadvládu nad titulem. V roce 1975 ho odmítl obhajovat a koruna přešla na Anatolije Karpova.",
+   "style": "Jasnost a přesnost. Hrál čisté klasické pozice, téměř vždy zahajoval 1.e4 a proměňoval i malé výhody. Bojoval v každé partii a neměl rád rychlé remízy.",
+   "strengths": [
+    "Proměňování výhody",
+    "Klasická zahájení",
+    "Bojovnost",
+    "Přesnost"
+   ],
+   "gen": "Fischera"
+  },
+  "karpov": {
+   "name": "Anatolij Karpov",
+   "short": "Karpov",
+   "acc": "Karpova",
+   "title": "12. mistr světa (1975–1985)",
+   "bio": "Mistrem světa se stal v roce 1975, když Fischer odmítl titul obhajovat. Dvakrát obhájil korunu proti Viktoru Korčnému a deset let byl nejlepším hráčem světa, dokud neprohrál s Garrim Kasparovem. Později byl znovu mistrem světa FIDE (1993–1999).",
+   "style": "Mistr poziční hry. Pomalu svíral soupeře, bral jim prostor a užitečné tahy a pak vyhrával téměř bez rizika. Jeho styl se často přirovnává ke škrtiči hroznýši.",
+   "strengths": [
+    "Poziční tlak",
+    "Profylaxe",
+    "Využívání slabých polí",
+    "Proměňování výhody"
+   ],
+   "gen": "Karpova"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "Capablancu",
+   "title": "3. mistr světa (1921–1927)",
+   "bio": "Kubánský zázračný talent, který se šachy naučil jako malé dítě, když se díval, jak hraje jeho otec. V roce 1921 získal titul po vítězství nad Emanuelem Laskerem a v roce 1927 ho prohrál s Alexandrem Aljechinem.",
+   "style": "Jednoduchost a jasnost. Capablanca se vyhýbal zbytečným komplikacím, hrál lehce a přesně a koncovky vedl tak dobře, že se jeho partie dodnes studují jako vzorové.",
+   "strengths": [
+    "Koncovky",
+    "Poziční cit",
+    "Jednoduchá řešení",
+    "Obrana"
+   ],
+   "gen": "Capablanky"
+  },
+  "tal": {
+   "name": "Michail Tal",
+   "short": "Tal",
+   "acc": "Tala",
+   "title": "8. mistr světa (1960–1961)",
+   "bio": "„Kouzelník z Rigy“. V roce 1960 porazil Michaila Botvinnika a stal se mistrem světa, o rok později prohrál odvetný zápas. Přes chatrné zdraví zůstával desítky let ve světové elitě.",
+   "style": "Nejoslnivější útočný hráč v historii. Obětoval figury, aby pozici zkomplikoval, a vyhrával v chaosu, v němž soupeři nedokázali všechno propočítat.",
+   "strengths": [
+    "Oběti figur",
+    "Taktika",
+    "Útok",
+    "Psychologický tlak"
+   ],
+   "gen": "Tala"
+  },
+  "botvinnik": {
+   "name": "Michail Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Botvinnika",
+   "title": "6. mistr světa (1948–1963, s přestávkami)",
+   "bio": "Vyhrál zápasový turnaj v roce 1948 a stal se mistrem světa. Dvakrát titul ztratil, se Smyslovem a s Talem, a pokaždé ho získal zpět v odvetném zápase. Vystudovaný inženýr později vedl šachovou školu, jejímiž žáky byli mimo jiné Karpov, Kasparov a Kramnik.",
+   "style": "Vědecký přístup. Pečlivě se připravoval, do hloubky analyzoval vlastní partie i zahájení a ve složitých strategických pozicích hrál logicky a silně.",
+   "strengths": [
+    "Příprava",
+    "Strategie",
+    "Analýza",
+    "Systémy zahájení"
+   ],
+   "gen": "Botvinnika"
+  },
+  "alekhine": {
+   "name": "Alexandr Aljechin",
+   "short": "Aljechin",
+   "acc": "Aljechina",
+   "title": "4. mistr světa (1927–1935, 1937–1946)",
+   "bio": "V roce 1927 senzačně porazil Capablancu. V roce 1935 prohrál titul s Maxem Euwem, ale o dva roky později ho získal zpět. Zemřel v roce 1946 jako úřadující mistr světa — jako jediný v historii.",
+   "style": "Útočný styl postavený na hlubokých kombinacích. Aljechin dokázal vytvořit komplikace z ničeho a propočítával varianty mnoho tahů dopředu.",
+   "strengths": [
+    "Kombinace",
+    "Útok",
+    "Hloubka propočtu",
+    "Iniciativa"
+   ],
+   "gen": "Aljechina"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Morphyho",
+   "title": "Neoficiálně nejlepší hráč světa na konci 50. let 19. století",
+   "bio": "Američan z New Orleans. V letech 1858–1859 objížděl Evropu a porazil její nejsilnější mistry, mezi nimi i Adolfa Anderssena. Brzy po návratu domů šachy téměř úplně opustil.",
+   "style": "Rychlý vývin, otevřené linie a útok. Morphy jako první soustavně ukázal, jak důležité je před útokem zapojit všechny figury.",
+   "strengths": [
+    "Vývin figur",
+    "Otevřené pozice",
+    "Kombinace",
+    "Útok na krále"
+   ],
+   "gen": "Morphyho"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Laskera",
+   "title": "2. mistr světa (1894–1921)",
+   "bio": "Německý šachista a matematik. V roce 1894 porazil Steinitze a držel titul 27 let — nejdéle v historii — dokud v roce 1921 neprohrál s Capablancou.",
+   "style": "Praktický bojovník. Lasker nehledal dokonalý tah, ale ten, který byl pro konkrétního soupeře nejnepříjemnější, a skvěle bránil obtížné pozice.",
+   "strengths": [
+    "Praktická hra",
+    "Obrana",
+    "Psychologie",
+    "Koncovky"
+   ],
+   "gen": "Laskera"
+  },
+  "spassky": {
+   "name": "Boris Spasskij",
+   "short": "Spasskij",
+   "acc": "Spasského",
+   "title": "10. mistr světa (1969–1972)",
+   "bio": "V roce 1969 porazil Tigrana Petrosjana. V roce 1972 v Reykjavíku prohrál slavný „zápas století“ s Bobbym Fischerem.",
+   "style": "Univerzální hráč. Stejně jistě útočil i bránil, hrál ostrá zahájení jako královský gambit a v klidných vyrovnaných pozicích trpělivě manévroval.",
+   "strengths": [
+    "Všestrannost",
+    "Útok",
+    "Královský gambit",
+    "Klid u šachovnice"
+   ],
+   "gen": "Spasského"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosjan",
+   "short": "Petrosjan",
+   "acc": "Petrosjana",
+   "title": "9. mistr světa (1963–1969)",
+   "bio": "V roce 1963 porazil Botvinnika a v roce 1966 obhájil titul proti Spasskému, s nímž pak v roce 1969 prohrál odvetu. Pro svou neuvěřitelně solidní hru dostal přezdívku „Železný Tigran“.",
+   "style": "Mistr profylaxe, který předvídal a předem neutralizoval soupeřovy plány. Proslul pozičními obětmi kvality, které hráči studují dodnes.",
+   "strengths": [
+    "Profylaxe",
+    "Obrana",
+    "Oběti kvality",
+    "Solidnost"
+   ],
+   "gen": "Petrosjana"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Kramnika",
+   "title": "14. mistr světa (2000–2007)",
+   "bio": "V roce 2000 v Londýně senzačně porazil Garriho Kasparova, aniž by prohrál jedinou partii. V roce 2006 sjednotil titul vítězstvím nad Veselinem Topalovem a v roce 2007 předal korunu Anandovi. Kariéru ukončil v roce 2019.",
+   "style": "Hluboké poziční porozumění a bezchybná příprava. V zápase s Kasparovem zpopularizoval berlínskou obranu, kterou pak převzala celá elita.",
+   "strengths": [
+    "Příprava zahájení",
+    "Poziční hra",
+    "Koncovky",
+    "Solidnost"
+   ],
+   "gen": "Kramnika"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Ananda",
+   "title": "15. mistr světa (2007–2013)",
+   "bio": "První indický velmistr (1988). Mistr světa FIDE v roce 2000 a od roku 2007 nesporný mistr světa, dokud v roce 2013 neprohrál zápas s Magnusem Carlsenem.",
+   "style": "Rychlý a univerzální. Proslul bleskovým propočtem a hlubokou přípravou zahájení, stejně dobře se cítil v ostrých i klidných pozicích.",
+   "strengths": [
+    "Rychlost propočtu",
+    "Příprava zahájení",
+    "Všestrannost",
+    "Rapid šach"
+   ],
+   "gen": "Ananda"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "Nejsilnější šachistka v historii",
+   "bio": "Maďarka, která v roce 1991 získala titul velmistra ve věku 15 let a 4 měsíců a překonala tak Fischerův rekord. Jediná žena, která se dostala do světové desítky (8. místo, 2004) a překonala rating 2700. Kariéru ukončila v roce 2014.",
+   "style": "Agresivní útočný styl. Polgár ochotně vyostřovala hru a obětovala materiál, aby partii převedla do taktického boje, v němž byla obzvlášť silná.",
+   "strengths": [
+    "Útok",
+    "Taktika",
+    "Oběti",
+    "Bojovnost"
+   ],
+   "gen": "Judit Polgár"
+  },
+  "smyslov": {
+   "name": "Vasilij Smyslov",
+   "short": "Smyslov",
+   "acc": "Smyslova",
+   "title": "7. mistr světa (1957–1958)",
+   "bio": "Sehrál s Botvinnikem tři zápasy o titul: v roce 1957 vyhrál, ale o rok později prohrál odvetu. Desítky let se držel na vrcholu a v roce 1984 se ve věku 63 let probojoval do finále kandidátů.",
+   "style": "Harmonie a přirozenost. Smyslov stavěl figury tak, jako by samy věděly, kam patří, a proslul mistrovstvím v koncovkách.",
+   "strengths": [
+    "Koncovky",
+    "Souhra figur",
+    "Poziční cit",
+    "Dlouhověkost"
+   ],
+   "gen": "Smyslova"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Steinitze",
+   "title": "1. oficiální mistr světa (1886–1894)",
+   "bio": "Narodil se v Praze. V roce 1886 porazil Johannese Zukertorta v prvním oficiálním zápase o mistrovství světa a držel titul do roku 1894, kdy prohrál s Emanuelem Laskerem.",
+   "style": "Otec pozičních šachů. Steinitz zformuloval zásady hromadění malých výhod a ukázal, že útok musí být odůvodněn pozicí, ne jen odvahou.",
+   "strengths": [
+    "Poziční teorie",
+    "Obrana",
+    "Hromadění výhod",
+    "Houževnatost"
+   ],
+   "gen": "Steinitze"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Shorta",
+   "title": "Vyzyvatel v boji o titul (1993)",
+   "bio": "Angličan a jeden z nejsilnějších západních hráčů 80. a 90. let. V roce 1993 sehrál zápas o titul mistra světa s Garrim Kasparovem a prohrál.",
+   "style": "Agresivní a vynalézavý. Nebál se neobvyklých nápadů, jako byl jeho slavný pochod králem přes celou šachovnici proti Janu Timmanovi.",
+   "strengths": [
+    "Útok",
+    "Neobvyklé nápady",
+    "Aktivní král"
+   ],
+   "gen": "Shorta"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "„Partie století“",
+   "why": "Třináctiletý Fischer proti Donaldu Byrnovi v New Yorku. Oběť dámy 17…Be6 a následný debakl přiměly celý šachový svět, aby si Fischera všiml."
+  },
+  "kasparov-topalov-1999": {
+   "title": "Kasparovova nesmrtelná",
+   "why": "Wijk aan Zee, 1999. Oběť věže 24.Rxd4 a hon na černého krále přes celou šachovnici. Jeden z nejkrásnějších útoků v dějinách šachu."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Zápas století, 6. partie",
+   "why": "Reykjavík, 1972. Fischer, který téměř vždy zahajoval 1.e4, začal 1.c4 a přehrál Spasského v klasickém stylu. Výhra ho dostala do vedení v zápase o titul."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Jezdec na d3",
+   "why": "Zápas o titul mistra světa 1985. Kasparovův jezdec na d3 ochromil celou bílou armádu — jedna z nejznámějších partií jejich rivality. Kasparov se ještě téhož roku stal mistrem světa."
+  },
+  "short-timman-1991": {
+   "title": "Pochod králem",
+   "why": "Tilburg, 1991. Ve střední hře Short přivedl svého krále Kh2–g3–f4–g5 do soupeřova tábora, aby se zapojil do útoku na černého krále."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Tiebreak o titul, 2016",
+   "why": "New York, 2016, poslední partie tiebreaku. Carlsen ji v den svých narozenin zakončil obětí dámy 50.Qh6+ a udržel si titul mistra světa."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "Rozhodující partie na Bledu",
+   "why": "Semifinále kandidátů na Bledu. Před touto partií byl stav 4,5–4,5. Tal obětoval jezdce tahem 16.Nd5, vyhrál a postoupil do finále kandidátů."
+  },
+  "aronian-anand-2013": {
+   "title": "Debakl ve 23 tazích",
+   "why": "Wijk aan Zee, 2013. Úřadující mistr světa Anand černými rozdrtil Aroniana ve 23 tazích sérií obětí — jedna z nejlepších partií jeho kariéry."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Zápas o titul 2013, 5. partie",
+   "why": "Čennaj, 2013. Po čtyřech remízách Carlsen vyhrál první partii zápasu, když Ananda trpělivě udolal v koncovce. Tento zápas z něj udělal mistra světa."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Zápas o titul 2016, 10. partie",
+   "why": "New York, 2016. Po 8. partii vedl Karjakin. V 10. partii Carlsen po dlouhém boji vyrovnal skóre a zápas nakonec skončil v tiebreaku."
+  },
+  "morphy-opera-1858": {
+   "title": "Partie v opeře",
+   "why": "Paříž, 1858, lóže v opeře. Morphy hrál proti brunšvickému vévodovi a hraběti Isouardovi, kteří se spolu radili. Oběť dámy 16.Qb8+ a mat 17.Rd8# z ní dělají nejslavnější krátkou partii v dějinách šachu a vzor rychlého vývinu."
+  },
+  "lasker-bauer-1889": {
+   "title": "Dvojitá oběť střelců",
+   "why": "Amsterdam, 1889. Lasker obětoval oba střelce — 15.Bxh7+ a 17.Bxg7 — a rozbil úkryt černého krále. Od té doby je tato myšlenka známá jako Laskerova dvojitá oběť střelců."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "Střelec na a3",
+   "why": "Turnaj AVRO, 1938. Mladý Botvinnik přehrál bývalého mistra světa Capablancu a partii zakončil slavnou obětí střelce 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "Partie z bondovky",
+   "why": "Mistrovství SSSR, Leningrad, 1960. Královský gambit, oběť jezdce 16.Nxf7 a útok na krále. Pozice z této partie se objevuje na začátku bondovky „Srdečné pozdravy z Ruska“ (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Veterán Steinitz proti Curtu von Bardelebenovi. Po 22.Rxe7+ bílá věž stále dává šach a nelze ji vzít. Von Bardeleben na mat nečekal a prostě odešel z turnajového sálu."
+  },
+  "capablanca-marshall-1918": {
+   "title": "Zrod Marshallova útoku",
+   "why": "New York, 1918. Frank Marshall překvapil Capablancu novou, ostrou obětí pěšce 8…d5 ve španělské hře. Capablanca útok odrazil a vyhrál, a přesto se tato myšlenka dodnes nazývá Marshallův útok a hraje se na nejvyšší úrovni."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londýn 2000, 2. partie",
+   "why": "Zápas o mistrovství světa. Kramnikova první výhra nad Kasparovem. Kramnik vyhrál celý zápas, aniž by prohrál jedinou partii, a stal se 14. mistrem světa."
+  },
+  "reti-alekhine-1925": {
+   "title": "Kombinace z Baden-Badenu",
+   "why": "Baden-Baden, 1925. Aljechin černými provedl jednu ze svých nejslavnějších kombinací, propočítanou mnoho tahů dopředu, proti Richardu Rétimu, jednomu z otců hypermoderní školy."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Hroznýš v Nice",
+   "why": "Šachová olympiáda v Nice, 1974. Učebnicový příklad Karpovova stylu: krok za krokem bral soupeři prostor a užitečné tahy, až byl černý úplně sevřený."
+  }
+ },
+ "store": {
+  "title": "Uhodni tah velmistra",
+  "short": "Přehrávej partie mistrů světa a hádej jejich tahy. 108 legendárních partií.",
+  "full": "Dokážeš myslet jako velmistr?\n\nV této hře nehraješ proti počítači — hádáš tahy, které velcí šampioni zahráli ve skutečných partiích. Vyber si Kasparova, Carlsena, Fischera, Tala nebo kohokoli z 18 velmistrů a přehraj si jejich nejslavnější partie tah po tahu.\n\n• 108 skutečných partií: od Morphyho Partie v opeře z roku 1858 po zápasy o titul mistra světa v 21. století\n• Každý tah hodnotí šachový program: i když netrefíš tah mistra, ale najdeš stejně silný, získáš body\n• Profily 18 šampionů: životopis, styl hry, silné stránky\n• Tah dne — jedna pozice denně, pro všechny stejná\n• GM index: jak blízko je tvé myšlení každému z velmistrů\n• Barevné motivy, barvy šachovnice, zvuk a tempo hry\n• Funguje offline\n\nNauč se myslet jako šampioni — tah po tahu."
+ }
+}

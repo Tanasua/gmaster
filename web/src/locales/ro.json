@@ -1,0 +1,497 @@
+{
+ "meta": {
+  "name": "Română"
+ },
+ "ui": {
+  "appTitle": "Ghicește mutarea marelui maestru",
+  "appName": "Ghici mutarea",
+  "loading": "Se încarcă…",
+  "loadError": "Datele nu au putut fi încărcate",
+  "back": "Înapoi",
+  "points": "{n} p",
+  "streak": "serie {n}",
+  "menuLead": "Poți gândi ca un mare maestru?",
+  "menuSub": "Partide reale ale campionilor. Ghicește mutarea jucată de maestru, nu pe cea sugerată de motor.",
+  "chooseGm": "Alege un mare maestru",
+  "chooseGmHint": "Joacă în rolul campionului tău preferat",
+  "youPlayAs": "Joci ca",
+  "tapToChange": "atinge pentru a schimba",
+  "randomGame": "Partidă aleatorie",
+  "randomAny": "Orice partidă din colecție",
+  "randomOf": "O partidă aleatorie a {name}",
+  "chooseGame": "Alege o partidă",
+  "chooseGameHint": "Cele mai celebre partide din istorie · {n}",
+  "daily": "Mutarea zilei",
+  "dailyHint": "O poziție pe zi, aceeași pentru toți",
+  "settings": "Setări",
+  "settingsHint": "Temă, limbă, sunet",
+  "gmIndex": "Indice GM",
+  "gmCol": "Mare maestru",
+  "guessedCol": "Ghicite",
+  "strongCol": "Mutări puternice",
+  "bestStreak": "Cea mai lungă serie de mutări ghicite: {n}",
+  "photoCredits": "Fotografii jucători",
+  "gmsTitle": "Mari maeștri",
+  "games_one": "{n} partidă",
+  "games_few": "{n} partide",
+  "games_other": "{n} de partide",
+  "playAsBtn": "Joacă ca {name}",
+  "selected": "Selectat",
+  "unselect": "Anulează alegerea",
+  "howPlayed": "Stil de joc",
+  "howPlayedF": "Stil de joc",
+  "strengths": "Puncte forte",
+  "hisGames": "Partide în colecție",
+  "gamesTitle": "Partide",
+  "youPlayFor": "Joci: {name}",
+  "moves_one": "{n} mutare",
+  "moves_few": "{n} mutări",
+  "moves_other": "{n} de mutări",
+  "startGame": "Începe partida",
+  "whyMatters": "De ce contează",
+  "aboutGame": "Despre partidă",
+  "pathToWin": "Refă mutare cu mutare drumul {name} spre victorie.",
+  "playedBy": "Joci ca {name} ({side}) · {moves}",
+  "whiteSide": "albele",
+  "blackSide": "negrele",
+  "gameProgress": "{title} · ghicite {x} din {n} (total {total})",
+  "moveWhite": "Mutarea {n}.",
+  "moveBlack": "Mutarea {n}…",
+  "whatPlayed": "Ce a jucat {name}?",
+  "whatPlayedF": "Ce a jucat {name}?",
+  "onlyMove": "Singura mutare legală…",
+  "opponentMoves": "Mută adversarul…",
+  "opening": "Deschidere…",
+  "skip": "Sari — nu știu",
+  "hint": "Trage o piesă sau atinge-o, apoi atinge un câmp.",
+  "gameStarts": "Partida începe din poziția inițială.",
+  "white": "Albele",
+  "black": "Negrele",
+  "yourPieces": "piesele tale",
+  "toMove": "la mutare",
+  "grandmaster": "Mare maestru",
+  "fbExact": "Corect! {name} a jucat {san}.",
+  "fbExactF": "Corect! {name} a jucat {san}.",
+  "fbGood": "Mutare puternică {user}, dar {name} a jucat {san}.",
+  "fbGoodF": "Mutare puternică {user}, dar {name} a jucat {san}.",
+  "fbSkip": "Sărită. {name} a jucat {san}.",
+  "fbSkipF": "Sărită. {name} a jucat {san}.",
+  "fbMiss": "Ai jucat {user}. {name} a jucat {san}.",
+  "fbMissF": "Ai jucat {user}. {name} a jucat {san}.",
+  "exactShort": "{san} — exact asta a jucat {name}.",
+  "exactShortF": "{san} — exact asta a jucat {name}.",
+  "engineBest": "Motor: cea mai bună mutare {san} ({eval})",
+  "engineYour": ", mutarea ta — {eval}",
+  "engineAgrees": " — motorul este de acord cu tine.",
+  "engineLine": "Varianta motorului: {line}",
+  "difficulty": "Dificultate: {stars}",
+  "mate": "mat",
+  "getsMated": "primește mat",
+  "summaryHeadline": "Ai jucat ca {name} în proporție de {pct}%",
+  "summaryLine": "Ghicite {x} din {moves} · alternative puternice: {good}",
+  "skippedN": "sărite: {n}",
+  "share": "Distribuie",
+  "copied": "Copiat ✓",
+  "again": "Joacă din nou",
+  "toMenu": "Meniu",
+  "dailyProgress": "Mutarea zilei #{n}",
+  "dailyDone": "deja jucată azi {v} (fără puncte)",
+  "whichMove": "{move} La mutare: {side}. Ce mutare a jucat marele maestru?",
+  "itWas": "A fost {name}: {label}",
+  "itWasF": "A fost {name}: {label}",
+  "theme": "Temă de culori",
+  "themeGold": "Auriu",
+  "themeIvory": "Fildeș",
+  "themeEmerald": "Smarald",
+  "themeMidnight": "Miez de noapte",
+  "themeGraphite": "Grafit",
+  "boardColors": "Culorile tablei",
+  "boardWood": "Lemn",
+  "boardClassic": "Clasic",
+  "boardGreen": "Verde",
+  "boardBlue": "Albastru",
+  "boardIce": "Gheață",
+  "boardPurple": "Mov",
+  "boardGrey": "Gri",
+  "boardCoral": "Coral",
+  "boardOlive": "Măsliniu",
+  "boardNight": "Noapte",
+  "language": "Limbă",
+  "langAuto": "Limba telefonului",
+  "sound": "Sunetul mutărilor",
+  "speed": "Ritmul partidei",
+  "speedSlow": "Lent",
+  "speedNormal": "Normal",
+  "speedFast": "Rapid",
+  "showEngine": "Arată evaluarea motorului",
+  "skipOpening": "Sari peste deschidere (primele 2 mutări)",
+  "resetStats": "Resetează statisticile",
+  "resetConfirm": "Sigur resetezi? Punctele, seriile și indicele GM se vor pierde.",
+  "yesReset": "Da, resetează",
+  "cancel": "Anulează",
+  "statsReset": "Statistici resetate ✓"
+ },
+ "events": {
+  "candidates": "Turneul Candidaților",
+  "interzonal": "Turneul Interzonal",
+  "fideWch": "Campionatul Mondial FIDE",
+  "wch": "Campionatul Mondial",
+  "olympiad": "Olimpiada de Șah",
+  "ussr": "Campionatul URSS",
+  "avro": "Turneul AVRO"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garri Kasparov",
+   "short": "Kasparov",
+   "acc": "Garri Kasparov",
+   "title": "Al 13-lea campion mondial (1985–2000)",
+   "bio": "Născut la Baku. La 22 de ani i-a luat titlul lui Anatoli Karpov și l-a păstrat 15 ani, până când a pierdut în fața lui Vladimir Kramnik în 2000. A fost liderul clasamentului mondial timp de aproape douăzeci de ani și s-a retras în 2005.",
+   "style": "Un jucător dinamic și ofensiv, care prețuia inițiativa mai mult decât materialul. Venea cu o pregătire profundă a deschiderilor și deseori decidea partida înainte ca adversarul să se dezmeticească.",
+   "strengths": [
+    "Atacul la rege",
+    "Pregătirea deschiderilor",
+    "Calculul variantelor complexe",
+    "Sacrificii pentru inițiativă"
+   ],
+   "gen": "lui Kasparov"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "Al 16-lea campion mondial (2013–2023)",
+   "bio": "Norvegian, a devenit mare maestru la 13 ani. A câștigat titlul în fața lui Viswanathan Anand în 2013 și l-a deținut până în 2023, când a ales să nu-l mai apere. A atins cel mai mare rating din istorie, 2882.",
+   "style": "Un jucător universal. Intră bucuros în poziții egale și continuă să preseze, stoarcând victorii din avantaje minuscule. Cel mai puternic în finaluri și în deciziile practice de la tablă.",
+   "strengths": [
+    "Finaluri",
+    "Jocul cu un avantaj minim",
+    "Rezistență în partidele lungi",
+    "Decizii practice"
+   ],
+   "gen": "lui Carlsen"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "Al 11-lea campion mondial (1972–1975)",
+   "bio": "American, a câștigat campionatul SUA la 14 ani. În 1972, la Reykjavik, l-a învins pe Boris Spasski, punând capăt dominației sovietice asupra titlului. În 1975 a refuzat să-l apere, iar coroana a trecut la Anatoli Karpov.",
+   "style": "Claritate și precizie. Juca poziții clasice, curate, deschidea aproape întotdeauna cu 1.e4 și valorifica până și avantajele mici. Lupta în fiecare partidă și nu-i plăceau remizele rapide.",
+   "strengths": [
+    "Valorificarea avantajului",
+    "Deschideri clasice",
+    "Spirit combativ",
+    "Precizie"
+   ],
+   "gen": "lui Fischer"
+  },
+  "karpov": {
+   "name": "Anatoli Karpov",
+   "short": "Karpov",
+   "acc": "Anatoli Karpov",
+   "title": "Al 12-lea campion mondial (1975–1985)",
+   "bio": "A devenit campion mondial în 1975, când Fischer a refuzat să-și apere titlul. Și-a apărat coroana de două ori în fața lui Viktor Korchnoi și a fost cel mai bun din lume timp de un deceniu, până când a pierdut în fața lui Garri Kasparov. Mai târziu a deținut din nou titlul FIDE (1993–1999).",
+   "style": "Un maestru al jocului pozițional. Își sufoca încet adversarii, luându-le spațiul și mutările utile, apoi câștiga aproape fără niciun risc. Stilul său este adesea comparat cu cel al unui boa constrictor.",
+   "strengths": [
+    "Presiune pozițională",
+    "Profilaxie",
+    "Exploatarea câmpurilor slabe",
+    "Valorificarea avantajului"
+   ],
+   "gen": "lui Karpov"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "Al 3-lea campion mondial (1921–1927)",
+   "bio": "Un copil-minune cubanez care a învățat șahul de mic, privindu-și tatăl jucând. A câștigat titlul în fața lui Emanuel Lasker în 1921 și l-a pierdut în fața lui Alexandr Alehin în 1927.",
+   "style": "Simplitate și claritate. Capablanca evita complicațiile inutile, juca ușor și precis și conducea finalurile atât de bine încât partidele lui sunt studiate și azi ca modele.",
+   "strengths": [
+    "Finaluri",
+    "Simț pozițional",
+    "Soluții simple",
+    "Apărare"
+   ],
+   "gen": "lui Capablanca"
+  },
+  "tal": {
+   "name": "Mihail Tal",
+   "short": "Tal",
+   "acc": "Mihail Tal",
+   "title": "Al 8-lea campion mondial (1960–1961)",
+   "bio": "„Magicianul din Riga”. În 1960 l-a învins pe Mihail Botvinnik și a devenit campion mondial, iar un an mai târziu a pierdut meciul-revanșă. În ciuda sănătății șubrede, a rămas decenii întregi în elita mondială.",
+   "style": "Cel mai spectaculos jucător de atac din istorie. Sacrifica piese pentru a complica poziția și câștiga în haos, acolo unde adversarii nu puteau calcula totul.",
+   "strengths": [
+    "Sacrificii de piese",
+    "Tactică",
+    "Atac",
+    "Presiune psihologică"
+   ],
+   "gen": "lui Tal"
+  },
+  "botvinnik": {
+   "name": "Mihail Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Mihail Botvinnik",
+   "title": "Al 6-lea campion mondial (1948–1963, cu întreruperi)",
+   "bio": "A câștigat meciul-turneu din 1948 și a devenit campion mondial. A pierdut titlul de două ori, în fața lui Smîslov și a lui Tal, și l-a recâștigat de fiecare dată în meciuri-revanșă. Inginer de formație, a condus mai târziu o școală de șah printre ai cărei elevi s-au numărat Karpov, Kasparov și Kramnik.",
+   "style": "O abordare științifică. Se pregătea meticulos, își analiza în profunzime propriile partide și deschideri și juca logic și puternic în poziții strategice complexe.",
+   "strengths": [
+    "Pregătire",
+    "Strategie",
+    "Analiză",
+    "Sisteme de deschidere"
+   ],
+   "gen": "lui Botvinnik"
+  },
+  "alekhine": {
+   "name": "Alexandr Alehin",
+   "short": "Alehin",
+   "acc": "Alexandr Alehin",
+   "title": "Al 4-lea campion mondial (1927–1935, 1937–1946)",
+   "bio": "În 1927 l-a învins senzațional pe Capablanca. A pierdut titlul în fața lui Max Euwe în 1935, dar l-a recâștigat doi ani mai târziu. A murit în 1946 ca deținător al titlului — singurul caz din istorie.",
+   "style": "Un stil de atac bazat pe combinații profunde. Alehin putea crea complicații din nimic și calcula cu multe mutări înainte.",
+   "strengths": [
+    "Combinații",
+    "Atac",
+    "Profunzimea calculului",
+    "Inițiativă"
+   ],
+   "gen": "lui Alehin"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "Neoficial, cel mai bun jucător din lume la sfârșitul anilor 1850",
+   "bio": "American din New Orleans. În 1858–1859 a făcut un turneu prin Europa și i-a învins pe cei mai puternici maeștri ai ei, printre care Adolf Anderssen. La scurt timp după întoarcerea acasă a renunțat aproape complet la șah.",
+   "style": "Dezvoltare rapidă, linii deschise și atac. Morphy a fost primul care a arătat în mod consecvent cât de important este să mobilizezi toate piesele înainte de atac.",
+   "strengths": [
+    "Dezvoltare",
+    "Poziții deschise",
+    "Combinații",
+    "Atacul la rege"
+   ],
+   "gen": "lui Morphy"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "Al 2-lea campion mondial (1894–1921)",
+   "bio": "Șahist și matematician german. L-a învins pe Steinitz în 1894 și a deținut titlul 27 de ani — cea mai lungă domnie din istorie — până când a pierdut în fața lui Capablanca în 1921.",
+   "style": "Un luptător pragmatic. Lasker nu căuta mutarea perfectă, ci pe cea mai incomodă pentru adversarul concret, și apăra strălucit pozițiile dificile.",
+   "strengths": [
+    "Joc practic",
+    "Apărare",
+    "Psihologie",
+    "Finaluri"
+   ],
+   "gen": "lui Lasker"
+  },
+  "spassky": {
+   "name": "Boris Spasski",
+   "short": "Spasski",
+   "acc": "Boris Spasski",
+   "title": "Al 10-lea campion mondial (1969–1972)",
+   "bio": "L-a învins pe Tigran Petrosian în 1969. În 1972, la Reykjavik, a pierdut celebrul „Meci al secolului” în fața lui Bobby Fischer.",
+   "style": "Un jucător universal. La fel de sigur în atac și în apărare, juca deschideri ascuțite precum Gambitul Regelui și manevra calm în poziții egale.",
+   "strengths": [
+    "Versatilitate",
+    "Atac",
+    "Gambitul Regelui",
+    "Calm la tablă"
+   ],
+   "gen": "lui Spasski"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosian",
+   "short": "Petrosian",
+   "acc": "Tigran Petrosian",
+   "title": "Al 9-lea campion mondial (1963–1969)",
+   "bio": "L-a învins pe Botvinnik în 1963 și și-a apărat titlul în fața lui Spasski în 1966, înainte de a pierde revanșa cu el în 1969. Supranumit „Tigran de Fier” pentru jocul său incredibil de solid.",
+   "style": "Un maestru al profilaxiei, care prevedea și neutraliza din timp planurile adversarului. Celebru pentru sacrificiile poziționale de calitate pe care jucătorii le studiază și azi.",
+   "strengths": [
+    "Profilaxie",
+    "Apărare",
+    "Sacrificii de calitate",
+    "Soliditate"
+   ],
+   "gen": "lui Petrosian"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Vladimir Kramnik",
+   "title": "Al 14-lea campion mondial (2000–2007)",
+   "bio": "La Londra, în 2000, l-a învins senzațional pe Garri Kasparov fără să piardă nicio partidă. În 2006 a unificat titlul învingându-l pe Veselin Topalov, iar în 2007 i-a cedat coroana lui Anand. S-a retras în 2019.",
+   "style": "Înțelegere pozițională profundă și pregătire impecabilă. În meciul cu Kasparov a popularizat Apărarea Berlineză, pe care întreaga elită a adoptat-o apoi.",
+   "strengths": [
+    "Pregătirea deschiderilor",
+    "Joc pozițional",
+    "Finaluri",
+    "Soliditate"
+   ],
+   "gen": "lui Kramnik"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "Al 15-lea campion mondial (2007–2013)",
+   "bio": "Primul mare maestru al Indiei (1988). Campion mondial FIDE în 2000 și campion mondial incontestabil din 2007 până când a pierdut meciul din 2013 cu Magnus Carlsen.",
+   "style": "Rapid și universal. Cunoscut pentru calculul fulgerător și pregătirea profundă a deschiderilor, la fel de confortabil în poziții ascuțite și liniștite.",
+   "strengths": [
+    "Viteza calculului",
+    "Pregătirea deschiderilor",
+    "Versatilitate",
+    "Șah rapid"
+   ],
+   "gen": "lui Anand"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "Cea mai puternică jucătoare de șah din istorie",
+   "bio": "Maghiară, a devenit mare maestru în 1991, la 15 ani și 4 luni, doborând recordul lui Fischer. Singura femeie care a intrat în top 10 mondial (locul 8, 2004) și a depășit ratingul de 2700. S-a retras în 2014.",
+   "style": "Un stil agresiv, de atac. Polgár ascuțea bucuroasă jocul și sacrifica material pentru a-l duce în lupte tactice, unde era deosebit de puternică.",
+   "strengths": [
+    "Atac",
+    "Tactică",
+    "Sacrificii",
+    "Spirit combativ"
+   ],
+   "gen": "lui Judit Polgár"
+  },
+  "smyslov": {
+   "name": "Vasili Smîslov",
+   "short": "Smîslov",
+   "acc": "Vasili Smîslov",
+   "title": "Al 7-lea campion mondial (1957–1958)",
+   "bio": "A jucat trei meciuri pentru titlu cu Botvinnik, câștigând în 1957, dar pierzând revanșa un an mai târziu. A rămas în vârf timp de decenii și a ajuns în finala Candidaților în 1984, la vârsta de 63 de ani.",
+   "style": "Armonie și naturalețe. Smîslov își așeza piesele ca și cum ar fi știut singure unde le e locul și era renumit pentru măiestria sa în finaluri.",
+   "strengths": [
+    "Finaluri",
+    "Armonia pieselor",
+    "Simț pozițional",
+    "Longevitate"
+   ],
+   "gen": "lui Smîslov"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "Primul campion mondial oficial (1886–1894)",
+   "bio": "Născut la Praga. În 1886 l-a învins pe Johannes Zukertort în primul meci oficial pentru Campionatul Mondial și a deținut titlul până în 1894, când a pierdut în fața lui Emanuel Lasker.",
+   "style": "Părintele șahului pozițional. Steinitz a formulat principiile acumulării micilor avantaje și a arătat că un atac trebuie justificat de poziție, nu doar de curaj.",
+   "strengths": [
+    "Teorie pozițională",
+    "Apărare",
+    "Acumularea avantajelor",
+    "Tenacitate"
+   ],
+   "gen": "lui Steinitz"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Pretendent la titlul mondial (1993)",
+   "bio": "Englez, unul dintre cei mai puternici jucători occidentali din anii '80 și '90. În 1993 a jucat un meci pentru titlul mondial cu Garri Kasparov și a pierdut.",
+   "style": "Agresiv și inventiv. Nu se temea de idei neobișnuite, precum celebrul său marș cu regele de-a lungul întregii table împotriva lui Jan Timman.",
+   "strengths": [
+    "Atac",
+    "Idei neobișnuite",
+    "Rege activ"
+   ],
+   "gen": "lui Short"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "„Partida secolului”",
+   "why": "Fischer, la 13 ani, împotriva lui Donald Byrne la New York. Sacrificiul de damă 17…Be6 și dezastrul care a urmat au făcut ca întreaga lume a șahului să-l remarce pe Fischer."
+  },
+  "kasparov-topalov-1999": {
+   "title": "Nemuritoarea lui Kasparov",
+   "why": "Wijk aan Zee, 1999. Sacrificiul de turn 24.Rxd4 și o vânătoare a regelui negru pe toată tabla. Unul dintre cele mai frumoase atacuri din istoria șahului."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Meciul secolului, partida 6",
+   "why": "Reykjavik, 1972. Fischer, care deschidea aproape întotdeauna cu 1.e4, a început cu 1.c4 și l-a surclasat pe Spasski în stil clasic. Victoria l-a adus în avantaj în meciul pentru titlu."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Calul de pe d3",
+   "why": "Meciul pentru titlul mondial din 1985. Calul lui Kasparov de pe d3 a paralizat întreaga armată albă — una dintre cele mai cunoscute partide ale rivalității lor. În același an, Kasparov a devenit campion."
+  },
+  "short-timman-1991": {
+   "title": "Marșul regelui",
+   "why": "Tilburg, 1991. În jocul de mijloc, Short și-a dus regele Kh2–g3–f4–g5 în tabăra adversă, ca să participe la atacul asupra regelui negru."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Departajarea pentru titlu, 2016",
+   "why": "New York, 2016, ultima partidă a departajării. De ziua lui, Carlsen a încheiat-o cu sacrificiul de damă 50.Qh6+ și și-a păstrat titlul mondial."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "Partida decisivă de la Bled",
+   "why": "Semifinala Candidaților de la Bled. Înaintea acestei partide scorul era 4,5–4,5. Tal a sacrificat un cal cu 16.Nd5, a câștigat și a ajuns în finala Candidaților."
+  },
+  "aronian-anand-2013": {
+   "title": "Demolare în 23 de mutări",
+   "why": "Wijk aan Zee, 2013. Campionul mondial en titre Anand, cu negrele, l-a zdrobit pe Aronian în 23 de mutări printr-o serie de sacrificii — una dintre cele mai frumoase partide ale carierei sale."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Meciul pentru titlu 2013, partida 5",
+   "why": "Chennai, 2013. După patru remize, Carlsen a câștigat prima partidă a meciului, măcinându-l pe Anand în final. Meciul l-a făcut campion mondial."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Meciul pentru titlu 2016, partida 10",
+   "why": "New York, 2016. Kariakin conducea în meci după partida a 8-a. În partida a 10-a, Carlsen a egalat scorul după o luptă lungă, iar meciul a ajuns în cele din urmă la departajare."
+  },
+  "morphy-opera-1858": {
+   "title": "Partida de la Operă",
+   "why": "Paris, 1858, într-o lojă la operă. Morphy a jucat împotriva ducelui de Brunswick și a contelui Isouard, care se consultau între ei. Sacrificiul de damă 16.Qb8+ și matul 17.Rd8# o fac cea mai faimoasă partidă scurtă din istoria șahului și un model de dezvoltare rapidă."
+  },
+  "lasker-bauer-1889": {
+   "title": "Dublul sacrificiu de nebuni",
+   "why": "Amsterdam, 1889. Lasker a sacrificat ambii nebuni — 15.Bxh7+ și 17.Bxg7 — și a distrus adăpostul regelui negru. De atunci ideea este cunoscută drept dublul sacrificiu de nebuni al lui Lasker."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "Nebunul de pe a3",
+   "why": "Turneul AVRO, 1938. Tânărul Botvinnik l-a surclasat pe fostul campion mondial Capablanca și a încheiat partida cu celebrul sacrificiu de nebun 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "Partida din filmul cu James Bond",
+   "why": "Campionatul URSS, Leningrad, 1960. Gambitul Regelui, sacrificiul de cal 16.Nxf7 și un atac la rege. O poziție din această partidă apare la începutul filmului cu James Bond „Din Rusia, cu dragoste” (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Veteranul Steinitz împotriva lui Curt von Bardeleben. După 22.Rxe7+, turnul alb dă șah după șah și nu poate fi luat. Von Bardeleben nu a mai așteptat matul și a părăsit pur și simplu sala de joc."
+  },
+  "capablanca-marshall-1918": {
+   "title": "Nașterea Atacului Marshall",
+   "why": "New York, 1918. Frank Marshall l-a surprins pe Capablanca cu un nou și ascuțit sacrificiu de pion, 8…d5, în Partida Spaniolă. Capablanca a respins atacul și a câștigat, dar ideea se numește și azi Atacul Marshall și se joacă la cel mai înalt nivel."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londra 2000, partida 2",
+   "why": "Meciul pentru Campionatul Mondial. Prima victorie a lui Kramnik asupra lui Kasparov. Kramnik a câștigat întregul meci fără să piardă nicio partidă și a devenit al 14-lea campion mondial."
+  },
+  "reti-alekhine-1925": {
+   "title": "Combinația de la Baden-Baden",
+   "why": "Baden-Baden, 1925. Cu negrele, Alehin a realizat una dintre cele mai celebre combinații ale sale, calculată cu multe mutări înainte, împotriva lui Richard Réti, unul dintre părinții școlii hipermoderne."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Boa constrictorul de la Nisa",
+   "why": "Olimpiada de la Nisa, 1974. Un exemplu de manual al stilului lui Karpov: pas cu pas i-a luat adversarului spațiul și mutările utile, până când negrele au fost complet sufocate."
+  }
+ },
+ "store": {
+  "title": "Ghicește mutarea maestrului",
+  "short": "Rejoacă partidele campionilor mondiali și ghicește-le mutările. 108 partide.",
+  "full": "Poți gândi ca un mare maestru?\n\nÎn acest joc nu joci împotriva computerului — ghicești mutările pe care marii campioni le-au făcut în partide reale. Alege-i pe Kasparov, Carlsen, Fischer, Tal sau pe oricare dintre cei 18 mari maeștri și rejoacă-le cele mai celebre partide, mutare cu mutare.\n\n• 108 partide reale: de la Partida de la Operă a lui Morphy din 1858 până la meciurile pentru titlul mondial din secolul XXI\n• Fiecare mutare este evaluată de un motor de șah: chiar dacă nu nimerești mutarea maestrului, dar găsești una la fel de puternică, primești puncte\n• Profilurile a 18 campioni: biografie, stil de joc, puncte forte\n• Mutarea zilei — o poziție pe zi, aceeași pentru toți\n• Indicele GM: cât de aproape este gândirea ta de cea a fiecărui mare maestru\n• Teme de culori, culorile tablei, sunet și ritmul jocului\n• Funcționează offline\n\nÎnvață să gândești ca un campion — mutare cu mutare."
+ }
+}
