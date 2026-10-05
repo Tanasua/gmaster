@@ -1,0 +1,495 @@
+{
+ "meta": {
+  "name": "Türkçe"
+ },
+ "ui": {
+  "appTitle": "Büyükustanın Hamlesini Bil",
+  "appName": "Hamleyi Bil",
+  "loading": "Yükleniyor…",
+  "loadError": "Veriler yüklenemedi",
+  "back": "Geri",
+  "points": "{n} puan",
+  "streak": "seri {n}",
+  "menuLead": "Bir büyükusta gibi düşünebilir misin?",
+  "menuSub": "Şampiyonların gerçek partileri. Motorun önerdiği hamleyi değil, ustanın oynadığı hamleyi bil.",
+  "chooseGm": "Büyükusta seç",
+  "chooseGmHint": "En sevdiğin şampiyonla oyna",
+  "youPlayAs": "Oyuncun",
+  "tapToChange": "değiştirmek için dokun",
+  "randomGame": "Rastgele parti",
+  "randomAny": "Koleksiyondan herhangi bir parti",
+  "randomOf": "{name} rastgele bir partisi",
+  "chooseGame": "Parti seç",
+  "chooseGameHint": "Tarihin en ünlü partileri · {n}",
+  "daily": "Günün hamlesi",
+  "dailyHint": "Günde bir pozisyon, herkes için aynı",
+  "settings": "Ayarlar",
+  "settingsHint": "Tema, dil, ses",
+  "gmIndex": "GM endeksi",
+  "gmCol": "Büyükusta",
+  "guessedCol": "Bilinen",
+  "strongCol": "Güçlü hamleler",
+  "bestStreak": "En uzun doğru tahmin serisi: {n}",
+  "photoCredits": "Oyuncu fotoğrafları",
+  "gmsTitle": "Büyükustalar",
+  "games_one": "{n} parti",
+  "games_other": "{n} parti",
+  "playAsBtn": "{name} olarak oyna",
+  "selected": "Seçildi",
+  "unselect": "Seçimi kaldır",
+  "howPlayed": "Oyun tarzı",
+  "howPlayedF": "Oyun tarzı",
+  "strengths": "Güçlü yönleri",
+  "hisGames": "Koleksiyondaki partileri",
+  "gamesTitle": "Partiler",
+  "youPlayFor": "Oyuncun: {name}",
+  "moves_one": "{n} hamle",
+  "moves_other": "{n} hamle",
+  "startGame": "Partiye başla",
+  "whyMatters": "Neden önemli",
+  "aboutGame": "Parti hakkında",
+  "pathToWin": "{name} zafere giden yolunu hamle hamle yeniden yürü.",
+  "playedBy": "{name} olarak oynuyorsun ({side}) · {moves}",
+  "whiteSide": "Beyaz",
+  "blackSide": "Siyah",
+  "gameProgress": "{title} · {n} hamlenin {x} tanesi bilindi (toplam {total})",
+  "moveWhite": "Hamle {n}.",
+  "moveBlack": "Hamle {n}…",
+  "whatPlayed": "{name} ne oynadı?",
+  "whatPlayedF": "{name} ne oynadı?",
+  "onlyMove": "Tek yasal hamle…",
+  "opponentMoves": "Hamle sırası rakipte…",
+  "opening": "Açılış…",
+  "skip": "Geç — bilmiyorum",
+  "hint": "Bir taşı sürükle ya da önce taşa, sonra kareye dokun.",
+  "gameStarts": "Parti başlangıç pozisyonundan başlıyor.",
+  "white": "Beyaz",
+  "black": "Siyah",
+  "yourPieces": "senin taşların",
+  "toMove": "oynar",
+  "grandmaster": "Büyükusta",
+  "fbExact": "Doğru! {name} {san} oynadı.",
+  "fbExactF": "Doğru! {name} {san} oynadı.",
+  "fbGood": "{user} güçlü bir hamle, ama {name} {san} oynadı.",
+  "fbGoodF": "{user} güçlü bir hamle, ama {name} {san} oynadı.",
+  "fbSkip": "Geçildi. {name} {san} oynadı.",
+  "fbSkipF": "Geçildi. {name} {san} oynadı.",
+  "fbMiss": "Sen {user} oynadın. {name} {san} oynadı.",
+  "fbMissF": "Sen {user} oynadın. {name} {san} oynadı.",
+  "exactShort": "{san} — {name} tam olarak bunu oynadı.",
+  "exactShortF": "{san} — {name} tam olarak bunu oynadı.",
+  "engineBest": "Motor: en iyi hamle {san} ({eval})",
+  "engineYour": ", senin hamlen — {eval}",
+  "engineAgrees": " — motor da seninle aynı fikirde.",
+  "engineLine": "Motorun devamı: {line}",
+  "difficulty": "Zorluk: {stars}",
+  "mate": "mat",
+  "getsMated": "mat oluyor",
+  "summaryHeadline": "%{pct} oranında {name} gibi oynadın",
+  "summaryLine": "{moves} içinden {x} doğru tahmin · güçlü alternatifler: {good}",
+  "skippedN": "geçilen: {n}",
+  "share": "Paylaş",
+  "copied": "Kopyalandı ✓",
+  "again": "Tekrar oyna",
+  "toMenu": "Menü",
+  "dailyProgress": "Günün hamlesi #{n}",
+  "dailyDone": "bugün zaten oynandı {v} (puan yok)",
+  "whichMove": "{move} Hamle sırası: {side}. Büyükusta hangi hamleyi oynadı?",
+  "itWas": "Cevap {name}: {label}",
+  "itWasF": "Cevap {name}: {label}",
+  "theme": "Renk teması",
+  "themeGold": "Altın",
+  "themeIvory": "Fildişi",
+  "themeEmerald": "Zümrüt",
+  "themeMidnight": "Gece yarısı",
+  "themeGraphite": "Grafit",
+  "boardColors": "Tahta renkleri",
+  "boardWood": "Ahşap",
+  "boardClassic": "Klasik",
+  "boardGreen": "Yeşil",
+  "boardBlue": "Mavi",
+  "boardIce": "Buz",
+  "boardPurple": "Mor",
+  "boardGrey": "Gri",
+  "boardCoral": "Mercan",
+  "boardOlive": "Zeytin",
+  "boardNight": "Gece",
+  "language": "Dil",
+  "langAuto": "Telefonun dili",
+  "sound": "Hamle sesleri",
+  "speed": "Oyun hızı",
+  "speedSlow": "Yavaş",
+  "speedNormal": "Normal",
+  "speedFast": "Hızlı",
+  "showEngine": "Motor değerlendirmesini göster",
+  "skipOpening": "Açılışı atla (ilk 2 hamle)",
+  "resetStats": "İstatistikleri sıfırla",
+  "resetConfirm": "Emin misin? Puanlar, seriler ve GM endeksi silinecek.",
+  "yesReset": "Evet, sıfırla",
+  "cancel": "İptal",
+  "statsReset": "İstatistikler sıfırlandı ✓"
+ },
+ "events": {
+  "candidates": "Adaylar Turnuvası",
+  "interzonal": "Bölgelerarası Turnuva",
+  "fideWch": "FIDE Dünya Şampiyonası",
+  "wch": "Dünya Şampiyonası",
+  "olympiad": "Satranç Olimpiyatı",
+  "ussr": "SSCB Şampiyonası",
+  "avro": "AVRO turnuvası"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garri Kasparov",
+   "short": "Kasparov",
+   "acc": "Garri Kasparov",
+   "title": "13. Dünya Şampiyonu (1985–2000)",
+   "bio": "Bakü'de doğdu. 22 yaşında unvanı Anatoli Karpov'dan aldı ve 2000'de Vladimir Kramnik'e kaybedene kadar 15 yıl elinde tuttu. Yaklaşık yirmi yıl boyunca dünyanın en yüksek reytingli oyuncusuydu ve 2005'te satrancı bıraktı.",
+   "style": "İnisiyatifi materyalden üstün tutan dinamik bir hücum oyuncusu. Partilere derin bir açılış hazırlığıyla gelir, çoğu zaman rakibi daha toparlanamadan oyunu karara bağlardı.",
+   "strengths": [
+    "Şaha hücum",
+    "Açılış hazırlığı",
+    "Karmaşık varyantları hesaplama",
+    "İnisiyatif için feda"
+   ],
+   "gen": "Kasparov'un"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "16. Dünya Şampiyonu (2013–2023)",
+   "bio": "13 yaşında büyükusta olan bir Norveçli. Unvanı 2013'te Viswanathan Anand'dan aldı ve 2023'e kadar elinde tuttu; o yıl unvanını savunmamayı seçti. Tarihin en yüksek reytingine, 2882'ye ulaştı.",
+   "style": "Çok yönlü bir oyuncu. Eşit pozisyonlara seve seve girer, baskıyı sürdürür ve küçücük avantajlardan galibiyet çıkarır. En güçlü olduğu alanlar oyunsonu ve tahta başındaki pratik kararlardır.",
+   "strengths": [
+    "Oyunsonu",
+    "Küçük avantajla oynamayı sürdürmek",
+    "Uzun partilerde dayanıklılık",
+    "Pratik kararlar"
+   ],
+   "gen": "Carlsen'in"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "11. Dünya Şampiyonu (1972–1975)",
+   "bio": "14 yaşında ABD şampiyonluğunu kazanan bir Amerikalı. 1972'de Reykjavik'te Boris Spasski'yi yenerek unvan üzerindeki Sovyet hâkimiyetine son verdi. 1975'te unvanını savunmayı reddetti ve taç Anatoli Karpov'a geçti.",
+   "style": "Netlik ve kesinlik. Temiz klasik pozisyonlar oynar, neredeyse her zaman 1.e4 ile açar ve küçük avantajları bile galibiyete çevirirdi. Her partide mücadele eder, kısa beraberliklerden hoşlanmazdı.",
+   "strengths": [
+    "Avantajı galibiyete çevirme",
+    "Klasik açılışlar",
+    "Mücadele ruhu",
+    "Kesinlik"
+   ],
+   "gen": "Fischer'in"
+  },
+  "karpov": {
+   "name": "Anatoli Karpov",
+   "short": "Karpov",
+   "acc": "Anatoli Karpov",
+   "title": "12. Dünya Şampiyonu (1975–1985)",
+   "bio": "Fischer unvanını savunmayı reddedince 1975'te Dünya Şampiyonu oldu. Tacını iki kez Viktor Korçnoy'a karşı savundu ve Garri Kasparov'a kaybedene kadar on yıl boyunca dünyanın en iyisiydi. Daha sonra FIDE unvanını yeniden taşıdı (1993–1999).",
+   "style": "Pozisyonel oyunun ustası. Rakiplerini yavaş yavaş sıkıştırır, ellerinden alanı ve yararlı hamleleri alır, sonra neredeyse hiç risk almadan kazanırdı. Tarzı sık sık boa yılanına benzetilir.",
+   "strengths": [
+    "Pozisyonel baskı",
+    "Profilaksi",
+    "Zayıf karelerden yararlanma",
+    "Avantajı galibiyete çevirme"
+   ],
+   "gen": "Karpov'un"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "3. Dünya Şampiyonu (1921–1927)",
+   "bio": "Satrancı küçük bir çocukken babasının oyununu izleyerek öğrenen Kübalı bir dahi. Unvanı 1921'de Emanuel Lasker'den aldı ve 1927'de Aleksandr Alekhin'e kaybetti.",
+   "style": "Sadelik ve netlik. Capablanca gereksiz komplikasyonlardan kaçınır, hafif ve kesin oynardı; oyunsonlarını öyle iyi oynardı ki partileri bugün hâlâ örnek olarak incelenir.",
+   "strengths": [
+    "Oyunsonu",
+    "Pozisyon sezgisi",
+    "Basit çözümler",
+    "Savunma"
+   ],
+   "gen": "Capablanca'nın"
+  },
+  "tal": {
+   "name": "Mihail Tal",
+   "short": "Tal",
+   "acc": "Mihail Tal",
+   "title": "8. Dünya Şampiyonu (1960–1961)",
+   "bio": "\"Rigalı Sihirbaz\". 1960'ta Mihail Botvinnik'i yenerek Dünya Şampiyonu oldu, bir yıl sonra rövanş maçını kaybetti. Sağlığı kötü olmasına rağmen on yıllarca dünyanın elit oyuncuları arasında kaldı.",
+   "style": "Tarihin en göz kamaştırıcı hücum oyuncusu. Pozisyonu karmaşıklaştırmak için taş feda eder ve rakiplerin her şeyi hesaplayamadığı kaosun içinde kazanırdı.",
+   "strengths": [
+    "Taş fedaları",
+    "Taktik",
+    "Hücum",
+    "Psikolojik baskı"
+   ],
+   "gen": "Tal'ın"
+  },
+  "botvinnik": {
+   "name": "Mihail Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Mihail Botvinnik",
+   "title": "6. Dünya Şampiyonu (1948–1963, aralıklarla)",
+   "bio": "1948'deki maç-turnuvayı kazanarak Dünya Şampiyonu oldu. Unvanı iki kez, Smislov'a ve Tal'a kaybetti ve her ikisinde de rövanş maçlarında geri aldı. Eğitimli bir mühendis olarak daha sonra Karpov, Kasparov ve Kramnik'in de öğrencisi olduğu bir satranç okulu yönetti.",
+   "style": "Bilimsel bir yaklaşım. Titizlikle hazırlanır, kendi partilerini ve açılışlarını derinlemesine analiz eder, karmaşık stratejik pozisyonlarda mantıklı ve güçlü oynardı.",
+   "strengths": [
+    "Hazırlık",
+    "Strateji",
+    "Analiz",
+    "Açılış sistemleri"
+   ],
+   "gen": "Botvinnik'in"
+  },
+  "alekhine": {
+   "name": "Aleksandr Alekhin",
+   "short": "Alekhin",
+   "acc": "Aleksandr Alekhin",
+   "title": "4. Dünya Şampiyonu (1927–1935, 1937–1946)",
+   "bio": "1927'de Capablanca'yı sansasyonel biçimde yendi. 1935'te unvanı Max Euwe'ye kaybetti ama iki yıl sonra geri aldı. 1946'da unvanı elindeyken öldü; tarihte bunu yaşayan tek şampiyondur.",
+   "style": "Derin kombinezonlara dayanan bir hücum tarzı. Alekhin yoktan komplikasyon yaratabilir ve birçok hamle ilerisini hesaplardı.",
+   "strengths": [
+    "Kombinezonlar",
+    "Hücum",
+    "Hesaplama derinliği",
+    "İnisiyatif"
+   ],
+   "gen": "Alekhin'in"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "1850'lerin sonunda dünyanın gayriresmî en iyisi",
+   "bio": "New Orleans'lı bir Amerikalı. 1858–1859'da Avrupa'yı dolaştı ve Adolf Anderssen dahil kıtanın en güçlü ustalarını yendi. Eve döndükten kısa süre sonra satrancı neredeyse tamamen bıraktı.",
+   "style": "Hızlı gelişim, açık hatlar ve hücum. Morphy, hücuma geçmeden önce her taşı oyuna sokmanın ne kadar önemli olduğunu tutarlı biçimde gösteren ilk oyuncuydu.",
+   "strengths": [
+    "Gelişim",
+    "Açık pozisyonlar",
+    "Kombinezonlar",
+    "Şaha hücum"
+   ],
+   "gen": "Morphy'nin"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "2. Dünya Şampiyonu (1894–1921)",
+   "bio": "Alman bir satranççı ve matematikçi. 1894'te Steinitz'i yendi ve 1921'de Capablanca'ya kaybedene kadar unvanı 27 yıl elinde tuttu — tarihin en uzun şampiyonluğu.",
+   "style": "Pratik bir savaşçı. Lasker kusursuz hamleyi değil, karşısındaki rakip için en rahatsız edici hamleyi arardı; zor pozisyonları da parlak biçimde savunurdu.",
+   "strengths": [
+    "Pratik oyun",
+    "Savunma",
+    "Psikoloji",
+    "Oyunsonu"
+   ],
+   "gen": "Lasker'in"
+  },
+  "spassky": {
+   "name": "Boris Spasski",
+   "short": "Spasski",
+   "acc": "Boris Spasski",
+   "title": "10. Dünya Şampiyonu (1969–1972)",
+   "bio": "1969'da Tigran Petrosyan'ı yendi. 1972'de Reykjavik'te ünlü \"Yüzyılın Maçı\"nı Bobby Fischer'e kaybetti.",
+   "style": "Çok yönlü bir oyuncu. Hücumda da savunmada da aynı ölçüde kendinden emindi; Şah Gambiti gibi keskin açılışlar oynar, dengeli pozisyonlarda sakin manevralar yapardı.",
+   "strengths": [
+    "Çok yönlülük",
+    "Hücum",
+    "Şah Gambiti",
+    "Tahta başında soğukkanlılık"
+   ],
+   "gen": "Spasski'nin"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosyan",
+   "short": "Petrosyan",
+   "acc": "Tigran Petrosyan",
+   "title": "9. Dünya Şampiyonu (1963–1969)",
+   "bio": "1963'te Botvinnik'i yendi ve 1966'da unvanını Spasski'ye karşı savundu; 1969'daki rövanşı ise ona kaybetti. İnanılmaz sağlam oyunu nedeniyle \"Demir Tigran\" lakabını aldı.",
+   "style": "Rakibin planlarını önceden sezip etkisiz hâle getiren bir profilaksi ustası. Oyuncuların hâlâ incelediği pozisyonel kalite fedalarıyla ünlüdür.",
+   "strengths": [
+    "Profilaksi",
+    "Savunma",
+    "Kalite fedaları",
+    "Sağlamlık"
+   ],
+   "gen": "Petrosyan'ın"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Vladimir Kramnik",
+   "title": "14. Dünya Şampiyonu (2000–2007)",
+   "bio": "2000'de Londra'da tek parti kaybetmeden Garri Kasparov'u sansasyonel biçimde yendi. 2006'da Veselin Topalov'u yenerek unvanı birleştirdi ve 2007'de tacı Anand'a devretti. 2019'da satrancı bıraktı.",
+   "style": "Derin pozisyonel anlayış ve kusursuz hazırlık. Kasparov'a karşı maçta Berlin Savunması'nı popüler hâle getirdi; ardından tüm elit oyuncular bu savunmayı benimsedi.",
+   "strengths": [
+    "Açılış hazırlığı",
+    "Pozisyonel oyun",
+    "Oyunsonu",
+    "Sağlamlık"
+   ],
+   "gen": "Kramnik'in"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "15. Dünya Şampiyonu (2007–2013)",
+   "bio": "Hindistan'ın ilk büyükustası (1988). 2000'de FIDE Dünya Şampiyonu oldu; 2007'den 2013'te Magnus Carlsen'e maçı kaybedene kadar tartışmasız dünya şampiyonuydu.",
+   "style": "Hızlı ve çok yönlü. Şimşek hızındaki hesaplaması ve derin açılış hazırlığıyla tanınır; keskin pozisyonlarda da sakin pozisyonlarda da aynı rahatlıkla oynar.",
+   "strengths": [
+    "Hesaplama hızı",
+    "Açılış hazırlığı",
+    "Çok yönlülük",
+    "Hızlı satranç"
+   ],
+   "gen": "Anand'ın"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "Tarihin en güçlü kadın satranççısı",
+   "bio": "1991'de 15 yıl 4 aylıkken Fischer'in rekorunu kırarak büyükusta olan bir Macar. Dünyanın ilk onuna giren (2004'te 8.) ve 2700 reytingi aşan tek kadın. 2014'te satrancı bıraktı.",
+   "style": "Agresif bir hücum tarzı. Polgár oyunu seve seve keskinleştirir, materyal feda ederek partiyi özellikle güçlü olduğu taktik mücadelelere yönlendirirdi.",
+   "strengths": [
+    "Hücum",
+    "Taktik",
+    "Fedalar",
+    "Mücadele ruhu"
+   ],
+   "gen": "Polgár'ın"
+  },
+  "smyslov": {
+   "name": "Vasili Smislov",
+   "short": "Smislov",
+   "acc": "Vasili Smislov",
+   "title": "7. Dünya Şampiyonu (1957–1958)",
+   "bio": "Botvinnik'e karşı üç unvan maçı oynadı; 1957'de kazandı ama bir yıl sonraki rövanşı kaybetti. On yıllarca zirvede kaldı ve 1984'te 63 yaşında Adaylar finaline yükseldi.",
+   "style": "Uyum ve doğallık. Smislov taşlarını sanki nereye ait olduklarını biliyorlarmış gibi yerleştirirdi; oyunsonu ustalığıyla ünlüydü.",
+   "strengths": [
+    "Oyunsonu",
+    "Taşların uyumu",
+    "Pozisyon sezgisi",
+    "Uzun kariyer"
+   ],
+   "gen": "Smislov'un"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "1. resmî Dünya Şampiyonu (1886–1894)",
+   "bio": "Prag'da doğdu. 1886'da ilk resmî Dünya Şampiyonası maçında Johannes Zukertort'u yendi ve 1894'te Emanuel Lasker'e kaybedene kadar unvanı elinde tuttu.",
+   "style": "Pozisyonel satrancın babası. Steinitz küçük avantajları biriktirme ilkelerini ortaya koydu ve bir hücumun yalnızca cesaretle değil, pozisyonla gerekçelendirilmesi gerektiğini gösterdi.",
+   "strengths": [
+    "Pozisyon teorisi",
+    "Savunma",
+    "Avantaj biriktirme",
+    "Direnç"
+   ],
+   "gen": "Steinitz'in"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Dünya şampiyonluğu adayı (1993)",
+   "bio": "Bir İngiliz ve 1980'ler ile 90'ların en güçlü Batılı oyuncularından biri. 1993'te Garri Kasparov'a karşı dünya şampiyonluğu maçı oynadı ve kaybetti.",
+   "style": "Agresif ve yaratıcı. Jan Timman'a karşı şahını tahtanın öbür ucuna yürüttüğü ünlü partideki gibi alışılmadık fikirlerden çekinmez.",
+   "strengths": [
+    "Hücum",
+    "Alışılmadık fikirler",
+    "Aktif şah"
+   ],
+   "gen": "Short'un"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "\"Yüzyılın Partisi\"",
+   "why": "13 yaşındaki Fischer, New York'ta Donald Byrne'e karşı. 17…Be6 vezir fedası ve ardından gelen bozgun tüm satranç dünyasının Fischer'i fark etmesini sağladı."
+  },
+  "kasparov-topalov-1999": {
+   "title": "Kasparov'un Ölümsüz Partisi",
+   "why": "Wijk aan Zee, 1999. 24.Rxd4 kale fedası ve siyah şahın tüm tahta boyunca kovalanması. Satranç tarihinin en güzel hücumlarından biri."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Yüzyılın Maçı, 6. parti",
+   "why": "Reykjavik, 1972. Neredeyse her zaman 1.e4 ile açan Fischer bu kez 1.c4 oynadı ve Spasski'yi klasik bir tarzla geride bıraktı. Bu galibiyet onu unvan maçında öne geçirdi."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "d3'teki at",
+   "why": "1985 dünya şampiyonluğu maçı. Kasparov'un d3'teki atı tüm beyaz orduyu felç etti — rekabetlerinin en bilinen partilerinden biri. Kasparov o yıl şampiyon oldu."
+  },
+  "short-timman-1991": {
+   "title": "Şah Yürüyüşü",
+   "why": "Tilburg, 1991. Short, oyunortasında şahını Kh2–g3–f4–g5 yoluyla düşman kampına yürüterek siyah şaha yapılan hücuma kattı."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Unvan maçı tiebreak'i, 2016",
+   "why": "New York, 2016, tiebreak'in son partisi. Carlsen doğum gününde partiyi 50.Qh6+ vezir fedasıyla bitirdi ve dünya şampiyonluğunu korudu."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "Bled'deki belirleyici parti",
+   "why": "Bled'deki Adaylar yarı finali. Bu partiden önce skor 4,5–4,5'ti. Tal 16.Nd5 ile at feda etti, kazandı ve Adaylar finaline yükseldi."
+  },
+  "aronian-anand-2013": {
+   "title": "23 hamlede yıkım",
+   "why": "Wijk aan Zee, 2013. Unvanı elinde tutan Anand, siyahla bir dizi fedayla Aronyan'ı 23 hamlede ezdi — kariyerinin en güzel partilerinden biri."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "2013 unvan maçı, 5. parti",
+   "why": "Chennai, 2013. Dört beraberliğin ardından Carlsen, Anand'ı oyunsonunda yıpratarak maçın ilk partisini kazandı. Bu maç onu Dünya Şampiyonu yaptı."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "2016 unvan maçı, 10. parti",
+   "why": "New York, 2016. 8. partiden sonra maçta Karyakin öndeydi. 10. partide Carlsen uzun bir mücadelenin ardından skoru eşitledi ve maç sonunda tiebreak'e gitti."
+  },
+  "morphy-opera-1858": {
+   "title": "Opera Partisi",
+   "why": "Paris, 1858, operada bir locada. Morphy, birbirine danışarak oynayan Brunswick Dükü ve Kont Isouard'a karşı oynadı. 16.Qb8+ vezir fedası ve 17.Rd8# ile gelen mat, bu partiyi satranç tarihinin en ünlü kısa partisi ve hızlı gelişimin örneği yapıyor."
+  },
+  "lasker-bauer-1889": {
+   "title": "Çifte fil fedası",
+   "why": "Amsterdam, 1889. Lasker iki filini de feda etti — 15.Bxh7+ ve 17.Bxg7 — ve siyah şahın siperini parçaladı. Bu fikir o zamandan beri Lasker'in çifte fil fedası olarak bilinir."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "a3'teki fil",
+   "why": "AVRO turnuvası, 1938. Genç Botvinnik eski Dünya Şampiyonu Capablanca'yı oyunda geride bıraktı ve partiyi ünlü 30.Ba3 fil fedasıyla bitirdi."
+  },
+  "spassky-bronstein-1960": {
+   "title": "James Bond partisi",
+   "why": "SSCB Şampiyonası, Leningrad, 1960. Şah Gambiti, 16.Nxf7 at fedası ve şaha hücum. Bu partiden bir pozisyon, James Bond filmi \"Rusya'dan Sevgilerle\"nin (1963) başında görünür."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Kıdemli Steinitz, Curt von Bardeleben'e karşı. 22.Rxe7+ sonrasında beyaz kale şah çekmeyi sürdürür ve alınamaz. Von Bardeleben matı beklemedi ve turnuva salonunu öylece terk etti."
+  },
+  "capablanca-marshall-1918": {
+   "title": "Marshall Atağı'nın doğuşu",
+   "why": "New York, 1918. Frank Marshall, İspanyol Açılışı'nda yeni ve keskin 8…d5 piyon fedasıyla Capablanca'yı şaşırttı. Capablanca hücumu püskürtüp kazandı; yine de bu fikir hâlâ Marshall Atağı olarak anılır ve en üst düzeyde oynanır."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londra 2000, 2. parti",
+   "why": "Dünya Şampiyonası maçı. Kramnik'in Kasparov'a karşı ilk galibiyeti. Kramnik tüm maçı tek parti kaybetmeden kazandı ve 14. Dünya Şampiyonu oldu."
+  },
+  "reti-alekhine-1925": {
+   "title": "Baden-Baden kombinezonu",
+   "why": "Baden-Baden, 1925. Alekhin siyahla, hipermodern okulun kurucularından Richard Réti'ye karşı birçok hamle ilerisini hesapladığı en ünlü kombinezonlarından birini oynadı."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Nice'teki boa yılanı",
+   "why": "Nice Olimpiyatı, 1974. Karpov tarzının ders kitabı örneği: Siyah tamamen sıkışana kadar rakibinin elinden alanı ve yararlı hamleleri adım adım aldı."
+  }
+ },
+ "store": {
+  "title": "Büyükustanın Hamlesini Bil",
+  "short": "Dünya şampiyonlarının partilerini oyna, hamlelerini tahmin et. 108 efsane parti.",
+  "full": "Bir büyükusta gibi düşünebilir misin?\n\nBu oyunda bilgisayara karşı oynamıyorsun — büyük şampiyonların gerçek partilerde yaptığı hamleleri tahmin ediyorsun. Kasparov, Carlsen, Fischer, Tal ya da 18 büyükustadan herhangi birini seç ve en ünlü partilerini hamle hamle yeniden oyna.\n\n• 108 gerçek parti: Morphy'nin 1858'deki Opera Partisi'nden 21. yüzyılın dünya şampiyonluğu maçlarına\n• Her hamle bir satranç motoruyla değerlendirilir: ustanın hamlesini bulamasan bile aynı derecede güçlü bir hamle bulursan puan kazanırsın\n• 18 şampiyonun profili: biyografi, oyun tarzı, güçlü yönler\n• Günün hamlesi — günde bir pozisyon, herkes için aynı\n• GM endeksi: düşüncen her büyükustaya ne kadar yakın\n• Renk temaları, tahta renkleri, ses ve oyun hızı\n• İnternetsiz çalışır\n\nŞampiyonlar gibi düşünmeyi öğren — her seferinde bir hamle."
+ }
+}

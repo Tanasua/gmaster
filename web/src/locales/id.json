@@ -1,0 +1,493 @@
+{
+ "meta": {
+  "name": "Bahasa Indonesia"
+ },
+ "ui": {
+  "appTitle": "Tebak Langkah Grandmaster",
+  "appName": "Tebak Langkah",
+  "loading": "Memuat…",
+  "loadError": "Gagal memuat data",
+  "back": "Kembali",
+  "points": "{n} poin",
+  "streak": "beruntun {n}",
+  "menuLead": "Bisakah kamu berpikir seperti grandmaster?",
+  "menuSub": "Partai nyata para juara. Tebak langkah yang dimainkan sang master, bukan yang disarankan mesin.",
+  "chooseGm": "Pilih grandmaster",
+  "chooseGmHint": "Main sebagai juara favoritmu",
+  "youPlayAs": "Kamu bermain sebagai",
+  "tapToChange": "ketuk untuk mengganti",
+  "randomGame": "Partai acak",
+  "randomAny": "Partai mana saja dari koleksi",
+  "randomOf": "Partai acak {name}",
+  "chooseGame": "Pilih partai",
+  "chooseGameHint": "Partai paling terkenal dalam sejarah · {n}",
+  "daily": "Langkah hari ini",
+  "dailyHint": "Satu posisi per hari, sama untuk semua orang",
+  "settings": "Pengaturan",
+  "settingsHint": "Tema, bahasa, suara",
+  "gmIndex": "Indeks GM",
+  "gmCol": "Grandmaster",
+  "guessedCol": "Tertebak",
+  "strongCol": "Langkah kuat",
+  "bestStreak": "Rentetan tebakan benar terpanjang: {n}",
+  "photoCredits": "Foto pemain",
+  "gmsTitle": "Grandmaster",
+  "games_other": "{n} partai",
+  "playAsBtn": "Main sebagai {name}",
+  "selected": "Dipilih",
+  "unselect": "Hapus pilihan",
+  "howPlayed": "Gaya bermain",
+  "howPlayedF": "Gaya bermain",
+  "strengths": "Kekuatan",
+  "hisGames": "Partai dalam koleksi",
+  "gamesTitle": "Partai",
+  "youPlayFor": "Kamu bermain: {name}",
+  "moves_other": "{n} langkah",
+  "startGame": "Mulai partai",
+  "whyMatters": "Mengapa penting",
+  "aboutGame": "Tentang partai",
+  "pathToWin": "Telusuri jalan {name} menuju kemenangan, langkah demi langkah.",
+  "playedBy": "Kamu bermain sebagai {name} ({side}) · {moves}",
+  "whiteSide": "Putih",
+  "blackSide": "Hitam",
+  "gameProgress": "{title} · tertebak {x} dari {n} (total {total})",
+  "moveWhite": "Langkah {n}.",
+  "moveBlack": "Langkah {n}…",
+  "whatPlayed": "Apa yang dimainkan {name}?",
+  "whatPlayedF": "Apa yang dimainkan {name}?",
+  "onlyMove": "Satu-satunya langkah sah…",
+  "opponentMoves": "Giliran lawan…",
+  "opening": "Pembukaan…",
+  "skip": "Lewati — saya tidak tahu",
+  "hint": "Seret bidak, atau ketuk bidak lalu ketuk petaknya.",
+  "gameStarts": "Partai dimulai dari posisi awal.",
+  "white": "Putih",
+  "black": "Hitam",
+  "yourPieces": "bidakmu",
+  "toMove": "melangkah",
+  "grandmaster": "Grandmaster",
+  "fbExact": "Benar! {name} memainkan {san}.",
+  "fbExactF": "Benar! {name} memainkan {san}.",
+  "fbGood": "Langkah kuat {user}, tapi {name} memainkan {san}.",
+  "fbGoodF": "Langkah kuat {user}, tapi {name} memainkan {san}.",
+  "fbSkip": "Dilewati. {name} memainkan {san}.",
+  "fbSkipF": "Dilewati. {name} memainkan {san}.",
+  "fbMiss": "Kamu memainkan {user}. {name} memainkan {san}.",
+  "fbMissF": "Kamu memainkan {user}. {name} memainkan {san}.",
+  "exactShort": "{san} — persis itu yang dimainkan {name}.",
+  "exactShortF": "{san} — persis itu yang dimainkan {name}.",
+  "engineBest": "Mesin: langkah terbaik {san} ({eval})",
+  "engineYour": ", langkahmu — {eval}",
+  "engineAgrees": " — mesin setuju denganmu.",
+  "engineLine": "Lanjutan mesin: {line}",
+  "difficulty": "Kesulitan: {stars}",
+  "mate": "mat",
+  "getsMated": "kena mat",
+  "summaryHeadline": "Kamu bermain {pct}% seperti {name}",
+  "summaryLine": "Tertebak {x} dari {moves} · alternatif kuat: {good}",
+  "skippedN": "dilewati: {n}",
+  "share": "Bagikan",
+  "copied": "Disalin ✓",
+  "again": "Main lagi",
+  "toMenu": "Menu",
+  "dailyProgress": "Langkah hari ini #{n}",
+  "dailyDone": "sudah dimainkan hari ini {v} (tanpa poin)",
+  "whichMove": "{move} Giliran {side}. Langkah apa yang dimainkan sang grandmaster?",
+  "itWas": "Itu {name}: {label}",
+  "itWasF": "Itu {name}: {label}",
+  "theme": "Tema warna",
+  "themeGold": "Emas",
+  "themeIvory": "Gading",
+  "themeEmerald": "Zamrud",
+  "themeMidnight": "Tengah malam",
+  "themeGraphite": "Grafit",
+  "boardColors": "Warna papan",
+  "boardWood": "Kayu",
+  "boardClassic": "Klasik",
+  "boardGreen": "Hijau",
+  "boardBlue": "Biru",
+  "boardIce": "Es",
+  "boardPurple": "Ungu",
+  "boardGrey": "Abu-abu",
+  "boardCoral": "Koral",
+  "boardOlive": "Zaitun",
+  "boardNight": "Malam",
+  "language": "Bahasa",
+  "langAuto": "Bahasa ponsel",
+  "sound": "Suara langkah",
+  "speed": "Tempo permainan",
+  "speedSlow": "Lambat",
+  "speedNormal": "Normal",
+  "speedFast": "Cepat",
+  "showEngine": "Tampilkan evaluasi mesin",
+  "skipOpening": "Lewati pembukaan (2 langkah pertama)",
+  "resetStats": "Reset statistik",
+  "resetConfirm": "Yakin ingin mereset? Poin, rentetan, dan indeks GM akan hilang.",
+  "yesReset": "Ya, reset",
+  "cancel": "Batal",
+  "statsReset": "Statistik direset ✓"
+ },
+ "events": {
+  "candidates": "Turnamen Kandidat",
+  "interzonal": "Turnamen Interzonal",
+  "fideWch": "Kejuaraan Dunia FIDE",
+  "wch": "Kejuaraan Dunia",
+  "olympiad": "Olimpiade Catur",
+  "ussr": "Kejuaraan Uni Soviet",
+  "avro": "Turnamen AVRO"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garry Kasparov",
+   "short": "Kasparov",
+   "acc": "Garry Kasparov",
+   "title": "Juara Dunia ke-13 (1985–2000)",
+   "bio": "Lahir di Baku. Pada usia 22 tahun ia merebut gelar dari Anatoly Karpov dan mempertahankannya selama 15 tahun hingga kalah dari Vladimir Kramnik pada tahun 2000. Ia menjadi pemain dengan rating tertinggi di dunia selama hampir dua puluh tahun dan pensiun pada tahun 2005.",
+   "style": "Pemain penyerang yang dinamis dan lebih menghargai inisiatif daripada materi. Ia datang dengan persiapan pembukaan yang mendalam dan sering menentukan partai sebelum lawan sempat menemukan pijakan.",
+   "strengths": [
+    "Menyerang raja",
+    "Persiapan pembukaan",
+    "Menghitung variasi rumit",
+    "Pengorbanan demi inisiatif"
+   ],
+   "gen": "Kasparov"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "Juara Dunia ke-16 (2013–2023)",
+   "bio": "Pemain Norwegia yang menjadi grandmaster pada usia 13 tahun. Ia merebut gelar dari Viswanathan Anand pada tahun 2013 dan memegangnya hingga 2023, ketika ia memilih untuk tidak mempertahankannya. Ia mencapai rating tertinggi dalam sejarah, 2882.",
+   "style": "Pemain serba bisa. Ia senang memasuki posisi seimbang dan terus menekan, memeras kemenangan dari keunggulan yang sangat kecil. Paling kuat di akhir permainan dan dalam keputusan praktis di depan papan.",
+   "strengths": [
+    "Akhir permainan",
+    "Terus bermain dengan keunggulan tipis",
+    "Stamina dalam partai panjang",
+    "Keputusan praktis"
+   ],
+   "gen": "Carlsen"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "Juara Dunia ke-11 (1972–1975)",
+   "bio": "Pemain Amerika yang menjuarai kejuaraan AS pada usia 14 tahun. Di Reykjavik pada tahun 1972 ia mengalahkan Boris Spassky dan mengakhiri dominasi Soviet atas gelar juara. Pada tahun 1975 ia menolak mempertahankannya, dan mahkota beralih ke Anatoly Karpov.",
+   "style": "Kejernihan dan ketepatan. Ia memainkan posisi klasik yang bersih, hampir selalu membuka dengan 1.e4, dan mengonversi keunggulan sekecil apa pun. Ia bertarung di setiap partai dan tidak menyukai remis cepat.",
+   "strengths": [
+    "Mengonversi keunggulan",
+    "Pembukaan klasik",
+    "Semangat juang",
+    "Ketepatan"
+   ],
+   "gen": "Fischer"
+  },
+  "karpov": {
+   "name": "Anatoly Karpov",
+   "short": "Karpov",
+   "acc": "Anatoly Karpov",
+   "title": "Juara Dunia ke-12 (1975–1985)",
+   "bio": "Menjadi Juara Dunia pada tahun 1975 ketika Fischer menolak mempertahankan gelarnya. Ia mempertahankan mahkota dua kali melawan Viktor Korchnoi dan menjadi yang terbaik di dunia selama satu dekade hingga kalah dari Garry Kasparov. Kemudian ia kembali memegang gelar FIDE (1993–1999).",
+   "style": "Ahli permainan posisional. Ia perlahan menjepit lawan, merampas ruang dan langkah-langkah berguna, lalu menang hampir tanpa risiko. Gayanya sering dibandingkan dengan ular boa.",
+   "strengths": [
+    "Tekanan posisional",
+    "Profilaksis",
+    "Memanfaatkan petak lemah",
+    "Mengonversi keunggulan"
+   ],
+   "gen": "Karpov"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "Juara Dunia ke-3 (1921–1927)",
+   "bio": "Anak ajaib asal Kuba yang belajar catur sejak kecil dengan menonton ayahnya bermain. Ia merebut gelar dari Emanuel Lasker pada tahun 1921 dan kehilangannya dari Alexander Alekhine pada tahun 1927.",
+   "style": "Kesederhanaan dan kejernihan. Capablanca menghindari komplikasi yang tidak perlu, bermain ringan dan tepat, serta menangani akhir permainan dengan begitu baik sehingga partai-partainya masih dipelajari sebagai teladan.",
+   "strengths": [
+    "Akhir permainan",
+    "Naluri posisional",
+    "Solusi sederhana",
+    "Pertahanan"
+   ],
+   "gen": "Capablanca"
+  },
+  "tal": {
+   "name": "Mikhail Tal",
+   "short": "Tal",
+   "acc": "Mikhail Tal",
+   "title": "Juara Dunia ke-8 (1960–1961)",
+   "bio": "\"Penyihir dari Riga\". Pada tahun 1960 ia mengalahkan Mikhail Botvinnik untuk menjadi Juara Dunia dan kalah dalam pertandingan ulang setahun kemudian. Meski kesehatannya buruk, ia tetap berada di jajaran elite dunia selama puluhan tahun.",
+   "style": "Pemain penyerang paling memukau dalam sejarah. Ia mengorbankan buah untuk memperumit posisi dan menang di tengah kekacauan, ketika lawan tidak mampu menghitung semuanya.",
+   "strengths": [
+    "Pengorbanan buah",
+    "Taktik",
+    "Serangan",
+    "Tekanan psikologis"
+   ],
+   "gen": "Tal"
+  },
+  "botvinnik": {
+   "name": "Mikhail Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Mikhail Botvinnik",
+   "title": "Juara Dunia ke-6 (1948–1963, dengan jeda)",
+   "bio": "Memenangi turnamen-pertandingan 1948 untuk menjadi Juara Dunia. Ia kehilangan gelar dua kali, dari Smyslov dan Tal, dan dua kali pula merebutnya kembali dalam pertandingan ulang. Seorang insinyur berdasarkan pendidikan, ia kemudian memimpin sekolah catur yang muridnya antara lain Karpov, Kasparov, dan Kramnik.",
+   "style": "Pendekatan ilmiah. Ia mempersiapkan diri dengan cermat, menganalisis partai dan pembukaannya sendiri secara mendalam, serta bermain logis dan bertenaga dalam posisi strategis yang rumit.",
+   "strengths": [
+    "Persiapan",
+    "Strategi",
+    "Analisis",
+    "Sistem pembukaan"
+   ],
+   "gen": "Botvinnik"
+  },
+  "alekhine": {
+   "name": "Alexander Alekhine",
+   "short": "Alekhine",
+   "acc": "Alexander Alekhine",
+   "title": "Juara Dunia ke-4 (1927–1935, 1937–1946)",
+   "bio": "Pada tahun 1927 ia secara sensasional mengalahkan Capablanca. Ia kehilangan gelar dari Max Euwe pada tahun 1935, tetapi merebutnya kembali dua tahun kemudian. Ia meninggal pada tahun 1946 sebagai juara bertahan, satu-satunya dalam sejarah.",
+   "style": "Gaya menyerang yang dibangun di atas kombinasi mendalam. Alekhine mampu menciptakan komplikasi dari ketiadaan dan menghitung banyak langkah ke depan.",
+   "strengths": [
+    "Kombinasi",
+    "Serangan",
+    "Kedalaman perhitungan",
+    "Inisiatif"
+   ],
+   "gen": "Alekhine"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "Pemain terbaik dunia tak resmi pada akhir 1850-an",
+   "bio": "Pemain Amerika dari New Orleans. Pada 1858–1859 ia berkeliling Eropa dan mengalahkan para master terkuatnya, termasuk Adolf Anderssen. Tak lama setelah pulang, ia nyaris berhenti bermain catur.",
+   "style": "Pengembangan cepat, lajur terbuka, dan serangan. Morphy adalah yang pertama menunjukkan secara konsisten betapa pentingnya mengerahkan setiap buah sebelum menyerang.",
+   "strengths": [
+    "Pengembangan",
+    "Posisi terbuka",
+    "Kombinasi",
+    "Menyerang raja"
+   ],
+   "gen": "Morphy"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "Juara Dunia ke-2 (1894–1921)",
+   "bio": "Pemain catur dan matematikawan Jerman. Ia mengalahkan Steinitz pada tahun 1894 dan memegang gelar selama 27 tahun — masa juara terpanjang dalam sejarah — hingga kalah dari Capablanca pada tahun 1921.",
+   "style": "Petarung praktis. Lasker tidak mencari langkah sempurna, melainkan langkah yang paling tidak nyaman bagi lawan yang dihadapinya, dan ia bertahan dengan gemilang dalam posisi sulit.",
+   "strengths": [
+    "Permainan praktis",
+    "Pertahanan",
+    "Psikologi",
+    "Akhir permainan"
+   ],
+   "gen": "Lasker"
+  },
+  "spassky": {
+   "name": "Boris Spassky",
+   "short": "Spassky",
+   "acc": "Boris Spassky",
+   "title": "Juara Dunia ke-10 (1969–1972)",
+   "bio": "Mengalahkan Tigran Petrosian pada tahun 1969. Pada tahun 1972 di Reykjavik ia kalah dari Bobby Fischer dalam \"Pertandingan Abad Ini\" yang terkenal.",
+   "style": "Pemain serba bisa. Sama percaya dirinya dalam menyerang maupun bertahan, ia memainkan pembukaan tajam seperti Gambit Raja dan bermanuver dengan tenang dalam posisi seimbang.",
+   "strengths": [
+    "Keserbabisaan",
+    "Serangan",
+    "Gambit Raja",
+    "Ketenangan di depan papan"
+   ],
+   "gen": "Spassky"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosian",
+   "short": "Petrosian",
+   "acc": "Tigran Petrosian",
+   "title": "Juara Dunia ke-9 (1963–1969)",
+   "bio": "Mengalahkan Botvinnik pada tahun 1963 dan mempertahankan gelar melawan Spassky pada tahun 1966, sebelum kalah darinya dalam pertandingan ulang 1969. Dijuluki \"Tigran Besi\" karena permainannya yang luar biasa solid.",
+   "style": "Ahli profilaksis yang membaca dan menetralkan rencana lawan sejak awal. Terkenal dengan pengorbanan kualitas posisional yang masih dipelajari para pemain.",
+   "strengths": [
+    "Profilaksis",
+    "Pertahanan",
+    "Pengorbanan kualitas",
+    "Soliditas"
+   ],
+   "gen": "Petrosian"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Vladimir Kramnik",
+   "title": "Juara Dunia ke-14 (2000–2007)",
+   "bio": "Di London pada tahun 2000 ia secara sensasional mengalahkan Garry Kasparov tanpa kalah satu partai pun. Pada tahun 2006 ia menyatukan gelar dengan mengalahkan Veselin Topalov dan menyerahkan mahkota kepada Anand pada tahun 2007. Ia pensiun pada tahun 2019.",
+   "style": "Pemahaman posisional yang mendalam dan persiapan tanpa cela. Dalam pertandingan melawan Kasparov ia mempopulerkan Pertahanan Berlin, yang kemudian diadopsi oleh seluruh pemain elite.",
+   "strengths": [
+    "Persiapan pembukaan",
+    "Permainan posisional",
+    "Akhir permainan",
+    "Soliditas"
+   ],
+   "gen": "Kramnik"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "Juara Dunia ke-15 (2007–2013)",
+   "bio": "Grandmaster pertama India (1988). Juara Dunia FIDE pada tahun 2000 dan juara dunia tak terbantahkan sejak 2007 hingga kalah dalam pertandingan 2013 melawan Magnus Carlsen.",
+   "style": "Cepat dan serba bisa. Dikenal dengan perhitungan secepat kilat dan persiapan pembukaan yang mendalam, sama nyamannya dalam posisi tajam maupun tenang.",
+   "strengths": [
+    "Kecepatan perhitungan",
+    "Persiapan pembukaan",
+    "Keserbabisaan",
+    "Catur cepat"
+   ],
+   "gen": "Anand"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "Pecatur wanita terkuat dalam sejarah",
+   "bio": "Pecatur Hongaria yang menjadi grandmaster pada tahun 1991 di usia 15 tahun 4 bulan, memecahkan rekor Fischer. Satu-satunya wanita yang masuk sepuluh besar dunia (peringkat 8, 2004) dan melampaui rating 2700. Ia pensiun pada tahun 2014.",
+   "style": "Gaya menyerang yang agresif. Polgár senang mempertajam permainan dan mengorbankan materi untuk menggiringnya ke pertarungan taktis, tempat ia sangat kuat.",
+   "strengths": [
+    "Serangan",
+    "Taktik",
+    "Pengorbanan",
+    "Semangat juang"
+   ],
+   "gen": "Polgár"
+  },
+  "smyslov": {
+   "name": "Vasily Smyslov",
+   "short": "Smyslov",
+   "acc": "Vasily Smyslov",
+   "title": "Juara Dunia ke-7 (1957–1958)",
+   "bio": "Memainkan tiga pertandingan perebutan gelar melawan Botvinnik: menang pada tahun 1957, tetapi kalah dalam pertandingan ulang setahun kemudian. Ia bertahan di puncak selama puluhan tahun dan mencapai final Kandidat pada tahun 1984 di usia 63 tahun.",
+   "style": "Harmoni dan kewajaran. Smyslov menempatkan buah-buahnya seolah mereka tahu tempat yang semestinya, dan ia terkenal dengan keahliannya di akhir permainan.",
+   "strengths": [
+    "Akhir permainan",
+    "Harmoni buah",
+    "Naluri posisional",
+    "Karier panjang"
+   ],
+   "gen": "Smyslov"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "Juara Dunia resmi pertama (1886–1894)",
+   "bio": "Lahir di Praha. Pada tahun 1886 ia mengalahkan Johannes Zukertort dalam pertandingan Kejuaraan Dunia resmi pertama dan memegang gelar hingga 1894, ketika ia kalah dari Emanuel Lasker.",
+   "style": "Bapak catur posisional. Steinitz merumuskan prinsip-prinsip pengumpulan keunggulan kecil dan menunjukkan bahwa serangan harus dibenarkan oleh posisi, bukan sekadar keberanian.",
+   "strengths": [
+    "Teori posisional",
+    "Pertahanan",
+    "Mengumpulkan keunggulan",
+    "Kegigihan"
+   ],
+   "gen": "Steinitz"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Penantang gelar juara dunia (1993)",
+   "bio": "Pemain Inggris dan salah satu pemain Barat terkuat pada tahun 1980-an dan 90-an. Pada tahun 1993 ia memainkan pertandingan perebutan gelar juara dunia melawan Garry Kasparov dan kalah.",
+   "style": "Agresif dan inventif. Tidak takut pada ide-ide tak lazim, seperti mars rajanya yang terkenal melintasi papan melawan Jan Timman.",
+   "strengths": [
+    "Serangan",
+    "Ide tak lazim",
+    "Raja aktif"
+   ],
+   "gen": "Short"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "\"Partai Abad Ini\"",
+   "why": "Fischer yang berusia 13 tahun melawan Donald Byrne di New York. Pengorbanan menteri 17…Be6 dan kehancuran yang menyusul membuat seluruh dunia catur memperhatikan Fischer."
+  },
+  "kasparov-topalov-1999": {
+   "title": "Partai Abadi Kasparov",
+   "why": "Wijk aan Zee, 1999. Pengorbanan benteng 24.Rxd4 dan perburuan raja hitam melintasi seluruh papan. Salah satu serangan terindah dalam sejarah catur."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Pertandingan Abad Ini, partai ke-6",
+   "why": "Reykjavik, 1972. Fischer, yang hampir selalu membuka dengan 1.e4, memulai dengan 1.c4 dan mengungguli Spassky dengan gaya klasik. Kemenangan ini membawanya unggul dalam pertandingan perebutan gelar."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Kuda di d3",
+   "why": "Pertandingan perebutan gelar juara dunia 1985. Kuda Kasparov di d3 melumpuhkan seluruh pasukan putih — salah satu partai paling terkenal dari rivalitas mereka. Kasparov menjadi juara pada tahun itu."
+  },
+  "short-timman-1991": {
+   "title": "Mars Raja",
+   "why": "Tilburg, 1991. Di babak tengah, Short menggerakkan rajanya Kh2–g3–f4–g5 masuk ke kubu lawan untuk ikut menyerang raja hitam."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Tiebreak perebutan gelar, 2016",
+   "why": "New York, 2016, partai tiebreak terakhir. Pada hari ulang tahunnya, Carlsen menuntaskannya dengan pengorbanan menteri 50.Qh6+ dan mempertahankan gelar juara dunianya."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "Penentu di Bled",
+   "why": "Semifinal Kandidat di Bled. Skor sebelum partai ini adalah 4,5–4,5. Tal mengorbankan kuda dengan 16.Nd5, menang, dan melaju ke final Kandidat."
+  },
+  "aronian-anand-2013": {
+   "title": "Penghancuran dalam 23 langkah",
+   "why": "Wijk aan Zee, 2013. Juara bertahan Anand, dengan buah hitam, menghancurkan Aronian dalam 23 langkah dengan serangkaian pengorbanan — salah satu partai terbaik dalam kariernya."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Perebutan gelar 2013, partai ke-5",
+   "why": "Chennai, 2013. Setelah empat remis, Carlsen memenangi partai pertama dalam pertandingan itu dengan menggerus Anand di akhir permainan. Pertandingan ini menjadikannya Juara Dunia."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Perebutan gelar 2016, partai ke-10",
+   "why": "New York, 2016. Karjakin memimpin pertandingan setelah partai ke-8. Di partai ke-10 Carlsen menyamakan skor setelah pertarungan panjang, dan pertandingan akhirnya berlanjut ke tiebreak."
+  },
+  "morphy-opera-1858": {
+   "title": "Partai Opera",
+   "why": "Paris, 1858, di sebuah balkon gedung opera. Morphy melawan Adipati Brunswick dan Count Isouard, yang bermain sambil saling berunding. Pengorbanan menteri 16.Qb8+ dan mat dengan 17.Rd8# menjadikannya partai pendek paling terkenal dalam sejarah catur dan teladan pengembangan cepat."
+  },
+  "lasker-bauer-1889": {
+   "title": "Pengorbanan dua gajah",
+   "why": "Amsterdam, 1889. Lasker mengorbankan kedua gajahnya — 15.Bxh7+ dan 17.Bxg7 — dan membongkar perlindungan raja hitam. Sejak itu ide ini dikenal sebagai pengorbanan dua gajah Lasker."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "Gajah di a3",
+   "why": "Turnamen AVRO, 1938. Botvinnik muda mengungguli mantan Juara Dunia Capablanca dan menutup partai dengan pengorbanan gajah yang terkenal, 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "Partai James Bond",
+   "why": "Kejuaraan Uni Soviet, Leningrad, 1960. Gambit Raja, pengorbanan kuda 16.Nxf7, dan serangan ke raja. Sebuah posisi dari partai ini muncul di awal film James Bond \"From Russia with Love\" (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Steinitz yang veteran melawan Curt von Bardeleben. Setelah 22.Rxe7+ benteng putih terus memberi skak dan tidak bisa dimakan. Von Bardeleben tidak menunggu mat dan begitu saja meninggalkan ruang turnamen."
+  },
+  "capablanca-marshall-1918": {
+   "title": "Lahirnya Serangan Marshall",
+   "why": "New York, 1918. Frank Marshall mengejutkan Capablanca dengan pengorbanan pion baru yang tajam, 8…d5, dalam Ruy Lopez. Capablanca mematahkan serangan itu dan menang, namun ide ini tetap disebut Serangan Marshall dan dimainkan di level tertinggi."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "London 2000, partai ke-2",
+   "why": "Pertandingan Kejuaraan Dunia. Kemenangan pertama Kramnik atas Kasparov. Kramnik memenangi seluruh pertandingan tanpa kalah satu partai pun dan menjadi Juara Dunia ke-14."
+  },
+  "reti-alekhine-1925": {
+   "title": "Kombinasi Baden-Baden",
+   "why": "Baden-Baden, 1925. Dengan buah hitam, Alekhine memainkan salah satu kombinasinya yang paling terkenal, yang dihitung banyak langkah ke depan, melawan Richard Réti, salah satu bapak aliran hipermodern."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Ular boa di Nice",
+   "why": "Olimpiade Nice, 1974. Contoh klasik gaya Karpov: selangkah demi selangkah ia merampas ruang dan langkah berguna lawannya hingga Hitam benar-benar terjepit."
+  }
+ },
+ "store": {
+  "title": "Tebak Langkah Grandmaster",
+  "short": "Ulangi partai para juara dunia dan tebak langkah mereka. 108 partai legendaris.",
+  "full": "Bisakah kamu berpikir seperti grandmaster?\n\nDi game ini kamu tidak melawan komputer — kamu menebak langkah yang dimainkan para juara besar dalam partai nyata. Pilih Kasparov, Carlsen, Fischer, Tal, atau siapa pun dari 18 grandmaster, lalu mainkan ulang partai-partai paling terkenal mereka langkah demi langkah.\n\n• 108 partai nyata: dari Partai Opera Morphy tahun 1858 hingga pertandingan kejuaraan dunia abad ke-21\n• Setiap langkah dinilai oleh mesin catur: meskipun tebakanmu tidak sama dengan sang master, kamu tetap mendapat poin jika menemukan langkah yang sama kuatnya\n• Profil 18 juara: biografi, gaya bermain, kekuatan\n• Langkah hari ini — satu posisi per hari, sama untuk semua orang\n• Indeks GM: seberapa dekat cara berpikirmu dengan setiap grandmaster\n• Tema warna, warna papan, suara, dan tempo permainan\n• Bisa dimainkan offline\n\nBelajarlah berpikir seperti para juara — satu langkah setiap kali."
+ }
+}
