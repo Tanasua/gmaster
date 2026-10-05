@@ -74,3 +74,16 @@ python -m venv .venv && .venv/bin/pip install -r pipeline/requirements.txt
 ```bash
 cd web && npm run artifact   # → dist-artifact/index.html (CSS+JS інлайн) + data/puzzles.json
 ```
+
+## Android
+
+Обгортка — Capacitor 8 (`web/android`, targetSdk 36, minSdk 24, Java 21).
+
+- **Тестовий APK** збирається GitHub Actions на кожен пуш з веб-змінами
+  (Actions → «Android APK» → Artifacts → `gmaster-debug-apk`). Його можна встановити на телефон
+  напряму (дозволити встановлення з невідомих джерел).
+- **Локально:** `cd web && npm run android && cd android && ./gradlew assembleDebug`
+  (потрібні Android SDK і JDK 21).
+- Іконка й заставка: `python web/scripts/android_icons.py` (Pillow).
+- `appId` (`com.gmaster.guessthemove`) — ідентифікатор у Play Market; після першої публікації його не змінити.
+- Для Play Market потрібна підписана release-збірка (AAB) з власним ключем — ще не налаштовано.

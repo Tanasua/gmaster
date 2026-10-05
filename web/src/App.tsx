@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Capacitor } from '@capacitor/core'
+import { App as NativeApp } from '@capacitor/app'
 import type { GameMeta, IndexData } from './types'
 import { useGame } from './gameStore'
 import { loadStats, resetStats, type Stats } from './storage'
@@ -55,6 +57,16 @@ export default function App() {
     root.style.setProperty('--sq-light', light)
     root.style.setProperty('--sq-dark', dark)
   }, [settings.theme, settings.lang, settings.board])
+
+  // Android: системна кнопка «назад» повертає на попередній екран, з меню — закриває застосунок
+  useEffect(() => {
+    if (!Capacitor.isNativePlatform()) return
+    const sub = NativeApp.addListener('backButton', () => {
+      if (stack.length > 1) setStack(stack.slice(0, -1))
+      else void NativeApp.exitApp()
+    })
+    return () => { void sub.then((h) => h.remove()) }
+  }, [stack])
 
   // Кожен новий екран відкривається з верху сторінки
   useEffect(() => {
