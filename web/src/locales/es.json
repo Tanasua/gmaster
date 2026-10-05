@@ -1,0 +1,497 @@
+{
+ "meta": {
+  "name": "Español"
+ },
+ "ui": {
+  "appTitle": "Adivina la jugada del gran maestro",
+  "appName": "Jugada de GM",
+  "loading": "Cargando…",
+  "loadError": "No se pudieron cargar los datos",
+  "back": "Atrás",
+  "points": "{n} pts",
+  "streak": "racha {n}",
+  "menuLead": "¿Eres capaz de pensar como un gran maestro?",
+  "menuSub": "Partidas reales de campeones. Adivina la jugada que hizo el maestro, no la que sugiere el motor.",
+  "chooseGm": "Elige un gran maestro",
+  "chooseGmHint": "Juega como tu campeón favorito",
+  "youPlayAs": "Juegas como",
+  "tapToChange": "toca para cambiar",
+  "randomGame": "Partida al azar",
+  "randomAny": "Cualquier partida de la colección",
+  "randomOf": "Una partida al azar de {name}",
+  "chooseGame": "Elige una partida",
+  "chooseGameHint": "Las partidas más famosas de la historia · {n}",
+  "daily": "Jugada del día",
+  "dailyHint": "Una posición al día, la misma para todos",
+  "settings": "Ajustes",
+  "settingsHint": "Tema, idioma, sonido",
+  "gmIndex": "Índice GM",
+  "gmCol": "Gran maestro",
+  "guessedCol": "Acertadas",
+  "strongCol": "Jugadas fuertes",
+  "bestStreak": "Racha más larga de jugadas acertadas: {n}",
+  "photoCredits": "Fotos de los jugadores",
+  "gmsTitle": "Grandes maestros",
+  "games_one": "{n} partida",
+  "games_many": "{n} partidas",
+  "games_other": "{n} partidas",
+  "playAsBtn": "Jugar como {name}",
+  "selected": "Elegido",
+  "unselect": "Quitar selección",
+  "howPlayed": "Estilo de juego",
+  "howPlayedF": "Estilo de juego",
+  "strengths": "Puntos fuertes",
+  "hisGames": "Partidas en la colección",
+  "gamesTitle": "Partidas",
+  "youPlayFor": "Juegas: {name}",
+  "moves_one": "{n} jugada",
+  "moves_many": "{n} jugadas",
+  "moves_other": "{n} jugadas",
+  "startGame": "Empezar la partida",
+  "whyMatters": "Por qué es importante",
+  "aboutGame": "Sobre la partida",
+  "pathToWin": "Recorre jugada a jugada el camino de {name} hacia la victoria.",
+  "playedBy": "Juegas como {name} ({side}) · {moves}",
+  "whiteSide": "blancas",
+  "blackSide": "negras",
+  "gameProgress": "{title} · acertadas {x} de {n} (total {total})",
+  "moveWhite": "Jugada {n}.",
+  "moveBlack": "Jugada {n}…",
+  "whatPlayed": "¿Qué jugó {name}?",
+  "whatPlayedF": "¿Qué jugó {name}?",
+  "onlyMove": "Única jugada legal…",
+  "opponentMoves": "Juega el rival…",
+  "opening": "Apertura…",
+  "skip": "Saltar — no lo sé",
+  "hint": "Arrastra una pieza, o tócala y luego toca una casilla.",
+  "gameStarts": "La partida empieza desde la posición inicial.",
+  "white": "Blancas",
+  "black": "Negras",
+  "yourPieces": "tus piezas",
+  "toMove": "juegan",
+  "grandmaster": "Gran maestro",
+  "fbExact": "¡Correcto! {name} jugó {san}.",
+  "fbExactF": "¡Correcto! {name} jugó {san}.",
+  "fbGood": "Buena jugada {user}, pero {name} jugó {san}.",
+  "fbGoodF": "Buena jugada {user}, pero {name} jugó {san}.",
+  "fbSkip": "Saltada. {name} jugó {san}.",
+  "fbSkipF": "Saltada. {name} jugó {san}.",
+  "fbMiss": "Jugaste {user}. {name} jugó {san}.",
+  "fbMissF": "Jugaste {user}. {name} jugó {san}.",
+  "exactShort": "{san} — {name} jugó exactamente eso.",
+  "exactShortF": "{san} — {name} jugó exactamente eso.",
+  "engineBest": "Motor: mejor jugada {san} ({eval})",
+  "engineYour": ", tu jugada — {eval}",
+  "engineAgrees": " — el motor está de acuerdo contigo.",
+  "engineLine": "Línea del motor: {line}",
+  "difficulty": "Dificultad: {stars}",
+  "mate": "mate",
+  "getsMated": "recibe mate",
+  "summaryHeadline": "Has jugado como {name} al {pct}%",
+  "summaryLine": "Acertadas {x} de {moves} · alternativas fuertes: {good}",
+  "skippedN": "saltadas: {n}",
+  "share": "Compartir",
+  "copied": "Copiado ✓",
+  "again": "Jugar otra vez",
+  "toMenu": "Menú",
+  "dailyProgress": "Jugada del día #{n}",
+  "dailyDone": "ya jugada hoy {v} (sin puntos)",
+  "whichMove": "{move} Juegan {side}. ¿Qué jugada hizo el gran maestro?",
+  "itWas": "Era {name}: {label}",
+  "itWasF": "Era {name}: {label}",
+  "theme": "Tema de color",
+  "themeGold": "Oro",
+  "themeIvory": "Marfil",
+  "themeEmerald": "Esmeralda",
+  "themeMidnight": "Medianoche",
+  "themeGraphite": "Grafito",
+  "boardColors": "Colores del tablero",
+  "boardWood": "Madera",
+  "boardClassic": "Clásico",
+  "boardGreen": "Verde",
+  "boardBlue": "Azul",
+  "boardIce": "Hielo",
+  "boardPurple": "Morado",
+  "boardGrey": "Gris",
+  "boardCoral": "Coral",
+  "boardOlive": "Oliva",
+  "boardNight": "Noche",
+  "language": "Idioma",
+  "langAuto": "Idioma del teléfono",
+  "sound": "Sonido de las jugadas",
+  "speed": "Ritmo de la partida",
+  "speedSlow": "Lento",
+  "speedNormal": "Normal",
+  "speedFast": "Rápido",
+  "showEngine": "Mostrar la evaluación del motor",
+  "skipOpening": "Saltar la apertura (primeras 2 jugadas)",
+  "resetStats": "Restablecer estadísticas",
+  "resetConfirm": "¿Seguro que quieres restablecerlas? Se perderán los puntos, las rachas y el índice GM.",
+  "yesReset": "Sí, restablecer",
+  "cancel": "Cancelar",
+  "statsReset": "Estadísticas restablecidas ✓"
+ },
+ "events": {
+  "candidates": "Torneo de Candidatos",
+  "interzonal": "Torneo Interzonal",
+  "fideWch": "Campeonato del Mundo de la FIDE",
+  "wch": "Campeonato del Mundo",
+  "olympiad": "Olimpiada de Ajedrez",
+  "ussr": "Campeonato de la URSS",
+  "avro": "Torneo AVRO"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garri Kaspárov",
+   "short": "Kaspárov",
+   "acc": "Garri Kaspárov",
+   "title": "13.º campeón del mundo (1985–2000)",
+   "bio": "Nació en Bakú. A los 22 años le arrebató el título a Anatoli Kárpov y lo conservó durante 15 años, hasta que perdió ante Vladímir Krámnik en 2000. Fue el número uno del ranking mundial durante casi veinte años y se retiró en 2005.",
+   "style": "Un jugador dinámico y atacante que valoraba la iniciativa por encima del material. Llegaba con una profunda preparación de aperturas y a menudo decidía la partida antes de que el rival lograra orientarse.",
+   "strengths": [
+    "Ataque al rey",
+    "Preparación de aperturas",
+    "Cálculo de variantes complejas",
+    "Sacrificios por la iniciativa"
+   ],
+   "gen": "Kaspárov"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "16.º campeón del mundo (2013–2023)",
+   "bio": "Noruego, gran maestro a los 13 años. Le ganó el título a Viswanathan Anand en 2013 y lo conservó hasta 2023, cuando decidió no defenderlo. Alcanzó el rating más alto de la historia, 2882.",
+   "style": "Un jugador universal. Entra con gusto en posiciones igualadas y sigue presionando, exprimiendo victorias de ventajas mínimas. Su mayor fuerza está en los finales y en las decisiones prácticas ante el tablero.",
+   "strengths": [
+    "Finales",
+    "Seguir jugando con una ventaja mínima",
+    "Resistencia en partidas largas",
+    "Decisiones prácticas"
+   ],
+   "gen": "Carlsen"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "11.º campeón del mundo (1972–1975)",
+   "bio": "Estadounidense, ganó el campeonato de EE. UU. a los 14 años. En Reikiavik, en 1972, derrotó a Borís Spaski y puso fin al dominio soviético del título. En 1975 se negó a defenderlo y la corona pasó a Anatoli Kárpov.",
+   "style": "Claridad y precisión. Jugaba posiciones clásicas y limpias, casi siempre abría con 1.e4 y convertía incluso ventajas pequeñas. Luchaba en cada partida y detestaba las tablas rápidas.",
+   "strengths": [
+    "Conversión de ventajas",
+    "Aperturas clásicas",
+    "Espíritu de lucha",
+    "Precisión"
+   ],
+   "gen": "Fischer"
+  },
+  "karpov": {
+   "name": "Anatoli Kárpov",
+   "short": "Kárpov",
+   "acc": "Anatoli Kárpov",
+   "title": "12.º campeón del mundo (1975–1985)",
+   "bio": "Se proclamó campeón del mundo en 1975, cuando Fischer renunció a defender el título. Defendió la corona dos veces frente a Víktor Korchnói y fue el mejor del mundo durante una década, hasta que perdió ante Garri Kaspárov. Más tarde volvió a ostentar el título de la FIDE (1993–1999).",
+   "style": "Un maestro del juego posicional. Estrujaba lentamente a sus rivales, quitándoles espacio y jugadas útiles, y luego ganaba casi sin riesgo. Su estilo se compara a menudo con una boa constrictora.",
+   "strengths": [
+    "Presión posicional",
+    "Profilaxis",
+    "Explotación de casillas débiles",
+    "Conversión de ventajas"
+   ],
+   "gen": "Kárpov"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "3.er campeón del mundo (1921–1927)",
+   "bio": "Un prodigio cubano que aprendió ajedrez de muy niño viendo jugar a su padre. Le ganó el título a Emanuel Lasker en 1921 y lo perdió ante Alexander Alekhine en 1927.",
+   "style": "Sencillez y claridad. Capablanca evitaba las complicaciones innecesarias, jugaba con ligereza y precisión, y conducía los finales tan bien que sus partidas todavía se estudian como modelos.",
+   "strengths": [
+    "Finales",
+    "Sentido posicional",
+    "Soluciones sencillas",
+    "Defensa"
+   ],
+   "gen": "Capablanca"
+  },
+  "tal": {
+   "name": "Mijaíl Tal",
+   "short": "Tal",
+   "acc": "Mijaíl Tal",
+   "title": "8.º campeón del mundo (1960–1961)",
+   "bio": "«El mago de Riga». En 1960 derrotó a Mijaíl Botvínnik para convertirse en campeón del mundo y perdió la revancha un año después. A pesar de su mala salud, se mantuvo durante décadas en la élite mundial.",
+   "style": "El jugador de ataque más deslumbrante de la historia. Sacrificaba piezas para complicar la posición y ganaba en el caos, donde los rivales no podían calcularlo todo.",
+   "strengths": [
+    "Sacrificios de piezas",
+    "Táctica",
+    "Ataque",
+    "Presión psicológica"
+   ],
+   "gen": "Tal"
+  },
+  "botvinnik": {
+   "name": "Mijaíl Botvínnik",
+   "short": "Botvínnik",
+   "acc": "Mijaíl Botvínnik",
+   "title": "6.º campeón del mundo (1948–1963, con interrupciones)",
+   "bio": "Ganó el torneo-match de 1948 y se convirtió en campeón del mundo. Perdió el título dos veces, ante Smyslov y ante Tal, y en ambas ocasiones lo recuperó en las revanchas. Ingeniero de formación, más tarde dirigió una escuela de ajedrez entre cuyos alumnos estuvieron Kárpov, Kaspárov y Krámnik.",
+   "style": "Un enfoque científico. Se preparaba meticulosamente, analizaba a fondo sus propias partidas y aperturas, y jugaba con lógica y fuerza en posiciones estratégicas complejas.",
+   "strengths": [
+    "Preparación",
+    "Estrategia",
+    "Análisis",
+    "Sistemas de apertura"
+   ],
+   "gen": "Botvínnik"
+  },
+  "alekhine": {
+   "name": "Alexander Alekhine",
+   "short": "Alekhine",
+   "acc": "Alexander Alekhine",
+   "title": "4.º campeón del mundo (1927–1935, 1937–1946)",
+   "bio": "En 1927 derrotó sensacionalmente a Capablanca. Perdió el título ante Max Euwe en 1935, pero lo recuperó dos años después. Murió en 1946 siendo el campeón vigente, el único caso en la historia.",
+   "style": "Un estilo de ataque basado en combinaciones profundas. Alekhine sabía crear complicaciones de la nada y calculaba muchas jugadas por adelantado.",
+   "strengths": [
+    "Combinaciones",
+    "Ataque",
+    "Profundidad de cálculo",
+    "Iniciativa"
+   ],
+   "gen": "Alekhine"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "El mejor del mundo, de forma no oficial, a finales de la década de 1850",
+   "bio": "Estadounidense de Nueva Orleans. En 1858–1859 recorrió Europa y derrotó a sus maestros más fuertes, entre ellos Adolf Anderssen. Poco después de volver a casa prácticamente abandonó el ajedrez.",
+   "style": "Desarrollo rápido, líneas abiertas y ataque. Morphy fue el primero en demostrar de forma sistemática lo importante que es movilizar todas las piezas antes de atacar.",
+   "strengths": [
+    "Desarrollo",
+    "Posiciones abiertas",
+    "Combinaciones",
+    "Ataque al rey"
+   ],
+   "gen": "Morphy"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "2.º campeón del mundo (1894–1921)",
+   "bio": "Ajedrecista y matemático alemán. Derrotó a Steinitz en 1894 y conservó el título durante 27 años —el reinado más largo de la historia— hasta perder ante Capablanca en 1921.",
+   "style": "Un luchador práctico. Lasker no buscaba la jugada perfecta, sino la más incómoda para ese rival concreto, y defendía brillantemente las posiciones difíciles.",
+   "strengths": [
+    "Juego práctico",
+    "Defensa",
+    "Psicología",
+    "Finales"
+   ],
+   "gen": "Lasker"
+  },
+  "spassky": {
+   "name": "Borís Spaski",
+   "short": "Spaski",
+   "acc": "Borís Spaski",
+   "title": "10.º campeón del mundo (1969–1972)",
+   "bio": "Derrotó a Tigran Petrosián en 1969. En 1972, en Reikiavik, perdió ante Bobby Fischer el famoso «Match del Siglo».",
+   "style": "Un jugador universal. Igual de seguro en el ataque que en la defensa, jugaba aperturas agudas como el gambito de rey y maniobraba con calma en posiciones igualadas.",
+   "strengths": [
+    "Versatilidad",
+    "Ataque",
+    "Gambito de rey",
+    "Serenidad ante el tablero"
+   ],
+   "gen": "Spaski"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosián",
+   "short": "Petrosián",
+   "acc": "Tigran Petrosián",
+   "title": "9.º campeón del mundo (1963–1969)",
+   "bio": "Derrotó a Botvínnik en 1963 y defendió el título frente a Spaski en 1966, antes de perder ante él la revancha de 1969. Apodado «Tigran de Hierro» por su juego increíblemente sólido.",
+   "style": "Un maestro de la profilaxis que preveía y neutralizaba de antemano los planes del rival. Famoso por sus sacrificios posicionales de calidad, que los jugadores todavía estudian.",
+   "strengths": [
+    "Profilaxis",
+    "Defensa",
+    "Sacrificios de calidad",
+    "Solidez"
+   ],
+   "gen": "Petrosián"
+  },
+  "kramnik": {
+   "name": "Vladímir Krámnik",
+   "short": "Krámnik",
+   "acc": "Vladímir Krámnik",
+   "title": "14.º campeón del mundo (2000–2007)",
+   "bio": "En Londres, en 2000, derrotó sensacionalmente a Garri Kaspárov sin perder ni una partida. En 2006 unificó el título al vencer a Veselin Topálov y en 2007 cedió la corona a Anand. Se retiró en 2019.",
+   "style": "Profunda comprensión posicional y una preparación impecable. En el match contra Kaspárov popularizó la defensa berlinesa, que después adoptó toda la élite.",
+   "strengths": [
+    "Preparación de aperturas",
+    "Juego posicional",
+    "Finales",
+    "Solidez"
+   ],
+   "gen": "Krámnik"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "15.º campeón del mundo (2007–2013)",
+   "bio": "Primer gran maestro de la India (1988). Campeón del mundo de la FIDE en 2000 y campeón indiscutido desde 2007 hasta que perdió el match de 2013 ante Magnus Carlsen.",
+   "style": "Rápido y universal. Conocido por su cálculo relámpago y su profunda preparación de aperturas, se desenvolvía igual de bien en posiciones agudas y tranquilas.",
+   "strengths": [
+    "Velocidad de cálculo",
+    "Preparación de aperturas",
+    "Versatilidad",
+    "Ajedrez rápido"
+   ],
+   "gen": "Anand"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "La jugadora más fuerte de la historia",
+   "bio": "Húngara, se convirtió en gran maestra en 1991 con 15 años y 4 meses, batiendo el récord de Fischer. Es la única mujer que ha entrado en el top ten mundial (8.ª, 2004) y que ha superado un rating de 2700. Se retiró en 2014.",
+   "style": "Un estilo agresivo y de ataque. Polgár no dudaba en complicar el juego y sacrificar material para llevarlo a batallas tácticas, donde era especialmente fuerte.",
+   "strengths": [
+    "Ataque",
+    "Táctica",
+    "Sacrificios",
+    "Espíritu de lucha"
+   ],
+   "gen": "Polgár"
+  },
+  "smyslov": {
+   "name": "Vasili Smyslov",
+   "short": "Smyslov",
+   "acc": "Vasili Smyslov",
+   "title": "7.º campeón del mundo (1957–1958)",
+   "bio": "Disputó tres matches por el título contra Botvínnik: ganó en 1957, pero perdió la revancha un año después. Se mantuvo en la cima durante décadas y en 1984, a los 63 años, llegó a la final de Candidatos.",
+   "style": "Armonía y naturalidad. Smyslov colocaba sus piezas como si ellas mismas supieran cuál era su sitio, y era célebre por su maestría en los finales.",
+   "strengths": [
+    "Finales",
+    "Armonía de las piezas",
+    "Sentido posicional",
+    "Longevidad"
+   ],
+   "gen": "Smyslov"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "1.er campeón del mundo oficial (1886–1894)",
+   "bio": "Nació en Praga. En 1886 derrotó a Johannes Zukertort en el primer match oficial por el Campeonato del Mundo y conservó el título hasta 1894, cuando perdió ante Emanuel Lasker.",
+   "style": "El padre del ajedrez posicional. Steinitz formuló los principios de la acumulación de pequeñas ventajas y demostró que un ataque debe estar justificado por la posición, no solo por la audacia.",
+   "strengths": [
+    "Teoría posicional",
+    "Defensa",
+    "Acumulación de ventajas",
+    "Tenacidad"
+   ],
+   "gen": "Steinitz"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Aspirante al título mundial (1993)",
+   "bio": "Inglés y uno de los jugadores occidentales más fuertes de las décadas de 1980 y 1990. En 1993 disputó un match por el título mundial contra Garri Kaspárov y lo perdió.",
+   "style": "Agresivo e ingenioso. No temía las ideas poco habituales, como su famosa marcha del rey a través del tablero contra Jan Timman.",
+   "strengths": [
+    "Ataque",
+    "Ideas poco habituales",
+    "Rey activo"
+   ],
+   "gen": "Short"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "«La partida del siglo»",
+   "why": "Fischer, con 13 años, contra Donald Byrne en Nueva York. El sacrificio de dama 17…Be6 y la paliza que siguió hicieron que todo el mundo del ajedrez se fijara en Fischer."
+  },
+  "kasparov-topalov-1999": {
+   "title": "La inmortal de Kaspárov",
+   "why": "Wijk aan Zee, 1999. El sacrificio de torre 24.Rxd4 y una cacería del rey negro por todo el tablero. Uno de los ataques más bellos de la historia del ajedrez."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Match del Siglo, partida 6",
+   "why": "Reikiavik, 1972. Fischer, que casi siempre abría con 1.e4, empezó con 1.c4 y superó a Spaski en estilo clásico. La victoria lo puso por delante en el match por el título."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "El caballo de d3",
+   "why": "El match por el título mundial de 1985. El caballo de Kaspárov en d3 paralizó a todo el ejército blanco: una de las partidas más conocidas de su rivalidad. Kaspárov se proclamó campeón ese mismo año."
+  },
+  "short-timman-1991": {
+   "title": "La marcha del rey",
+   "why": "Tilburg, 1991. En pleno medio juego, Short llevó a su rey por Kh2–g3–f4–g5 hasta el campo enemigo para sumarse al ataque contra el rey negro."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Desempate por el título, 2016",
+   "why": "Nueva York, 2016, la última partida del desempate. El día de su cumpleaños, Carlsen la remató con el sacrificio de dama 50.Qh6+ y retuvo su título mundial."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "La partida decisiva de Bled",
+   "why": "La semifinal de Candidatos en Bled. Antes de esta partida el marcador era 4,5–4,5. Tal sacrificó un caballo con 16.Nd5, ganó y se clasificó para la final de Candidatos."
+  },
+  "aronian-anand-2013": {
+   "title": "Una demolición en 23 jugadas",
+   "why": "Wijk aan Zee, 2013. El campeón vigente, Anand, con negras, arrolló a Aronián en 23 jugadas con una serie de sacrificios: una de las mejores partidas de su carrera."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Match por el título 2013, partida 5",
+   "why": "Chennai, 2013. Tras cuatro tablas, Carlsen ganó la primera partida del match desgastando a Anand en el final. Aquel match lo convirtió en campeón del mundo."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Match por el título 2016, partida 10",
+   "why": "Nueva York, 2016. Kariakin iba por delante en el match tras la partida 8. En la partida 10, Carlsen igualó el marcador tras una larga lucha, y el match acabó decidiéndose en un desempate."
+  },
+  "morphy-opera-1858": {
+   "title": "La partida de la ópera",
+   "why": "París, 1858, en un palco de la ópera. Morphy se enfrentó al duque de Brunswick y al conde Isouard, que jugaban consultándose entre ellos. El sacrificio de dama 16.Qb8+ y el mate con 17.Rd8# la convierten en la partida corta más famosa de la historia del ajedrez y en un modelo de desarrollo rápido."
+  },
+  "lasker-bauer-1889": {
+   "title": "El doble sacrificio de alfil",
+   "why": "Ámsterdam, 1889. Lasker sacrificó ambos alfiles —15.Bxh7+ y 17.Bxg7— y destrozó el refugio del rey negro. Desde entonces la idea se conoce como el doble sacrificio de alfil de Lasker."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "El alfil en a3",
+   "why": "El torneo AVRO, 1938. El joven Botvínnik superó al excampeón del mundo Capablanca y remató la partida con el famoso sacrificio de alfil 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "La partida de James Bond",
+   "why": "Campeonato de la URSS, Leningrado, 1960. Gambito de rey, el sacrificio de caballo 16.Nxf7 y un ataque al rey. Una posición de esta partida aparece al comienzo de la película de James Bond «Desde Rusia con amor» (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "El veterano Steinitz contra Curt von Bardeleben. Tras 22.Rxe7+, la torre blanca no deja de dar jaque y no se puede capturar. Von Bardeleben no esperó al mate y simplemente abandonó la sala del torneo."
+  },
+  "capablanca-marshall-1918": {
+   "title": "El nacimiento del Ataque Marshall",
+   "why": "Nueva York, 1918. Frank Marshall sorprendió a Capablanca con un nuevo y agudo sacrificio de peón, 8…d5, en la Ruy López. Capablanca rechazó el ataque y ganó, pero la idea todavía se llama Ataque Marshall y se juega al más alto nivel."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londres 2000, partida 2",
+   "why": "El match por el Campeonato del Mundo. La primera victoria de Krámnik sobre Kaspárov. Krámnik ganó todo el match sin perder una sola partida y se convirtió en el 14.º campeón del mundo."
+  },
+  "reti-alekhine-1925": {
+   "title": "La combinación de Baden-Baden",
+   "why": "Baden-Baden, 1925. Con negras, Alekhine realizó una de sus combinaciones más famosas, calculada muchas jugadas por adelantado, frente a Richard Réti, uno de los padres de la escuela hipermoderna."
+  },
+  "karpov-unzicker-1974": {
+   "title": "La boa constrictora en Niza",
+   "why": "La Olimpiada de Niza, 1974. Un ejemplo de manual del estilo de Kárpov: paso a paso le quitó a su rival el espacio y las jugadas útiles hasta dejar a las negras completamente asfixiadas."
+  }
+ },
+ "store": {
+  "title": "Adivina la jugada del maestro",
+  "short": "Revive 108 partidas legendarias de campeones del mundo y adivina sus jugadas.",
+  "full": "¿Eres capaz de pensar como un gran maestro?\n\nEn este juego no juegas contra un ordenador: adivinas las jugadas que hicieron los grandes campeones en partidas reales. Elige a Kaspárov, Carlsen, Fischer, Tal o a cualquiera de los 18 grandes maestros y revive sus partidas más famosas jugada a jugada.\n\n• 108 partidas reales: desde la Partida de la Ópera de Morphy (1858) hasta los matches por el Campeonato del Mundo del siglo XXI\n• Un motor de ajedrez evalúa cada jugada: aunque no coincidas con el maestro, si encuentras una jugada igual de fuerte, sumas puntos\n• Perfiles de 18 campeones: biografía, estilo de juego, puntos fuertes\n• Jugada del día: una posición al día, la misma para todos\n• Índice GM: cuánto se parece tu forma de pensar a la de cada gran maestro\n• Temas de color, colores del tablero, sonido y ritmo de juego\n• Funciona sin conexión\n\nAprende a pensar como los campeones, jugada a jugada."
+ }
+}

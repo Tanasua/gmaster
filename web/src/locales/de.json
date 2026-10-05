@@ -1,0 +1,495 @@
+{
+ "meta": {
+  "name": "Deutsch"
+ },
+ "ui": {
+  "appTitle": "Errate den Zug des Großmeisters",
+  "appName": "Zug erraten",
+  "loading": "Wird geladen…",
+  "loadError": "Daten konnten nicht geladen werden",
+  "back": "Zurück",
+  "points": "{n} Pkt.",
+  "streak": "Serie {n}",
+  "menuLead": "Kannst du wie ein Großmeister denken?",
+  "menuSub": "Echte Partien von Champions. Errate den Zug, den der Meister gespielt hat – nicht den, den die Engine vorschlägt.",
+  "chooseGm": "Großmeister wählen",
+  "chooseGmHint": "Spiele als dein Lieblingschampion",
+  "youPlayAs": "Du spielst als",
+  "tapToChange": "tippen zum Ändern",
+  "randomGame": "Zufällige Partie",
+  "randomAny": "Eine beliebige Partie aus der Sammlung",
+  "randomOf": "Eine zufällige Partie {name}",
+  "chooseGame": "Partie wählen",
+  "chooseGameHint": "Die berühmtesten Partien der Geschichte · {n}",
+  "daily": "Zug des Tages",
+  "dailyHint": "Eine Stellung pro Tag, für alle gleich",
+  "settings": "Einstellungen",
+  "settingsHint": "Design, Sprache, Ton",
+  "gmIndex": "GM-Index",
+  "gmCol": "Großmeister",
+  "guessedCol": "Erraten",
+  "strongCol": "Starke Züge",
+  "bestStreak": "Längste Serie erratener Züge: {n}",
+  "photoCredits": "Spielerfotos",
+  "gmsTitle": "Großmeister",
+  "games_one": "{n} Partie",
+  "games_other": "{n} Partien",
+  "playAsBtn": "Spiele als {name}",
+  "selected": "Ausgewählt",
+  "unselect": "Auswahl aufheben",
+  "howPlayed": "Spielstil",
+  "howPlayedF": "Spielstil",
+  "strengths": "Stärken",
+  "hisGames": "Partien in der Sammlung",
+  "gamesTitle": "Partien",
+  "youPlayFor": "Du spielst: {name}",
+  "moves_one": "{n} Zug",
+  "moves_other": "{n} Züge",
+  "startGame": "Partie starten",
+  "whyMatters": "Warum sie wichtig ist",
+  "aboutGame": "Über die Partie",
+  "pathToWin": "Verfolge Zug um Zug {name} Weg zum Sieg.",
+  "playedBy": "Du spielst als {name} ({side}) · {moves}",
+  "whiteSide": "Weiß",
+  "blackSide": "Schwarz",
+  "gameProgress": "{title} · {x} von {n} erraten (gesamt {total})",
+  "moveWhite": "Zug {n}.",
+  "moveBlack": "Zug {n}…",
+  "whatPlayed": "Was hat {name} gespielt?",
+  "whatPlayedF": "Was hat {name} gespielt?",
+  "onlyMove": "Einziger legaler Zug…",
+  "opponentMoves": "Der Gegner ist am Zug…",
+  "opening": "Eröffnung…",
+  "skip": "Überspringen – weiß ich nicht",
+  "hint": "Ziehe eine Figur oder tippe sie und dann ein Feld an.",
+  "gameStarts": "Die Partie beginnt aus der Grundstellung.",
+  "white": "Weiß",
+  "black": "Schwarz",
+  "yourPieces": "deine Figuren",
+  "toMove": "am Zug",
+  "grandmaster": "Großmeister",
+  "fbExact": "Richtig! {name} hat {san} gespielt.",
+  "fbExactF": "Richtig! {name} hat {san} gespielt.",
+  "fbGood": "Starker Zug {user}, aber {name} hat {san} gespielt.",
+  "fbGoodF": "Starker Zug {user}, aber {name} hat {san} gespielt.",
+  "fbSkip": "Übersprungen. {name} hat {san} gespielt.",
+  "fbSkipF": "Übersprungen. {name} hat {san} gespielt.",
+  "fbMiss": "Du hast {user} gespielt. {name} hat {san} gespielt.",
+  "fbMissF": "Du hast {user} gespielt. {name} hat {san} gespielt.",
+  "exactShort": "{san} – genau das hat {name} gespielt.",
+  "exactShortF": "{san} – genau das hat {name} gespielt.",
+  "engineBest": "Engine: bester Zug {san} ({eval})",
+  "engineYour": ", dein Zug – {eval}",
+  "engineAgrees": " – die Engine stimmt dir zu.",
+  "engineLine": "Engine-Variante: {line}",
+  "difficulty": "Schwierigkeit: {stars}",
+  "mate": "Matt",
+  "getsMated": "wird mattgesetzt",
+  "summaryHeadline": "Du hast zu {pct}% wie {name} gespielt",
+  "summaryLine": "{x} von {moves} erraten · starke Alternativen: {good}",
+  "skippedN": "übersprungen: {n}",
+  "share": "Teilen",
+  "copied": "Kopiert ✓",
+  "again": "Nochmal spielen",
+  "toMenu": "Menü",
+  "dailyProgress": "Zug des Tages #{n}",
+  "dailyDone": "heute schon gespielt {v} (keine Punkte)",
+  "whichMove": "{move} {side} am Zug. Welchen Zug hat der Großmeister gespielt?",
+  "itWas": "Es war {name}: {label}",
+  "itWasF": "Es war {name}: {label}",
+  "theme": "Farbschema",
+  "themeGold": "Gold",
+  "themeIvory": "Elfenbein",
+  "themeEmerald": "Smaragd",
+  "themeMidnight": "Mitternacht",
+  "themeGraphite": "Graphit",
+  "boardColors": "Brettfarben",
+  "boardWood": "Holz",
+  "boardClassic": "Klassisch",
+  "boardGreen": "Grün",
+  "boardBlue": "Blau",
+  "boardIce": "Eis",
+  "boardPurple": "Lila",
+  "boardGrey": "Grau",
+  "boardCoral": "Koralle",
+  "boardOlive": "Oliv",
+  "boardNight": "Nacht",
+  "language": "Sprache",
+  "langAuto": "Telefonsprache",
+  "sound": "Zuggeräusche",
+  "speed": "Spieltempo",
+  "speedSlow": "Langsam",
+  "speedNormal": "Normal",
+  "speedFast": "Schnell",
+  "showEngine": "Engine-Bewertung anzeigen",
+  "skipOpening": "Eröffnung überspringen (erste 2 Züge)",
+  "resetStats": "Statistik zurücksetzen",
+  "resetConfirm": "Wirklich zurücksetzen? Punkte, Serien und GM-Index gehen verloren.",
+  "yesReset": "Ja, zurücksetzen",
+  "cancel": "Abbrechen",
+  "statsReset": "Statistik zurückgesetzt ✓"
+ },
+ "events": {
+  "candidates": "Kandidatenturnier",
+  "interzonal": "Interzonenturnier",
+  "fideWch": "FIDE-Weltmeisterschaft",
+  "wch": "Weltmeisterschaft",
+  "olympiad": "Schacholympiade",
+  "ussr": "UdSSR-Meisterschaft",
+  "avro": "AVRO-Turnier"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garri Kasparow",
+   "short": "Kasparow",
+   "acc": "Garri Kasparow",
+   "title": "13. Weltmeister (1985–2000)",
+   "bio": "Geboren in Baku. Mit 22 Jahren nahm er Anatoli Karpow den Titel ab und hielt ihn 15 Jahre lang, bis er 2000 gegen Wladimir Kramnik verlor. Fast zwanzig Jahre lang war er die Nummer eins der Weltrangliste und beendete 2005 seine Karriere.",
+   "style": "Ein dynamischer Angriffsspieler, dem die Initiative mehr bedeutete als Material. Er kam mit tiefer Eröffnungsvorbereitung ans Brett und entschied die Partie oft, bevor sich der Gegner zurechtgefunden hatte.",
+   "strengths": [
+    "Angriff auf den König",
+    "Eröffnungsvorbereitung",
+    "Berechnung komplexer Varianten",
+    "Opfer für die Initiative"
+   ],
+   "gen": "Kasparows"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "16. Weltmeister (2013–2023)",
+   "bio": "Ein Norweger, der mit 13 Jahren Großmeister wurde. 2013 gewann er den Titel gegen Viswanathan Anand und hielt ihn bis 2023, als er sich entschied, ihn nicht zu verteidigen. Er erreichte die höchste Elo-Zahl der Geschichte: 2882.",
+   "style": "Ein Universalspieler. Er geht gern in ausgeglichene Stellungen, spielt beharrlich weiter und presst aus winzigen Vorteilen Siege heraus. Am stärksten im Endspiel und bei praktischen Entscheidungen am Brett.",
+   "strengths": [
+    "Endspiel",
+    "Weiterspielen mit minimalem Vorteil",
+    "Ausdauer in langen Partien",
+    "Praktische Entscheidungen"
+   ],
+   "gen": "Carlsens"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "11. Weltmeister (1972–1975)",
+   "bio": "Ein Amerikaner, der mit 14 Jahren die US-Meisterschaft gewann. 1972 besiegte er in Reykjavík Boris Spasski und beendete damit die sowjetische Vorherrschaft über den Titel. 1975 weigerte er sich, ihn zu verteidigen, und die Krone ging an Anatoli Karpow.",
+   "style": "Klarheit und Präzision. Er spielte saubere klassische Stellungen, eröffnete fast immer mit 1.e4 und verwertete selbst kleine Vorteile. Er kämpfte in jeder Partie und mochte keine schnellen Remis.",
+   "strengths": [
+    "Vorteilsverwertung",
+    "Klassische Eröffnungen",
+    "Kampfgeist",
+    "Präzision"
+   ],
+   "gen": "Fischers"
+  },
+  "karpov": {
+   "name": "Anatoli Karpow",
+   "short": "Karpow",
+   "acc": "Anatoli Karpow",
+   "title": "12. Weltmeister (1975–1985)",
+   "bio": "Wurde 1975 Weltmeister, als Fischer auf die Titelverteidigung verzichtete. Er verteidigte die Krone zweimal gegen Viktor Kortschnoi und war ein Jahrzehnt lang der Beste der Welt, bis er gegen Garri Kasparow verlor. Später hielt er erneut den FIDE-Titel (1993–1999).",
+   "style": "Ein Meister des Positionsspiels. Er schnürte seine Gegner langsam ein, nahm ihnen Raum und nützliche Züge und gewann dann fast ohne Risiko. Sein Stil wird oft mit einer Boa constrictor verglichen.",
+   "strengths": [
+    "Positioneller Druck",
+    "Prophylaxe",
+    "Ausnutzen schwacher Felder",
+    "Vorteilsverwertung"
+   ],
+   "gen": "Karpows"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "3. Weltmeister (1921–1927)",
+   "bio": "Ein kubanisches Wunderkind, das Schach schon als kleines Kind lernte, indem es seinem Vater beim Spielen zusah. 1921 gewann er den Titel gegen Emanuel Lasker und verlor ihn 1927 an Alexander Aljechin.",
+   "style": "Einfachheit und Klarheit. Capablanca vermied unnötige Komplikationen, spielte leicht und präzise und behandelte Endspiele so gut, dass seine Partien noch heute als Musterbeispiele studiert werden.",
+   "strengths": [
+    "Endspiel",
+    "Positionsgefühl",
+    "Einfache Lösungen",
+    "Verteidigung"
+   ],
+   "gen": "Capablancas"
+  },
+  "tal": {
+   "name": "Michail Tal",
+   "short": "Tal",
+   "acc": "Michail Tal",
+   "title": "8. Weltmeister (1960–1961)",
+   "bio": "„Der Zauberer aus Riga“. 1960 besiegte er Michail Botwinnik und wurde Weltmeister; den Revanchewettkampf ein Jahr später verlor er. Trotz schlechter Gesundheit gehörte er jahrzehntelang zur Weltelite.",
+   "style": "Der schillerndste Angriffsspieler der Geschichte. Er opferte Figuren, um die Stellung zu verkomplizieren, und gewann im Chaos, in dem die Gegner nicht alles berechnen konnten.",
+   "strengths": [
+    "Figurenopfer",
+    "Taktik",
+    "Angriff",
+    "Psychologischer Druck"
+   ],
+   "gen": "Tals"
+  },
+  "botvinnik": {
+   "name": "Michail Botwinnik",
+   "short": "Botwinnik",
+   "acc": "Michail Botwinnik",
+   "title": "6. Weltmeister (1948–1963, mit Unterbrechungen)",
+   "bio": "Gewann 1948 das Wettkampfturnier und wurde Weltmeister. Er verlor den Titel zweimal, an Smyslow und an Tal, und holte ihn sich beide Male im Revanchewettkampf zurück. Als studierter Ingenieur leitete er später eine Schachschule, zu deren Schülern Karpow, Kasparow und Kramnik gehörten.",
+   "style": "Ein wissenschaftlicher Ansatz. Er bereitete sich akribisch vor, analysierte seine eigenen Partien und Eröffnungen gründlich und spielte in komplexen strategischen Stellungen logisch und kraftvoll.",
+   "strengths": [
+    "Vorbereitung",
+    "Strategie",
+    "Analyse",
+    "Eröffnungssysteme"
+   ],
+   "gen": "Botwinniks"
+  },
+  "alekhine": {
+   "name": "Alexander Aljechin",
+   "short": "Aljechin",
+   "acc": "Alexander Aljechin",
+   "title": "4. Weltmeister (1927–1935, 1937–1946)",
+   "bio": "1927 besiegte er sensationell Capablanca. 1935 verlor er den Titel an Max Euwe, eroberte ihn aber zwei Jahre später zurück. Er starb 1946 als amtierender Weltmeister – als einziger in der Geschichte.",
+   "style": "Ein Angriffsstil, der auf tiefen Kombinationen beruhte. Aljechin konnte aus dem Nichts Komplikationen schaffen und rechnete viele Züge voraus.",
+   "strengths": [
+    "Kombinationen",
+    "Angriff",
+    "Rechentiefe",
+    "Initiative"
+   ],
+   "gen": "Aljechins"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "Inoffiziell bester Spieler der Welt Ende der 1850er",
+   "bio": "Ein Amerikaner aus New Orleans. 1858–1859 bereiste er Europa und besiegte dessen stärkste Meister, darunter Adolf Anderssen. Kurz nach seiner Rückkehr in die Heimat gab er das Schach praktisch auf.",
+   "style": "Schnelle Entwicklung, offene Linien und Angriff. Morphy zeigte als Erster konsequent, wie wichtig es ist, vor dem Angriff alle Figuren zu mobilisieren.",
+   "strengths": [
+    "Entwicklung",
+    "Offene Stellungen",
+    "Kombinationen",
+    "Angriff auf den König"
+   ],
+   "gen": "Morphys"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "2. Weltmeister (1894–1921)",
+   "bio": "Ein deutscher Schachspieler und Mathematiker. 1894 besiegte er Steinitz und hielt den Titel 27 Jahre lang – die längste Regentschaft der Geschichte –, bis er 1921 gegen Capablanca verlor.",
+   "style": "Ein praktischer Kämpfer. Lasker suchte nicht den perfekten Zug, sondern den, der für den konkreten Gegner am unangenehmsten war, und verteidigte schwierige Stellungen glänzend.",
+   "strengths": [
+    "Praktisches Spiel",
+    "Verteidigung",
+    "Psychologie",
+    "Endspiel"
+   ],
+   "gen": "Laskers"
+  },
+  "spassky": {
+   "name": "Boris Spasski",
+   "short": "Spasski",
+   "acc": "Boris Spasski",
+   "title": "10. Weltmeister (1969–1972)",
+   "bio": "Besiegte 1969 Tigran Petrosjan. 1972 verlor er in Reykjavík den berühmten „Wettkampf des Jahrhunderts“ gegen Bobby Fischer.",
+   "style": "Ein Universalspieler. In Angriff und Verteidigung gleichermaßen sicher, spielte er scharfe Eröffnungen wie das Königsgambit und manövrierte ruhig in ausgeglichenen Stellungen.",
+   "strengths": [
+    "Vielseitigkeit",
+    "Angriff",
+    "Königsgambit",
+    "Gelassenheit am Brett"
+   ],
+   "gen": "Spasskis"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosjan",
+   "short": "Petrosjan",
+   "acc": "Tigran Petrosjan",
+   "title": "9. Weltmeister (1963–1969)",
+   "bio": "Besiegte 1963 Botwinnik und verteidigte den Titel 1966 gegen Spasski, bevor er ihm 1969 den Revanchewettkampf verlor. Wegen seines unglaublich soliden Spiels wurde er „Eiserner Tigran“ genannt.",
+   "style": "Ein Meister der Prophylaxe, der die Pläne des Gegners vorhersah und im Voraus neutralisierte. Berühmt für seine positionellen Qualitätsopfer, die Spieler bis heute studieren.",
+   "strengths": [
+    "Prophylaxe",
+    "Verteidigung",
+    "Qualitätsopfer",
+    "Solidität"
+   ],
+   "gen": "Petrosjans"
+  },
+  "kramnik": {
+   "name": "Wladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Wladimir Kramnik",
+   "title": "14. Weltmeister (2000–2007)",
+   "bio": "2000 besiegte er in London sensationell Garri Kasparow, ohne eine Partie zu verlieren. 2006 vereinigte er den Titel durch einen Sieg über Weselin Topalow und gab die Krone 2007 an Anand ab. 2019 beendete er seine Karriere.",
+   "style": "Tiefes Positionsverständnis und makellose Vorbereitung. Im Wettkampf gegen Kasparow machte er die Berliner Verteidigung populär, die danach die gesamte Elite übernahm.",
+   "strengths": [
+    "Eröffnungsvorbereitung",
+    "Positionsspiel",
+    "Endspiel",
+    "Solidität"
+   ],
+   "gen": "Kramniks"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "15. Weltmeister (2007–2013)",
+   "bio": "Indiens erster Großmeister (1988). FIDE-Weltmeister im Jahr 2000 und unangefochtener Weltmeister ab 2007, bis er 2013 den Wettkampf gegen Magnus Carlsen verlor.",
+   "style": "Schnell und universell. Bekannt für blitzschnelles Rechnen und tiefe Eröffnungsvorbereitung, in scharfen wie ruhigen Stellungen gleichermaßen zu Hause.",
+   "strengths": [
+    "Rechengeschwindigkeit",
+    "Eröffnungsvorbereitung",
+    "Vielseitigkeit",
+    "Schnellschach"
+   ],
+   "gen": "Anands"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "Die stärkste Schachspielerin der Geschichte",
+   "bio": "Eine Ungarin, die 1991 mit 15 Jahren und 4 Monaten Großmeisterin wurde und damit Fischers Rekord brach. Die einzige Frau, die es in die Top Ten der Welt schaffte (Platz 8, 2004) und eine Elo-Zahl über 2700 erreichte. 2014 beendete sie ihre Karriere.",
+   "style": "Ein aggressiver Angriffsstil. Polgár verschärfte bereitwillig das Spiel und opferte Material, um es in taktische Kämpfe zu lenken, in denen sie besonders stark war.",
+   "strengths": [
+    "Angriff",
+    "Taktik",
+    "Opfer",
+    "Kampfgeist"
+   ],
+   "gen": "Polgárs"
+  },
+  "smyslov": {
+   "name": "Wassili Smyslow",
+   "short": "Smyslow",
+   "acc": "Wassili Smyslow",
+   "title": "7. Weltmeister (1957–1958)",
+   "bio": "Spielte drei WM-Kämpfe gegen Botwinnik: 1957 gewann er, verlor aber den Revanchewettkampf ein Jahr später. Er blieb jahrzehntelang an der Spitze und erreichte 1984 im Alter von 63 Jahren das Kandidatenfinale.",
+   "style": "Harmonie und Natürlichkeit. Smyslow stellte seine Figuren so auf, als wüssten sie selbst, wo sie hingehören, und war für seine Endspielkunst berühmt.",
+   "strengths": [
+    "Endspiel",
+    "Harmonie der Figuren",
+    "Positionsgefühl",
+    "Langlebigkeit"
+   ],
+   "gen": "Smyslows"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "1. offizieller Weltmeister (1886–1894)",
+   "bio": "Geboren in Prag. 1886 besiegte er Johannes Zukertort im ersten offiziellen WM-Kampf und hielt den Titel bis 1894, als er gegen Emanuel Lasker verlor.",
+   "style": "Der Vater des Positionsspiels. Steinitz formulierte die Prinzipien der Anhäufung kleiner Vorteile und zeigte, dass ein Angriff durch die Stellung gerechtfertigt sein muss und nicht nur durch Wagemut.",
+   "strengths": [
+    "Positionstheorie",
+    "Verteidigung",
+    "Anhäufung von Vorteilen",
+    "Zähigkeit"
+   ],
+   "gen": "Steinitz’"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "WM-Herausforderer (1993)",
+   "bio": "Ein Engländer und einer der stärksten westlichen Spieler der 1980er und 90er Jahre. 1993 spielte er einen WM-Kampf gegen Garri Kasparow und verlor.",
+   "style": "Aggressiv und einfallsreich. Ohne Scheu vor ungewöhnlichen Ideen, wie seinem berühmten Königsmarsch quer über das Brett gegen Jan Timman.",
+   "strengths": [
+    "Angriff",
+    "Ungewöhnliche Ideen",
+    "Aktiver König"
+   ],
+   "gen": "Shorts"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "„Die Partie des Jahrhunderts“",
+   "why": "Der 13-jährige Fischer gegen Donald Byrne in New York. Das Damenopfer 17…Be6 und das anschließende Debakel machten die ganze Schachwelt auf Fischer aufmerksam."
+  },
+  "kasparov-topalov-1999": {
+   "title": "Kasparows Unsterbliche",
+   "why": "Wijk aan Zee, 1999. Das Turmopfer 24.Rxd4 und eine Jagd auf den schwarzen König über das ganze Brett. Einer der schönsten Angriffe der Schachgeschichte."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Wettkampf des Jahrhunderts, Partie 6",
+   "why": "Reykjavík, 1972. Fischer, der fast immer 1.e4 spielte, eröffnete mit 1.c4 und überspielte Spasski im klassischen Stil. Mit dem Sieg ging er im WM-Kampf in Führung."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Der Springer auf d3",
+   "why": "Der WM-Kampf 1985. Kasparows Springer auf d3 lähmte die gesamte weiße Armee – eine der bekanntesten Partien ihrer Rivalität. Im selben Jahr wurde Kasparow Weltmeister."
+  },
+  "short-timman-1991": {
+   "title": "Der Königsmarsch",
+   "why": "Tilburg, 1991. Im Mittelspiel marschierte Short mit seinem König Kh2–g3–f4–g5 ins feindliche Lager, um sich am Angriff auf den schwarzen König zu beteiligen."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "WM-Tiebreak, 2016",
+   "why": "New York, 2016, die letzte Tiebreak-Partie. An seinem Geburtstag beendete Carlsen sie mit dem Damenopfer 50.Qh6+ und verteidigte seinen WM-Titel."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "Die Entscheidung in Bled",
+   "why": "Das Kandidaten-Halbfinale in Bled. Vor dieser Partie stand es 4,5–4,5. Tal opferte mit 16.Nd5 einen Springer, gewann und zog ins Kandidatenfinale ein."
+  },
+  "aronian-anand-2013": {
+   "title": "Zerlegt in 23 Zügen",
+   "why": "Wijk aan Zee, 2013. Der amtierende Weltmeister Anand zerlegte Aronjan mit Schwarz in 23 Zügen mit einer Serie von Opfern – eine der schönsten Partien seiner Karriere."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "WM-Kampf 2013, Partie 5",
+   "why": "Chennai, 2013. Nach vier Remis gewann Carlsen die erste Partie des Wettkampfs, indem er Anand im Endspiel zermürbte. Der Wettkampf machte ihn zum Weltmeister."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "WM-Kampf 2016, Partie 10",
+   "why": "New York, 2016. Karjakin führte nach Partie 8. In Partie 10 glich Carlsen nach langem Kampf aus, und der Wettkampf ging schließlich in den Tiebreak."
+  },
+  "morphy-opera-1858": {
+   "title": "Die Opernpartie",
+   "why": "Paris, 1858, in einer Loge der Oper. Morphy spielte gegen den Herzog von Braunschweig und Graf Isouard, die sich gemeinsam berieten. Das Damenopfer 16.Qb8+ und das Matt mit 17.Rd8# machen sie zur berühmtesten Kurzpartie der Schachgeschichte und zu einem Musterbeispiel schneller Entwicklung."
+  },
+  "lasker-bauer-1889": {
+   "title": "Das doppelte Läuferopfer",
+   "why": "Amsterdam, 1889. Lasker opferte beide Läufer – 15.Bxh7+ und 17.Bxg7 – und riss die Deckung des schwarzen Königs auf. Seitdem ist die Idee als Laskers doppeltes Läuferopfer bekannt."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "Der Läufer auf a3",
+   "why": "Das AVRO-Turnier, 1938. Der junge Botwinnik überspielte Ex-Weltmeister Capablanca und beendete die Partie mit dem berühmten Läuferopfer 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "Die James-Bond-Partie",
+   "why": "UdSSR-Meisterschaft, Leningrad, 1960. Das Königsgambit, das Springeropfer 16.Nxf7 und ein Königsangriff. Eine Stellung aus dieser Partie ist zu Beginn des James-Bond-Films „Liebesgrüße aus Moskau“ (1963) zu sehen."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Der Veteran Steinitz gegen Curt von Bardeleben. Nach 22.Rxe7+ gibt der weiße Turm immer weiter Schach und kann nicht geschlagen werden. Von Bardeleben wartete das Matt nicht ab und verließ einfach den Turniersaal."
+  },
+  "capablanca-marshall-1918": {
+   "title": "Die Geburt des Marshall-Angriffs",
+   "why": "New York, 1918. Frank Marshall überraschte Capablanca in der Spanischen Partie mit einem neuen, scharfen Bauernopfer 8…d5. Capablanca wehrte den Angriff ab und gewann, doch die Idee heißt bis heute Marshall-Angriff und wird auf höchstem Niveau gespielt."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "London 2000, Partie 2",
+   "why": "Der WM-Kampf. Kramniks erster Sieg über Kasparow. Kramnik gewann den gesamten Wettkampf, ohne eine einzige Partie zu verlieren, und wurde 14. Weltmeister."
+  },
+  "reti-alekhine-1925": {
+   "title": "Die Kombination von Baden-Baden",
+   "why": "Baden-Baden, 1925. Mit Schwarz spielte Aljechin eine seiner berühmtesten Kombinationen, viele Züge im Voraus berechnet, gegen Richard Réti, einen der Väter der hypermodernen Schule."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Die Boa constrictor in Nizza",
+   "why": "Die Schacholympiade in Nizza, 1974. Ein Lehrbuchbeispiel für Karpows Stil: Schritt für Schritt nahm er dem Gegner Raum und nützliche Züge, bis Schwarz völlig eingeschnürt war."
+  }
+ },
+ "store": {
+  "title": "Errate den Großmeisterzug",
+  "short": "Spiele Partien der Weltmeister nach und errate ihre Züge. 108 legendäre Partien.",
+  "full": "Kannst du wie ein Großmeister denken?\n\nIn diesem Spiel spielst du nicht gegen einen Computer – du errätst die Züge, die große Champions in echten Partien gespielt haben. Wähle Kasparow, Carlsen, Fischer, Tal oder einen der 18 Großmeister und spiele ihre berühmtesten Partien Zug um Zug nach.\n\n• 108 echte Partien: von Morphys Opernpartie 1858 bis zu WM-Kämpfen des 21. Jahrhunderts\n• Jeder Zug wird von einer Schach-Engine bewertet: Auch wenn du nicht den Zug des Meisters triffst, aber einen gleich starken findest, bekommst du Punkte\n• Profile von 18 Champions: Biografie, Spielstil, Stärken\n• Zug des Tages – eine Stellung pro Tag, für alle gleich\n• GM-Index: wie nah dein Denken an dem jedes Großmeisters ist\n• Farbschemata, Brettfarben, Ton und Spieltempo\n• Funktioniert offline\n\nLerne, wie die Champions zu denken – Zug um Zug."
+ }
+}

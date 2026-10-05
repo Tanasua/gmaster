@@ -1,0 +1,497 @@
+{
+ "meta": {
+  "name": "Italiano"
+ },
+ "ui": {
+  "appTitle": "Indovina la mossa del Grande Maestro",
+  "appName": "Indovina mossa",
+  "loading": "Caricamento…",
+  "loadError": "Impossibile caricare i dati",
+  "back": "Indietro",
+  "points": "{n} punti",
+  "streak": "serie {n}",
+  "menuLead": "Sai pensare come un Grande Maestro?",
+  "menuSub": "Partite reali dei campioni. Indovina la mossa giocata dal maestro, non quella suggerita dal motore.",
+  "chooseGm": "Scegli un Grande Maestro",
+  "chooseGmHint": "Gioca nei panni del tuo campione preferito",
+  "youPlayAs": "Giochi come",
+  "tapToChange": "tocca per cambiare",
+  "randomGame": "Partita a caso",
+  "randomAny": "Una partita qualsiasi della collezione",
+  "randomOf": "Una partita a caso {name}",
+  "chooseGame": "Scegli una partita",
+  "chooseGameHint": "Le partite più famose della storia · {n}",
+  "daily": "Mossa del giorno",
+  "dailyHint": "Una posizione al giorno, uguale per tutti",
+  "settings": "Impostazioni",
+  "settingsHint": "Tema, lingua, suono",
+  "gmIndex": "Indice GM",
+  "gmCol": "Grande Maestro",
+  "guessedCol": "Indovinate",
+  "strongCol": "Mosse forti",
+  "bestStreak": "Serie più lunga di mosse indovinate: {n}",
+  "photoCredits": "Foto dei giocatori",
+  "gmsTitle": "Grandi Maestri",
+  "games_one": "{n} partita",
+  "games_many": "{n} partite",
+  "games_other": "{n} partite",
+  "playAsBtn": "Gioca come {name}",
+  "selected": "Selezionato",
+  "unselect": "Annulla scelta",
+  "howPlayed": "Stile di gioco",
+  "howPlayedF": "Stile di gioco",
+  "strengths": "Punti di forza",
+  "hisGames": "Partite nella collezione",
+  "gamesTitle": "Partite",
+  "youPlayFor": "Giochi con: {name}",
+  "moves_one": "{n} mossa",
+  "moves_many": "{n} mosse",
+  "moves_other": "{n} mosse",
+  "startGame": "Inizia la partita",
+  "whyMatters": "Perché è importante",
+  "aboutGame": "Sulla partita",
+  "pathToWin": "Ripercorri mossa dopo mossa il cammino {name} verso la vittoria.",
+  "playedBy": "Giochi come {name} ({side}) · {moves}",
+  "whiteSide": "Bianco",
+  "blackSide": "Nero",
+  "gameProgress": "{title} · indovinate {x} su {n} (totale {total})",
+  "moveWhite": "Mossa {n}.",
+  "moveBlack": "Mossa {n}…",
+  "whatPlayed": "Cosa ha giocato {name}?",
+  "whatPlayedF": "Cosa ha giocato {name}?",
+  "onlyMove": "Unica mossa legale…",
+  "opponentMoves": "Muove l'avversario…",
+  "opening": "Apertura…",
+  "skip": "Salta — non lo so",
+  "hint": "Trascina un pezzo, oppure toccalo e poi tocca una casa.",
+  "gameStarts": "La partita inizia dalla posizione iniziale.",
+  "white": "Bianco",
+  "black": "Nero",
+  "yourPieces": "i tuoi pezzi",
+  "toMove": "muove",
+  "grandmaster": "Grande Maestro",
+  "fbExact": "Esatto! {name} ha giocato {san}.",
+  "fbExactF": "Esatto! {name} ha giocato {san}.",
+  "fbGood": "Mossa forte {user}, ma {name} ha giocato {san}.",
+  "fbGoodF": "Mossa forte {user}, ma {name} ha giocato {san}.",
+  "fbSkip": "Saltata. {name} ha giocato {san}.",
+  "fbSkipF": "Saltata. {name} ha giocato {san}.",
+  "fbMiss": "Hai giocato {user}. {name} ha giocato {san}.",
+  "fbMissF": "Hai giocato {user}. {name} ha giocato {san}.",
+  "exactShort": "{san} — {name} ha giocato proprio questa.",
+  "exactShortF": "{san} — {name} ha giocato proprio questa.",
+  "engineBest": "Motore: mossa migliore {san} ({eval})",
+  "engineYour": ", la tua mossa — {eval}",
+  "engineAgrees": " — il motore è d'accordo con te.",
+  "engineLine": "Variante del motore: {line}",
+  "difficulty": "Difficoltà: {stars}",
+  "mate": "matto",
+  "getsMated": "subisce matto",
+  "summaryHeadline": "Hai giocato come {name} al {pct}%",
+  "summaryLine": "Indovinate {x} su {moves} · alternative forti: {good}",
+  "skippedN": "saltate: {n}",
+  "share": "Condividi",
+  "copied": "Copiato ✓",
+  "again": "Gioca ancora",
+  "toMenu": "Menu",
+  "dailyProgress": "Mossa del giorno #{n}",
+  "dailyDone": "già giocata oggi {v} (nessun punto)",
+  "whichMove": "{move} Muove il {side}. Quale mossa ha giocato il Grande Maestro?",
+  "itWas": "Era {name}: {label}",
+  "itWasF": "Era {name}: {label}",
+  "theme": "Tema colori",
+  "themeGold": "Oro",
+  "themeIvory": "Avorio",
+  "themeEmerald": "Smeraldo",
+  "themeMidnight": "Mezzanotte",
+  "themeGraphite": "Grafite",
+  "boardColors": "Colori della scacchiera",
+  "boardWood": "Legno",
+  "boardClassic": "Classica",
+  "boardGreen": "Verde",
+  "boardBlue": "Blu",
+  "boardIce": "Ghiaccio",
+  "boardPurple": "Viola",
+  "boardGrey": "Grigia",
+  "boardCoral": "Corallo",
+  "boardOlive": "Oliva",
+  "boardNight": "Notte",
+  "language": "Lingua",
+  "langAuto": "Lingua del telefono",
+  "sound": "Suono delle mosse",
+  "speed": "Ritmo di gioco",
+  "speedSlow": "Lento",
+  "speedNormal": "Normale",
+  "speedFast": "Veloce",
+  "showEngine": "Mostra la valutazione del motore",
+  "skipOpening": "Salta l'apertura (prime 2 mosse)",
+  "resetStats": "Azzera statistiche",
+  "resetConfirm": "Azzerare davvero? Punti, serie e indice GM andranno persi.",
+  "yesReset": "Sì, azzera",
+  "cancel": "Annulla",
+  "statsReset": "Statistiche azzerate ✓"
+ },
+ "events": {
+  "candidates": "Torneo dei Candidati",
+  "interzonal": "Interzonale",
+  "fideWch": "Campionato del mondo FIDE",
+  "wch": "Campionato del mondo",
+  "olympiad": "Olimpiadi degli scacchi",
+  "ussr": "Campionato dell'URSS",
+  "avro": "Torneo AVRO"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garry Kasparov",
+   "short": "Kasparov",
+   "acc": "Garry Kasparov",
+   "title": "13° campione del mondo (1985–2000)",
+   "bio": "Nato a Baku. A 22 anni strappò il titolo ad Anatolij Karpov e lo mantenne per 15 anni, fino alla sconfitta contro Vladimir Kramnik nel 2000. Fu il numero uno della classifica mondiale per quasi vent'anni e si ritirò nel 2005.",
+   "style": "Un giocatore d'attacco dinamico, che valutava l'iniziativa più del materiale. Arrivava con una profonda preparazione d'apertura e spesso decideva la partita prima che l'avversario riuscisse a orientarsi.",
+   "strengths": [
+    "Attacco al re",
+    "Preparazione d'apertura",
+    "Calcolo di varianti complesse",
+    "Sacrifici per l'iniziativa"
+   ],
+   "gen": "di Kasparov"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "16° campione del mondo (2013–2023)",
+   "bio": "Un norvegese diventato Grande Maestro a 13 anni. Conquistò il titolo contro Viswanathan Anand nel 2013 e lo mantenne fino al 2023, quando scelse di non difenderlo. Raggiunse il punteggio più alto della storia, 2882.",
+   "style": "Un giocatore universale. Entra volentieri in posizioni pari e continua a spingere, spremendo vittorie da vantaggi minimi. Dà il meglio nei finali e nelle decisioni pratiche alla scacchiera.",
+   "strengths": [
+    "Finali",
+    "Giocare con un vantaggio minimo",
+    "Resistenza nelle partite lunghe",
+    "Decisioni pratiche"
+   ],
+   "gen": "di Carlsen"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "11° campione del mondo (1972–1975)",
+   "bio": "Un americano che vinse il campionato degli Stati Uniti a 14 anni. Nel 1972 a Reykjavík batté Boris Spasskij, ponendo fine al dominio sovietico sul titolo. Nel 1975 rifiutò di difenderlo e la corona passò ad Anatolij Karpov.",
+   "style": "Chiarezza e precisione. Giocava posizioni classiche e pulite, apriva quasi sempre con 1.e4 e convertiva anche piccoli vantaggi. Lottava in ogni partita e non amava le patte rapide.",
+   "strengths": [
+    "Sfruttamento del vantaggio",
+    "Aperture classiche",
+    "Spirito combattivo",
+    "Precisione"
+   ],
+   "gen": "di Fischer"
+  },
+  "karpov": {
+   "name": "Anatolij Karpov",
+   "short": "Karpov",
+   "acc": "Anatolij Karpov",
+   "title": "12° campione del mondo (1975–1985)",
+   "bio": "Divenne campione del mondo nel 1975, quando Fischer rinunciò a difendere il titolo. Difese la corona due volte contro Viktor Korčnoj e fu il migliore al mondo per un decennio, fino alla sconfitta contro Garry Kasparov. In seguito detenne di nuovo il titolo FIDE (1993–1999).",
+   "style": "Un maestro del gioco posizionale. Stringeva lentamente gli avversari, togliendo loro spazio e mosse utili, e poi vinceva quasi senza rischi. Il suo stile è spesso paragonato a un boa constrictor.",
+   "strengths": [
+    "Pressione posizionale",
+    "Profilassi",
+    "Sfruttamento delle case deboli",
+    "Sfruttamento del vantaggio"
+   ],
+   "gen": "di Karpov"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "3° campione del mondo (1921–1927)",
+   "bio": "Un prodigio cubano che imparò gli scacchi da bambino guardando giocare il padre. Conquistò il titolo contro Emanuel Lasker nel 1921 e lo perse contro Aleksandr Alechin nel 1927.",
+   "style": "Semplicità e chiarezza. Capablanca evitava complicazioni inutili, giocava con leggerezza e precisione e conduceva i finali così bene che le sue partite sono ancora studiate come modelli.",
+   "strengths": [
+    "Finali",
+    "Senso posizionale",
+    "Soluzioni semplici",
+    "Difesa"
+   ],
+   "gen": "di Capablanca"
+  },
+  "tal": {
+   "name": "Michail Tal",
+   "short": "Tal",
+   "acc": "Michail Tal",
+   "title": "8° campione del mondo (1960–1961)",
+   "bio": "«Il mago di Riga». Nel 1960 batté Michail Botvinnik diventando campione del mondo e perse la rivincita un anno dopo. Nonostante la salute precaria rimase nell'élite mondiale per decenni.",
+   "style": "Il giocatore d'attacco più spettacolare della storia. Sacrificava pezzi per complicare la posizione e vinceva nel caos, dove gli avversari non riuscivano a calcolare tutto.",
+   "strengths": [
+    "Sacrifici di pezzi",
+    "Tattica",
+    "Attacco",
+    "Pressione psicologica"
+   ],
+   "gen": "di Tal"
+  },
+  "botvinnik": {
+   "name": "Michail Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Michail Botvinnik",
+   "title": "6° campione del mondo (1948–1963, con interruzioni)",
+   "bio": "Vinse il match-torneo del 1948 diventando campione del mondo. Perse il titolo due volte, contro Smyslov e Tal, e lo riconquistò entrambe le volte nelle rivincite. Ingegnere di formazione, in seguito diresse una scuola di scacchi tra i cui allievi c'erano Karpov, Kasparov e Kramnik.",
+   "style": "Un approccio scientifico. Si preparava meticolosamente, analizzava a fondo le proprie partite e le aperture e giocava in modo logico e potente nelle posizioni strategiche complesse.",
+   "strengths": [
+    "Preparazione",
+    "Strategia",
+    "Analisi",
+    "Sistemi d'apertura"
+   ],
+   "gen": "di Botvinnik"
+  },
+  "alekhine": {
+   "name": "Aleksandr Alechin",
+   "short": "Alechin",
+   "acc": "Aleksandr Alechin",
+   "title": "4° campione del mondo (1927–1935, 1937–1946)",
+   "bio": "Nel 1927 batté clamorosamente Capablanca. Perse il titolo contro Max Euwe nel 1935, ma lo riconquistò due anni dopo. Morì nel 1946 da campione in carica, l'unico nella storia.",
+   "style": "Uno stile d'attacco fondato su combinazioni profonde. Alechin sapeva creare complicazioni dal nulla e calcolava molte mosse in anticipo.",
+   "strengths": [
+    "Combinazioni",
+    "Attacco",
+    "Profondità di calcolo",
+    "Iniziativa"
+   ],
+   "gen": "di Alechin"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "Il migliore al mondo non ufficiale alla fine degli anni 1850",
+   "bio": "Un americano di New Orleans. Nel 1858–1859 girò l'Europa e sconfisse i suoi maestri più forti, tra cui Adolf Anderssen. Poco dopo il ritorno in patria abbandonò quasi del tutto gli scacchi.",
+   "style": "Sviluppo rapido, linee aperte e attacco. Morphy fu il primo a mostrare in modo sistematico quanto sia importante mobilitare tutti i pezzi prima di attaccare.",
+   "strengths": [
+    "Sviluppo",
+    "Posizioni aperte",
+    "Combinazioni",
+    "Attacco al re"
+   ],
+   "gen": "di Morphy"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "2° campione del mondo (1894–1921)",
+   "bio": "Scacchista e matematico tedesco. Batté Steinitz nel 1894 e mantenne il titolo per 27 anni — il regno più lungo della storia — fino alla sconfitta contro Capablanca nel 1921.",
+   "style": "Un combattente pratico. Lasker non cercava la mossa perfetta, ma quella più scomoda per l'avversario di turno, e difendeva le posizioni difficili in modo brillante.",
+   "strengths": [
+    "Gioco pratico",
+    "Difesa",
+    "Psicologia",
+    "Finali"
+   ],
+   "gen": "di Lasker"
+  },
+  "spassky": {
+   "name": "Boris Spasskij",
+   "short": "Spasskij",
+   "acc": "Boris Spasskij",
+   "title": "10° campione del mondo (1969–1972)",
+   "bio": "Batté Tigran Petrosjan nel 1969. Nel 1972 a Reykjavík perse contro Bobby Fischer il celebre «Match del secolo».",
+   "style": "Un giocatore universale. Ugualmente sicuro in attacco e in difesa, giocava aperture taglienti come il Gambetto di re e manovrava con calma nelle posizioni pari.",
+   "strengths": [
+    "Versatilità",
+    "Attacco",
+    "Gambetto di re",
+    "Calma alla scacchiera"
+   ],
+   "gen": "di Spasskij"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosjan",
+   "short": "Petrosjan",
+   "acc": "Tigran Petrosjan",
+   "title": "9° campione del mondo (1963–1969)",
+   "bio": "Batté Botvinnik nel 1963 e difese il titolo contro Spasskij nel 1966, prima di perdere contro di lui la rivincita del 1969. Soprannominato «Tigran di ferro» per il suo gioco incredibilmente solido.",
+   "style": "Un maestro della profilassi, che prevedeva e neutralizzava in anticipo i piani dell'avversario. Famoso per i sacrifici di qualità posizionali, ancora oggi studiati dai giocatori.",
+   "strengths": [
+    "Profilassi",
+    "Difesa",
+    "Sacrifici di qualità",
+    "Solidità"
+   ],
+   "gen": "di Petrosjan"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Vladimir Kramnik",
+   "title": "14° campione del mondo (2000–2007)",
+   "bio": "Nel 2000 a Londra batté clamorosamente Garry Kasparov senza perdere una partita. Nel 2006 riunificò il titolo battendo Veselin Topalov e nel 2007 cedette la corona ad Anand. Si ritirò nel 2019.",
+   "style": "Profonda comprensione posizionale e preparazione impeccabile. Nel match contro Kasparov rese popolare la Difesa berlinese, che poi fu adottata da tutta l'élite.",
+   "strengths": [
+    "Preparazione d'apertura",
+    "Gioco posizionale",
+    "Finali",
+    "Solidità"
+   ],
+   "gen": "di Kramnik"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "15° campione del mondo (2007–2013)",
+   "bio": "Il primo Grande Maestro dell'India (1988). Campione del mondo FIDE nel 2000 e campione indiscusso dal 2007 fino alla sconfitta nel match del 2013 contro Magnus Carlsen.",
+   "style": "Veloce e universale. Noto per il calcolo fulmineo e la profonda preparazione d'apertura, a suo agio sia nelle posizioni taglienti sia in quelle tranquille.",
+   "strengths": [
+    "Velocità di calcolo",
+    "Preparazione d'apertura",
+    "Versatilità",
+    "Scacchi rapidi"
+   ],
+   "gen": "di Anand"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "La giocatrice più forte della storia",
+   "bio": "Un'ungherese diventata Grande Maestro nel 1991 a 15 anni e 4 mesi, battendo il record di Fischer. L'unica donna ad aver raggiunto la top ten mondiale (8ª, 2004) e ad aver superato i 2700 punti. Si ritirò nel 2014.",
+   "style": "Uno stile d'attacco aggressivo. Polgár acuiva volentieri il gioco e sacrificava materiale per portarlo verso battaglie tattiche, dove era particolarmente forte.",
+   "strengths": [
+    "Attacco",
+    "Tattica",
+    "Sacrifici",
+    "Spirito combattivo"
+   ],
+   "gen": "di Polgár"
+  },
+  "smyslov": {
+   "name": "Vasilij Smyslov",
+   "short": "Smyslov",
+   "acc": "Vasilij Smyslov",
+   "title": "7° campione del mondo (1957–1958)",
+   "bio": "Giocò tre match per il titolo contro Botvinnik: vinse nel 1957 ma perse la rivincita un anno dopo. Rimase ai vertici per decenni e nel 1984, a 63 anni, raggiunse la finale dei Candidati.",
+   "style": "Armonia e naturalezza. Smyslov disponeva i pezzi come se sapessero da soli dove stare ed era rinomato per la sua abilità nei finali.",
+   "strengths": [
+    "Finali",
+    "Armonia dei pezzi",
+    "Senso posizionale",
+    "Longevità"
+   ],
+   "gen": "di Smyslov"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "1° campione del mondo ufficiale (1886–1894)",
+   "bio": "Nato a Praga. Nel 1886 batté Johannes Zukertort nel primo match ufficiale per il campionato del mondo e mantenne il titolo fino al 1894, quando perse contro Emanuel Lasker.",
+   "style": "Il padre degli scacchi posizionali. Steinitz formulò i principi dell'accumulo di piccoli vantaggi e dimostrò che un attacco deve essere giustificato dalla posizione, non solo dall'audacia.",
+   "strengths": [
+    "Teoria posizionale",
+    "Difesa",
+    "Accumulo di vantaggi",
+    "Tenacia"
+   ],
+   "gen": "di Steinitz"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Sfidante al titolo mondiale (1993)",
+   "bio": "Un inglese, tra i giocatori occidentali più forti degli anni '80 e '90. Nel 1993 giocò un match per il titolo mondiale contro Garry Kasparov e lo perse.",
+   "style": "Aggressivo e inventivo. Senza paura delle idee insolite, come la sua celebre marcia del re attraverso tutta la scacchiera contro Jan Timman.",
+   "strengths": [
+    "Attacco",
+    "Idee insolite",
+    "Re attivo"
+   ],
+   "gen": "di Short"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "«La partita del secolo»",
+   "why": "Fischer, a 13 anni, contro Donald Byrne a New York. Il sacrificio di donna 17…Be6 e la disfatta che seguì fecero accorgere di Fischer tutto il mondo degli scacchi."
+  },
+  "kasparov-topalov-1999": {
+   "title": "L'Immortale di Kasparov",
+   "why": "Wijk aan Zee, 1999. Il sacrificio di torre 24.Rxd4 e una caccia al re nero attraverso tutta la scacchiera. Uno degli attacchi più belli della storia degli scacchi."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Match del secolo, partita 6",
+   "why": "Reykjavík, 1972. Fischer, che apriva quasi sempre con 1.e4, iniziò con 1.c4 e superò Spasskij in stile classico. La vittoria lo portò in vantaggio nel match per il titolo."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Il cavallo in d3",
+   "why": "Il match per il titolo mondiale del 1985. Il cavallo di Kasparov in d3 paralizzò l'intero esercito bianco — una delle partite più note della loro rivalità. Quell'anno Kasparov divenne campione."
+  },
+  "short-timman-1991": {
+   "title": "La marcia del re",
+   "why": "Tilburg, 1991. Nel mediogioco Short fece marciare il suo re Kh2–g3–f4–g5 nel campo nemico per unirsi all'attacco contro il re nero."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Spareggio per il titolo, 2016",
+   "why": "New York, 2016, l'ultima partita dello spareggio. Nel giorno del suo compleanno Carlsen la chiuse con il sacrificio di donna 50.Qh6+ e conservò il titolo mondiale."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "La partita decisiva a Bled",
+   "why": "La semifinale dei Candidati a Bled. Prima di questa partita il punteggio era 4,5–4,5. Tal sacrificò un cavallo con 16.Nd5, vinse e raggiunse la finale dei Candidati."
+  },
+  "aronian-anand-2013": {
+   "title": "Demolizione in 23 mosse",
+   "why": "Wijk aan Zee, 2013. Il campione in carica Anand, con il Nero, travolse Aronian in 23 mosse con una serie di sacrifici — una delle migliori partite della sua carriera."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Match per il titolo 2013, partita 5",
+   "why": "Chennai, 2013. Dopo quattro patte Carlsen vinse la prima partita del match, logorando Anand nel finale. Il match lo rese campione del mondo."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Match per il titolo 2016, partita 10",
+   "why": "New York, 2016. Karjakin era in vantaggio nel match dopo la partita 8. Nella partita 10 Carlsen pareggiò i conti dopo una lunga lotta, e alla fine il match si decise allo spareggio."
+  },
+  "morphy-opera-1858": {
+   "title": "La partita dell'Opera",
+   "why": "Parigi, 1858, in un palco dell'Opera. Morphy giocò contro il duca di Brunswick e il conte Isouard, che si consultavano tra loro. Il sacrificio di donna 16.Qb8+ e il matto con 17.Rd8# ne fanno la partita breve più famosa della storia degli scacchi e un modello di sviluppo rapido."
+  },
+  "lasker-bauer-1889": {
+   "title": "Il doppio sacrificio d'alfiere",
+   "why": "Amsterdam, 1889. Lasker sacrificò entrambi gli alfieri — 15.Bxh7+ e 17.Bxg7 — e scardinò l'arrocco del re nero. Da allora l'idea è nota come doppio sacrificio d'alfiere di Lasker."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "L'alfiere in a3",
+   "why": "Il torneo AVRO, 1938. Il giovane Botvinnik superò l'ex campione del mondo Capablanca e chiuse la partita con il celebre sacrificio d'alfiere 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "La partita di James Bond",
+   "why": "Campionato dell'URSS, Leningrado, 1960. Il Gambetto di re, il sacrificio di cavallo 16.Nxf7 e un attacco al re. Una posizione di questa partita compare all'inizio del film di James Bond «A 007, dalla Russia con amore» (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Il veterano Steinitz contro Curt von Bardeleben. Dopo 22.Rxe7+ la torre bianca continua a dare scacco e non può essere catturata. Von Bardeleben non attese il matto e lasciò semplicemente la sala del torneo."
+  },
+  "capablanca-marshall-1918": {
+   "title": "La nascita dell'Attacco Marshall",
+   "why": "New York, 1918. Frank Marshall sorprese Capablanca con un nuovo e tagliente sacrificio di pedone 8…d5 nella Partita spagnola. Capablanca respinse l'attacco e vinse, eppure l'idea si chiama ancora Attacco Marshall e si gioca ai massimi livelli."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londra 2000, partita 2",
+   "why": "Il match per il campionato del mondo. La prima vittoria di Kramnik su Kasparov. Kramnik vinse l'intero match senza perdere nemmeno una partita e divenne il 14° campione del mondo."
+  },
+  "reti-alekhine-1925": {
+   "title": "La combinazione di Baden-Baden",
+   "why": "Baden-Baden, 1925. Con il Nero, Alechin giocò una delle sue combinazioni più famose, calcolata con molte mosse di anticipo, contro Richard Réti, uno dei padri della scuola ipermoderna."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Il boa constrictor a Nizza",
+   "why": "Le Olimpiadi di Nizza, 1974. Un esempio da manuale dello stile di Karpov: passo dopo passo tolse all'avversario spazio e mosse utili, finché il Nero non fu completamente soffocato."
+  }
+ },
+ "store": {
+  "title": "Indovina la mossa del Maestro",
+  "short": "Partite dei campioni del mondo: indovina le loro mosse. 108 partite leggendarie.",
+  "full": "Sai pensare come un Grande Maestro?\n\nIn questo gioco non sfidi un computer: indovini le mosse che i grandi campioni hanno giocato in partite reali. Scegli Kasparov, Carlsen, Fischer, Tal o uno qualsiasi dei 18 Grandi Maestri e rigioca le loro partite più famose mossa dopo mossa.\n\n• 108 partite reali: dalla Partita dell'Opera di Morphy del 1858 ai match mondiali del XXI secolo\n• Ogni mossa è valutata da un motore scacchistico: anche se non trovi la mossa del maestro ma una altrettanto forte, guadagni punti\n• Profili di 18 campioni: biografia, stile di gioco, punti di forza\n• Mossa del giorno — una posizione al giorno, uguale per tutti\n• Indice GM: quanto il tuo modo di pensare si avvicina a quello di ciascun Grande Maestro\n• Temi colori, colori della scacchiera, suono e ritmo di gioco\n• Funziona offline\n\nImpara a pensare come i campioni, una mossa alla volta."
+ }
+}

@@ -1,0 +1,497 @@
+{
+ "meta": {
+  "name": "Français"
+ },
+ "ui": {
+  "appTitle": "Devine le coup du grand maître",
+  "appName": "Devine le coup",
+  "loading": "Chargement…",
+  "loadError": "Impossible de charger les données",
+  "back": "Retour",
+  "points": "{n} pts",
+  "streak": "série {n}",
+  "menuLead": "Sauras-tu penser comme un grand maître ?",
+  "menuSub": "De vraies parties de champions. Devine le coup joué par le maître, pas celui que suggère le moteur.",
+  "chooseGm": "Choisis un grand maître",
+  "chooseGmHint": "Incarne ton champion préféré",
+  "youPlayAs": "Tu incarnes",
+  "tapToChange": "touche pour changer",
+  "randomGame": "Partie au hasard",
+  "randomAny": "N'importe quelle partie de la collection",
+  "randomOf": "Une partie au hasard avec {name}",
+  "chooseGame": "Choisis une partie",
+  "chooseGameHint": "Les parties les plus célèbres de l'histoire · {n}",
+  "daily": "Coup du jour",
+  "dailyHint": "Une position par jour, la même pour tous",
+  "settings": "Réglages",
+  "settingsHint": "Thème, langue, son",
+  "gmIndex": "Indice GM",
+  "gmCol": "Grand maître",
+  "guessedCol": "Devinés",
+  "strongCol": "Coups forts",
+  "bestStreak": "Plus longue série de coups devinés : {n}",
+  "photoCredits": "Photos des joueurs",
+  "gmsTitle": "Grands maîtres",
+  "games_one": "{n} partie",
+  "games_many": "{n} parties",
+  "games_other": "{n} parties",
+  "playAsBtn": "Incarner {name}",
+  "selected": "Sélectionné",
+  "unselect": "Annuler le choix",
+  "howPlayed": "Style de jeu",
+  "howPlayedF": "Style de jeu",
+  "strengths": "Points forts",
+  "hisGames": "Parties dans la collection",
+  "gamesTitle": "Parties",
+  "youPlayFor": "Tu joues : {name}",
+  "moves_one": "{n} coup",
+  "moves_many": "{n} coups",
+  "moves_other": "{n} coups",
+  "startGame": "Commencer la partie",
+  "whyMatters": "Pourquoi elle compte",
+  "aboutGame": "À propos de la partie",
+  "pathToWin": "Suis {name} coup par coup sur le chemin de la victoire.",
+  "playedBy": "Tu incarnes {name} ({side}) · {moves}",
+  "whiteSide": "Blancs",
+  "blackSide": "Noirs",
+  "gameProgress": "{title} · {x} devinés sur {n} (total {total})",
+  "moveWhite": "Coup {n}.",
+  "moveBlack": "Coup {n}…",
+  "whatPlayed": "Qu'a joué {name} ?",
+  "whatPlayedF": "Qu'a joué {name} ?",
+  "onlyMove": "Seul coup légal…",
+  "opponentMoves": "L'adversaire joue…",
+  "opening": "Ouverture…",
+  "skip": "Passer — je ne sais pas",
+  "hint": "Fais glisser une pièce, ou touche-la puis touche une case.",
+  "gameStarts": "La partie commence depuis la position initiale.",
+  "white": "Blancs",
+  "black": "Noirs",
+  "yourPieces": "tes pièces",
+  "toMove": "au trait",
+  "grandmaster": "Grand maître",
+  "fbExact": "Bravo ! {name} a joué {san}.",
+  "fbExactF": "Bravo ! {name} a joué {san}.",
+  "fbGood": "Coup fort {user}, mais {name} a joué {san}.",
+  "fbGoodF": "Coup fort {user}, mais {name} a joué {san}.",
+  "fbSkip": "Passé. {name} a joué {san}.",
+  "fbSkipF": "Passé. {name} a joué {san}.",
+  "fbMiss": "Tu as joué {user}. {name} a joué {san}.",
+  "fbMissF": "Tu as joué {user}. {name} a joué {san}.",
+  "exactShort": "{san} — c'est exactement ce qu'a joué {name}.",
+  "exactShortF": "{san} — c'est exactement ce qu'a joué {name}.",
+  "engineBest": "Moteur : meilleur coup {san} ({eval})",
+  "engineYour": ", ton coup — {eval}",
+  "engineAgrees": " — le moteur est d'accord avec toi.",
+  "engineLine": "Ligne du moteur : {line}",
+  "difficulty": "Difficulté : {stars}",
+  "mate": "mat",
+  "getsMated": "se fait mater",
+  "summaryHeadline": "Tu as joué comme {name} à {pct} %",
+  "summaryLine": "{x} devinés sur {moves} · alternatives fortes : {good}",
+  "skippedN": "passés : {n}",
+  "share": "Partager",
+  "copied": "Copié ✓",
+  "again": "Rejouer",
+  "toMenu": "Menu",
+  "dailyProgress": "Coup du jour n° {n}",
+  "dailyDone": "déjà joué aujourd'hui {v} (sans points)",
+  "whichMove": "{move} Trait aux {side}. Quel coup le grand maître a-t-il joué ?",
+  "itWas": "C'était {name} : {label}",
+  "itWasF": "C'était {name} : {label}",
+  "theme": "Thème de couleurs",
+  "themeGold": "Or",
+  "themeIvory": "Ivoire",
+  "themeEmerald": "Émeraude",
+  "themeMidnight": "Minuit",
+  "themeGraphite": "Graphite",
+  "boardColors": "Couleurs de l'échiquier",
+  "boardWood": "Bois",
+  "boardClassic": "Classique",
+  "boardGreen": "Vert",
+  "boardBlue": "Bleu",
+  "boardIce": "Glace",
+  "boardPurple": "Violet",
+  "boardGrey": "Gris",
+  "boardCoral": "Corail",
+  "boardOlive": "Olive",
+  "boardNight": "Nuit",
+  "language": "Langue",
+  "langAuto": "Langue du téléphone",
+  "sound": "Son des coups",
+  "speed": "Rythme de la partie",
+  "speedSlow": "Lent",
+  "speedNormal": "Normal",
+  "speedFast": "Rapide",
+  "showEngine": "Afficher l'évaluation du moteur",
+  "skipOpening": "Passer l'ouverture (2 premiers coups)",
+  "resetStats": "Réinitialiser les statistiques",
+  "resetConfirm": "Vraiment tout réinitialiser ? Les points, les séries et l'indice GM seront perdus.",
+  "yesReset": "Oui, réinitialiser",
+  "cancel": "Annuler",
+  "statsReset": "Statistiques réinitialisées ✓"
+ },
+ "events": {
+  "candidates": "Tournoi des candidats",
+  "interzonal": "Tournoi interzonal",
+  "fideWch": "Championnat du monde FIDE",
+  "wch": "Championnat du monde",
+  "olympiad": "Olympiade d'échecs",
+  "ussr": "Championnat d'URSS",
+  "avro": "Tournoi AVRO"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garry Kasparov",
+   "short": "Kasparov",
+   "acc": "Garry Kasparov",
+   "title": "13e champion du monde (1985–2000)",
+   "bio": "Né à Bakou. À 22 ans, il ravit le titre à Anatoli Karpov et le conserve 15 ans, jusqu'à sa défaite face à Vladimir Kramnik en 2000. Numéro un mondial au classement pendant près de vingt ans, il prend sa retraite en 2005.",
+   "style": "Un joueur dynamique et offensif, qui plaçait l'initiative au-dessus du matériel. Il arrivait avec une préparation d'ouverture approfondie et décidait souvent la partie avant que l'adversaire ait trouvé ses repères.",
+   "strengths": [
+    "Attaque sur le roi",
+    "Préparation des ouvertures",
+    "Calcul de variantes complexes",
+    "Sacrifices pour l'initiative"
+   ],
+   "gen": "Kasparov"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "16e champion du monde (2013–2023)",
+   "bio": "Norvégien, devenu grand maître à 13 ans. Il remporte le titre face à Viswanathan Anand en 2013 et le conserve jusqu'en 2023, année où il choisit de ne pas le défendre. Il a atteint le classement Elo le plus élevé de l'histoire : 2882.",
+   "style": "Un joueur universel. Il entre volontiers dans des positions égales et continue de presser, arrachant des victoires à partir d'avantages minimes. Redoutable surtout en finale et dans les décisions pratiques devant l'échiquier.",
+   "strengths": [
+    "Finales",
+    "Jouer avec un avantage minime",
+    "Endurance dans les longues parties",
+    "Décisions pratiques"
+   ],
+   "gen": "Carlsen"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "11e champion du monde (1972–1975)",
+   "bio": "Américain, champion des États-Unis à 14 ans. À Reykjavik en 1972, il bat Boris Spassky et met fin à la mainmise soviétique sur le titre. En 1975, il refuse de le défendre et la couronne passe à Anatoli Karpov.",
+   "style": "Clarté et précision. Il jouait des positions classiques et nettes, ouvrait presque toujours par 1.e4 et convertissait même de petits avantages. Combatif dans chaque partie, il détestait les nulles rapides.",
+   "strengths": [
+    "Conversion des avantages",
+    "Ouvertures classiques",
+    "Combativité",
+    "Précision"
+   ],
+   "gen": "Fischer"
+  },
+  "karpov": {
+   "name": "Anatoli Karpov",
+   "short": "Karpov",
+   "acc": "Anatoli Karpov",
+   "title": "12e champion du monde (1975–1985)",
+   "bio": "Devenu champion du monde en 1975, lorsque Fischer renonce à défendre son titre. Il défend deux fois sa couronne face à Viktor Kortchnoï et reste le meilleur joueur du monde pendant une décennie, jusqu'à sa défaite contre Garry Kasparov. Il détient ensuite de nouveau le titre FIDE (1993–1999).",
+   "style": "Un maître du jeu positionnel. Il étouffait lentement ses adversaires en leur retirant l'espace et les coups utiles, puis gagnait presque sans risque. On compare souvent son style à un boa constricteur.",
+   "strengths": [
+    "Pression positionnelle",
+    "Prophylaxie",
+    "Exploitation des cases faibles",
+    "Conversion des avantages"
+   ],
+   "gen": "Karpov"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "3e champion du monde (1921–1927)",
+   "bio": "Prodige cubain qui apprit les échecs tout petit en regardant jouer son père. Il remporte le titre face à Emanuel Lasker en 1921 et le perd contre Alexandre Alekhine en 1927.",
+   "style": "Simplicité et clarté. Capablanca évitait les complications inutiles, jouait avec légèreté et précision, et menait les finales si bien que ses parties sont encore étudiées comme des modèles.",
+   "strengths": [
+    "Finales",
+    "Sens positionnel",
+    "Solutions simples",
+    "Défense"
+   ],
+   "gen": "Capablanca"
+  },
+  "tal": {
+   "name": "Mikhaïl Tal",
+   "short": "Tal",
+   "acc": "Mikhaïl Tal",
+   "title": "8e champion du monde (1960–1961)",
+   "bio": "« Le magicien de Riga ». En 1960, il bat Mikhaïl Botvinnik et devient champion du monde, avant de perdre le match revanche un an plus tard. Malgré une santé fragile, il reste dans l'élite mondiale pendant des décennies.",
+   "style": "Le joueur d'attaque le plus éblouissant de l'histoire. Il sacrifiait des pièces pour compliquer la position et gagnait dans le chaos, là où ses adversaires ne pouvaient pas tout calculer.",
+   "strengths": [
+    "Sacrifices de pièces",
+    "Tactique",
+    "Attaque",
+    "Pression psychologique"
+   ],
+   "gen": "Tal"
+  },
+  "botvinnik": {
+   "name": "Mikhaïl Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Mikhaïl Botvinnik",
+   "title": "6e champion du monde (1948–1963, avec interruptions)",
+   "bio": "Il remporte le match-tournoi de 1948 et devient champion du monde. Il perd deux fois le titre, face à Smyslov puis à Tal, et le reprend chaque fois lors du match revanche. Ingénieur de formation, il dirige ensuite une école d'échecs dont sont issus notamment Karpov, Kasparov et Kramnik.",
+   "style": "Une approche scientifique. Il se préparait méticuleusement, analysait en profondeur ses propres parties et ses ouvertures, et jouait avec logique et puissance dans les positions stratégiques complexes.",
+   "strengths": [
+    "Préparation",
+    "Stratégie",
+    "Analyse",
+    "Systèmes d'ouverture"
+   ],
+   "gen": "Botvinnik"
+  },
+  "alekhine": {
+   "name": "Alexandre Alekhine",
+   "short": "Alekhine",
+   "acc": "Alexandre Alekhine",
+   "title": "4e champion du monde (1927–1935, 1937–1946)",
+   "bio": "En 1927, il bat Capablanca à la surprise générale. Il perd le titre face à Max Euwe en 1935, mais le reconquiert deux ans plus tard. Il meurt en 1946 en champion en titre, le seul cas de l'histoire.",
+   "style": "Un style offensif fondé sur des combinaisons profondes. Alekhine savait créer des complications à partir de rien et calculait de nombreux coups à l'avance.",
+   "strengths": [
+    "Combinaisons",
+    "Attaque",
+    "Profondeur de calcul",
+    "Initiative"
+   ],
+   "gen": "Alekhine"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "Meilleur joueur du monde officieux à la fin des années 1850",
+   "bio": "Américain de La Nouvelle-Orléans. En 1858–1859, il parcourt l'Europe et bat ses meilleurs maîtres, dont Adolf Anderssen. Peu après son retour, il abandonne pratiquement les échecs.",
+   "style": "Développement rapide, lignes ouvertes et attaque. Morphy fut le premier à montrer de façon systématique combien il est important de mobiliser toutes ses pièces avant d'attaquer.",
+   "strengths": [
+    "Développement",
+    "Positions ouvertes",
+    "Combinaisons",
+    "Attaque sur le roi"
+   ],
+   "gen": "Morphy"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "2e champion du monde (1894–1921)",
+   "bio": "Joueur d'échecs et mathématicien allemand. Il bat Steinitz en 1894 et conserve le titre 27 ans — le plus long règne de l'histoire — jusqu'à sa défaite face à Capablanca en 1921.",
+   "style": "Un combattant pragmatique. Lasker ne cherchait pas le coup parfait, mais le plus inconfortable pour l'adversaire du jour, et défendait brillamment les positions difficiles.",
+   "strengths": [
+    "Jeu pratique",
+    "Défense",
+    "Psychologie",
+    "Finales"
+   ],
+   "gen": "Lasker"
+  },
+  "spassky": {
+   "name": "Boris Spassky",
+   "short": "Spassky",
+   "acc": "Boris Spassky",
+   "title": "10e champion du monde (1969–1972)",
+   "bio": "Il bat Tigran Petrossian en 1969. En 1972 à Reykjavik, il perd face à Bobby Fischer le célèbre « match du siècle ».",
+   "style": "Un joueur universel. Aussi à l'aise en attaque qu'en défense, il jouait des ouvertures tranchantes comme le gambit du roi et manœuvrait calmement dans les positions égales.",
+   "strengths": [
+    "Polyvalence",
+    "Attaque",
+    "Gambit du roi",
+    "Sang-froid devant l'échiquier"
+   ],
+   "gen": "Spassky"
+  },
+  "petrosian": {
+   "name": "Tigran Petrossian",
+   "short": "Petrossian",
+   "acc": "Tigran Petrossian",
+   "title": "9e champion du monde (1963–1969)",
+   "bio": "Il bat Botvinnik en 1963 et défend son titre face à Spassky en 1966, avant de perdre contre lui le match revanche de 1969. Surnommé « Tigran de fer » pour son jeu incroyablement solide.",
+   "style": "Un maître de la prophylaxie, qui anticipait et neutralisait à l'avance les plans de l'adversaire. Célèbre pour ses sacrifices positionnels de qualité, que les joueurs étudient encore.",
+   "strengths": [
+    "Prophylaxie",
+    "Défense",
+    "Sacrifices de qualité",
+    "Solidité"
+   ],
+   "gen": "Petrossian"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Vladimir Kramnik",
+   "title": "14e champion du monde (2000–2007)",
+   "bio": "À Londres en 2000, il bat Garry Kasparov à la surprise générale sans perdre une seule partie. En 2006, il réunifie le titre en battant Veselin Topalov, puis cède la couronne à Anand en 2007. Il prend sa retraite en 2019.",
+   "style": "Une compréhension positionnelle profonde et une préparation irréprochable. Lors du match contre Kasparov, il a popularisé la défense berlinoise, adoptée ensuite par toute l'élite.",
+   "strengths": [
+    "Préparation des ouvertures",
+    "Jeu positionnel",
+    "Finales",
+    "Solidité"
+   ],
+   "gen": "Kramnik"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "15e champion du monde (2007–2013)",
+   "bio": "Premier grand maître indien (1988). Champion du monde FIDE en 2000, puis champion incontesté de 2007 jusqu'à sa défaite face à Magnus Carlsen lors du match de 2013.",
+   "style": "Rapide et universel. Réputé pour son calcul éclair et sa préparation d'ouverture approfondie, il était aussi à l'aise dans les positions tranchantes que dans les positions calmes.",
+   "strengths": [
+    "Vitesse de calcul",
+    "Préparation des ouvertures",
+    "Polyvalence",
+    "Échecs rapides"
+   ],
+   "gen": "Anand"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "La joueuse la plus forte de l'histoire",
+   "bio": "Hongroise, elle devient grand maître en 1991 à 15 ans et 4 mois, battant le record de Fischer. Seule femme à être entrée dans le top 10 mondial (8e, 2004) et à avoir dépassé 2700 Elo. Elle prend sa retraite en 2014.",
+   "style": "Un style agressif et offensif. Polgár n'hésitait pas à durcir le jeu et à sacrifier du matériel pour l'orienter vers des batailles tactiques, où elle était particulièrement redoutable.",
+   "strengths": [
+    "Attaque",
+    "Tactique",
+    "Sacrifices",
+    "Combativité"
+   ],
+   "gen": "Polgár"
+  },
+  "smyslov": {
+   "name": "Vassily Smyslov",
+   "short": "Smyslov",
+   "acc": "Vassily Smyslov",
+   "title": "7e champion du monde (1957–1958)",
+   "bio": "Il dispute trois matchs pour le titre contre Botvinnik : il gagne en 1957, mais perd le match revanche un an plus tard. Il reste au sommet pendant des décennies et atteint la finale des candidats en 1984, à 63 ans.",
+   "style": "Harmonie et naturel. Smyslov plaçait ses pièces comme si elles savaient d'elles-mêmes où était leur place, et il était réputé pour sa maîtrise des finales.",
+   "strengths": [
+    "Finales",
+    "Harmonie des pièces",
+    "Sens positionnel",
+    "Longévité"
+   ],
+   "gen": "Smyslov"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "1er champion du monde officiel (1886–1894)",
+   "bio": "Né à Prague. En 1886, il bat Johannes Zukertort lors du premier match officiel pour le championnat du monde et conserve le titre jusqu'en 1894, année de sa défaite face à Emanuel Lasker.",
+   "style": "Le père du jeu positionnel. Steinitz a formulé les principes de l'accumulation de petits avantages et montré qu'une attaque doit être justifiée par la position, et pas seulement par l'audace.",
+   "strengths": [
+    "Théorie positionnelle",
+    "Défense",
+    "Accumulation d'avantages",
+    "Ténacité"
+   ],
+   "gen": "Steinitz"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Challenger pour le titre mondial (1993)",
+   "bio": "Anglais, l'un des meilleurs joueurs occidentaux des années 1980 et 1990. En 1993, il dispute un match pour le titre mondial contre Garry Kasparov et le perd.",
+   "style": "Agressif et inventif. Il ne craignait pas les idées inhabituelles, comme sa célèbre marche du roi à travers l'échiquier contre Jan Timman.",
+   "strengths": [
+    "Attaque",
+    "Idées inhabituelles",
+    "Roi actif"
+   ],
+   "gen": "Short"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "« La partie du siècle »",
+   "why": "Fischer, 13 ans, face à Donald Byrne à New York. Le sacrifice de dame 17…Be6 et la déroute qui a suivi ont attiré sur Fischer l'attention de tout le monde des échecs."
+  },
+  "kasparov-topalov-1999": {
+   "title": "L'Immortelle de Kasparov",
+   "why": "Wijk aan Zee, 1999. Le sacrifice de tour 24.Rxd4 et une chasse au roi noir à travers tout l'échiquier. L'une des plus belles attaques de l'histoire des échecs."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Match du siècle, 6e partie",
+   "why": "Reykjavik, 1972. Fischer, qui ouvrait presque toujours par 1.e4, commence par 1.c4 et surclasse Spassky dans un style classique. Cette victoire le fait passer en tête du match pour le titre."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Le cavalier en d3",
+   "why": "Le match pour le titre mondial de 1985. Le cavalier de Kasparov en d3 paralyse toute l'armée blanche — l'une des parties les plus connues de leur rivalité. Kasparov devient champion cette année-là."
+  },
+  "short-timman-1991": {
+   "title": "La marche du roi",
+   "why": "Tilburg, 1991. En plein milieu de partie, Short fait marcher son roi Kh2–g3–f4–g5 jusque dans le camp adverse pour participer à l'attaque contre le roi noir."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Départage pour le titre, 2016",
+   "why": "New York, 2016, dernière partie du départage. Le jour de son anniversaire, Carlsen la conclut par le sacrifice de dame 50.Qh6+ et conserve son titre mondial."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "La partie décisive de Bled",
+   "why": "La demi-finale des candidats à Bled. Le score avant cette partie était de 4,5–4,5. Tal sacrifie un cavalier avec 16.Nd5, gagne et se qualifie pour la finale des candidats."
+  },
+  "aronian-anand-2013": {
+   "title": "Une démolition en 23 coups",
+   "why": "Wijk aan Zee, 2013. Le champion du monde en titre Anand, avec les Noirs, écrase Aronian en 23 coups grâce à une série de sacrifices — l'une des plus belles parties de sa carrière."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Match pour le titre 2013, 5e partie",
+   "why": "Chennai, 2013. Après quatre nulles, Carlsen remporte la première partie du match en usant Anand en finale. Ce match a fait de lui le champion du monde."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Match pour le titre 2016, 10e partie",
+   "why": "New York, 2016. Kariakine mène le match après la 8e partie. Dans la 10e, Carlsen égalise au terme d'une longue lutte, et le match finit par se jouer au départage."
+  },
+  "morphy-opera-1858": {
+   "title": "La partie de l'Opéra",
+   "why": "Paris, 1858, dans une loge de l'Opéra. Morphy affronte le duc de Brunswick et le comte Isouard, qui jouent en consultation. Le sacrifice de dame 16.Qb8+ et le mat par 17.Rd8# en font la miniature la plus célèbre de l'histoire des échecs et un modèle de développement rapide."
+  },
+  "lasker-bauer-1889": {
+   "title": "Le double sacrifice de fou",
+   "why": "Amsterdam, 1889. Lasker sacrifie ses deux fous — 15.Bxh7+ et 17.Bxg7 — et fait voler en éclats l'abri du roi noir. Depuis, l'idée est connue sous le nom de double sacrifice de fou de Lasker."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "Le fou en a3",
+   "why": "Le tournoi AVRO, 1938. Le jeune Botvinnik surclasse l'ancien champion du monde Capablanca et conclut la partie par le célèbre sacrifice de fou 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "La partie de James Bond",
+   "why": "Championnat d'URSS, Leningrad, 1960. Gambit du roi, sacrifice de cavalier 16.Nxf7 et attaque sur le roi. Une position de cette partie apparaît au début du film de James Bond « Bons baisers de Russie » (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Le vétéran Steinitz face à Curt von Bardeleben. Après 22.Rxe7+, la tour blanche ne cesse de donner échec et ne peut pas être prise. Von Bardeleben n'attend pas le mat et quitte tout simplement la salle du tournoi."
+  },
+  "capablanca-marshall-1918": {
+   "title": "La naissance de l'attaque Marshall",
+   "why": "New York, 1918. Frank Marshall surprend Capablanca avec un sacrifice de pion nouveau et tranchant, 8…d5, dans la partie espagnole. Capablanca repousse l'attaque et gagne, mais l'idée s'appelle toujours l'attaque Marshall et se joue au plus haut niveau."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londres 2000, 2e partie",
+   "why": "Le match pour le championnat du monde. La première victoire de Kramnik sur Kasparov. Kramnik remporte le match sans perdre une seule partie et devient le 14e champion du monde."
+  },
+  "reti-alekhine-1925": {
+   "title": "La combinaison de Baden-Baden",
+   "why": "Baden-Baden, 1925. Avec les Noirs, Alekhine réalise l'une de ses combinaisons les plus célèbres, calculée de nombreux coups à l'avance, face à Richard Réti, l'un des pères de l'école hypermoderne."
+  },
+  "karpov-unzicker-1974": {
+   "title": "Le boa constricteur à Nice",
+   "why": "L'Olympiade de Nice, 1974. Un exemple type du style de Karpov : pas à pas, il retire à son adversaire l'espace et les coups utiles jusqu'à ce que les Noirs soient complètement étouffés."
+  }
+ },
+ "store": {
+  "title": "Devine le coup du grand maître",
+  "short": "Rejoue 108 parties légendaires de champions du monde et devine leurs coups.",
+  "full": "Sauras-tu penser comme un grand maître ?\n\nDans ce jeu, tu ne joues pas contre un ordinateur : tu devines les coups joués par les grands champions dans de vraies parties. Choisis Kasparov, Carlsen, Fischer, Tal ou l'un des 18 grands maîtres et rejoue ses parties les plus célèbres, coup par coup.\n\n• 108 parties réelles : de la partie de l'Opéra de Morphy (1858) aux matchs pour le championnat du monde du XXIe siècle\n• Chaque coup est évalué par un moteur d'échecs : même si tu ne trouves pas le coup du maître, tu marques des points avec un coup tout aussi fort\n• Profils de 18 champions : biographie, style de jeu, points forts\n• Coup du jour — une position par jour, la même pour tous\n• Indice GM : à quel point ta façon de penser ressemble à celle de chaque grand maître\n• Thèmes de couleurs, couleurs de l'échiquier, son et rythme de jeu\n• Fonctionne hors ligne\n\nApprends à penser comme les champions, un coup à la fois."
+ }
+}

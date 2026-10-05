@@ -1,0 +1,495 @@
+{
+ "meta": {
+  "name": "Nederlands"
+ },
+ "ui": {
+  "appTitle": "Raad de zet van de grootmeester",
+  "appName": "Raad de zet",
+  "loading": "Laden…",
+  "loadError": "Gegevens konden niet worden geladen",
+  "back": "Terug",
+  "points": "{n} ptn",
+  "streak": "reeks {n}",
+  "menuLead": "Kun jij denken als een grootmeester?",
+  "menuSub": "Echte partijen van kampioenen. Raad de zet die de meester speelde, niet de zet die de engine voorstelt.",
+  "chooseGm": "Kies een grootmeester",
+  "chooseGmHint": "Speel als je favoriete kampioen",
+  "youPlayAs": "Je speelt als",
+  "tapToChange": "tik om te wijzigen",
+  "randomGame": "Willekeurige partij",
+  "randomAny": "Een willekeurige partij uit de collectie",
+  "randomOf": "Een willekeurige partij {name}",
+  "chooseGame": "Kies een partij",
+  "chooseGameHint": "De beroemdste partijen uit de geschiedenis · {n}",
+  "daily": "Zet van de dag",
+  "dailyHint": "Eén stelling per dag, voor iedereen dezelfde",
+  "settings": "Instellingen",
+  "settingsHint": "Thema, taal, geluid",
+  "gmIndex": "GM-index",
+  "gmCol": "Grootmeester",
+  "guessedCol": "Geraden",
+  "strongCol": "Sterke zetten",
+  "bestStreak": "Langste reeks geraden zetten: {n}",
+  "photoCredits": "Foto's van spelers",
+  "gmsTitle": "Grootmeesters",
+  "games_one": "{n} partij",
+  "games_other": "{n} partijen",
+  "playAsBtn": "Speel als {name}",
+  "selected": "Geselecteerd",
+  "unselect": "Keuze wissen",
+  "howPlayed": "Speelstijl",
+  "howPlayedF": "Speelstijl",
+  "strengths": "Sterke punten",
+  "hisGames": "Partijen in de collectie",
+  "gamesTitle": "Partijen",
+  "youPlayFor": "Je speelt: {name}",
+  "moves_one": "{n} zet",
+  "moves_other": "{n} zetten",
+  "startGame": "Start de partij",
+  "whyMatters": "Waarom ze belangrijk is",
+  "aboutGame": "Over de partij",
+  "pathToWin": "Volg zet voor zet de weg {name} naar de overwinning.",
+  "playedBy": "Je speelt als {name} ({side}) · {moves}",
+  "whiteSide": "wit",
+  "blackSide": "zwart",
+  "gameProgress": "{title} · {x} van {n} geraden (totaal {total})",
+  "moveWhite": "Zet {n}.",
+  "moveBlack": "Zet {n}…",
+  "whatPlayed": "Wat speelde {name}?",
+  "whatPlayedF": "Wat speelde {name}?",
+  "onlyMove": "Enige legale zet…",
+  "opponentMoves": "Tegenstander aan zet…",
+  "opening": "Opening…",
+  "skip": "Overslaan — ik weet het niet",
+  "hint": "Sleep een stuk, of tik erop en daarna op een veld.",
+  "gameStarts": "De partij begint vanuit de beginstelling.",
+  "white": "Wit",
+  "black": "Zwart",
+  "yourPieces": "jouw stukken",
+  "toMove": "aan zet",
+  "grandmaster": "Grootmeester",
+  "fbExact": "Goed zo! {name} speelde {san}.",
+  "fbExactF": "Goed zo! {name} speelde {san}.",
+  "fbGood": "Sterke zet {user}, maar {name} speelde {san}.",
+  "fbGoodF": "Sterke zet {user}, maar {name} speelde {san}.",
+  "fbSkip": "Overgeslagen. {name} speelde {san}.",
+  "fbSkipF": "Overgeslagen. {name} speelde {san}.",
+  "fbMiss": "Jij speelde {user}. {name} speelde {san}.",
+  "fbMissF": "Jij speelde {user}. {name} speelde {san}.",
+  "exactShort": "{san} — precies wat {name} speelde.",
+  "exactShortF": "{san} — precies wat {name} speelde.",
+  "engineBest": "Engine: beste zet {san} ({eval})",
+  "engineYour": ", jouw zet — {eval}",
+  "engineAgrees": " — de engine is het met je eens.",
+  "engineLine": "Engine-variant: {line}",
+  "difficulty": "Moeilijkheid: {stars}",
+  "mate": "mat",
+  "getsMated": "wordt matgezet",
+  "summaryHeadline": "Je speelde voor {pct}% als {name}",
+  "summaryLine": "{x} van {moves} geraden · sterke alternatieven: {good}",
+  "skippedN": "overgeslagen: {n}",
+  "share": "Delen",
+  "copied": "Gekopieerd ✓",
+  "again": "Opnieuw spelen",
+  "toMenu": "Menu",
+  "dailyProgress": "Zet van de dag #{n}",
+  "dailyDone": "vandaag al gespeeld {v} (geen punten)",
+  "whichMove": "{move} {side} aan zet. Welke zet speelde de grootmeester?",
+  "itWas": "Het was {name}: {label}",
+  "itWasF": "Het was {name}: {label}",
+  "theme": "Kleurthema",
+  "themeGold": "Goud",
+  "themeIvory": "Ivoor",
+  "themeEmerald": "Smaragd",
+  "themeMidnight": "Middernacht",
+  "themeGraphite": "Grafiet",
+  "boardColors": "Bordkleuren",
+  "boardWood": "Hout",
+  "boardClassic": "Klassiek",
+  "boardGreen": "Groen",
+  "boardBlue": "Blauw",
+  "boardIce": "IJs",
+  "boardPurple": "Paars",
+  "boardGrey": "Grijs",
+  "boardCoral": "Koraal",
+  "boardOlive": "Olijf",
+  "boardNight": "Nacht",
+  "language": "Taal",
+  "langAuto": "Taal van de telefoon",
+  "sound": "Zetgeluiden",
+  "speed": "Speeltempo",
+  "speedSlow": "Langzaam",
+  "speedNormal": "Normaal",
+  "speedFast": "Snel",
+  "showEngine": "Engine-evaluatie tonen",
+  "skipOpening": "Opening overslaan (eerste 2 zetten)",
+  "resetStats": "Statistieken wissen",
+  "resetConfirm": "Echt wissen? Punten, reeksen en GM-index gaan verloren.",
+  "yesReset": "Ja, wissen",
+  "cancel": "Annuleren",
+  "statsReset": "Statistieken gewist ✓"
+ },
+ "events": {
+  "candidates": "Kandidatentoernooi",
+  "interzonal": "Interzonaal toernooi",
+  "fideWch": "FIDE-wereldkampioenschap",
+  "wch": "Wereldkampioenschap",
+  "olympiad": "Schaakolympiade",
+  "ussr": "Kampioenschap van de USSR",
+  "avro": "AVRO-toernooi"
+ },
+ "gms": {
+  "kasparov": {
+   "name": "Garri Kasparov",
+   "short": "Kasparov",
+   "acc": "Garri Kasparov",
+   "title": "13e wereldkampioen (1985–2000)",
+   "bio": "Geboren in Bakoe. Op zijn 22e veroverde hij de titel op Anatoli Karpov en hield hem 15 jaar vast, tot hij in 2000 verloor van Vladimir Kramnik. Bijna twintig jaar lang was hij de hoogst gewaardeerde speler ter wereld en in 2005 stopte hij.",
+   "style": "Een dynamische aanvalsspeler die het initiatief belangrijker vond dan materiaal. Hij kwam met diepgaande openingsvoorbereiding aan het bord en besliste de partij vaak al voordat de tegenstander zich had georiënteerd.",
+   "strengths": [
+    "Koningsaanval",
+    "Openingsvoorbereiding",
+    "Berekenen van complexe varianten",
+    "Offers voor het initiatief"
+   ],
+   "gen": "van Kasparov"
+  },
+  "carlsen": {
+   "name": "Magnus Carlsen",
+   "short": "Carlsen",
+   "acc": "Magnus Carlsen",
+   "title": "16e wereldkampioen (2013–2023)",
+   "bio": "Een Noor die op zijn 13e grootmeester werd. In 2013 won hij de titel van Viswanathan Anand en hield hem tot 2023, toen hij besloot hem niet te verdedigen. Hij bereikte de hoogste rating ooit: 2882.",
+   "style": "Een universele speler. Hij gaat graag gelijke stellingen in en blijft drukken, waarbij hij overwinningen uit minimale voordelen perst. Op zijn sterkst in het eindspel en bij praktische beslissingen aan het bord.",
+   "strengths": [
+    "Eindspel",
+    "Doorspelen met een minimaal voordeel",
+    "Uithoudingsvermogen in lange partijen",
+    "Praktische beslissingen"
+   ],
+   "gen": "van Carlsen"
+  },
+  "fischer": {
+   "name": "Bobby Fischer",
+   "short": "Fischer",
+   "acc": "Bobby Fischer",
+   "title": "11e wereldkampioen (1972–1975)",
+   "bio": "Een Amerikaan die op zijn 14e het Amerikaans kampioenschap won. In 1972 versloeg hij in Reykjavik Boris Spasski en maakte zo een einde aan de Sovjetgreep op de titel. In 1975 weigerde hij die te verdedigen en ging de kroon naar Anatoli Karpov.",
+   "style": "Helderheid en precisie. Hij speelde zuivere klassieke stellingen, opende bijna altijd met 1.e4 en zette zelfs kleine voordelen om in winst. Hij vocht in elke partij en hield niet van snelle remises.",
+   "strengths": [
+    "Voordeel omzetten",
+    "Klassieke openingen",
+    "Vechtlust",
+    "Precisie"
+   ],
+   "gen": "van Fischer"
+  },
+  "karpov": {
+   "name": "Anatoli Karpov",
+   "short": "Karpov",
+   "acc": "Anatoli Karpov",
+   "title": "12e wereldkampioen (1975–1985)",
+   "bio": "Werd in 1975 wereldkampioen toen Fischer afzag van het verdedigen van de titel. Hij verdedigde de kroon twee keer tegen Viktor Kortsjnoi en was tien jaar lang de beste ter wereld, tot hij verloor van Garri Kasparov. Later had hij opnieuw de FIDE-titel (1993–1999).",
+   "style": "Een meester van het positiespel. Hij snoerde tegenstanders langzaam in, ontnam hun ruimte en nuttige zetten en won dan vrijwel zonder risico. Zijn stijl wordt vaak vergeleken met een boa constrictor.",
+   "strengths": [
+    "Positionele druk",
+    "Profylaxe",
+    "Uitbuiten van zwakke velden",
+    "Voordeel omzetten"
+   ],
+   "gen": "van Karpov"
+  },
+  "capablanca": {
+   "name": "José Raúl Capablanca",
+   "short": "Capablanca",
+   "acc": "José Raúl Capablanca",
+   "title": "3e wereldkampioen (1921–1927)",
+   "bio": "Een Cubaans wonderkind dat als klein kind schaken leerde door zijn vader te zien spelen. In 1921 won hij de titel van Emanuel Lasker en in 1927 verloor hij hem aan Aleksandr Aljechin.",
+   "style": "Eenvoud en helderheid. Capablanca vermeed onnodige complicaties, speelde licht en precies en behandelde eindspelen zo goed dat zijn partijen nog altijd als voorbeeld worden bestudeerd.",
+   "strengths": [
+    "Eindspel",
+    "Positioneel gevoel",
+    "Eenvoudige oplossingen",
+    "Verdediging"
+   ],
+   "gen": "van Capablanca"
+  },
+  "tal": {
+   "name": "Michail Tal",
+   "short": "Tal",
+   "acc": "Michail Tal",
+   "title": "8e wereldkampioen (1960–1961)",
+   "bio": "\"De tovenaar uit Riga\". In 1960 versloeg hij Michail Botvinnik en werd wereldkampioen; de revanchematch een jaar later verloor hij. Ondanks een slechte gezondheid bleef hij tientallen jaren tot de wereldtop behoren.",
+   "style": "De meest spectaculaire aanvalsspeler uit de geschiedenis. Hij offerde stukken om de stelling te compliceren en won in de chaos, waarin tegenstanders niet alles konden doorrekenen.",
+   "strengths": [
+    "Stukoffers",
+    "Tactiek",
+    "Aanval",
+    "Psychologische druk"
+   ],
+   "gen": "van Tal"
+  },
+  "botvinnik": {
+   "name": "Michail Botvinnik",
+   "short": "Botvinnik",
+   "acc": "Michail Botvinnik",
+   "title": "6e wereldkampioen (1948–1963, met onderbrekingen)",
+   "bio": "Won in 1948 het matchtoernooi en werd wereldkampioen. Hij verloor de titel twee keer, aan Smyslov en aan Tal, en heroverde hem beide keren in een revanchematch. Hij was ingenieur van opleiding en leidde later een schaakschool met onder meer Karpov, Kasparov en Kramnik als leerlingen.",
+   "style": "Een wetenschappelijke aanpak. Hij bereidde zich minutieus voor, analyseerde zijn eigen partijen en openingen grondig en speelde logisch en krachtig in complexe strategische stellingen.",
+   "strengths": [
+    "Voorbereiding",
+    "Strategie",
+    "Analyse",
+    "Openingssystemen"
+   ],
+   "gen": "van Botvinnik"
+  },
+  "alekhine": {
+   "name": "Aleksandr Aljechin",
+   "short": "Aljechin",
+   "acc": "Aleksandr Aljechin",
+   "title": "4e wereldkampioen (1927–1935, 1937–1946)",
+   "bio": "In 1927 versloeg hij sensationeel Capablanca. In 1935 verloor hij de titel aan Max Euwe, maar twee jaar later heroverde hij hem. Hij overleed in 1946 als regerend kampioen, de enige in de geschiedenis.",
+   "style": "Een aanvallende stijl, gebouwd op diepe combinaties. Aljechin kon uit het niets complicaties scheppen en rekende vele zetten vooruit.",
+   "strengths": [
+    "Combinaties",
+    "Aanval",
+    "Rekendiepte",
+    "Initiatief"
+   ],
+   "gen": "van Aljechin"
+  },
+  "morphy": {
+   "name": "Paul Morphy",
+   "short": "Morphy",
+   "acc": "Paul Morphy",
+   "title": "De onofficiële beste ter wereld eind jaren 1850",
+   "bio": "Een Amerikaan uit New Orleans. In 1858–1859 reisde hij door Europa en versloeg de sterkste meesters daar, onder wie Adolf Anderssen. Kort na zijn terugkeer naar huis gaf hij het schaken vrijwel op.",
+   "style": "Snelle ontwikkeling, open lijnen en aanval. Morphy liet als eerste consequent zien hoe belangrijk het is om alle stukken in het spel te brengen voordat je aanvalt.",
+   "strengths": [
+    "Ontwikkeling",
+    "Open stellingen",
+    "Combinaties",
+    "Koningsaanval"
+   ],
+   "gen": "van Morphy"
+  },
+  "lasker": {
+   "name": "Emanuel Lasker",
+   "short": "Lasker",
+   "acc": "Emanuel Lasker",
+   "title": "2e wereldkampioen (1894–1921)",
+   "bio": "Een Duitse schaker en wiskundige. Hij versloeg Steinitz in 1894 en hield de titel 27 jaar vast — de langste regeerperiode uit de geschiedenis — tot hij in 1921 verloor van Capablanca.",
+   "style": "Een praktische vechter. Lasker zocht niet naar de perfecte zet, maar naar de zet die voor de specifieke tegenstander het onaangenaamst was, en hij verdedigde moeilijke stellingen briljant.",
+   "strengths": [
+    "Praktisch spel",
+    "Verdediging",
+    "Psychologie",
+    "Eindspel"
+   ],
+   "gen": "van Lasker"
+  },
+  "spassky": {
+   "name": "Boris Spasski",
+   "short": "Spasski",
+   "acc": "Boris Spasski",
+   "title": "10e wereldkampioen (1969–1972)",
+   "bio": "Versloeg in 1969 Tigran Petrosjan. In 1972 verloor hij in Reykjavik de beroemde \"Match van de eeuw\" van Bobby Fischer.",
+   "style": "Een universele speler. Even zeker in aanval als in verdediging; hij speelde scherpe openingen zoals het Koningsgambiet en manoeuvreerde rustig in gelijke stellingen.",
+   "strengths": [
+    "Veelzijdigheid",
+    "Aanval",
+    "Koningsgambiet",
+    "Kalmte aan het bord"
+   ],
+   "gen": "van Spasski"
+  },
+  "petrosian": {
+   "name": "Tigran Petrosjan",
+   "short": "Petrosjan",
+   "acc": "Tigran Petrosjan",
+   "title": "9e wereldkampioen (1963–1969)",
+   "bio": "Versloeg Botvinnik in 1963 en verdedigde de titel in 1966 tegen Spasski, voordat hij de revanchematch van 1969 van hem verloor. Bijgenaamd \"IJzeren Tigran\" vanwege zijn ongelooflijk solide spel.",
+   "style": "Een meester van de profylaxe, die de plannen van de tegenstander voorzag en vooraf neutraliseerde. Beroemd om zijn positionele kwaliteitsoffers, die spelers nog altijd bestuderen.",
+   "strengths": [
+    "Profylaxe",
+    "Verdediging",
+    "Kwaliteitsoffers",
+    "Soliditeit"
+   ],
+   "gen": "van Petrosjan"
+  },
+  "kramnik": {
+   "name": "Vladimir Kramnik",
+   "short": "Kramnik",
+   "acc": "Vladimir Kramnik",
+   "title": "14e wereldkampioen (2000–2007)",
+   "bio": "In 2000 versloeg hij in Londen sensationeel Garri Kasparov zonder een partij te verliezen. In 2006 herenigde hij de titel door Veselin Topalov te verslaan en in 2007 droeg hij de kroon over aan Anand. In 2019 stopte hij.",
+   "style": "Diep positioneel inzicht en vlekkeloze voorbereiding. In de match tegen Kasparov maakte hij de Berlijnse verdediging populair, waarna de hele top die overnam.",
+   "strengths": [
+    "Openingsvoorbereiding",
+    "Positiespel",
+    "Eindspel",
+    "Soliditeit"
+   ],
+   "gen": "van Kramnik"
+  },
+  "anand": {
+   "name": "Viswanathan Anand",
+   "short": "Anand",
+   "acc": "Viswanathan Anand",
+   "title": "15e wereldkampioen (2007–2013)",
+   "bio": "De eerste grootmeester van India (1988). FIDE-wereldkampioen in 2000 en onbetwist wereldkampioen vanaf 2007, tot hij in 2013 de match tegen Magnus Carlsen verloor.",
+   "style": "Snel en universeel. Bekend om zijn bliksemsnelle rekenwerk en diepgaande openingsvoorbereiding, even thuis in scherpe als in rustige stellingen.",
+   "strengths": [
+    "Rekensnelheid",
+    "Openingsvoorbereiding",
+    "Veelzijdigheid",
+    "Rapidschaak"
+   ],
+   "gen": "van Anand"
+  },
+  "polgar": {
+   "name": "Judit Polgár",
+   "short": "Polgár",
+   "acc": "Judit Polgár",
+   "title": "De sterkste schaakster uit de geschiedenis",
+   "bio": "Een Hongaarse die in 1991 op 15 jaar en 4 maanden grootmeester werd, waarmee ze het record van Fischer brak. De enige vrouw die de wereldtop tien bereikte (8e, 2004) en een rating boven 2700 haalde. In 2014 stopte ze.",
+   "style": "Een agressieve aanvallende stijl. Polgár verscherpte graag het spel en offerde materiaal om het naar tactische gevechten te sturen, waarin ze bijzonder sterk was.",
+   "strengths": [
+    "Aanval",
+    "Tactiek",
+    "Offers",
+    "Vechtlust"
+   ],
+   "gen": "van Polgár"
+  },
+  "smyslov": {
+   "name": "Vasili Smyslov",
+   "short": "Smyslov",
+   "acc": "Vasili Smyslov",
+   "title": "7e wereldkampioen (1957–1958)",
+   "bio": "Speelde drie titelmatches tegen Botvinnik: in 1957 won hij, maar de revanchematch een jaar later verloor hij. Hij bleef tientallen jaren aan de top en bereikte in 1984, op 63-jarige leeftijd, de finale van de kandidatenmatches.",
+   "style": "Harmonie en natuurlijkheid. Smyslov plaatste zijn stukken alsof ze zelf wisten waar ze hoorden, en hij was beroemd om zijn eindspelvaardigheid.",
+   "strengths": [
+    "Eindspel",
+    "Harmonie van de stukken",
+    "Positioneel gevoel",
+    "Lange loopbaan"
+   ],
+   "gen": "van Smyslov"
+  },
+  "steinitz": {
+   "name": "Wilhelm Steinitz",
+   "short": "Steinitz",
+   "acc": "Wilhelm Steinitz",
+   "title": "1e officiële wereldkampioen (1886–1894)",
+   "bio": "Geboren in Praag. In 1886 versloeg hij Johannes Zukertort in de eerste officiële match om het wereldkampioenschap en hield de titel tot 1894, toen hij verloor van Emanuel Lasker.",
+   "style": "De vader van het positionele schaak. Steinitz formuleerde de principes van het opstapelen van kleine voordelen en liet zien dat een aanval gerechtvaardigd moet worden door de stelling, niet alleen door durf.",
+   "strengths": [
+    "Positionele theorie",
+    "Verdediging",
+    "Opstapelen van voordelen",
+    "Taaiheid"
+   ],
+   "gen": "van Steinitz"
+  },
+  "short": {
+   "name": "Nigel Short",
+   "short": "Short",
+   "acc": "Nigel Short",
+   "title": "Uitdager om de wereldtitel (1993)",
+   "bio": "Een Engelsman en een van de sterkste westerse spelers van de jaren 80 en 90. In 1993 speelde hij een match om de wereldtitel tegen Garri Kasparov en verloor.",
+   "style": "Agressief en vindingrijk. Niet bang voor ongebruikelijke ideeën, zoals zijn beroemde koningsmars over het hele bord tegen Jan Timman.",
+   "strengths": [
+    "Aanval",
+    "Ongebruikelijke ideeën",
+    "Actieve koning"
+   ],
+   "gen": "van Short"
+  }
+ },
+ "games": {
+  "byrne-fischer-1956": {
+   "title": "\"De partij van de eeuw\"",
+   "why": "De 13-jarige Fischer tegen Donald Byrne in New York. Het damesoffer 17…Be6 en de afstraffing die volgde zorgden ervoor dat de hele schaakwereld Fischer opmerkte."
+  },
+  "kasparov-topalov-1999": {
+   "title": "Kasparovs onsterfelijke partij",
+   "why": "Wijk aan Zee, 1999. Het torenoffer 24.Rxd4 en een jacht op de zwarte koning over het hele bord. Een van de mooiste aanvallen uit de schaakgeschiedenis."
+  },
+  "fischer-spassky-1972-g6": {
+   "title": "Match van de eeuw, partij 6",
+   "why": "Reykjavik, 1972. Fischer, die bijna altijd 1.e4 speelde, opende met 1.c4 en overspeelde Spasski in klassieke stijl. Met deze overwinning nam hij de leiding in de titelmatch."
+  },
+  "karpov-kasparov-1985-g16": {
+   "title": "Het paard op d3",
+   "why": "De wereldtitelmatch van 1985. Het paard van Kasparov op d3 verlamde het hele witte leger — een van de bekendste partijen uit hun rivaliteit. Datzelfde jaar werd Kasparov kampioen."
+  },
+  "short-timman-1991": {
+   "title": "De koningsmars",
+   "why": "Tilburg, 1991. In het middenspel liet Short zijn koning Kh2–g3–f4–g5 het vijandelijke kamp in marcheren om mee te doen aan de aanval op de zwarte koning."
+  },
+  "carlsen-karjakin-2016-tb4": {
+   "title": "Titel-tiebreak, 2016",
+   "why": "New York, 2016, de laatste tiebreakpartij. Op zijn verjaardag besliste Carlsen haar met het damesoffer 50.Qh6+ en behield hij zijn wereldtitel."
+  },
+  "tal-larsen-1965-g10": {
+   "title": "De beslissing in Bled",
+   "why": "De halve finale van de kandidatenmatches in Bled. Voor deze partij stond het 4,5–4,5. Tal offerde een paard met 16.Nd5, won en bereikte de kandidatenfinale."
+  },
+  "aronian-anand-2013": {
+   "title": "Vernietigd in 23 zetten",
+   "why": "Wijk aan Zee, 2013. Regerend kampioen Anand verpletterde met zwart Aronian in 23 zetten met een reeks offers — een van de mooiste partijen uit zijn carrière."
+  },
+  "carlsen-anand-2013-g5": {
+   "title": "Titelmatch 2013, partij 5",
+   "why": "Chennai, 2013. Na vier remises won Carlsen de eerste partij van de match door Anand in het eindspel te vermalen. Deze match maakte hem wereldkampioen."
+  },
+  "carlsen-karjakin-2016-g10": {
+   "title": "Titelmatch 2016, partij 10",
+   "why": "New York, 2016. Karjakin stond na partij 8 voor in de match. In partij 10 trok Carlsen na een lange strijd de stand gelijk, en de match ging uiteindelijk naar een tiebreak."
+  },
+  "morphy-opera-1858": {
+   "title": "De Operapartij",
+   "why": "Parijs, 1858, in een loge van de opera. Morphy speelde tegen de hertog van Brunswijk en graaf Isouard, die samen overlegden. Het damesoffer 16.Qb8+ en mat met 17.Rd8# maken dit de beroemdste korte partij uit de schaakgeschiedenis en een schoolvoorbeeld van snelle ontwikkeling."
+  },
+  "lasker-bauer-1889": {
+   "title": "Het dubbele loperoffer",
+   "why": "Amsterdam, 1889. Lasker offerde beide lopers — 15.Bxh7+ en 17.Bxg7 — en sloeg de koningsstelling van zwart open. Sindsdien staat dit idee bekend als Laskers dubbele loperoffer."
+  },
+  "botvinnik-capablanca-1938": {
+   "title": "De loper op a3",
+   "why": "Het AVRO-toernooi, 1938. De jonge Botvinnik overspeelde oud-wereldkampioen Capablanca en besliste de partij met het beroemde loperoffer 30.Ba3."
+  },
+  "spassky-bronstein-1960": {
+   "title": "De James Bond-partij",
+   "why": "Kampioenschap van de USSR, Leningrad, 1960. Het Koningsgambiet, het paardoffer 16.Nxf7 en een koningsaanval. Een stelling uit deze partij is te zien aan het begin van de James Bond-film \"From Russia with Love\" (1963)."
+  },
+  "steinitz-bardeleben-1895": {
+   "title": "Hastings, 1895",
+   "why": "Veteraan Steinitz tegen Curt von Bardeleben. Na 22.Rxe7+ blijft de witte toren schaak geven en kan niet worden geslagen. Von Bardeleben wachtte het mat niet af en verliet gewoon de toernooizaal."
+  },
+  "capablanca-marshall-1918": {
+   "title": "De geboorte van de Marshallaanval",
+   "why": "New York, 1918. Frank Marshall verraste Capablanca met een nieuw, scherp pionoffer 8…d5 in de Spaanse opening. Capablanca sloeg de aanval af en won, maar het idee heet nog steeds de Marshallaanval en wordt op het hoogste niveau gespeeld."
+  },
+  "kramnik-kasparov-2000-g2": {
+   "title": "Londen 2000, partij 2",
+   "why": "De match om het wereldkampioenschap. Kramniks eerste overwinning op Kasparov. Kramnik won de hele match zonder één partij te verliezen en werd de 14e wereldkampioen."
+  },
+  "reti-alekhine-1925": {
+   "title": "De combinatie van Baden-Baden",
+   "why": "Baden-Baden, 1925. Met zwart speelde Aljechin een van zijn beroemdste combinaties, vele zetten vooruit berekend, tegen Richard Réti, een van de grondleggers van de hypermoderne school."
+  },
+  "karpov-unzicker-1974": {
+   "title": "De boa constrictor in Nice",
+   "why": "De Schaakolympiade van Nice, 1974. Een schoolvoorbeeld van Karpovs stijl: stap voor stap ontnam hij zijn tegenstander ruimte en nuttige zetten, tot zwart volledig ingesnoerd was."
+  }
+ },
+ "store": {
+  "title": "Raad de grootmeesterzet",
+  "short": "Partijen van wereldkampioenen: raad hun zetten. 108 legendarische partijen.",
+  "full": "Kun jij denken als een grootmeester?\n\nIn dit spel speel je niet tegen een computer — je raadt de zetten die grote kampioenen in echte partijen speelden. Kies Kasparov, Carlsen, Fischer, Tal of een van de 18 grootmeesters en speel hun beroemdste partijen zet voor zet na.\n\n• 108 echte partijen: van Morphy's Operapartij uit 1858 tot wereldkampioenschapsmatches uit de 21e eeuw\n• Elke zet wordt beoordeeld door een schaakengine: ook als je niet de zet van de meester vindt maar wel een even sterke, verdien je punten\n• Profielen van 18 kampioenen: biografie, speelstijl, sterke punten\n• Zet van de dag — één stelling per dag, voor iedereen dezelfde\n• GM-index: hoe dicht jouw denken bij dat van elke grootmeester ligt\n• Kleurthema's, bordkleuren, geluid en speeltempo\n• Werkt offline\n\nLeer denken als de kampioenen — zet voor zet."
+ }
+}
